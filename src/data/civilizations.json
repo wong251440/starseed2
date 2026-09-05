@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "昴宿",
+    "name": "昴宿星",
     "english": "Pleiadian",
     "category": "心域文明",
     "title": "昴宿星族 Pleiadian",
@@ -34,7 +34,7 @@
   },
   {
     "id": 2,
-    "name": "大角",
+    "name": "大角星",
     "english": "Arcturian",
     "category": "心域文明",
     "title": "大角星人／大角星族 Arcturian",
@@ -65,7 +65,7 @@
   },
   {
     "id": 3,
-    "name": "天狼",
+    "name": "天狼星",
     "english": "Sirian",
     "category": "聖殿文明",
     "title": "天狼星人／天狼星族 Sirian",
@@ -96,7 +96,7 @@
   },
   {
     "id": 4,
-    "name": "仙女",
+    "name": "仙女座",
     "english": "Andromedan",
     "category": "無界文明",
     "title": "仙女座文明 Andromedan",
@@ -124,7 +124,7 @@
   },
   {
     "id": 5,
-    "name": "天琴",
+    "name": "天琴座",
     "english": "Lyran",
     "category": "無界文明",
     "title": "天琴座人／天琴星族 Lyran",
@@ -152,7 +152,7 @@
   },
   {
     "id": 6,
-    "name": "獵戶",
+    "name": "獵戶座",
     "english": "Orion",
     "category": "智序文明",
     "title": "獵戶座文明 Orion",
@@ -179,7 +179,7 @@
   },
   {
     "id": 7,
-    "name": "明塔卡",
+    "name": "明塔卡星",
     "english": "Mintakan",
     "category": "心域文明",
     "title": "明塔卡星文明 Mintakan",
@@ -236,7 +236,7 @@
   },
   {
     "id": 9,
-    "name": "哈達爾",
+    "name": "哈達爾星",
     "english": "Hadarian",
     "category": "心域文明",
     "title": "哈達爾／馬腹一星族 Hadarian",
@@ -264,7 +264,7 @@
   },
   {
     "id": 10,
-    "name": "北極",
+    "name": "北極星",
     "english": "Polarian",
     "category": "聖殿文明",
     "title": "北極星人／北極星族 Polarian",
@@ -294,7 +294,7 @@
   },
   {
     "id": 11,
-    "name": "半人馬 α",
+    "name": "半人馬座α星",
     "english": "Alpha Centaurian",
     "category": "智序文明",
     "title": "半人馬座α星人／南門二星人 Alpha Centaurian",
@@ -322,7 +322,7 @@
   },
   {
     "id": 12,
-    "name": "織女",
+    "name": "織女星",
     "english": "Vegan",
     "category": "無界文明",
     "title": "12｜織女星人／織女星族 Vega",
@@ -351,7 +351,7 @@
   },
   {
     "id": 13,
-    "name": "貓科・烏爾瑪",
+    "name": "貓科星族",
     "english": "Feline / Urmah",
     "category": "聖殿文明",
     "title": "烏爾瑪 Urmah｜曾經征服星海，最後學會讓力量向愛臣服的獅族",
@@ -383,7 +383,7 @@
   },
   {
     "id": 14,
-    "name": "藍鳥",
+    "name": "藍鳥人",
     "english": "Avian / Blue Avian",
     "category": "無界文明",
     "title": "藍鳥族 Blue Avians",
@@ -433,7 +433,7 @@
   },
   {
     "id": 16,
-    "name": "馬爾德克",
+    "name": "馬爾德克人",
     "english": "Maldekian",
     "category": "智序文明",
     "title": "馬爾德克星族 Maldekian",
@@ -466,7 +466,7 @@
   },
   {
     "id": 17,
-    "name": "天龍",
+    "name": "天龍座",
     "english": "Draconian",
     "category": "智序文明",
     "title": "17｜天龍座人・天龍族 Draconian",
@@ -496,7 +496,7 @@
   },
   {
     "id": 18,
-    "name": "爬蟲",
+    "name": "爬蟲族",
     "english": "Reptilian",
     "category": "聖殿文明",
     "title": "18｜爬蟲族 Reptilian",
@@ -530,7 +530,7 @@
   },
   {
     "id": 19,
-    "name": "灰人・澤塔",
+    "name": "灰人",
     "english": "Zeta / Grey",
     "category": "智序文明",
     "title": "灰人／澤塔人 Zeta / Grey",
@@ -584,7 +584,7 @@
   },
   {
     "id": 21,
-    "name": "鯨魚座 τ",
+    "name": "鯨魚座τ星",
     "english": "Tau Cetian",
     "category": "心域文明",
     "title": "21｜鯨魚座 τ 星人・天倉五星人",
@@ -615,7 +615,7 @@
   },
   {
     "id": 22,
-    "name": "安塔瑞斯",
+    "name": "安塔瑞斯星",
     "english": "Antarian",
     "category": "聖殿文明",
     "title": "安塔瑞斯星人／心宿二星人 Antarian",
