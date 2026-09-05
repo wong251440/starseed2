@@ -1,0 +1,483 @@
+
+# Appendix — Website / Backend / Calibration Specification
+
+這份 Appendix 只規定不可偏離的產品與工程方向。
+
+凡 Excel 已 Frozen 的 scoring 規則，一律以 Excel 為準。
+
+在不違反以下要求的前提下，產品設計、資訊架構、視覺、互動與工程實作方式由你自行判斷。
+
+---
+
+## 1. 核心架構
+
+Scoring 必須有一份 frontend 與 backend 共用的 authoritative implementation，避免兩邊產生不同結果。
+
+Frontend 可以即時計算。
+
+Calibration API 收到答案後，backend 必須重新 validate + recalculate，資料庫只能相信 server-side calculation。
+
+核心 scoring 不得依賴第三方 AI 或外部 API。
+
+優先使用：
+
+* Cloudflare Workers
+* Static Assets
+* D1
+
+Production scoring constants 隨 deployment 固定，不從資料庫動態修改。
+
+---
+
+## 2. 測驗流程
+
+完整產品至少要涵蓋：
+
+首頁
+→ 80 題測驗
+→ 計算
+→ Primary 結果報告
+→ 進階分析
+→ 探索其他文明
+
+80 題必須：
+
+* 使用 Excel 正式 Q order
+* 使用正式 Left / Right
+* 使用正式 key
+* 使用 7-point bipolar response
+* 正確映射 `-3…+3`
+* 可回頭修改
+* 未完成進度在本機保存
+* 未完成測驗不寫入 calibration database
+
+其他互動細節由你自行設計。
+
+---
+
+## 3. ZERO_VECTOR
+
+全 0 profile 不分類。
+
+如果 80 題全部選 0：
+
+* 不產生文明結果
+* 清楚告知目前沒有形成可判讀方向
+* 讓使用者方便回去修改答案
+
+禁止：
+
+* 預設 Earth-Origin
+* 偷加 epsilon
+* 製造假 Primary
+
+---
+
+## 4. 結果頁
+
+Primary Hero 永遠只突出一個文明。
+
+結果頁必須具有足夠深度與專業感，呈現的不應只有一張結果卡與一段文字。
+
+可以自由使用 Excel 所提供的 scoring、ranking、distance、geometry、explanation 等資訊發展完整報告。
+
+至少要能讓使用者：
+
+* 清楚知道唯一 Primary
+* 閱讀完整官方結果文案
+* 看見自己的匹配與排名結構
+* 深入理解模型如何區分 Primary 與其他文明
+* 探索其他 22 個文明
+
+Ranking 必須使用 full precision 計算。
+
+若把 cosine 轉成百分比做視覺呈現，不得宣稱為 probability。
+
+Runner 只能稱為：
+
+* 最接近的比較類型
+* nearest comparator
+* 模型邊界比較
+
+禁止塑造成第二個身份結果。
+
+---
+
+## 5. 四大文明分類
+
+四大文明分類是固定的世界觀 taxonomy，只用於結果展示、文明頁與資訊組織。
+
+**不參與 scoring，不建立 candidate pool，不先用四類篩選 23 個文明，也不改變 Primary。**
+
+### 心域文明
+
+**以連結、感受與和諧改變世界。**
+
+* Pleiadian 昴宿
+* Arcturian 大角
+* Mintakan 明塔卡
+* Venusian 金星
+* Hadarian 哈達爾
+* Tau Cetian 鯨魚座 τ
+
+### 無界文明
+
+**以自由、探索、創造與行動打開世界。**
+
+* Andromedan 仙女
+* Lyran 天琴
+* Vegan 織女
+* Avian / Blue Avian 藍鳥
+* Martian 火星
+
+### 智序文明
+
+**以理解、技術、結構與秩序建構世界。**
+
+* Orion 獵戶
+* Alpha Centaurian 半人馬 α
+* Maldekian 馬爾德克
+* Draconian 天龍
+* Zeta / Grey 灰人
+* Anunnaki / Nibiruan 阿努納奇
+
+### 聖殿文明
+
+**以守護、邊界、延續與家園承載世界。**
+
+* Sirian 天狼
+* Polarian 北極
+* Feline / Urmah 貓科
+* Reptilian 爬蟲
+* Antarian 安塔瑞斯
+* Earth-Origin Soul 地球源靈魂
+
+Primary 結果頁應顯示其所屬文明分類。
+
+其他如何運用四類做 navigation、visual identity、filter 或內容組織，由你自行設計。
+
+不要自行計算「心域 72%／智序 18%」之類不存在於正式模型中的新分數。
+
+---
+
+## 6. 23 個文明與官方文案
+
+Folder 中 23 份官方結果文案是唯一正式結果正文。
+
+要求：
+
+* 一字不漏
+* 不改寫
+* 不摘要
+* 不自行補寫正文
+* icon 必須正確配對
+
+但呈現不能只是抓取文字後直接貼上。
+
+必須將每個文明做成完整、有設計、有閱讀節奏的結果體驗。
+
+具體設計方式由你自行發揮。
+
+23 個文明都要有可獨立瀏覽的頁面。
+
+---
+
+## 7. 報告範例
+
+首頁必須提供：
+
+**查看報告範例**
+
+Demo 可以自行設計合理的固定結果或 demo answers。
+
+Demo 必須清楚標記為範例，且不能寫入 calibration database。
+
+---
+
+## 8. Export / Import
+
+必須支援 versioned JSON 匯出／匯入。
+
+至少保存：
+
+* schemaVersion
+* modelVersion
+* exactly 80 raw answers
+
+Import 時必須驗證：
+
+* schema
+* modelVersion
+* answer count
+* 每個答案必須為 integer `-3…3`
+
+Import 後從 raw answers 完整重新計算結果。
+
+不得相信檔案內聲稱的：
+
+* Primary
+* ranking
+* scores
+* canonical answers
+* margin
+* civilization category
+
+---
+
+## 9. Calibration data
+
+每次完成測驗後，匿名保存足以讓未來 calibration 與結果重建的資料。
+
+至少應包括：
+
+* anonymous attempt ID
+* anonymous participant ID
+* model version
+* production hashes
+* timestamps / completion duration
+* 80 raw answers
+* authoritative Primary
+* 23 full-precision scores
+* 主要 scoring / boundary metrics
+* imported status
+* app/build version
+
+需要進一步研究的資料可以收集，但應遵守 data minimization。
+
+不要收集沒有必要的身份資料，例如：
+
+* 真實姓名
+* 電話
+* email
+* 精確 GPS
+* 完整地址
+* device fingerprint
+* advertising ID
+
+不要把第三方 advertising tracker 綁進 calibration data。
+
+---
+
+## 10. Result feedback
+
+結果頁加入自然、非阻塞的 calibration feedback。
+
+至少涵蓋：
+
+### 結果符合程度
+
+1–7
+
+### 自我認為最接近的文明
+
+23 文明或不確定
+
+### 測驗前是否已有文明認同
+
+有／沒有／不確定
+
+若有，可選原本認為的文明。
+
+### 選填文字回饋
+
+例如最符合／最不像自己的地方。
+
+### Retest
+
+可提供匿名 return code 供未來 test-retest 使用，不需要帳號或 email。
+
+具體 UI 由你自行設計。
+
+---
+
+## 11. Data disclosure
+
+不得加入阻塞測驗流程的：
+
+* consent checkbox
+* consent modal
+* opt-in gate
+* 「同意才能開始」
+
+但網站必須有清楚可找到的 Data & Privacy 資訊，說明匿名 calibration data 的收集與用途。
+
+如部署所在地法律對某類非必要資料需要額外同意，優先不收該類非必要資料，而不是把整個測驗改成 blocking consent flow。
+
+---
+
+## 12. Backend / D1
+
+需要 production-ready backend 與 D1 database。
+
+至少能處理：
+
+* completed attempts
+* authoritative server-side scoring
+* 23 scores
+* calibration feedback
+* anonymous participant / retest linkage
+
+最低 API 能力：
+
+* 提交 completed attempt
+* 提交 feedback
+* 基本 health check
+
+不要建立公開 calibration dataset export endpoint。
+
+具體 schema、table normalization、API route organization 由你自行設計。
+
+---
+
+## 13. Scoring consistency 與測試
+
+只能有一套正式 scorer。
+
+必須用 Excel QA 規格做 regression 驗證。
+
+至少測試：
+
+* 23 prototype self-classification
+* workbook QA cases
+* zero vector
+* malformed answers
+* answer count
+* out-of-range values
+* import model-version mismatch
+* deterministic tie
+* contribution identity
+* amplitude / scale invariance
+
+Frontend 與 backend 不得產生不同結果。
+
+---
+
+## 14. 模型版本
+
+所有可以影響歷史重建的資料都必須保存正式：
+
+* model version
+* relevant production hashes
+
+以 Excel `32_PROD_CONTROL` 為 source of truth。
+
+目前 active model 應為：
+
+`starseed-v4.4-phase6b-prod-20260905`
+
+不要讓不同 source 各自手寫不同版本。
+
+---
+
+## 15. Frozen model
+
+目前 production model 是 Frozen。
+
+Calibration data 不得自動改變：
+
+* questions
+* key
+* codebook
+* weights
+* prototypes
+* scoring
+* category mapping
+
+未來若模型真的更新，必須建立新的 explicit version。
+
+歷史 attempt 保留原始 model version。
+
+---
+
+## 16. 視覺與產品方向
+
+整體不要做成普通企業 SaaS quiz。
+
+核心方向：
+
+* mobile first
+* 宇宙／星際世界觀
+* 有質感
+* 避免廉價 neon
+* 23 個 icon 是重要 identity system
+* 題目頁簡潔、字偏大
+* 首頁沉浸、有質感
+* 結果頁複雜、豐富、專業
+* 注意基本 accessibility、touch interaction、performance 與 responsive quality
+
+其餘視覺語言、layout、animation、圖表、色彩系統與 interaction 由你自行發揮。
+
+---
+
+## 17. Copy tone
+
+網站自己新增的 UI copy 應：
+
+* 直接
+* 自信
+* 有世界觀
+
+避免大量防禦性 disclaimer。
+
+不要反覆寫：
+
+* 「僅供娛樂」
+* 「不能證明」
+* 「這不是……而是……」
+* 「請不要把結果當成……」
+
+首頁指定文案必須原文呈現。
+
+23 份官方結果文案必須原文呈現。
+
+---
+
+## 18. Definition of Done
+
+只有以下全部完成才算交付：
+
+* 完整繁體中文網站
+* 指定首頁文案完整呈現
+* 80 題 v4.4 production wording
+* 正確 7-point interaction
+* exact production scorer
+* zero-vector handling
+* deterministic tie handling
+* Primary-only main result
+* 四大文明分類正確顯示
+* 複雜、豐富、專業的結果頁
+* 23 個完整文明頁
+* 23 icons 正確配對
+* 23 官方文案逐字完整
+* report sample
+* export/import
+* D1 calibration collection
+* post-result feedback
+* Data & Privacy disclosure
+* responsive/mobile QA
+* regression tests
+* frontend/backend scoring consistency
+* production build
+* GitHub repo `starseed2`
+* Cloudflare production deployment
+* 最終 production URL
+
+不要只交：
+
+* mockup
+* Figma
+* 靜態頁
+* design concept
+* README
+* localhost prototype
+* 半完成網站
+
+完成後回覆：
+
+1. Production URL
+2. GitHub repository
+3. Cloudflare Worker / project 名稱
+4. D1 database 名稱
+5. active model version
+6. 測試結果摘要
+7. deployment / migration 是否完成
