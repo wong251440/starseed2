@@ -1,5 +1,5 @@
 import {scoreAnswers, parseImport, MODEL_VERSION, HASHES, APP_VERSION} from '../src/shared/scoring';
-interface Env { DB: D1Database; ASSETS: Fetcher; RATE_LIMITER?: RateLimit; BUILD_VERSION: string }
+interface Env { DB: D1Database; ASSETS: Fetcher; RATE_LIMITER?: RateLimit; BUILD_VERSION: string; ALLOWED_ORIGINS?: string }
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const json=(data: unknown,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 function fail(message: string,status=400): never { throw Object.assign(new Error(message),{status}); }
@@ -23,7 +23,7 @@ export default {
  if(path==='/api/health'&&request.method==='GET'){await env.DB.prepare('SELECT 1').first();return json({ok:true,modelVersion:MODEL_VERSION,appVersion:APP_VERSION,buildVersion:env.BUILD_VERSION});}
  if(!['/api/attempts','/api/feedback'].includes(path))return json({error:'找不到此服務。'},404);
  if(request.method!=='POST')return json({error:'請使用 POST。'},405);
- const origin=request.headers.get('origin');if(origin&&origin!==new URL(request.url).origin)fail('請從本站提交。',403);
+ const origin=request.headers.get('origin');const allowedOrigins=(env.ALLOWED_ORIGINS||'').split(',').map(v=>v.trim()).filter(Boolean);if(origin&&origin!==new URL(request.url).origin&&!allowedOrigins.includes(origin))fail('請從本站提交。',403);
  if(env.RATE_LIMITER){const {success}=await env.RATE_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'local'});if(!success)fail('提交次數較多，請稍後再試。',429);}
  const data=await body(request);
  if(path==='/api/attempts'){
