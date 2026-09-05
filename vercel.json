@@ -4,6 +4,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://starseed2.fung251440.workers.dev/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
