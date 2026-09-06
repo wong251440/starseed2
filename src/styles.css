@@ -81,3 +81,7 @@
   #structure .rank-score{gap:4px}
   #structure .score-track{width:100%;flex:0 0 4px}
 }
+
+.report-export-bottom{display:flex;justify-content:center;padding:48px 0 18px;border-top:1px solid var(--line);margin-top:42px}
+.hero-copy>.button+.button{margin-left:14px}
+@media(max-width:700px){.hero-copy>.button+.button{margin:12px 0 0}.report-export-bottom{padding-top:36px}}
