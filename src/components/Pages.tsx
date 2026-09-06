@@ -28,7 +28,7 @@ export function Report({attempt,demo=false,onSaved,onEdit,onRestart}:{attempt?:A
  const answers=useMemo(()=>demo?demoAnswers():attempt?.answers||sharedAnswers(),[demo,attempt?.answers]);
  const result=useMemo(()=>answers?scoreAnswers(answers):null,[answers]);
  const [saveState,setSaveState]=useState(''),[saving,setSaving]=useState(false);const submitted=useRef('');
- const [identityChoice,setIdentityChoice]=useState<string|null>(()=>demo||localStorage.getItem('starseed2-identity-seen')==='1'?'skipped':null);
+ const [identityChoice,setIdentityChoice]=useState<string|null>(()=>demo||(localStorage.getItem('starseed2-identity-seen')==='1'&&localStorage.getItem('starseed2-familiarity'))?'skipped':null);
  const [scrollMode,setScrollMode]=useState<'top'|'down'|'up'>('top');
  useEffect(()=>{let last=window.scrollY;const onScroll=()=>{const y=window.scrollY;setScrollMode(y<20?'top':y<last?'up':'down');last=y;};window.addEventListener('scroll',onScroll,{passive:true});return()=>window.removeEventListener('scroll',onScroll);},[]);
  useTitle(demo?'報告範例':result?.status==='SCORED'?`${civs[result.primary-1].name}・你的星際報告`:'你的星際報告');
