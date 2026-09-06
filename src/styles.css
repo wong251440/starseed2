@@ -39,3 +39,18 @@
 .report-page{padding-top:0}.result-floating{margin-top:0}.share-modal-backdrop{overflow:hidden;touch-action:none}.share-modal{max-height:90dvh;overflow:auto}.share-modal h2{font-size:1.5rem;margin:14px 0}.top-four{padding-top:35px}.top-four-columns{display:grid;grid-template-columns:1fr 1fr;gap:42px}.top-four-columns .ranking-table{border-top:1px solid var(--line);margin-top:16px}.top-four-columns .rank-row{grid-template-columns:24px 42px minmax(90px,1fr) 100px 60px;gap:12px;padding:12px 8px}.top-four-columns .rank-link{display:none}.top-four-columns .rank-score{gap:8px}.top-four-columns .score-track{height:4px}.top-four-columns .rank-name{font-size:.85rem}.top-four-columns .rank-name small{font-size:.58rem}.top-four-columns .rank-distance{font-size:.7rem}@media(max-width:700px){.top-four-columns{grid-template-columns:1fr;gap:28px}.top-four-columns .rank-row{grid-template-columns:20px 35px minmax(80px,1fr) 75px 48px;gap:8px;padding:11px 3px}.top-four-columns .rank-score{flex-direction:row}.top-four-columns .rank-score>b{font-size:.65rem}}
 
 .primary-result-line{margin-top:24px;color:var(--gold);font-size:1.9rem;letter-spacing:.1em;font-weight:500;color:#e7e8ec}.primary-result-line strong{color:var(--gold);font-weight:500}@media(max-width:700px){.primary-result-line{font-size:1.4rem;margin-top:18px}}
+
+/* The share strip is scroll chrome only: it must never reserve report layout space. */
+.result-floating{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:40;
+  margin:0!important;
+  padding:8px max(54px,calc((100vw - 1280px)/2));
+}
+.report-page{padding-top:36px}
+@media(max-width:700px){
+  .result-floating{padding:8px 24px}
+}
