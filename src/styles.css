@@ -65,3 +65,19 @@
   .top-four-columns .rank-score>b{font-size:.7rem}
   .top-four-columns .score-track{width:42px;flex:0 0 42px}
 }
+
+/* Ranking values sit above a full-width match bar on both report lists. */
+.top-four-columns .rank-score,
+#structure .rank-score{display:flex;flex-direction:column-reverse;align-items:stretch;justify-content:center;gap:4px;min-width:0}
+.top-four-columns .rank-score>b,
+#structure .rank-score>b{font-size:.7rem;line-height:1.2;text-align:right;white-space:nowrap}
+.top-four-columns .score-track,
+#structure .score-track{width:100%;min-width:0;flex:0 0 5px}
+@media(max-width:700px){
+  .top-four-columns .rank-row{grid-template-columns:20px 38px minmax(0,1fr) 145px;gap:9px}
+  .top-four-columns .rank-score{gap:4px}
+  .top-four-columns .score-track{width:100%;flex:0 0 5px}
+  #structure .rank-row{grid-template-columns:18px 34px minmax(0,1fr) 112px;gap:8px}
+  #structure .rank-score{gap:4px}
+  #structure .score-track{width:100%;flex:0 0 4px}
+}
