@@ -54,3 +54,14 @@
 @media(max-width:700px){
   .result-floating{padding:8px 24px}
 }
+
+/* Keep the match index readable on narrow screens. */
+.top-four-columns .rank-score{min-width:0;display:flex;align-items:center;gap:10px}
+.top-four-columns .rank-score>b{white-space:nowrap;line-height:1.2;font-size:.72rem}
+.top-four-columns .score-track{flex:1;min-width:34px}
+@media(max-width:700px){
+  .top-four-columns .rank-row{grid-template-columns:20px 38px minmax(0,1fr) 126px;gap:9px;padding:13px 3px}
+  .top-four-columns .rank-score{gap:7px;justify-content:flex-end}
+  .top-four-columns .rank-score>b{font-size:.7rem}
+  .top-four-columns .score-track{width:42px;flex:0 0 42px}
+}
