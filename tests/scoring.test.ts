@@ -9,7 +9,7 @@ const raw=(c:number[])=>c.map((v,j)=>v*model.keys[j]);
 const hash=(b:any)=>createHash('sha256').update(b).digest('hex');
 const requireScore=(r:ReturnType<typeof scoreAnswers>)=>{if(r.status!=='SCORED')throw Error('Expected classification');return r;};
 function generator(){let seed=20260905;return ()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};}
-describe('Frozen production contract',()=>{
+describe('Archived v4.4 scoring contract',()=>{
  it('retains all source hashes with exact serialization',()=>{
   expect(hash(questions.map((q,j)=>[q.q,q.slot,q.stem,q.left,q.right,model.keys[j]].join('|')).join('\n'))).toBe(model.hashes.Item);
   expect(hash(Buffer.from(model.keys.map(v=>v&255)))).toBe(model.hashes.Key);
@@ -48,12 +48,12 @@ describe('Frozen production contract',()=>{
  });
  it('ranks full precision even when display values round equally',()=>{expect(selectPrimary([{id:1,score:.50001,distance:0},{id:2,score:.50002,distance:0}]).primary).toBe(2);});
  it('roundtrips versioned import and ignores forged result fields',()=>{const answers=raw(model.prototypes[0]),file=makeExport(answers);expect(parseImport({...file,primary:23,scores:[],canonicalAnswers:Array(80).fill(0),category:'fake'})).toEqual(answers);expect(requireScore(scoreAnswers(parseImport({...file,primary:23}))).primary).toBe(1);for(const f of [{...file,schemaVersion:2},{...file,modelVersion:'old'},{...file,answers:Array(79).fill(1)},null,[]])expect(()=>parseImport(f)).toThrow();expect(file.modelVersion).toBe(MODEL_VERSION);});
- it('keeps all 23 official texts byte-identical and categories exhaustive',()=>{
-  expect(civs.map(c=>c.id)).toEqual(Array.from({length:23},(_,i)=>i+1));
+ it('keeps retained official texts byte-identical and categories exhaustive',()=>{
+  expect(civs.map(c=>c.id)).toEqual([...Array.from({length:20},(_,i)=>i+1),23]);
   civs.forEach(c=>expect(readFileSync(`public/texts/${c.id}.md`)).toEqual(readFileSync(`23文明文案/${c.id}.md`)));
-  expect(civs.filter(c=>c.category==='心域文明').map(c=>c.id)).toEqual([1,2,7,8,9,21]);
-  expect(civs.filter(c=>c.category==='無界文明').map(c=>c.id)).toEqual([4,5,12,14,15]);
-  expect(civs.filter(c=>c.category==='智序文明').map(c=>c.id)).toEqual([6,11,16,17,19,20]);
-  expect(civs.filter(c=>c.category==='聖殿文明').map(c=>c.id)).toEqual([3,10,13,18,22,23]);
+  expect(civs.filter(c=>c.category==='心域文明').map(c=>c.id)).toEqual([1,8,9,10,14]);
+  expect(civs.filter(c=>c.category==='無界文明').map(c=>c.id)).toEqual([4,5,7,12,13]);
+  expect(civs.filter(c=>c.category==='智序文明').map(c=>c.id)).toEqual([2,6,11,15,19]);
+  expect(civs.filter(c=>c.category==='聖殿文明').map(c=>c.id)).toEqual([3,16,17,18,20,23]);
  });
 });

@@ -1,0 +1,172 @@
+{
+  "responses": {
+    "A2-B04": 7,
+    "C2-B07": 5,
+    "C2-B23": 4,
+    "B2-Q02": 1,
+    "A2-B03": 4,
+    "B2-Q08": 5,
+    "B2-Q22": 4,
+    "B2-Q17": 5,
+    "C2-B15": 4,
+    "B2-Q05": 5,
+    "B2-Q27": 4,
+    "B2-Q26": 4,
+    "A2-B15": 5,
+    "A2-B01": 1,
+    "A2-B10": 6,
+    "C2-B02": 1,
+    "A2-B26": 4,
+    "A2-B07": 4,
+    "B2-Q03": 4,
+    "A2-B13": 4,
+    "A2-B28": 4,
+    "C2-B27": 4,
+    "C2-B11": 4,
+    "C2-B19": 4,
+    "A2-W08": {
+      "best": "D",
+      "worst": "C"
+    },
+    "C2-W02": {
+      "best": "B",
+      "worst": "C"
+    },
+    "B2-Q31": {
+      "best": "A",
+      "worst": "D"
+    },
+    "A2-W01": {
+      "best": "B",
+      "worst": "C"
+    },
+    "C2-W12": {
+      "best": "D",
+      "worst": "A"
+    },
+    "B2-Q34": {
+      "best": "D",
+      "worst": "A"
+    },
+    "A2-W17": {
+      "best": "D",
+      "worst": "B"
+    },
+    "B2-Q36": {
+      "best": "D",
+      "worst": "A"
+    },
+    "A2-W10": {
+      "best": "A",
+      "worst": "B"
+    },
+    "B2-Q37": {
+      "best": "C",
+      "worst": "A"
+    },
+    "C2-W05": {
+      "best": "D",
+      "worst": "A"
+    },
+    "C2-W18": {
+      "best": "D",
+      "worst": "A"
+    },
+    "A2-W03": {
+      "best": "D",
+      "worst": "A"
+    },
+    "B2-Q33": {
+      "best": "D",
+      "worst": "A"
+    },
+    "C2-W01": {
+      "best": "A",
+      "worst": "D"
+    },
+    "A2-W07": {
+      "best": "D",
+      "worst": "A"
+    },
+    "C2-W14": {
+      "best": "A",
+      "worst": "B"
+    },
+    "B2-Q46": {
+      "best": "D",
+      "worst": "A"
+    },
+    "B2-Q43": {
+      "best": "A",
+      "worst": "C"
+    },
+    "A2-C07": {
+      "operation": 1,
+      "goal": 1
+    },
+    "C2-X11": {
+      "operation": 1,
+      "goal": 1
+    },
+    "B2-Q58": {
+      "operation": 1,
+      "goal": 1
+    },
+    "B2-Q49": {
+      "operation": 1,
+      "goal": 1
+    },
+    "B2-Q52": {
+      "operation": 1,
+      "goal": 1
+    },
+    "A2-C04": {
+      "operation": 1,
+      "goal": 1
+    },
+    "C2-X09": {
+      "operation": 1,
+      "goal": 3
+    },
+    "A2-C03": {
+      "operation": 1,
+      "goal": 1
+    },
+    "C2-X05": {
+      "operation": 1,
+      "goal": 3
+    },
+    "C2-X07": {
+      "operation": 1,
+      "goal": 1
+    },
+    "A2-C06": {
+      "operation": 1,
+      "goal": 2
+    },
+    "C2-X04": {
+      "operation": 1,
+      "goal": 1
+    },
+    "B2-Q55": {
+      "operation": 1,
+      "goal": 2
+    },
+    "C2-X12": {
+      "operation": 3,
+      "goal": 3
+    },
+    "C2-X10": {
+      "operation": 1,
+      "goal": 3
+    },
+    "A2-C11": {
+      "operation": 1,
+      "goal": 1
+    },
+    "B2-Q50": {
+      "operation": 1,
+      "goal": 1
+    }
+  }
+}

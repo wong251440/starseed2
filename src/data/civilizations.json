@@ -30,13 +30,14 @@
       "昴宿的時空印記",
       "昴宿的銀河印記"
     ],
-    "textBytes": 29271
+    "textBytes": 29271,
+    "lineageId": "PL"
   },
   {
     "id": 2,
     "name": "大角星",
     "english": "Arcturian",
-    "category": "心域文明",
+    "category": "智序文明",
     "title": "大角星人／大角星族 Arcturian",
     "subtitle": "宇宙的藍紫色架構師：那些為了把混亂重新編碼，而降生地球的靈魂",
     "chapters": [
@@ -61,7 +62,8 @@
       "所以，大角星 Starseed 最終來地球要完成什麼？",
       "大角星文明的核心宇宙藍圖"
     ],
-    "textBytes": 27230
+    "textBytes": 27230,
+    "lineageId": "AR"
   },
   {
     "id": 3,
@@ -92,7 +94,8 @@
       "核心時空印記",
       "核心銀河印記"
     ],
-    "textBytes": 25928
+    "textBytes": 25928,
+    "lineageId": "SI"
   },
   {
     "id": 4,
@@ -120,7 +123,8 @@
       "十四、仙女座真正帶給地球的，不是反抗，而是「主權文明」",
       "核心宇宙藍圖｜仙女座 仙女座人"
     ],
-    "textBytes": 22927
+    "textBytes": 22927,
+    "lineageId": "AN"
   },
   {
     "id": 5,
@@ -148,7 +152,8 @@
       "什麼緣分，最容易觸發天琴Starseed的靈性覺醒？",
       "最後，你可以這樣理解天琴座靈魂"
     ],
-    "textBytes": 23285
+    "textBytes": 23285,
+    "lineageId": "LY"
   },
   {
     "id": 6,
@@ -175,13 +180,14 @@
       "獵戶座靈魂真正成熟之後",
       "核心宇宙藍圖／時空印記／銀河印記"
     ],
-    "textBytes": 25260
+    "textBytes": 25260,
+    "lineageId": "OR"
   },
   {
     "id": 7,
     "name": "明塔卡星",
     "english": "Mintakan",
-    "category": "心域文明",
+    "category": "無界文明",
     "title": "明塔卡星文明 Mintakan",
     "subtitle": "失落樂園的水之靈魂：你真正想回去的地方，也許從來不在地圖上",
     "chapters": [
@@ -201,7 +207,8 @@
       "明塔卡還有一個非常深的覺醒密碼：把無意識帶到光裡",
       "明塔卡的核心宇宙藍圖／時空印記／銀河印記"
     ],
-    "textBytes": 18525
+    "textBytes": 18525,
+    "lineageId": "MI"
   },
   {
     "id": 8,
@@ -232,7 +239,8 @@
       "金星人的銀河印記",
       "最後，如果你是一個金星靈魂"
     ],
-    "textBytes": 23938
+    "textBytes": 23938,
+    "lineageId": "VN"
   },
   {
     "id": 9,
@@ -260,13 +268,14 @@
       "哈達爾真正要帶給地球的，是一種新的關係文明",
       "最後，濃縮這個文明的核心銀河印記"
     ],
-    "textBytes": 23620
+    "textBytes": 23620,
+    "lineageId": "HA"
   },
   {
     "id": 10,
     "name": "北極星",
     "english": "Polarian",
-    "category": "聖殿文明",
+    "category": "心域文明",
     "title": "北極星人／北極星族 Polarian",
     "subtitle": "宇宙的靜止軸——當所有星辰都在旋轉，你仍記得北方",
     "chapters": [
@@ -290,7 +299,8 @@
       "北極星真正的高階狀態：成為「可移動的北方」",
       "核心宇宙藍圖／時空印記／銀河印記"
     ],
-    "textBytes": 21184
+    "textBytes": 21184,
+    "lineageId": "PO"
   },
   {
     "id": 11,
@@ -318,7 +328,8 @@
       "半人馬座α靈魂真正要帶給地球的未來",
       "核心宇宙藍圖／時空印記／銀河印記"
     ],
-    "textBytes": 23115
+    "textBytes": 23115,
+    "lineageId": "AC"
   },
   {
     "id": 12,
@@ -347,13 +358,14 @@
       "時空印記｜失去北方的人，終將成為北方",
       "銀河印記｜Lyra → Vega → Sirius / 獵戶座人 → Earth"
     ],
-    "textBytes": 23425
+    "textBytes": 23425,
+    "lineageId": "VE"
   },
   {
     "id": 13,
     "name": "貓科星族",
     "english": "Feline / Urmah",
-    "category": "聖殿文明",
+    "category": "無界文明",
     "title": "烏爾瑪 Urmah｜曾經征服星海，最後學會讓力量向愛臣服的獅族",
     "subtitle": "最初的 Avyon：當宇宙需要一個懂得力量的種族",
     "chapters": [
@@ -379,13 +391,14 @@
       "烏爾瑪的核心宇宙藍圖",
       "烏爾瑪的時空印記：家園曾經失去，所以我要成為家園"
     ],
-    "textBytes": 22541
+    "textBytes": 22541,
+    "lineageId": "FE"
   },
   {
     "id": 14,
     "name": "藍鳥人",
     "english": "Avian / Blue Avian",
-    "category": "無界文明",
+    "category": "心域文明",
     "title": "藍鳥族 Blue Avians",
     "subtitle": "當一個文明已經走到「愛也必須擁有智慧」之後，他們為什麼還要回到地球？",
     "chapters": [
@@ -405,13 +418,14 @@
       "藍鳥族真正要完成的，不是離開地球",
       "藍鳥族的核心宇宙藍圖"
     ],
-    "textBytes": 23538
+    "textBytes": 23538,
+    "lineageId": "BA"
   },
   {
     "id": 15,
     "name": "火星",
     "english": "Martian",
-    "category": "無界文明",
+    "category": "智序文明",
     "title": "火星人／火星星族 Martian",
     "subtitle": "紅色荒原以前，這裡曾經是一個把「力量」推到極致的文明",
     "chapters": [
@@ -429,13 +443,14 @@
       "火星魂成熟之後，會變成什麼樣的人？",
       "火星的核心宇宙藍圖"
     ],
-    "textBytes": 20752
+    "textBytes": 20752,
+    "lineageId": "MA"
   },
   {
     "id": 16,
     "name": "馬爾德克人",
     "english": "Maldekian",
-    "category": "智序文明",
+    "category": "聖殿文明",
     "title": "馬爾德克星族 Maldekian",
     "subtitle": "有些靈魂思念一顆遙遠的星；馬爾德克靈魂思念的，是一顆已經不存在的星。",
     "chapters": [
@@ -462,13 +477,14 @@
       "而最深的覺醒，常常由「我救不了他」觸發",
       "核心宇宙藍圖"
     ],
-    "textBytes": 24846
+    "textBytes": 24846,
+    "lineageId": "ML"
   },
   {
     "id": 17,
     "name": "天龍座",
     "english": "Draconian",
-    "category": "智序文明",
+    "category": "聖殿文明",
     "title": "17｜天龍座人・天龍族 Draconian",
     "subtitle": "——從征服宇宙，到學會統御自己的古老龍裔",
     "chapters": [
@@ -492,7 +508,8 @@
       "天龍族最終要帶給地球的，不是另一個帝國",
       "核心宇宙藍圖・時空印記・銀河印記"
     ],
-    "textBytes": 23962
+    "textBytes": 23962,
+    "lineageId": "DR"
   },
   {
     "id": 18,
@@ -526,7 +543,8 @@
       "核心銀河印記",
       "最後：如果你是一個爬蟲系星種"
     ],
-    "textBytes": 28321
+    "textBytes": 28321,
+    "lineageId": "RE"
   },
   {
     "id": 19,
@@ -553,13 +571,14 @@
       "那麼，澤塔 Starseed 會從什麼緣分開始醒來？",
       "灰人／澤塔人的核心宇宙藍圖"
     ],
-    "textBytes": 21816
+    "textBytes": 21816,
+    "lineageId": "ZE"
   },
   {
     "id": 20,
     "name": "阿努納奇",
     "english": "Anunnaki / Nibiruan",
-    "category": "智序文明",
+    "category": "聖殿文明",
     "title": "阿努納奇／尼比魯人 Anunnaki / Nibiruan",
     "subtitle": "背負創世者業力而來的文明架構師",
     "chapters": [
@@ -580,71 +599,18 @@
       "銀河印記：創造者必須回到自己的創造裡",
       "什麼緣分最容易觸發阿努納奇靈魂覺醒？"
     ],
-    "textBytes": 22781
-  },
-  {
-    "id": 21,
-    "name": "鯨魚座τ星",
-    "english": "Tau Cetian",
-    "category": "心域文明",
-    "title": "21｜鯨魚座 τ 星人・天倉五星人",
-    "subtitle": "鯨魚座τ星人 —「和平不是退讓，而是任何力量都沒有資格奪走另一個生命的自由意志。」",
-    "chapters": [
-      "21｜鯨魚座 τ 星人・天倉五星人",
-      "鯨魚座τ星人 —「和平不是退讓，而是任何力量都沒有資格奪走另一個生命的自由意志。」",
-      "Tau Ceti 的故事，並不是從一群「人」開始的",
-      "一個由兩種生命共同建立的文明",
-      "然後，Tau Ceti 也進入了自己的黑暗時代",
-      "辨認操控。",
-      "他們真正不能容忍的，是自由意志被奪走",
-      "也正因如此，他們最後改變了幫助地球的方法",
-      "那麼，鯨魚座τ星人 為甚麼選擇做人？",
-      "鯨魚座τ星人 的最大陰影：你太會理解別人了",
-      "另一個極端：從外交官變成獵巫者",
-      "因此 Tau Ceti 的靈魂，不太像典型的「Love & Light」",
-      "Tau Ceti 屬於甚麼類型的宇宙靈魂？",
-      "Tau Ceti 是多少 D？",
-      "為甚麼 鯨魚座τ星人 要來地球？",
-      "而你來地球真正要學的，是「選邊」",
-      "鯨魚座τ星人 最容易被甚麼「緣分」喚醒？",
-      "還有另一種 Tau Ceti 覺醒：你遇見了一個需要被保護的人",
-      "Tau Ceti 與「鯨魚」這個符號也有一種奇妙的呼應",
-      "鯨魚座τ星人 的核心宇宙藍圖"
-    ],
-    "textBytes": 24483
-  },
-  {
-    "id": 22,
-    "name": "安塔瑞斯星",
-    "english": "Antarian",
-    "category": "聖殿文明",
-    "title": "安塔瑞斯星人／心宿二星人 Antarian",
-    "subtitle": "——守在銀河門檻上的紅金文明，靈魂的本能是辨識、守護與穿越",
-    "chapters": [
-      "安塔瑞斯星人／心宿二星人 Antarian",
-      "——守在銀河門檻上的紅金文明，靈魂的本能是辨識、守護與穿越",
-      "紅色星門：安塔瑞斯文明最早的記憶",
-      "黃金時代破碎之後：難民、獅族與守護者來到安塔瑞斯",
-      "安塔瑞斯的武者文化：力量必須先經過恐懼",
-      "陰性的星門：安塔瑞斯真正深處的氣質",
-      "安塔瑞斯靈魂的本質：守門者、戰略家與頻率校準者",
-      "他們屬於宇宙中的甚麼靈魂？多少 D？",
-      "為甚麼安塔瑞斯星種要投生地球？",
-      "地球陰影課題：你要學會「守護」，卻不能活成一座永不解除警報的堡壘",
-      "那麼，安塔瑞斯靈魂通常因甚麼「緣分」覺醒？",
-      "安塔瑞斯的核心宇宙藍圖"
-    ],
-    "textBytes": 21607
+    "textBytes": 22781,
+    "lineageId": "NU"
   },
   {
     "id": 23,
-    "name": "地球源靈魂",
-    "english": "Earth-Origin Soul",
+    "name": "蓋亞人（地球原生）",
+    "english": "Gaian (Earth Native)",
     "category": "聖殿文明",
-    "title": "23｜地球源靈魂 Earth-Origin Soul",
+    "title": "蓋亞人（地球原生） Gaian (Earth Native)",
     "subtitle": "——你身上有一種古老到近乎沉默的記憶：你記得的故鄉，就是腳下這顆星球",
     "chapters": [
-      "23｜地球源靈魂 Earth-Origin Soul",
+      "蓋亞人（地球原生） Gaian (Earth Native)",
       "——你身上有一種古老到近乎沉默的記憶：你記得的故鄉，就是腳下這顆星球",
       "地球源靈魂最早的故事，比「人類」還要古老",
       "七萬五千年的第三密度長夜：你在這裡學習「選擇」",
@@ -667,6 +633,7 @@
       "當地球源靈魂真正覺醒之後",
       "地球源靈魂的核心宇宙藍圖"
     ],
-    "textBytes": 28878
+    "textBytes": 28878,
+    "lineageId": "GA"
   }
 ]
