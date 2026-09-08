@@ -15,6 +15,7 @@ type Props = {
 
 export default function Quiz({ draft, setDraft, complete }: Props) {
   const [mapOpen, setMapOpen] = useState(false);
+  const [crossStep, setCrossStep] = useState<0 | 1>(0);
   const heading = useRef<HTMLHeadingElement>(null);
   const currentIndex = Number.isInteger(draft.index) && draft.index >= 0 && draft.index < questions.length ? draft.index : 0;
   const question = questions[currentIndex];
@@ -25,6 +26,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
   const name = `question-${currentIndex + 1}`;
 
   useEffect(() => { heading.current?.focus(); }, [currentIndex]);
+  useEffect(() => { setCrossStep(0); }, [currentIndex]);
 
   function save(answer: DraftAnswer) {
     setDraft({ ...draft, responses: { ...draft.responses, [question.id]: answer } });
@@ -130,25 +132,33 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
         })}
       </fieldset>}
 
-      {question.format === 'CROSS' && <div className="priority-parts">
-        {([
-          { part: 'operation', prompt: question.operation_prompt, options: question.operations },
-          { part: 'goal', prompt: question.goal_prompt, options: question.goals },
-        ] as const).map(({ part, prompt, options }, partIndex) => <fieldset className="priority-part" key={part}>
-          <legend>{prompt}</legend>
-          <div className="priority-options">
-            {(Object.entries(options) as [string, string][]).map(([key, text]) => {
-              const priority = Number(key) as Priority;
-              const selected = typeof value === 'object' && part in value && (value as { operation?: Priority; goal?: Priority })[part] === priority;
-              return <label key={key} className={selected ? 'selected' : ''}>
-                <input type="radio" name={`${name}-part-${partIndex + 1}`} value={priority} checked={selected}
-                  onChange={() => selectPriority(part, priority)} />
-                <span>{text}</span>
-              </label>;
-            })}
+      {question.format === 'CROSS' && (() => {
+        const part = crossStep === 0 ? 'operation' : 'goal';
+        const prompt = crossStep === 0 ? question.operation_prompt : question.goal_prompt;
+        const options = crossStep === 0 ? question.operations : question.goals;
+        const selectedValue = typeof value === 'object' && value !== null && part in value ? (value as { operation?: Priority; goal?: Priority })[part] : undefined;
+        return <div className="priority-parts cross-steps">
+          <div className="cross-step-progress" aria-label={`CROSS 題第 ${crossStep + 1} 步，共 2 步`}><span className={crossStep === 0 ? 'active' : 'done'}>1 介入方式</span><i aria-hidden="true" /> <span className={crossStep === 1 ? 'active' : ''}>2 到位結果</span></div>
+          <fieldset className="priority-part">
+            <legend>{prompt}</legend>
+            <div className="priority-options">
+              {(Object.entries(options) as [string, string][]).map(([key, text]) => {
+                const priority = Number(key) as Priority;
+                const selected = selectedValue === priority;
+                return <label key={key} className={selected ? 'selected' : ''}>
+                  <input type="radio" name={`${name}-cross-${part}`} value={priority} checked={selected}
+                    onChange={() => selectPriority(part, priority)} />
+                  <span>{text}</span>
+                </label>;
+              })}
+            </div>
+          </fieldset>
+          <div className="cross-step-actions">
+            {crossStep === 1 && <button type="button" className="text-button" onClick={() => setCrossStep(0)}>返回介入方式</button>}
+            {crossStep === 0 && <button type="button" className="button cross-next" disabled={selectedValue === undefined} onClick={() => setCrossStep(1)}>下一步：選擇到位結果 <ArrowRight size={17} aria-hidden="true" /></button>}
           </div>
-        </fieldset>)}
-      </div>}
+        </div>;
+      })()}
     </div>
 
     <div className="quiz-actions">

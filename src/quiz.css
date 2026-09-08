@@ -47,6 +47,12 @@
 .priority-part:nth-child(2) .priority-options label.selected{border-color:#afc2e380;background:#afc2e310}
 .priority-part:nth-child(2) input{accent-color:#afc2e3}
 .priority-options input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.cross-step-progress{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:20px;color:#718099;font-size:.72rem;letter-spacing:.04em}
+.cross-step-progress span.active{color:var(--gold)}
+.cross-step-progress span.done{color:#d9c9a8}
+.cross-step-progress i{width:28px;height:1px;background:var(--line)}
+.cross-step-actions{display:flex;justify-content:flex-end;margin-top:18px;min-height:44px}
+.cross-step-actions .cross-next{min-height:44px;padding:10px 16px;font-size:.82rem;gap:12px}
 @media(hover:hover){.preference-picks label:hover>span,.priority-options label:hover{background:#ffffff08}.strict-scale-options label:hover .strict-scale-number{border-color:#e7e8ec}}
 @media(max-width:700px){
   .strict-quiz .question-content{padding-top:20px}
@@ -68,6 +74,9 @@
   .priority-part{padding:0 12px 14px}
   .priority-part legend{font-size:.91rem;padding:0 6px;margin-bottom:14px}
   .priority-options label{padding:14px 12px;font-size:.92rem;gap:10px}
+  .cross-step-progress{font-size:.65rem;gap:8px;margin-bottom:16px}
+  .cross-step-actions{margin-top:14px}
+  .cross-step-actions .cross-next{width:100%;max-width:none;font-size:.76rem}
   .strict-quiz .quiz-actions{gap:12px;margin-top:30px}
   .strict-quiz .quiz-actions>.button{min-width:0;max-width:70%;gap:12px}
 }
