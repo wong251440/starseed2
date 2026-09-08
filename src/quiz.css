@@ -3,7 +3,7 @@
 .strict-quiz .question-content{padding-top:20px}
 .strict-quiz .question-content h1{min-height:0;margin-top:0}
 .strict-quiz .question-map button.partial{border-style:dashed;color:#b5c6e1}
-.strict-scale{max-width:640px;margin:35px auto 0}
+.strict-scale{position:relative;max-width:640px;margin:35px auto 0}
 .strict-scale-options{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .strict-scale-options label{position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:1;min-height:50px}
 .strict-scale-options input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0;width:100%;height:100%}
@@ -15,6 +15,8 @@
 .strict-scale-options label.selected .strict-scale-number{background:var(--gold);border-color:var(--gold);color:#111827;box-shadow:0 0 0 6px #d5bb8d0e}
 .strict-scale-options label:nth-child(n+5).selected .strict-scale-number{background:#afc2e3;border-color:#afc2e3}
 .strict-scale-label{display:none}
+.strict-scale-captions{display:flex;justify-content:space-between;margin-top:15px;color:var(--muted);font-size:.7rem}
+.strict-scale-captions span:nth-child(2){position:absolute;left:50%;transform:translateX(-50%)}
 .strict-scale-options input:focus-visible+.strict-scale-number{outline:2px solid var(--gold);outline-offset:5px}
 .preference-options{margin-top:30px;display:grid;grid-template-columns:minmax(0,1fr) 88px 88px;align-items:stretch;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .preference-header{display:contents}
@@ -29,9 +31,9 @@
 .preference-picks label{position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#111a28}
 .preference-picks input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0;width:100%;height:100%}
 .preference-picks label>span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;width:100%;padding:9px 5px;font-size:.78rem;color:var(--muted)}
-.preference-picks label.selected{background:#d5bb8d1c}
-.preference-picks label.selected>span{color:var(--gold)}
-.preference-picks label:last-child.selected{background:#afc2e31a}
+.preference-picks label.selected{background:#d5bb8d3d;box-shadow:inset 0 0 0 2px var(--gold)}
+.preference-picks label.selected>span{color:var(--gold);font-weight:600}
+.preference-picks label:last-child.selected{background:#afc2e33d;box-shadow:inset 0 0 0 2px #afc2e3}
 .preference-picks label:last-child.selected>span{color:#afc2e3}
 .preference-picks input:focus-visible+span{outline:2px solid var(--gold);outline-offset:3px}
 .priority-parts{margin-top:32px;display:grid;gap:30px}
@@ -56,6 +58,7 @@
   .strict-scale-number{width:34px;height:34px;font-size:.75rem}
   .strict-scale-options .strength-3 .strict-scale-number{width:43px;height:43px}
   .strict-scale-options .strength-2 .strict-scale-number{width:39px;height:39px}
+  .strict-scale-captions{font-size:.65rem;margin-top:12px}
   .preference-options{margin-top:24px;gap:14px}
   .preference-options{grid-template-columns:minmax(0,1fr) 64px 64px;gap:0}
   .preference-option>p{padding:13px 10px;font-size:.88rem;gap:9px}

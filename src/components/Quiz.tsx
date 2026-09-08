@@ -100,6 +100,9 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
               <span className="strict-scale-label">{label}</span>
             </label>)}
           </div>
+          <div className="strict-scale-captions" aria-hidden="true">
+            <span>明顯偏左</span><span>左右差不多</span><span>明顯偏右</span>
+          </div>
         </fieldset>
       </>}
 

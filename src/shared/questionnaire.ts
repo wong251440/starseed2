@@ -8,8 +8,16 @@ export type Answer=number|{best:Choice;worst:Choice}|{operation:Priority;goal:Pr
 export type DraftAnswer=number|{best?:Choice;worst?:Choice}|{operation?:Priority;goal?:Priority};
 export type Responses=Record<string,Answer>;
 export type DraftResponses=Record<string,DraftAnswer>;
-export type Question={id:string;stem:string}&({format:'BIP';left:string;right:string}|{format:'BWS';options:Record<Choice,string>}|{format:'CROSS';operation_prompt:string;operations:Record<Priority,string>;goal_prompt:string;goals:Record<Priority,string>});
-export const questions=quiz.questions as Question[];
+type QuestionBase={id:string;stem:string};
+type RawQuestion=QuestionBase&({format:'BIP';left:string;right:string}|{format:'BWS';options:Record<Choice,string>}|{format:'CROSS';part_a:{prompt:string;options:Record<string,string>};part_b:{prompt:string;options:Record<string,string>}});
+export type Question=QuestionBase&({format:'BIP';left:string;right:string}|{format:'BWS';options:Record<Choice,string>}|{format:'CROSS';operation_prompt:string;operations:Record<Priority,string>;goal_prompt:string;goals:Record<Priority,string>});
+export const questions=(quiz.questions as RawQuestion[]).map((question):Question => question.format==='CROSS' ? {
+ ...question,
+ operation_prompt: question.part_a.prompt,
+ operations: question.part_a.options as Record<Priority,string>,
+ goal_prompt: question.part_b.prompt,
+ goals: question.part_b.options as Record<Priority,string>,
+} : question);
 export const QUESTION_COUNT=questions.length;
 export const instructions=quiz.format_instructions;
 export const quizIntro=quiz.intro;
