@@ -1,9 +1,11 @@
 import { readFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
 import { describe, expect, it, vi } from 'vitest';
-import golden from '../starseed_s4_web_handoff_v4_1_min/golden_tests.json';
+import golden from '../starseed_s4_rpd_web_handoff_v4_1_min/golden_tests.json';
 import { decodeScoringModel, loadScoringModel, score, SCORING_MODEL_ASSET, SCORING_MODEL_VERSION } from '../worker/scorer';
 
-const file = readFileSync(new URL(`../public${SCORING_MODEL_ASSET}`, import.meta.url));
+const compressed = readFileSync(new URL(`../public${SCORING_MODEL_ASSET}`, import.meta.url));
+const file = gunzipSync(compressed);
 const buffer = file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength);
 const model = decodeScoringModel(buffer);
 
@@ -35,7 +37,7 @@ describe('frozen S4 v4.1 scoring parity', () => {
   it('rejects missing/unknown responses, defaulted answers, and invalid forced choices', () => {
     expect(() => score({}, model)).toThrow('responses object');
     const input = structuredClone(golden.cases[0].input) as {responses: Record<string, unknown>};
-    const [bip, bws, cross] = ['S4-A3-B06', 'S4-A3-W32', 'S4-A3-X49'];
+    const [bip, bws, cross] = ['S4RPD-A3-B10', 'S4RPD-A3-W31', 'S4RPD-A3-X50'];
     for (const invalid of [null, true, 0, 8, 1.5, '4']) {
       expect(() => score({responses: {...input.responses, [bip]: invalid}}, model)).toThrow('integer 1..7');
     }
@@ -49,7 +51,7 @@ describe('frozen S4 v4.1 scoring parity', () => {
 
   it('loads the immutable asset once and rejects incomplete or unavailable model assets', async () => {
     expect(SCORING_MODEL_VERSION).toBe(golden.model_version);
-    const fetch = vi.fn(async () => new Response(buffer.slice(0)));
+    const fetch = vi.fn(async () => new Response(compressed));
     const assets = {fetch};
     const [first, second] = await Promise.all([loadScoringModel(assets), loadScoringModel(assets)]);
     expect(first).toBe(second);

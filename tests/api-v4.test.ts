@@ -39,12 +39,12 @@ describe('S4 API and migration',()=>{
   expect(response.status).toBe(201);const data=await response.json() as any;expect(data.result.public.primary.id).toBe('PL');
   const stored=db.prepare('SELECT * FROM attempts').get() as any;expect(stored.primary_id).toBe(1);expect(stored.model_version).toBe(MODEL_VERSION);expect(JSON.parse(stored.raw_answers)).toEqual(demo);expect(JSON.parse(stored.metrics).classification_stability.index).toBeCloseTo(data.result.public.stability.index,10);
   expect((await worker.fetch(request('/api/attempts',a),e)).status).toBe(200);
-  expect((await worker.fetch(request('/api/attempts',{...a,responses:{...a.responses,'S4-A3-B06':1}}),e)).status).toBe(409);
+  expect((await worker.fetch(request('/api/attempts',{...a,responses:{...a.responses,'S4RPD-A3-B10':1}}),e)).status).toBe(409);
   expect(db.prepare('SELECT count(*) n FROM attempts').get()?.n).toBe(1);
  });
  it('requires full valid answers, current version and permitted origin',async()=>{
   migrate();const e=env();
-  for(const invalid of [{responses:{}},{responses:{...demo.responses,'S4-A3-W32':{best:'A',worst:'A'}}},{responses:{...demo.responses,'S4-A3-X49':{operation:1}}}])expect((await worker.fetch(request('/api/score',invalid),e)).status).toBe(400);
+  for(const invalid of [{responses:{}},{responses:{...demo.responses,'S4RPD-A3-W31':{best:'A',worst:'A'}}},{responses:{...demo.responses,'S4RPD-A3-X50':{operation:1}}}])expect((await worker.fetch(request('/api/score',invalid),e)).status).toBe(400);
   expect((await worker.fetch(request('/api/attempts',{...payload(),modelVersion:'old'}),e)).status).toBe(400);
   expect((await worker.fetch(request('/api/score',demo,'https://untrusted.example'),e)).status).toBe(403);
  });

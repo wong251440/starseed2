@@ -1,17 +1,17 @@
 import {afterEach,describe,expect,it,vi} from 'vitest';
 import {MODEL_VERSION,questions,isCompleteAnswer,validateResponses,parseImport,makeExport,answeredCount,type Responses} from '../src/shared/questionnaire';
 import {DRAFT_KEY,loadDraft,legacyData} from '../src/shared/session';
-import quiz from '../starseed_s4_web_handoff_v4_1_min/quiz.zh-Hant.json';
-import model from '../starseed_s4_web_handoff_v4_1_min/model_v4_1.json';
+import quiz from '../starseed_s4_rpd_web_handoff_v4_1_min/quiz.zh-Hant.json';
+import model from '../starseed_s4_rpd_web_handoff_v4_1_min/model_v4_1.json';
 import demo from '../src/data/demo-responses.json';
 afterEach(()=>vi.unstubAllGlobals());
 const answers=()=>structuredClone(demo.responses) as Responses;
 describe('S4 question and storage contract',()=>{
- it('uses the exact frozen order and 28/16/16 format mix',()=>{
+ it('uses the exact frozen order and 26/14/20 format mix',()=>{
   expect(MODEL_VERSION).toBe(model.model_version);
   expect(questions.map(q=>q.id)).toEqual(quiz.display_order);
   expect([...questions.map(q=>q.id)].sort()).toEqual([...model.selection_ids].sort());
-  expect(['BIP','BWS','CROSS'].map(f=>questions.filter(q=>q.format===f).length)).toEqual([28,16,16]);
+  expect(['BIP','BWS','CROSS'].map(f=>questions.filter(q=>q.format===f).length)).toEqual([26,14,20]);
  });
  it('requires all60 answers and rejects unknown or malformed responses',()=>{
   const valid=answers();expect(()=>validateResponses(valid)).not.toThrow();
@@ -21,6 +21,18 @@ describe('S4 question and storage contract',()=>{
   for(const value of [0,8,1.5,'4',true,null,{}])expect(isCompleteAnswer(b,value)).toBe(false);
   for(const value of [{best:'A'}, {best:'A',worst:'A'},{best:'E',worst:'A'},4])expect(isCompleteAnswer(w,value)).toBe(false);
   for(const value of [{operation:1},{operation:0,goal:1},{operation:1,goal:4},{operation:true,goal:1},{operation:'1',goal:2}])expect(isCompleteAnswer(c,value)).toBe(false);
+ });
+ it('maps every CROSS prompt and option to the answering and report fields',()=>{
+  for(const q of questions){
+   if(q.format!=='CROSS')continue;
+   const raw=quiz.questions.find(item=>item.id===q.id)!;
+   expect(q.operation_prompt).toBe(raw.part_a!.prompt);
+   expect(q.operations).toEqual(raw.part_a!.options);
+   expect(q.goal_prompt).toBe(raw.part_b!.prompt);
+   expect(q.goals).toEqual(raw.part_b!.options);
+   expect(Object.keys(q.operations)).toEqual(['1','2','3']);
+   expect(Object.keys(q.goals)).toEqual(['1','2','3']);
+  }
  });
  it('does not count a partial BWS/CROSS answer as complete',()=>{
   const w=questions.find(q=>q.format==='BWS')!,c=questions.find(q=>q.format==='CROSS')!;

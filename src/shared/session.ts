@@ -1,7 +1,7 @@
 import {MODEL_VERSION,SCHEMA_VERSION,APP_VERSION,questions,validateResponses,isDraftAnswer,type Responses,type DraftResponses} from './questionnaire';
 import type {ScoringResult} from './result';
-export const DRAFT_KEY='starseed21-v4-draft';
-export const ATTEMPT_KEY='starseed21-v4-attempt';
+export const DRAFT_KEY='starseed21-s4rpd-draft';
+export const ATTEMPT_KEY='starseed21-s4rpd-attempt';
 export type Draft={modelVersion:string;responses:DraftResponses;index:number;startedAt:string};
 export type Attempt={attemptId:string;participantId:string;feedbackToken:string;schemaVersion:number;modelVersion:string;responses:Responses;startedAt:string;completedAt:string;durationMs:number;imported:boolean;appVersion:string;saved:boolean;result?:ScoringResult};
 export function read<T>(key:string):T|null{try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}}

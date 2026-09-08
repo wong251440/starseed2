@@ -1,9 +1,9 @@
 # Starseed 21
 
-S4 Production Champion Final 60: 28 bipolar, 16 best-worst, and 16 crossed-priority
+S4-RPD60 Production Final 60: 26 bipolar, 14 best-worst, and 20 crossed-priority
 questions. Scoring Layer v4 with v4.1 interpretation is frozen in
-`starseed_s4_web_handoff_v4_1_min/`. The model version is
-`S21-scoring-v4.1-s4-f4521622d070`; application version is `2.1.0`.
+`starseed_s4_rpd_web_handoff_v4_1_min/`. The model version is
+`S21-scoring-v4.1-s4rpd-99f5e4ac3bbf`; application version is `2.2.0`.
 
 ## Local Development
 
@@ -33,12 +33,15 @@ All 22 golden fixtures must pass within their absolute tolerance of `2e-6`.
 The 21 independent structural T-scores do not sum to 100. Stability explains
 structural robustness and never changes the point scores or ranking.
 
-`scripts/prepare_strict180_model.py` packages the supplied S4 NumPy arrays into the
-checked-in binary asset and Worker metadata, retaining native precision. Normal
+`scripts/prepare_strict180_model.py` packages the supplied S4-RPD60 NumPy arrays into the
+checked-in gzip-compressed binary asset and Worker metadata, retaining native precision.
+The Worker decompresses the asset losslessly into its shared array buffer. Normal
 builds need no Python. To regenerate from the frozen source, install its NumPy
 requirement and run that script, then rerun the tests.
 
-New local drafts/results use `starseed21-v4-*` keys. Old `starseed2-*` answer data
+New local drafts/results use `starseed21-s4rpd-*` keys. Previous S4
+`starseed21-v4-*` records remain untouched; their answers cannot be reused
+with the new questionnaire. Old `starseed2-*` answer data
 remains available for archive export; it cannot be converted into new answers.
 Old v4.4 scoring code/data remain for historical verification, outside the new
 runtime path. Existing civilization asset/route IDs remain stable; 21 and 22 are

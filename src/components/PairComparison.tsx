@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import {ArrowUpRight,ArrowRight,Scale,Layers3,ShieldCheck,ScanLine} from 'lucide-react';
 import {Icon} from '../App';
 import civs from '../data/civilizations.json';
-import copy from '../../starseed_s4_web_handoff_v4_1_min/result_copy.zh-Hant.json';
+import copy from '../../starseed_s4_rpd_web_handoff_v4_1_min/result_copy.zh-Hant.json';
 import {questions} from '../shared/questionnaire';
 import type {ScoringResult,RankingEntry,PairStability} from '../shared/result';
 

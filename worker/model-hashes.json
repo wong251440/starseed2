@@ -1,5 +1,5 @@
 {
-  "model_v4_1_arrays.npz": "79071e1e148264fabe6753ee1e689626f711ff6308d639d7992500212ecfbaf5",
-  "model_v4_1.json": "6643ad2093f537cc85273d2c1ef3e352ce10eb4cb88ce36d5bb3d8623ed3b328",
-  "quiz.zh-Hant.json": "f1d9bdbe58f935cb818df76657980d6be08198a59035f9705da7a40cec609ab3"
+  "model_v4_1_arrays.npz": "da7aea496a1fc2b193111e11269902cce3882500c0dd8af235166380e9fb0fbd",
+  "model_v4_1.json": "11289a98e7f5d284e5cc1dbbabb63c57e4131c2cf189ad2ee074447f872aa6fe",
+  "quiz.zh-Hant.json": "71a9c246bf59a9ed1dc1a2f723fa5369f05dbf8f1b44a063bc64e88514dc0fad"
 }

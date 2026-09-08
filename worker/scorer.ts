@@ -18,7 +18,7 @@ const F = metadata.arrays.jack_Q.shape[0];
 const tieOrder = metadata.lineages.map(lineage => metadata.tie_order.indexOf(lineage.id));
 const modelCache = new WeakMap<ModelAssets, Promise<ScoringModel>>();
 
-/** One native-precision, 20.4 MiB backing buffer; no matrix copies or promotion. */
+/** One native-precision backing buffer; no matrix copies or promotion. */
 export function decodeScoringModel(buffer: ArrayBuffer): ScoringModel {
   if (buffer.byteLength !== metadata.byte_length) throw new Error('Frozen scoring model asset has an invalid length.');
   const arrays: Record<string, NumericArray> = {};
@@ -37,8 +37,9 @@ export function loadScoringModel(assets: ModelAssets): Promise<ScoringModel> {
   if (existing) return existing;
   const loading = (async () => {
     const response = await assets.fetch(new Request(`https://scoring.internal${SCORING_MODEL_ASSET}`));
-    if (!response.ok) throw new Error('Frozen scoring model asset is unavailable.');
-    return decodeScoringModel(await response.arrayBuffer());
+    if (!response.ok || !response.body) throw new Error('Frozen scoring model asset is unavailable.');
+    const decoded = response.body.pipeThrough(new DecompressionStream('gzip'));
+    return decodeScoringModel(await new Response(decoded).arrayBuffer());
   })();
   modelCache.set(assets, loading);
   loading.catch(() => modelCache.delete(assets));
