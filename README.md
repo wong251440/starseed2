@@ -1,9 +1,9 @@
 # Starseed 21
 
-Strict-180 Champion Final 60: 24 bipolar, 19 best-worst, and 17 crossed-priority
+S4 Production Champion Final 60: 28 bipolar, 16 best-worst, and 16 crossed-priority
 questions. Scoring Layer v4 with v4.1 interpretation is frozen in
-`starseed_strict180_web_handoff_v4_1_min/`. The model version is
-`S21-scoring-v4.1-1070e9ad1912`; application version is `2.0.0`.
+`starseed_s4_web_handoff_v4_1_min/`. The model version is
+`S21-scoring-v4.1-s4-f4521622d070`; application version is `2.1.0`.
 
 ## Local Development
 
@@ -33,7 +33,7 @@ All 22 golden fixtures must pass within their absolute tolerance of `2e-6`.
 The 21 independent structural T-scores do not sum to 100. Stability explains
 structural robustness and never changes the point scores or ranking.
 
-`scripts/prepare_strict180_model.py` packages the supplied NumPy arrays into the
+`scripts/prepare_strict180_model.py` packages the supplied S4 NumPy arrays into the
 checked-in binary asset and Worker metadata, retaining native precision. Normal
 builds need no Python. To regenerate from the frozen source, install its NumPy
 requirement and run that script, then rerun the tests.

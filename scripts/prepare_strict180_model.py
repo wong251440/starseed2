@@ -13,12 +13,12 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / 'starseed_strict180_web_handoff_v4_1_min'
+SOURCE = ROOT / 'starseed_s4_web_handoff_v4_1_min'
 spec = importlib.util.spec_from_file_location('frozen_scorer', SOURCE / 'scorer_v4_1.py')
 reference = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(reference)
 model, arrays = reference.load_model()
-asset_path = '/model/strict180-v4.1-1070e9ad1912.bin'
+asset_path = '/model/s4-v4.1-f4521622d070.bin'
 data = bytearray()
 layout = {}
 for name in arrays.files:

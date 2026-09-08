@@ -1,0 +1,4252 @@
+{
+  "model_version": "S21-scoring-v4.1-s4-f4521622d070",
+  "tolerance_abs": 2e-06,
+  "cases": [
+    {
+      "name": "ideal_PL",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 5,
+          "S4-A3-B09": 5,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 5,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 2,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 5,
+          "S4-B3-B07": 3,
+          "S4-B3-B08": 2,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 4,
+          "S4-B3-W31": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-C3-B03": 4,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 5,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-C3-W42": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-C3-W47": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-B01": 1,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 2,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 5,
+          "S4-D3-B15": 5,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 3,
+            "goal": 3
+          }
+        }
+      },
+      "expected_primary": "PL",
+      "expected_runner_up": "VN",
+      "expected_scores": {
+        "PL": 91.16934540366107,
+        "AR": 40.47010896519898,
+        "SI": 31.930913439315745,
+        "AN": 31.183996437208656,
+        "LY": 54.42773553629958,
+        "OR": 39.53908559191868,
+        "MI": 59.03122621509824,
+        "VN": 76.80055657193982,
+        "HA": 73.9245368533085,
+        "PO": 44.29240080764326,
+        "AC": 43.68501201965192,
+        "VE": 52.2675848666956,
+        "FE": 46.16022549897639,
+        "BA": 41.12091359815447,
+        "MA": 58.15690900117931,
+        "ML": 32.03588804149639,
+        "DR": 48.50605691400969,
+        "RE": 39.045665968781705,
+        "ZE": 37.01899484678057,
+        "NU": 43.02397997774543,
+        "GA": 45.13387344108952
+      },
+      "expected_stability": {
+        "index": 99.40499312576961,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_AR",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 5,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 2,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 6,
+          "S4-A3-B30": 5,
+          "S4-A3-W32": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-A3-W35": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 6,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W33": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-B03": 4,
+          "S4-C3-B06": 1,
+          "S4-C3-B08": 2,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 6,
+          "S4-C3-W34": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-C3-W47": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 2,
+          "S4-D3-B13": 2,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 2,
+          "S4-D3-W33": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W57": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-X46": {
+            "operation": 2,
+            "goal": 2
+          }
+        }
+      },
+      "expected_primary": "AR",
+      "expected_runner_up": "NU",
+      "expected_scores": {
+        "PL": 36.25926393367908,
+        "AR": 89.24840994054445,
+        "SI": 49.99124913092983,
+        "AN": 41.75123700320222,
+        "LY": 43.96019554914295,
+        "OR": 45.92310369010661,
+        "MI": 42.23355877146903,
+        "VN": 42.91630301124088,
+        "HA": 32.59098958635742,
+        "PO": 45.58019175091961,
+        "AC": 71.46329645626078,
+        "VE": 35.19230847220255,
+        "FE": 36.197007650575046,
+        "BA": 32.7742785565204,
+        "MA": 61.31950398974738,
+        "ML": 56.58107779067677,
+        "DR": 62.6750916285239,
+        "RE": 38.79872080572464,
+        "ZE": 59.68637796510165,
+        "NU": 75.04160995019231,
+        "GA": 43.000032339118555
+      },
+      "expected_stability": {
+        "index": 99.35075258790054,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_SI",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 1,
+          "S4-A3-B17": 1,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 3,
+          "S4-A3-B30": 5,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W35": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W41": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-A3-X49": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 6,
+          "S4-B3-B26": 3,
+          "S4-B3-B27": 3,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W37": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W44": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 1,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 6,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W42": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-B01": 5,
+          "S4-D3-B03": 3,
+          "S4-D3-B08": 6,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-X44": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-D3-X45": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 2,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "SI",
+      "expected_runner_up": "RE",
+      "expected_scores": {
+        "PL": 33.95825808943384,
+        "AR": 51.58716505737152,
+        "SI": 90.12847868845398,
+        "AN": 48.99652950710071,
+        "LY": 49.527519486200475,
+        "OR": 41.90922549476106,
+        "MI": 39.014436823720885,
+        "VN": 26.82402868164251,
+        "HA": 51.31544696400228,
+        "PO": 56.1476836193637,
+        "AC": 40.794408745749124,
+        "VE": 45.362601017845265,
+        "FE": 54.508671694298435,
+        "BA": 38.32208346507072,
+        "MA": 46.50263921890899,
+        "ML": 66.36802431822863,
+        "DR": 40.7359951104227,
+        "RE": 72.14899475731839,
+        "ZE": 52.27530397683922,
+        "NU": 62.512561179049015,
+        "GA": 47.80986582470264
+      },
+      "expected_stability": {
+        "index": 99.93031134437167,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_AN",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 3,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 6,
+          "S4-A3-B20": 2,
+          "S4-A3-B25": 3,
+          "S4-A3-B30": 6,
+          "S4-A3-W32": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-A3-W35": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W41": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-A3-X59": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-B06": 2,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 4,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-X52": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-B3-X53": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 4,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 3,
+          "S4-C3-B13": 6,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 1,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-W42": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X54": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-D3-B01": 5,
+          "S4-D3-B03": 3,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 3,
+          "S4-D3-B16": 6,
+          "S4-D3-B29": 3,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-W57": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "AN",
+      "expected_runner_up": "BA",
+      "expected_scores": {
+        "PL": 33.84538500965259,
+        "AR": 41.71835331619647,
+        "SI": 54.18321393467275,
+        "AN": 89.23850042683996,
+        "LY": 60.814016002281576,
+        "OR": 53.72618473514176,
+        "MI": 59.25257043532575,
+        "VN": 32.7881642668973,
+        "HA": 47.70775379852718,
+        "PO": 52.09337070425594,
+        "AC": 35.32007866172476,
+        "VE": 56.96459912298782,
+        "FE": 70.05212846476832,
+        "BA": 70.51370430182482,
+        "MA": 44.20995611052565,
+        "ML": 49.51753604827854,
+        "DR": 49.94802097009146,
+        "RE": 61.98102209842685,
+        "ZE": 42.917001458506284,
+        "NU": 34.15777551797571,
+        "GA": 29.243947217638414
+      },
+      "expected_stability": {
+        "index": 99.95291687628661,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_LY",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 1,
+          "S4-A3-B09": 5,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 5,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W35": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 6,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 1,
+          "S4-B3-B27": 3,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-X58": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 1,
+          "S4-C3-B13": 1,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 3,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W42": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-C3-W47": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 1,
+          "S4-D3-B16": 1,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 2
+          }
+        }
+      },
+      "expected_primary": "LY",
+      "expected_runner_up": "MA",
+      "expected_scores": {
+        "PL": 45.457206777730235,
+        "AR": 53.639714203730236,
+        "SI": 43.14776818410574,
+        "AN": 57.000740726373486,
+        "LY": 90.09580700018924,
+        "OR": 38.91601865861584,
+        "MI": 67.82365627565893,
+        "VN": 33.737158425444036,
+        "HA": 50.294623074328356,
+        "PO": 30.389062294896497,
+        "AC": 48.89852645963113,
+        "VE": 59.11913518569327,
+        "FE": 63.01509196032928,
+        "BA": 41.46798650272403,
+        "MA": 78.91976317379064,
+        "ML": 32.62409419957997,
+        "DR": 56.6571563848254,
+        "RE": 48.9425569195812,
+        "ZE": 42.919646827553336,
+        "NU": 46.76045852926261,
+        "GA": 30.628734257504192
+      },
+      "expected_stability": {
+        "index": 97.28079586409153,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_OR",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 3,
+          "S4-A3-B17": 5,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 3,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 5,
+          "S4-A3-W32": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W35": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W41": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-A3-X58": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 3,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 4,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W44": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-B3-X53": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 4,
+          "S4-C3-B06": 7,
+          "S4-C3-B08": 2,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 5,
+          "S4-C3-B26": 7,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 2,
+          "S4-D3-B13": 2,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 2,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "OR",
+      "expected_runner_up": "BA",
+      "expected_scores": {
+        "PL": 42.88202394930955,
+        "AR": 51.7177813469322,
+        "SI": 49.53064166215664,
+        "AN": 54.90118980589861,
+        "LY": 56.84199521385907,
+        "OR": 87.37014317325225,
+        "MI": 60.496139486091664,
+        "VN": 31.70720235055182,
+        "HA": 50.23224645038371,
+        "PO": 36.013391328918885,
+        "AC": 34.774808762202575,
+        "VE": 68.51492027760112,
+        "FE": 55.35135183193714,
+        "BA": 72.56602670352208,
+        "MA": 47.04220457436256,
+        "ML": 55.43416566043909,
+        "DR": 34.068549790501876,
+        "RE": 50.71937038133251,
+        "ZE": 67.71959181367755,
+        "NU": 29.89749982012708,
+        "GA": 31.917507897406427
+      },
+      "expected_stability": {
+        "index": 99.53900193437053,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_MI",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 1,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-B3-B06": 1,
+          "S4-B3-B07": 6,
+          "S4-B3-B08": 3,
+          "S4-B3-B26": 2,
+          "S4-B3-B27": 3,
+          "S4-B3-W31": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-X52": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-B3-X58": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 2,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-C3-W47": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-D3-B01": 3,
+          "S4-D3-B03": 5,
+          "S4-D3-B08": 3,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 2,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-D3-X46": {
+            "operation": 3,
+            "goal": 3
+          }
+        }
+      },
+      "expected_primary": "MI",
+      "expected_runner_up": "VE",
+      "expected_scores": {
+        "PL": 61.74040536346281,
+        "AR": 39.50236791326307,
+        "SI": 39.77514320807032,
+        "AN": 53.44249589809567,
+        "LY": 72.2079127743627,
+        "OR": 44.34162765418301,
+        "MI": 92.04296652213043,
+        "VN": 50.61537277368852,
+        "HA": 57.742969593748086,
+        "PO": 32.976910149862064,
+        "AC": 37.69719213952345,
+        "VE": 72.47569818297941,
+        "FE": 55.05150947244691,
+        "BA": 63.22473856938122,
+        "MA": 61.07512616649318,
+        "ML": 32.4931284083393,
+        "DR": 37.30326658978699,
+        "RE": 43.6123114142281,
+        "ZE": 38.20592121118638,
+        "NU": 37.37308487193566,
+        "GA": 34.44456971805731
+      },
+      "expected_stability": {
+        "index": 99.96117692574676,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_VN",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 6,
+          "S4-A3-B09": 5,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 7,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 1,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 7,
+          "S4-B3-B07": 1,
+          "S4-B3-B08": 1,
+          "S4-B3-B26": 6,
+          "S4-B3-B27": 5,
+          "S4-B3-W31": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-B3-W33": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-B3-W42": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-C3-B03": 7,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 6,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-C3-W42": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-C3-W47": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-B01": 3,
+          "S4-D3-B03": 7,
+          "S4-D3-B08": 1,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 6,
+          "S4-D3-B15": 6,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 5,
+          "S4-D3-W33": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 3,
+            "goal": 3
+          }
+        }
+      },
+      "expected_primary": "VN",
+      "expected_runner_up": "PL",
+      "expected_scores": {
+        "PL": 77.52431105263,
+        "AR": 45.39402094489405,
+        "SI": 28.01042177796451,
+        "AN": 31.84722041761454,
+        "LY": 37.41873387989176,
+        "OR": 37.629366639573874,
+        "MI": 47.784380522311125,
+        "VN": 92.30214462999174,
+        "HA": 57.31241367317346,
+        "PO": 57.84443323438892,
+        "AC": 54.52812408084233,
+        "VE": 45.38793383342079,
+        "FE": 42.0187665027942,
+        "BA": 37.76496976823596,
+        "MA": 46.987050729880984,
+        "ML": 38.31767699257521,
+        "DR": 60.10031708569137,
+        "RE": 34.03753687440087,
+        "ZE": 36.917091758947386,
+        "NU": 55.328506778116726,
+        "GA": 57.393073654896966
+      },
+      "expected_stability": {
+        "index": 99.53160347854838,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_HA",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 3,
+          "S4-A3-B30": 3,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 3,
+          "S4-B3-B08": 2,
+          "S4-B3-B26": 2,
+          "S4-B3-B27": 2,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-B03": 1,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 6,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-C3-W42": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-B01": 5,
+          "S4-D3-B03": 1,
+          "S4-D3-B08": 2,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 6,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 3
+          }
+        }
+      },
+      "expected_primary": "HA",
+      "expected_runner_up": "PL",
+      "expected_scores": {
+        "PL": 71.38906171767398,
+        "AR": 33.676609843876115,
+        "SI": 42.51785166088797,
+        "AN": 45.73625946153466,
+        "LY": 53.465507002508566,
+        "OR": 44.155165839551245,
+        "MI": 50.408911707139424,
+        "VN": 57.54592859147751,
+        "HA": 90.58746601116961,
+        "PO": 54.46865270769424,
+        "AC": 34.598150828713656,
+        "VE": 53.7967271072893,
+        "FE": 61.83595438859104,
+        "BA": 51.13630450767383,
+        "MA": 52.77495382833858,
+        "ML": 32.68199575126614,
+        "DR": 50.45328454289109,
+        "RE": 57.566687444844256,
+        "ZE": 36.49937599344205,
+        "NU": 33.04661066699818,
+        "GA": 33.68282412214961
+      },
+      "expected_stability": {
+        "index": 99.95756038479733,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_PO",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 1,
+          "S4-A3-B30": 3,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-A3-W41": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X54": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 2,
+          "S4-B3-B08": 3,
+          "S4-B3-B26": 6,
+          "S4-B3-B27": 3,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W33": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W44": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-B03": 5,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 5,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 5,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 3,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W42": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X54": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-D3-B01": 5,
+          "S4-D3-B03": 3,
+          "S4-D3-B08": 3,
+          "S4-D3-B11": 5,
+          "S4-D3-B13": 5,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 5,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-W57": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-X44": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-D3-X45": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "PO",
+      "expected_runner_up": "RE",
+      "expected_scores": {
+        "PL": 47.53484486370855,
+        "AR": 35.12464055687799,
+        "SI": 59.42080563016407,
+        "AN": 42.977181683652006,
+        "LY": 26.68200839378258,
+        "OR": 38.58802620991203,
+        "MI": 27.738628467375882,
+        "VN": 59.04199833100394,
+        "HA": 58.32630913170547,
+        "PO": 91.4072595614381,
+        "AC": 54.45278997434886,
+        "VE": 31.173000817358773,
+        "FE": 45.80431550918932,
+        "BA": 38.908766972827095,
+        "MA": 33.34156290100702,
+        "ML": 63.10210385815996,
+        "DR": 58.2271787287792,
+        "RE": 76.58076793035072,
+        "ZE": 36.56421058173104,
+        "NU": 52.04403294548076,
+        "GA": 61.534521275201605
+      },
+      "expected_stability": {
+        "index": 99.54530039043443,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_AC",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 6,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 1,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 6,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W35": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-A3-W41": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 3,
+          "S4-B3-B08": 3,
+          "S4-B3-B26": 5,
+          "S4-B3-B27": 6,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W33": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 5,
+          "S4-C3-B06": 2,
+          "S4-C3-B08": 6,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 2,
+          "S4-C3-W34": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-C3-X49": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 3,
+          "S4-D3-B11": 6,
+          "S4-D3-B13": 5,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 3,
+          "S4-D3-W33": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W57": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-D3-X44": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 2,
+            "goal": 2
+          }
+        }
+      },
+      "expected_primary": "AC",
+      "expected_runner_up": "NU",
+      "expected_scores": {
+        "PL": 41.11289935873106,
+        "AR": 67.06241559529329,
+        "SI": 42.18574425502689,
+        "AN": 40.84335125210613,
+        "LY": 36.50493653797482,
+        "OR": 34.58676764007114,
+        "MI": 34.84045520055553,
+        "VN": 50.6868945341414,
+        "HA": 36.28657173159964,
+        "PO": 58.16566861701277,
+        "AC": 89.96141995854725,
+        "VE": 30.290756982108267,
+        "FE": 35.59796772926799,
+        "BA": 33.574404290238675,
+        "MA": 61.562244136943136,
+        "ML": 43.491760326772,
+        "DR": 73.43160377928949,
+        "RE": 42.51699744184346,
+        "ZE": 53.22202152274056,
+        "NU": 74.64785190092294,
+        "GA": 56.47693731504189
+      },
+      "expected_stability": {
+        "index": 99.64730907327498,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_VE",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 7,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 6,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X50": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-A3-X59": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-B06": 6,
+          "S4-B3-B07": 7,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 2,
+          "S4-B3-B27": 2,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-B3-W44": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-X52": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-B3-X53": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-X58": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 5,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 7,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 5,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W42": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 5,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 7,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 5,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-D3-X46": {
+            "operation": 3,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "VE",
+      "expected_runner_up": "MI",
+      "expected_scores": {
+        "PL": 50.96512393164709,
+        "AR": 31.96440699172468,
+        "SI": 43.178801244546015,
+        "AN": 54.2425925288081,
+        "LY": 60.08790970330888,
+        "OR": 62.02006124552705,
+        "MI": 73.13093224312027,
+        "VN": 48.72318842268317,
+        "HA": 54.6823197022796,
+        "PO": 35.367453454623984,
+        "AC": 28.94811951414874,
+        "VE": 92.02321868575717,
+        "FE": 72.68650017069643,
+        "BA": 70.13390081662548,
+        "MA": 47.111222113310404,
+        "ML": 35.41028923277383,
+        "DR": 34.82029982864899,
+        "RE": 51.16005920792053,
+        "ZE": 49.730833603507506,
+        "NU": 28.801630561560813,
+        "GA": 41.50175148111555
+      },
+      "expected_stability": {
+        "index": 99.95455904119656,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_FE",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 6,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 6,
+          "S4-A3-B20": 6,
+          "S4-A3-B25": 3,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-B06": 6,
+          "S4-B3-B07": 6,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 3,
+          "S4-B3-B27": 2,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 6,
+          "S4-C3-B13": 7,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 3,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W42": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-B01": 5,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 6,
+          "S4-D3-B16": 7,
+          "S4-D3-B29": 5,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "FE",
+      "expected_runner_up": "VE",
+      "expected_scores": {
+        "PL": 49.47107896020027,
+        "AR": 31.44905699144966,
+        "SI": 48.35395016880998,
+        "AN": 66.996201410358,
+        "LY": 62.073382111577345,
+        "OR": 41.780433487114195,
+        "MI": 57.43416433062031,
+        "VN": 45.12382795124381,
+        "HA": 65.4729842435667,
+        "PO": 48.548415697112574,
+        "AC": 28.950561092831595,
+        "VE": 76.31279509496198,
+        "FE": 91.82377922694235,
+        "BA": 49.93844725682602,
+        "MA": 45.91169449390767,
+        "ML": 36.04196379230768,
+        "DR": 50.51285337585006,
+        "RE": 66.2692759115979,
+        "ZE": 32.963001378721714,
+        "NU": 30.70468049686584,
+        "GA": 34.93047185152562
+      },
+      "expected_stability": {
+        "index": 99.67973156313376,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_BA",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 3,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 1,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 5,
+          "S4-A3-W32": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-A3-W35": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W41": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-A3-X59": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-B06": 1,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 3,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 4,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-B3-X52": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-B3-X53": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 5,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 5,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 6,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X54": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 3,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 3,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 5,
+          "S4-D3-B29": 3,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 3
+          }
+        }
+      },
+      "expected_primary": "BA",
+      "expected_runner_up": "OR",
+      "expected_scores": {
+        "PL": 53.06462959186446,
+        "AR": 36.733549249791814,
+        "SI": 43.90673609524925,
+        "AN": 65.57882844648387,
+        "LY": 53.34601992394733,
+        "OR": 72.1315496484728,
+        "MI": 65.7264647512624,
+        "VN": 44.93955147097402,
+        "HA": 66.5652715462042,
+        "PO": 39.781943552235674,
+        "AC": 28.265580894527595,
+        "VE": 70.48136004336482,
+        "FE": 58.747547050365945,
+        "BA": 91.26487741499561,
+        "MA": 41.105863143240725,
+        "ML": 40.39161230289501,
+        "DR": 35.450841356858234,
+        "RE": 47.38921578767226,
+        "ZE": 56.4196348326488,
+        "NU": 26.952323025403498,
+        "GA": 26.7904457205888
+      },
+      "expected_stability": {
+        "index": 99.9569223396221,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_MA",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 2,
+          "S4-A3-B09": 6,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 1,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 5,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W35": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 5,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 2,
+          "S4-B3-B27": 5,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-X58": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 2,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 2,
+          "S4-C3-B13": 2,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-C3-W42": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-C3-W47": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X52": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 5,
+          "S4-D3-B15": 2,
+          "S4-D3-B16": 2,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 2
+          }
+        }
+      },
+      "expected_primary": "MA",
+      "expected_runner_up": "LY",
+      "expected_scores": {
+        "PL": 44.21536166113889,
+        "AR": 69.2094193594677,
+        "SI": 43.17066053229541,
+        "AN": 39.28705865660707,
+        "LY": 76.2028701355549,
+        "OR": 36.43250660045401,
+        "MI": 59.40438374883681,
+        "VN": 35.153257814785505,
+        "HA": 45.4883986495757,
+        "PO": 30.888108712850666,
+        "AC": 65.94288071822443,
+        "VE": 48.64745048341538,
+        "FE": 44.54725090272959,
+        "BA": 34.155076140297226,
+        "MA": 91.34610212135638,
+        "ML": 32.26083700826946,
+        "DR": 67.21682432791562,
+        "RE": 40.98440103885741,
+        "ZE": 50.14728825632899,
+        "NU": 60.194376136056405,
+        "GA": 36.78687438915861
+      },
+      "expected_stability": {
+        "index": 99.60686227290579,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_ML",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 1,
+          "S4-A3-B17": 6,
+          "S4-A3-B18": 4,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 3,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W35": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W41": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 3,
+          "S4-B3-B08": 5,
+          "S4-B3-B26": 5,
+          "S4-B3-B27": 3,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W33": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W44": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 5,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 2,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 6,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 3,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-X49": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 5,
+          "S4-D3-B11": 2,
+          "S4-D3-B13": 3,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 1,
+          "S4-D3-W33": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W57": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 2,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "ML",
+      "expected_runner_up": "PO",
+      "expected_scores": {
+        "PL": 35.601784552419566,
+        "AR": 59.16286214354006,
+        "SI": 66.13890595620322,
+        "AN": 46.45257123898472,
+        "LY": 29.81611306503068,
+        "OR": 59.24984782700098,
+        "MI": 33.917192312774375,
+        "VN": 44.03832813003247,
+        "HA": 38.30692297807293,
+        "PO": 72.92177467488179,
+        "AC": 52.241056156096434,
+        "VE": 35.37037722841702,
+        "FE": 40.19705953360047,
+        "BA": 41.020722429934736,
+        "MA": 31.047032599959937,
+        "ML": 90.12040979815185,
+        "DR": 43.741761137105314,
+        "RE": 68.94959591096968,
+        "ZE": 47.147894818379335,
+        "NU": 52.24356700318583,
+        "GA": 60.58813770825695
+      },
+      "expected_stability": {
+        "index": 99.89409078844274,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_DR",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 7,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 2,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 5,
+          "S4-A3-B30": 3,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W35": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 3,
+          "S4-B3-B08": 3,
+          "S4-B3-B26": 7,
+          "S4-B3-B27": 5,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W33": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W44": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 5,
+          "S4-C3-B06": 3,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 6,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 3,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W42": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W47": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X52": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-B01": 5,
+          "S4-D3-B03": 3,
+          "S4-D3-B08": 3,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 6,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 6,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W57": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-X45": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 2
+          }
+        }
+      },
+      "expected_primary": "DR",
+      "expected_runner_up": "AC",
+      "expected_scores": {
+        "PL": 37.03711862998131,
+        "AR": 65.39409400391284,
+        "SI": 38.27670954929367,
+        "AN": 58.08996678411206,
+        "LY": 46.27010437824123,
+        "OR": 31.244021903465804,
+        "MI": 30.148964424885754,
+        "VN": 47.12799517883453,
+        "HA": 43.107159740911946,
+        "PO": 56.12325643580306,
+        "AC": 71.71458345575857,
+        "VE": 32.32850488366706,
+        "FE": 54.8152959134772,
+        "BA": 38.16250056481591,
+        "MA": 68.70650681685086,
+        "ML": 36.4618247788623,
+        "DR": 91.53688769082407,
+        "RE": 47.5472017086167,
+        "ZE": 41.28093809626881,
+        "NU": 66.52540208735718,
+        "GA": 40.99389557693392
+      },
+      "expected_stability": {
+        "index": 99.96367743446267,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_RE",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 3,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 5,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 1,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W35": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 5,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 1,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-B3-W33": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W37": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W44": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 3,
+          "S4-C3-B06": 4,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 6,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 3,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W42": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-C3-X51": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-C3-X52": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-B01": 5,
+          "S4-D3-B03": 3,
+          "S4-D3-B08": 5,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 5,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 6,
+          "S4-D3-B29": 4,
+          "S4-D3-W33": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-W39": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-X45": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-D3-X46": {
+            "operation": 1,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "RE",
+      "expected_runner_up": "SI",
+      "expected_scores": {
+        "PL": 36.84994401706264,
+        "AR": 30.650675599799825,
+        "SI": 72.06726170183373,
+        "AN": 59.04276074567161,
+        "LY": 50.137067084019606,
+        "OR": 41.8531066543834,
+        "MI": 36.91315230688643,
+        "VN": 30.71081467584421,
+        "HA": 58.07418976886738,
+        "PO": 71.47073431919512,
+        "AC": 36.20830898080609,
+        "VE": 50.07960988254723,
+        "FE": 70.30787548840645,
+        "BA": 44.404412855388536,
+        "MA": 42.779075835516146,
+        "ML": 66.51047132441408,
+        "DR": 50.76434357878541,
+        "RE": 91.1033583501997,
+        "ZE": 31.3710923112242,
+        "NU": 37.958386402090134,
+        "GA": 51.46702093589378
+      },
+      "expected_stability": {
+        "index": 99.9559690335883,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_ZE",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 3,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 6,
+          "S4-A3-B30": 5,
+          "S4-A3-W32": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-A3-W35": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-W41": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-A3-X49": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 5,
+          "S4-B3-W31": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-B3-W33": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-B3-W37": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W44": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 4,
+          "S4-C3-B06": 5,
+          "S4-C3-B08": 7,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 5,
+          "S4-C3-B28": 6,
+          "S4-C3-W34": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 7,
+          "S4-D3-B13": 3,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 2,
+          "S4-D3-W33": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-W41": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-D3-W57": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-D3-X44": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 2,
+            "goal": 2
+          }
+        }
+      },
+      "expected_primary": "ZE",
+      "expected_runner_up": "OR",
+      "expected_scores": {
+        "PL": 42.931922587508346,
+        "AR": 65.7087272415851,
+        "SI": 52.226765763249915,
+        "AN": 43.62874073547822,
+        "LY": 47.47010433118055,
+        "OR": 72.10307617853358,
+        "MI": 45.66538467505293,
+        "VN": 34.807375452575016,
+        "HA": 45.537002545285425,
+        "PO": 35.03008332719517,
+        "AC": 57.01749478027687,
+        "VE": 51.86932714641497,
+        "FE": 43.12450978207336,
+        "BA": 55.126468952915964,
+        "MA": 52.94512545523243,
+        "ML": 45.10189420189869,
+        "DR": 44.0541278028439,
+        "RE": 38.86582786354282,
+        "ZE": 90.93053274138053,
+        "NU": 59.28464626750599,
+        "GA": 34.73799148593106
+      },
+      "expected_stability": {
+        "index": 99.95392341428261,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_NU",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 4,
+          "S4-A3-B09": 5,
+          "S4-A3-B17": 1,
+          "S4-A3-B18": 2,
+          "S4-A3-B20": 4,
+          "S4-A3-B25": 7,
+          "S4-A3-B30": 4,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W35": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-A3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 3,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-B06": 4,
+          "S4-B3-B07": 3,
+          "S4-B3-B08": 4,
+          "S4-B3-B26": 6,
+          "S4-B3-B27": 7,
+          "S4-B3-W31": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W33": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W44": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-B03": 5,
+          "S4-C3-B06": 3,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 4,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 1,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 7,
+          "S4-C3-W34": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-B01": 4,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 4,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 7,
+          "S4-D3-B15": 4,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 3,
+          "S4-D3-W33": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W57": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-D3-X44": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 2,
+            "goal": 2
+          }
+        }
+      },
+      "expected_primary": "NU",
+      "expected_runner_up": "AC",
+      "expected_scores": {
+        "PL": 37.63012078375976,
+        "AR": 76.91862899830278,
+        "SI": 54.68591640139798,
+        "AN": 39.781241753346926,
+        "LY": 34.85377562830085,
+        "OR": 31.496844301324163,
+        "MI": 31.881587176730548,
+        "VN": 49.004889243133235,
+        "HA": 32.447893704080485,
+        "PO": 52.97855256202157,
+        "AC": 80.17793623747546,
+        "VE": 27.862147522713844,
+        "FE": 34.36282788638627,
+        "BA": 29.725290493461713,
+        "MA": 59.2246482691291,
+        "ML": 45.77491833295346,
+        "DR": 72.28734154242343,
+        "RE": 39.123439544284494,
+        "ZE": 61.083733750787715,
+        "NU": 92.22098978252018,
+        "GA": 52.1872271496497
+      },
+      "expected_stability": {
+        "index": 98.18825056080003,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "ideal_GA",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 5,
+          "S4-A3-B09": 4,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 3,
+          "S4-A3-B20": 6,
+          "S4-A3-B25": 4,
+          "S4-A3-B30": 3,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-A3-W35": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-A3-W41": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-A3-X49": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X50": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-A3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-B06": 6,
+          "S4-B3-B07": 4,
+          "S4-B3-B08": 6,
+          "S4-B3-B26": 4,
+          "S4-B3-B27": 4,
+          "S4-B3-W31": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-W33": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-B3-W37": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-W42": {
+            "best": "B",
+            "worst": "D"
+          },
+          "S4-B3-W44": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-X49": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-X52": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 2,
+            "goal": 1
+          },
+          "S4-B3-X58": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-C3-B03": 5,
+          "S4-C3-B06": 3,
+          "S4-C3-B08": 4,
+          "S4-C3-B12": 5,
+          "S4-C3-B13": 4,
+          "S4-C3-B20": 4,
+          "S4-C3-B26": 4,
+          "S4-C3-B28": 2,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-C3-W38": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-C3-W42": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-C3-W47": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-C3-X49": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-C3-X52": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-B01": 3,
+          "S4-D3-B03": 5,
+          "S4-D3-B08": 6,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 4,
+          "S4-D3-B15": 5,
+          "S4-D3-B16": 4,
+          "S4-D3-B29": 7,
+          "S4-D3-W33": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-D3-W41": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-D3-W57": {
+            "best": "B",
+            "worst": "A"
+          },
+          "S4-D3-X44": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-D3-X45": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 3,
+            "goal": 1
+          }
+        }
+      },
+      "expected_primary": "GA",
+      "expected_runner_up": "AC",
+      "expected_scores": {
+        "PL": 54.65440641192572,
+        "AR": 55.42560830249318,
+        "SI": 50.336636800291494,
+        "AN": 30.492957240381156,
+        "LY": 28.958825683653657,
+        "OR": 35.01027715088196,
+        "MI": 33.17748676465402,
+        "VN": 65.59836084851682,
+        "HA": 40.263425065824265,
+        "PO": 64.42341249828516,
+        "AC": 71.81260151720703,
+        "VE": 36.378598019503414,
+        "FE": 35.98744049123713,
+        "BA": 27.292758757746146,
+        "MA": 46.88633315457333,
+        "ML": 61.40306911143689,
+        "DR": 55.76501519254007,
+        "RE": 53.20322689890336,
+        "ZE": 37.05225500586085,
+        "NU": 60.749068302231464,
+        "GA": 86.5349856537837
+      },
+      "expected_stability": {
+        "index": 99.5159948372976,
+        "label": "very_high",
+        "all_variants_preserve_primary": true
+      }
+    },
+    {
+      "name": "deterministic_mixed",
+      "input": {
+        "responses": {
+          "S4-A3-B06": 3,
+          "S4-A3-B09": 3,
+          "S4-A3-B17": 4,
+          "S4-A3-B18": 2,
+          "S4-A3-B20": 5,
+          "S4-A3-B25": 2,
+          "S4-A3-B30": 1,
+          "S4-A3-W32": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-A3-W35": {
+            "best": "A",
+            "worst": "D"
+          },
+          "S4-A3-W41": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-A3-X49": {
+            "operation": 2,
+            "goal": 2
+          },
+          "S4-A3-X50": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X54": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-A3-X58": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-A3-X59": {
+            "operation": 1,
+            "goal": 1
+          },
+          "S4-B3-B06": 2,
+          "S4-B3-B07": 3,
+          "S4-B3-B08": 2,
+          "S4-B3-B26": 7,
+          "S4-B3-B27": 3,
+          "S4-B3-W31": {
+            "best": "A",
+            "worst": "C"
+          },
+          "S4-B3-W33": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-B3-W37": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W42": {
+            "best": "D",
+            "worst": "A"
+          },
+          "S4-B3-W44": {
+            "best": "A",
+            "worst": "B"
+          },
+          "S4-B3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-X52": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-B3-X53": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-B3-X58": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-B03": 4,
+          "S4-C3-B06": 3,
+          "S4-C3-B08": 3,
+          "S4-C3-B12": 5,
+          "S4-C3-B13": 2,
+          "S4-C3-B20": 2,
+          "S4-C3-B26": 3,
+          "S4-C3-B28": 4,
+          "S4-C3-W34": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-W38": {
+            "best": "C",
+            "worst": "D"
+          },
+          "S4-C3-W42": {
+            "best": "D",
+            "worst": "B"
+          },
+          "S4-C3-W47": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-C3-X49": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-C3-X51": {
+            "operation": 1,
+            "goal": 3
+          },
+          "S4-C3-X52": {
+            "operation": 2,
+            "goal": 3
+          },
+          "S4-C3-X54": {
+            "operation": 1,
+            "goal": 2
+          },
+          "S4-D3-B01": 6,
+          "S4-D3-B03": 4,
+          "S4-D3-B08": 2,
+          "S4-D3-B11": 4,
+          "S4-D3-B13": 6,
+          "S4-D3-B15": 7,
+          "S4-D3-B16": 6,
+          "S4-D3-B29": 5,
+          "S4-D3-W33": {
+            "best": "C",
+            "worst": "B"
+          },
+          "S4-D3-W39": {
+            "best": "D",
+            "worst": "C"
+          },
+          "S4-D3-W41": {
+            "best": "B",
+            "worst": "C"
+          },
+          "S4-D3-W57": {
+            "best": "C",
+            "worst": "A"
+          },
+          "S4-D3-X44": {
+            "operation": 3,
+            "goal": 2
+          },
+          "S4-D3-X45": {
+            "operation": 3,
+            "goal": 1
+          },
+          "S4-D3-X46": {
+            "operation": 2,
+            "goal": 3
+          }
+        }
+      },
+      "expected_primary": "HA",
+      "expected_runner_up": "PO",
+      "expected_scores": {
+        "PL": 61.48733066000261,
+        "AR": 44.15303923669455,
+        "SI": 56.79544900417698,
+        "AN": 37.03107359001244,
+        "LY": 46.44806501170707,
+        "OR": 23.269489989114895,
+        "MI": 57.593283061264046,
+        "VN": 57.413444697536356,
+        "HA": 65.55501140967922,
+        "PO": 63.241766910999,
+        "AC": 46.710415967136825,
+        "VE": 44.39959783721616,
+        "FE": 49.75238849157005,
+        "BA": 37.90392815826493,
+        "MA": 53.74931467495919,
+        "ML": 39.438742887207624,
+        "DR": 58.896469896585984,
+        "RE": 59.49644206083555,
+        "ZE": 29.196490802935017,
+        "NU": 62.306860674803964,
+        "GA": 41.871486363131886
+      },
+      "expected_stability": {
+        "index": 42.654023843647096,
+        "label": "sensitive",
+        "all_variants_preserve_primary": false
+      }
+    }
+  ]
+}

@@ -1,172 +1,160 @@
 {
   "responses": {
-    "A2-B04": 7,
-    "C2-B07": 5,
-    "C2-B23": 4,
-    "B2-Q02": 1,
-    "A2-B03": 4,
-    "B2-Q08": 5,
-    "B2-Q22": 4,
-    "B2-Q17": 5,
-    "C2-B15": 4,
-    "B2-Q05": 5,
-    "B2-Q27": 4,
-    "B2-Q26": 4,
-    "A2-B15": 5,
-    "A2-B01": 1,
-    "A2-B10": 6,
-    "C2-B02": 1,
-    "A2-B26": 4,
-    "A2-B07": 4,
-    "B2-Q03": 4,
-    "A2-B13": 4,
-    "A2-B28": 4,
-    "C2-B27": 4,
-    "C2-B11": 4,
-    "C2-B19": 4,
-    "A2-W08": {
-      "best": "D",
-      "worst": "C"
-    },
-    "C2-W02": {
-      "best": "B",
-      "worst": "C"
-    },
-    "B2-Q31": {
-      "best": "A",
-      "worst": "D"
-    },
-    "A2-W01": {
-      "best": "B",
-      "worst": "C"
-    },
-    "C2-W12": {
+    "S4-A3-B06": 5,
+    "S4-A3-B09": 5,
+    "S4-A3-B17": 4,
+    "S4-A3-B18": 4,
+    "S4-A3-B20": 5,
+    "S4-A3-B25": 4,
+    "S4-A3-B30": 2,
+    "S4-A3-W32": {
       "best": "D",
       "worst": "A"
     },
-    "B2-Q34": {
-      "best": "D",
-      "worst": "A"
-    },
-    "A2-W17": {
-      "best": "D",
-      "worst": "B"
-    },
-    "B2-Q36": {
-      "best": "D",
-      "worst": "A"
-    },
-    "A2-W10": {
-      "best": "A",
-      "worst": "B"
-    },
-    "B2-Q37": {
+    "S4-A3-W35": {
       "best": "C",
-      "worst": "A"
+      "worst": "D"
     },
-    "C2-W05": {
+    "S4-A3-W41": {
       "best": "D",
       "worst": "A"
     },
-    "C2-W18": {
-      "best": "D",
-      "worst": "A"
+    "S4-A3-X49": {
+      "operation": 1,
+      "goal": 1
     },
-    "A2-W03": {
-      "best": "D",
-      "worst": "A"
+    "S4-A3-X50": {
+      "operation": 2,
+      "goal": 2
     },
-    "B2-Q33": {
-      "best": "D",
-      "worst": "A"
+    "S4-A3-X54": {
+      "operation": 1,
+      "goal": 1
     },
-    "C2-W01": {
+    "S4-A3-X58": {
+      "operation": 1,
+      "goal": 1
+    },
+    "S4-A3-X59": {
+      "operation": 1,
+      "goal": 1
+    },
+    "S4-B3-B06": 5,
+    "S4-B3-B07": 3,
+    "S4-B3-B08": 2,
+    "S4-B3-B26": 4,
+    "S4-B3-B27": 4,
+    "S4-B3-W31": {
       "best": "A",
       "worst": "D"
     },
-    "A2-W07": {
+    "S4-B3-W33": {
       "best": "D",
       "worst": "A"
     },
-    "C2-W14": {
-      "best": "A",
+    "S4-B3-W37": {
+      "best": "D",
       "worst": "B"
     },
-    "B2-Q46": {
+    "S4-B3-W42": {
+      "best": "D",
+      "worst": "B"
+    },
+    "S4-B3-W44": {
       "best": "D",
       "worst": "A"
     },
-    "B2-Q43": {
+    "S4-B3-X49": {
+      "operation": 2,
+      "goal": 2
+    },
+    "S4-B3-X52": {
+      "operation": 1,
+      "goal": 1
+    },
+    "S4-B3-X53": {
+      "operation": 2,
+      "goal": 1
+    },
+    "S4-B3-X58": {
+      "operation": 2,
+      "goal": 3
+    },
+    "S4-C3-B03": 4,
+    "S4-C3-B06": 4,
+    "S4-C3-B08": 4,
+    "S4-C3-B12": 5,
+    "S4-C3-B13": 4,
+    "S4-C3-B20": 4,
+    "S4-C3-B26": 4,
+    "S4-C3-B28": 4,
+    "S4-C3-W34": {
+      "best": "C",
+      "worst": "D"
+    },
+    "S4-C3-W38": {
       "best": "A",
       "worst": "C"
     },
-    "A2-C07": {
-      "operation": 1,
-      "goal": 1
+    "S4-C3-W42": {
+      "best": "B",
+      "worst": "C"
     },
-    "C2-X11": {
-      "operation": 1,
-      "goal": 1
+    "S4-C3-W47": {
+      "best": "D",
+      "worst": "A"
     },
-    "B2-Q58": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B2-Q49": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B2-Q52": {
-      "operation": 1,
-      "goal": 1
-    },
-    "A2-C04": {
-      "operation": 1,
-      "goal": 1
-    },
-    "C2-X09": {
+    "S4-C3-X49": {
       "operation": 1,
       "goal": 3
     },
-    "A2-C03": {
+    "S4-C3-X51": {
       "operation": 1,
       "goal": 1
     },
-    "C2-X05": {
-      "operation": 1,
-      "goal": 3
-    },
-    "C2-X07": {
-      "operation": 1,
-      "goal": 1
-    },
-    "A2-C06": {
-      "operation": 1,
-      "goal": 2
-    },
-    "C2-X04": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B2-Q55": {
-      "operation": 1,
-      "goal": 2
-    },
-    "C2-X12": {
+    "S4-C3-X52": {
       "operation": 3,
       "goal": 3
     },
-    "C2-X10": {
+    "S4-C3-X54": {
       "operation": 1,
+      "goal": 2
+    },
+    "S4-D3-B01": 1,
+    "S4-D3-B03": 4,
+    "S4-D3-B08": 2,
+    "S4-D3-B11": 4,
+    "S4-D3-B13": 5,
+    "S4-D3-B15": 5,
+    "S4-D3-B16": 4,
+    "S4-D3-B29": 4,
+    "S4-D3-W33": {
+      "best": "D",
+      "worst": "A"
+    },
+    "S4-D3-W39": {
+      "best": "D",
+      "worst": "A"
+    },
+    "S4-D3-W41": {
+      "best": "A",
+      "worst": "B"
+    },
+    "S4-D3-W57": {
+      "best": "D",
+      "worst": "B"
+    },
+    "S4-D3-X44": {
+      "operation": 1,
+      "goal": 1
+    },
+    "S4-D3-X45": {
+      "operation": 1,
+      "goal": 1
+    },
+    "S4-D3-X46": {
+      "operation": 3,
       "goal": 3
-    },
-    "A2-C11": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B2-Q50": {
-      "operation": 1,
-      "goal": 1
     }
   }
 }

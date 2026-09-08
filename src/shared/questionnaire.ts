@@ -1,7 +1,7 @@
-import quiz from '../../starseed_strict180_web_handoff_v4_1_min/quiz.zh-Hant.json';
-export const MODEL_VERSION='S21-scoring-v4.1-1070e9ad1912';
-export const APP_VERSION='2.0.0';
-export const SCHEMA_VERSION=2;
+import quiz from '../../starseed_s4_web_handoff_v4_1_min/quiz.zh-Hant.json';
+export const MODEL_VERSION='S21-scoring-v4.1-s4-f4521622d070';
+export const APP_VERSION='2.1.0';
+export const SCHEMA_VERSION=3;
 export type Choice='A'|'B'|'C'|'D';
 export type Priority=1|2|3;
 export type Answer=number|{best:Choice;worst:Choice}|{operation:Priority;goal:Priority};

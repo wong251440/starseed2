@@ -1,17 +1,17 @@
 import {afterEach,describe,expect,it,vi} from 'vitest';
 import {MODEL_VERSION,questions,isCompleteAnswer,validateResponses,parseImport,makeExport,answeredCount,type Responses} from '../src/shared/questionnaire';
 import {DRAFT_KEY,loadDraft,legacyData} from '../src/shared/session';
-import quiz from '../starseed_strict180_web_handoff_v4_1_min/quiz.zh-Hant.json';
-import model from '../starseed_strict180_web_handoff_v4_1_min/model_v4_1.json';
+import quiz from '../starseed_s4_web_handoff_v4_1_min/quiz.zh-Hant.json';
+import model from '../starseed_s4_web_handoff_v4_1_min/model_v4_1.json';
 import demo from '../src/data/demo-responses.json';
 afterEach(()=>vi.unstubAllGlobals());
 const answers=()=>structuredClone(demo.responses) as Responses;
-describe('Strict180 question and storage contract',()=>{
- it('uses the exact frozen order and 24/19/17 format mix',()=>{
+describe('S4 question and storage contract',()=>{
+ it('uses the exact frozen order and 28/16/16 format mix',()=>{
   expect(MODEL_VERSION).toBe(model.model_version);
   expect(questions.map(q=>q.id)).toEqual(quiz.display_order);
-  expect(questions.map(q=>q.id)).toEqual(model.selection_ids);
-  expect(['BIP','BWS','CROSS'].map(f=>questions.filter(q=>q.format===f).length)).toEqual([24,19,17]);
+  expect([...questions.map(q=>q.id)].sort()).toEqual([...model.selection_ids].sort());
+  expect(['BIP','BWS','CROSS'].map(f=>questions.filter(q=>q.format===f).length)).toEqual([28,16,16]);
  });
  it('requires all60 answers and rejects unknown or malformed responses',()=>{
   const valid=answers();expect(()=>validateResponses(valid)).not.toThrow();
@@ -32,7 +32,7 @@ describe('Strict180 question and storage contract',()=>{
  });
  it('restores partial responses and navigation without overwriting legacy data',()=>{
   const w=questions.find(q=>q.format==='BWS')!;
-  const draft={modelVersion:MODEL_VERSION,responses:{[w.id]:{best:'D'}},index:24,startedAt:'2026-09-07T00:00:00Z'};
+  const draft={modelVersion:MODEL_VERSION,responses:{[w.id]:{best:'D'}},index:28,startedAt:'2026-09-07T00:00:00Z'};
   const entries:Record<string,string>={[DRAFT_KEY]:JSON.stringify(draft),'starseed2-attempt':JSON.stringify({modelVersion:'old',answers:Array(80).fill(1)})};
   const setItem=vi.fn();vi.stubGlobal('localStorage',{getItem:(key:string)=>entries[key]??null,setItem});
   expect(loadDraft()).toEqual(draft);expect(legacyData()?.attempt).not.toBeNull();expect(setItem).not.toHaveBeenCalled();

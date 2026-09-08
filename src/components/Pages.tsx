@@ -3,7 +3,7 @@ import {Link,useParams,useLocation} from 'react-router-dom';
 import Markdown from 'react-markdown';
 import {ArrowUpRight,ArrowRight,ChevronLeft,Check,Copy,Orbit,RefreshCw,ChevronDown,Menu as MenuIcon} from 'lucide-react';
 import civs from '../data/civilizations.json';
-import resultCopy from '../../starseed_strict180_web_handoff_v4_1_min/result_copy.zh-Hant.json';
+import resultCopy from '../../starseed_s4_web_handoff_v4_1_min/result_copy.zh-Hant.json';
 import demoFixture from '../data/demo-responses.json';
 import {categories,Icon,ExportButton} from '../App';
 import {MODEL_VERSION,questions,makeExport,parseImport,type Responses,type Answer,type Question} from '../shared/questionnaire';
