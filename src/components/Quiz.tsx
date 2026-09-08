@@ -138,7 +138,6 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
         const options = crossStep === 0 ? question.operations : question.goals;
         const selectedValue = typeof value === 'object' && value !== null && part in value ? (value as { operation?: Priority; goal?: Priority })[part] : undefined;
         return <div className="priority-parts cross-steps">
-          <div className="cross-step-progress" aria-label={`CROSS 題第 ${crossStep + 1} 步，共 2 步`}><span className={crossStep === 0 ? 'active' : 'done'}>1 介入方式</span><i aria-hidden="true" /> <span className={crossStep === 1 ? 'active' : ''}>2 到位結果</span></div>
           <fieldset className="priority-part">
             <legend>{prompt}</legend>
             <div className="priority-options">
