@@ -36,11 +36,35 @@ export function Atlas(){useTitle('文明圖鑑');return <div className="atlas-pa
 export function OfficialText({id}:{id:number}){
  const [text,setText]=useState(''),[error,setError]=useState(false),[retry,setRetry]=useState(0);
  useEffect(()=>{const abort=new AbortController();setText('');setError(false);fetch(`/texts/${id}.md`,{signal:abort.signal}).then(r=>{if(!r.ok)throw Error();return r.text();}).then(setText).catch(e=>{if(e.name!=='AbortError')setError(true);});return()=>abort.abort();},[id,retry]);
- const chapters=useMemo(()=>text.split('\n').map((line,i)=>({line:i+1,title:line.replace(/^#+\s*/,'').replace(/\*\*/g,'')})).filter((_,i)=>/^#{1,3}\s/.test(text.split('\n')[i])),[text]);
+ const celebrityMap:Record<number,string[]>={
+  1:['麥可·傑克森 Michael Jackson','黛安娜王妃 Princess Diana','約翰·藍儂 John Lennon','基努·李維 Keanu Reeves','瑪丹娜 Madonna'],
+  2:['尼古拉·特斯拉 Nikola Tesla','佛萊迪·墨裘瑞 Freddie Mercury','吉米·亨德里克斯 Jimi Hendrix','巴布·馬利 Bob Marley','喬治·哈里遜 George Harrison'],
+  3:['大衛·鮑伊 David Bowie','巴拉克·歐巴馬 Barack Obama','史達林 Joseph Stalin','瑪格·羅比 Margot Robbie','勞倫斯·費許朋 Laurence Fishburne'],
+  4:['貓王 Elvis Presley','戴夫·查普爾 Dave Chappelle','林肯 Abraham Lincoln','安潔莉娜·裘莉 Angelina Jolie','李奧納多·狄卡皮歐 Leonardo DiCaprio'],
+  5:['泰勒絲 Taylor Swift','安海瑟薇 Anne Hathaway','安東尼·霍普金斯 Anthony Hopkins','夏奇拉 Shakira','亞當·崔佛 Adam Driver'],
+  6:['唐納·川普 Donald Trump','哈利王子 Prince Harry','瑪麗蓮·夢露 Marilyn Monroe','艾倫·狄珍妮 Ellen DeGeneres','葛莉塔·童貝里 Greta Thunberg'],
+  7:['拉娜·德芮 Lana Del Rey','詹姆斯·卡麥隆 James Cameron','傑森·摩莫亞 Jason Momoa','恩雅 Enya','IU 李知恩'],
+  8:['奧黛麗·赫本 Audrey Hepburn','莫妮卡·貝露琪 Monica Bellucci','艾西瓦婭·雷 Aishwarya Rai','Prince 王子','葛麗絲·凱莉 Grace Kelly'],
+  9:['甘地 Mahatma Gandhi','孔子 Confucius','席琳·狄翁 Celine Dion','桃莉·巴頓 Dolly Parton','德蕾莎修女 Mother Teresa'],
+  10:['賈斯汀·杜魯道 Justin Trudeau','摩根·費里曼 Morgan Freeman','薩提亞·納德拉 Satya Nadella','楊紫瓊 Michelle Yeoh','湯姆·漢克斯 Tom Hanks'],
+  11:['傑夫·貝佐斯 Jeff Bezos','提姆·柏內茲-李 Tim Berners-Lee','史蒂夫·沃茲尼亞克 Steve Wozniak','黃仁勳 Jensen Huang','馬雲 Jack Ma'],
+  12:['坂本龍一 Ryuichi Sakamoto','漢斯·季默 Hans Zimmer','馬友友 Yo-Yo Ma','碧玉 Björk','王菲 Faye Wong'],
+  13:['碧昂絲 Beyoncé','凱特·布蘭琪 Cate Blanchett','鞏俐 Gong Li','蕾哈娜 Rihanna','娜歐蜜·坎貝兒 Naomi Campbell'],
+  14:['卡爾·薩根 Carl Sagan','尼爾·德葛拉司·泰森 Neil deGrasse Tyson','愛蜜莉亞·艾爾哈特 Amelia Earhart','瑪雅·安傑盧 Maya Angelou','AURORA'],
+  15:['巴茲·艾德林 Buzz Aldrin','尼爾·阿姆斯壯 Neil Armstrong','梅·傑米森 Mae Jemison','克里斯·哈德菲爾德 Chris Hadfield','理查·布蘭森 Richard Branson'],
+  16:['P. Diddy / Sean Combs','歐本海默 J. Robert Oppenheimer','愛因斯坦 Albert Einstein','史蒂芬·霍金 Stephen Hawking','高爾 Al Gore'],
+  17:['妮姬·米娜 Nicki Minaj','阿諾·史瓦辛格 Arnold Schwarzenegger','約翰·屈伏塔 John Travolta','麥克·泰森 Mike Tyson','肯卓克·拉瑪 Kendrick Lamar'],
+  18:['伊莉莎白二世 Queen Elizabeth II','喬治·W·布希 George W. Bush','希拉蕊·柯林頓 Hillary Clinton','馬克·祖克柏 Mark Zuckerberg','賈斯汀·比伯 Justin Bieber'],
+  19:['伊隆·馬斯克 Elon Musk','比爾·蓋茲 Bill Gates','蒂妲·絲雲頓 Tilda Swinton','班奈狄克·康柏拜區 Benedict Cumberbatch','安雅·泰勒-喬伊 Anya Taylor-Joy'],
+  20:['肯伊·威斯特 Kanye West','查爾斯三世 King Charles III','威廉王子 Prince William','梅鐸 Rupert Murdoch','亨利·季辛吉 Henry Kissinger'],
+  21:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica']
+ };
+ const enriched=useMemo(()=>{const names=celebrityMap[id]||[];let chapter=0;return text.split('\n').flatMap(line=>{if(/^#\s/.test(line)){chapter++;if(chapter<=2)return [line,'',`> ✦ **同一片星區，曾在人間留下痕跡**`, `> 有些靈魂會在這些名字裡認出熟悉的光：${names.join(' · ')}`,''];}return [line];}).join('\n');},[text,id]);
+ const chapters=useMemo(()=>enriched.split('\n').map((line,i)=>({line:i+1,title:line.replace(/^#+\s*/,'').replace(/\*\*/g,'')})).filter((_,i)=>/^#{1,3}\s/.test(enriched.split('\n')[i])),[enriched]);
  if(error)return <div className="panel"><p>文明檔案暫時未能載入。</p><button className="button" onClick={()=>setRetry(retry+1)}>重新載入完整文案</button></div>;
  if(!text)return <div className="loading" role="status"><Orbit/> 正在展開文明檔案……</div>;
  const Heading=({node,children}:any)=><h2 id={`chapter-${node?.position?.start.line}`}>{children}</h2>;
- return <section className="official-layout" id="official"><aside className="reading-toc"><p className="eyebrow">完整文明檔案</p><h3>沿著記憶閱讀</h3><details open={window.innerWidth>=1000||undefined}><summary>章節導覽 <ChevronDown size={16}/></summary><nav aria-label="文明章節">{chapters.map((c,i)=><a href={`#chapter-${c.line}`} key={c.line}><span>{String(i+1).padStart(2,'0')}</span>{c.title}</a>)}</nav></details><span className="reading-note">官方正文 · 完整收錄</span></aside><article className="official-prose"><Markdown components={{h1:Heading,h2:Heading,h3:Heading}}>{text}</Markdown><div className="reading-end"><span>✦</span><p>這段星際記憶，已完整展開。</p><a href="#main">返回頁首 ↑</a></div></article></section>;
+ return <section className="official-layout" id="official"><aside className="reading-toc"><p className="eyebrow">完整文明檔案</p><h3>沿著記憶閱讀</h3><details open={window.innerWidth>=1000||undefined}><summary>章節導覽 <ChevronDown size={16}/></summary><nav aria-label="文明章節">{chapters.map((c,i)=><a href={`#chapter-${c.line}`} key={c.line}><span>{String(i+1).padStart(2,'0')}</span>{c.title}</a>)}</nav></details><span className="reading-note">官方正文 · 完整收錄</span></aside><article className="official-prose"><Markdown components={{h1:Heading,h2:Heading,h3:Heading}}>{enriched}</Markdown><div className="reading-end"><span>✦</span><p>這段星際記憶，已完整展開。</p><a href="#main">返回頁首 ↑</a></div></article></section>;
 }
 export function Civilization(){const {id}=useParams();const c=civs.find(c=>String(c.id)===id);useTitle(c?`${c.name}文明`:'找不到文明');if(!c)return <div className="empty"><h1>找不到這個文明。</h1><Link to="/civilizations">返回文明圖鑑</Link></div>;return <><div className="civilization-page section"><Link className="text-button" to="/civilizations"><ChevronLeft size={17}/> 返回文明圖鑑</Link><section className="civilization-hero"><div><p className="eyebrow">文明檔案 {String(civs.findIndex(item=>item.id===c.id)+1).padStart(2,'0')} / 21 <span className="category-tag">{c.category}</span></p><p className="english">{c.english}</p><h1>{c.name}</h1><p className="civ-subtitle">{c.subtitle}</p><a className="text-button" href="#official">展開完整文明記憶 ↓</a></div><Icon id={c.id}/></section><OfficialText id={c.id}/><section className="related"><div className="section-heading"><h2>繼續穿越星海</h2><Link className="text-button" to="/quiz">尋找我的起源 <ArrowUpRight size={16}/></Link></div><div className="related-grid">{civs.filter(x=>x.category===c.category&&x.id!==c.id).map(x=><Link key={x.id} to={`/civilizations/${x.id}`}><Icon id={x.id} size="small"/><span>{x.name}<small>{x.category}</small></span><ArrowUpRight size={17}/></Link>)}</div></section></div></>;}
 export function Report({attempt,demo=false,onSaved,onEdit,onRestart}:{attempt?:Attempt|null;demo?:boolean;onSaved?:(a:Attempt)=>void;onEdit?:()=>void;onRestart:()=>void}){
