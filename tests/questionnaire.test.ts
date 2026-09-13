@@ -1,17 +1,16 @@
 import {afterEach,describe,expect,it,vi} from 'vitest';
 import {MODEL_VERSION,questions,isCompleteAnswer,validateResponses,parseImport,makeExport,answeredCount,type Responses} from '../src/shared/questionnaire';
 import {DRAFT_KEY,loadDraft,legacyData} from '../src/shared/session';
-import quiz from '../starseed_s4_rpd_web_handoff_v4_1_min/quiz.zh-Hant.json';
-import model from '../starseed_s4_rpd_web_handoff_v4_1_min/model_v4_1.json';
+import quiz from '../starseed_quiz_min_v1/quiz.json';
 import demo from '../src/data/demo-responses.json';
 afterEach(()=>vi.unstubAllGlobals());
 const answers=()=>structuredClone(demo.responses) as Responses;
-describe('S4 question and storage contract',()=>{
- it('uses the exact frozen order and 26/14/20 format mix',()=>{
-  expect(MODEL_VERSION).toBe(model.model_version);
-  expect(questions.map(q=>q.id)).toEqual(quiz.display_order);
-  expect([...questions.map(q=>q.id)].sort()).toEqual([...model.selection_ids].sort());
-  expect(['BIP','BWS','CROSS'].map(f=>questions.filter(q=>q.format===f).length)).toEqual([26,14,20]);
+describe('RPCS question and storage contract',()=>{
+ it('uses the exact frozen order and 19/20/15/6 format mix',()=>{
+  expect(MODEL_VERSION).toBe('RPCS-starseed-quiz-min-v1');
+  expect(questions.map(q=>q.id)).toEqual(quiz.items.map(q=>q.id));
+  expect([...questions.map(q=>q.id)].sort()).toEqual([...quiz.items.map(q=>q.id)].sort());
+  expect(['BIP','BWS','CROSS','CF'].map(f=>questions.filter(q=>q.format===f).length)).toEqual([19,20,15,6]);
  });
  it('requires all60 answers and rejects unknown or malformed responses',()=>{
   const valid=answers();expect(()=>validateResponses(valid)).not.toThrow();
@@ -25,11 +24,11 @@ describe('S4 question and storage contract',()=>{
  it('maps every CROSS prompt and option to the answering and report fields',()=>{
   for(const q of questions){
    if(q.format!=='CROSS')continue;
-   const raw=quiz.questions.find(item=>item.id===q.id)!;
-   expect(q.operation_prompt).toBe(raw.part_a!.prompt);
-   expect(q.operations).toEqual(raw.part_a!.options);
-   expect(q.goal_prompt).toBe(raw.part_b!.prompt);
-   expect(q.goals).toEqual(raw.part_b!.options);
+   const raw=quiz.items.find(item=>item.id===q.id)!;
+   expect(q.operation_prompt).toBe(raw.aPrompt);
+   expect(q.operations).toEqual(Object.fromEntries(raw.aOptions!.map(o=>[o.id,o.text])));
+   expect(q.goal_prompt).toBe(raw.bPrompt);
+   expect(q.goals).toEqual(Object.fromEntries(raw.bOptions!.map(o=>[o.id,o.text])));
    expect(Object.keys(q.operations)).toEqual(['1','2','3']);
    expect(Object.keys(q.goals)).toEqual(['1','2','3']);
   }

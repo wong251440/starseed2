@@ -3,7 +3,7 @@ import { ArrowRight, ChevronLeft, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   answeredCount, instructions, isCompleteAnswer, QUESTION_COUNT, questions,
-  type Choice, type DraftAnswer, type Priority, type Responses,
+  type Choice, type DraftAnswer, type Priority, type Side, type Responses,
 } from '../shared/questionnaire';
 import type { Draft } from '../shared/session';
 
@@ -17,6 +17,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
   const [mapOpen, setMapOpen] = useState(false);
   const [crossStep, setCrossStep] = useState<0 | 1>(0);
   const heading = useRef<HTMLHeadingElement>(null);
+  const stepHeading = useRef<HTMLLegendElement>(null);
   const currentIndex = Number.isInteger(draft.index) && draft.index >= 0 && draft.index < questions.length ? draft.index : 0;
   const question = questions[currentIndex];
   const value = draft.responses[question.id];
@@ -27,6 +28,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
 
   useEffect(() => { heading.current?.focus(); }, [currentIndex]);
   useEffect(() => { setCrossStep(0); }, [currentIndex]);
+  useEffect(() => { stepHeading.current?.focus(); }, [crossStep]);
 
   function save(answer: DraftAnswer) {
     setDraft({ ...draft, responses: { ...draft.responses, [question.id]: answer } });
@@ -132,14 +134,33 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
         })}
       </fieldset>}
 
+      {question.format === 'CF' && (() => {
+        const part = crossStep === 0 ? 'first' : 'second';
+        const previous = value && typeof value === 'object' && ('first' in value || 'second' in value) ? value as {first?:Side;second?:Side} : {};
+        return <div className="priority-parts cross-steps">
+          <div className="cross-step-progress" role="status">同一題 · 情境 {crossStep + 1} / 2</div>
+          <fieldset className="priority-part" key={part}>
+            <legend ref={stepHeading} tabIndex={-1}>{crossStep === 0 ? question.condition1 : question.condition2}</legend>
+            <div className="priority-options">{(['L','R'] as const).map(side=><label key={side} className={previous[part] === side ? 'selected' : ''}>
+              <input type="radio" name={`${name}-${part}`} checked={previous[part] === side} onChange={()=>save({...previous,[part]:side})}/>
+              <span>{side === 'L' ? question.left : question.right}</span>
+            </label>)}</div>
+          </fieldset>
+          <div className="cross-step-actions">{crossStep === 0
+            ? <button type="button" className="button cross-next" disabled={!previous.first} onClick={()=>setCrossStep(1)}>下一步：情境二 <ArrowRight size={17}/></button>
+            : <button type="button" className="text-button" onClick={()=>setCrossStep(0)}>返回情境一</button>}
+          </div>
+        </div>;
+      })()}
       {question.format === 'CROSS' && (() => {
         const part = crossStep === 0 ? 'operation' : 'goal';
         const prompt = crossStep === 0 ? question.operation_prompt : question.goal_prompt;
         const options = crossStep === 0 ? question.operations : question.goals;
         const selectedValue = typeof value === 'object' && value !== null && part in value ? (value as { operation?: Priority; goal?: Priority })[part] : undefined;
         return <div className="priority-parts cross-steps">
-          <fieldset className="priority-part">
-            <legend>{prompt}</legend>
+          <div className="cross-step-progress" role="status">同一題 · {crossStep + 1} / 2 · {crossStep === 0 ? '介入方式' : '到位結果'}</div>
+          <fieldset className="priority-part" key={part}>
+            <legend ref={stepHeading} tabIndex={-1}>{prompt}</legend>
             <div className="priority-options">
               {(Object.entries(options) as [string, string][]).map(([key, text]) => {
                 const priority = Number(key) as Priority;
@@ -164,7 +185,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
       <button type="button" className="text-button" disabled={currentIndex === 0} onClick={() => move(currentIndex - 1)}>
         <ChevronLeft size={17} aria-hidden="true" />上一題
       </button>
-      <button type="button" className="button gold" onClick={next} disabled={!currentComplete}>
+      <button type="button" className="button gold" onClick={next} disabled={!currentComplete || ((question.format === 'CROSS' || question.format === 'CF') && crossStep === 0)}>
         {lastQuestion ? answered === QUESTION_COUNT ? '開啟我的星際報告' : '完成尚未回答的題目' : '下一題'}
         <ArrowRight size={18} aria-hidden="true" />
       </button>

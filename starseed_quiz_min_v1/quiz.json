@@ -1,0 +1,3595 @@
+{
+  "schemaVersion": "starseed-quiz-min-v1",
+  "title": "Starseed 21-Class Classification",
+  "language": "zh-Hant",
+  "disclaimer": "本測驗比較日常決策策略與 21 個 lore 原型的相似程度；不是外星血統、前世、靈性等級或科學診斷。",
+  "responseInstructions": {
+    "BP": "7 級量表：1=完全偏左，4=兩者接近／視情況，7=完全偏右。",
+    "BW": "選一個最像你會優先做的 Best，再選一個最不像你的 Worst。",
+    "CP": "A、B 各選一個答案；兩個選擇共同形成一個策略。",
+    "CF": "兩個相似情境分別作答；條件改變時是否切換策略也是訊號。"
+  },
+  "lineages": [
+    {
+      "code": "PL",
+      "zh": "昴宿星人",
+      "en": "Pleiadian"
+    },
+    {
+      "code": "AR",
+      "zh": "大角星人",
+      "en": "Arcturian"
+    },
+    {
+      "code": "SI",
+      "zh": "天狼星人",
+      "en": "Sirian"
+    },
+    {
+      "code": "AD",
+      "zh": "仙女座人",
+      "en": "Andromedan"
+    },
+    {
+      "code": "LY",
+      "zh": "天琴座人",
+      "en": "Lyran"
+    },
+    {
+      "code": "OR",
+      "zh": "獵戶座人",
+      "en": "Orion"
+    },
+    {
+      "code": "MI",
+      "zh": "明塔卡星人",
+      "en": "Mintakan"
+    },
+    {
+      "code": "VE",
+      "zh": "金星人",
+      "en": "Venusian"
+    },
+    {
+      "code": "HA",
+      "zh": "哈達爾星人",
+      "en": "Hadarian"
+    },
+    {
+      "code": "PO",
+      "zh": "北極星人",
+      "en": "Polarian"
+    },
+    {
+      "code": "AC",
+      "zh": "半人馬座 α 星人",
+      "en": "Alpha Centaurian"
+    },
+    {
+      "code": "VG",
+      "zh": "織女星人",
+      "en": "Vegan"
+    },
+    {
+      "code": "FE",
+      "zh": "貓科星族",
+      "en": "Feline"
+    },
+    {
+      "code": "BA",
+      "zh": "藍鳥人",
+      "en": "Blue Avian"
+    },
+    {
+      "code": "MA",
+      "zh": "火星人",
+      "en": "Martian"
+    },
+    {
+      "code": "ML",
+      "zh": "馬爾德克人",
+      "en": "Maldekian"
+    },
+    {
+      "code": "DR",
+      "zh": "天龍座人",
+      "en": "Draconian"
+    },
+    {
+      "code": "RE",
+      "zh": "爬蟲族",
+      "en": "Reptilian"
+    },
+    {
+      "code": "ZG",
+      "zh": "澤塔灰人",
+      "en": "Zeta Grey"
+    },
+    {
+      "code": "NU",
+      "zh": "阿努納奇／尼比魯",
+      "en": "Anunnaki / Nibiruan"
+    },
+    {
+      "code": "GA",
+      "zh": "蓋亞人（地球原生）",
+      "en": "Gaian (Earth Native)"
+    }
+  ],
+  "featureSpace": {
+    "goals": [
+      "Connection",
+      "Agency",
+      "Understanding",
+      "Workability",
+      "Integration",
+      "Continuity",
+      "Viability",
+      "Capability",
+      "Coordination"
+    ],
+    "operations": [
+      "Tune",
+      "Probe",
+      "StressTest",
+      "Reframe",
+      "Orient",
+      "Reconfigure",
+      "Bound",
+      "Maintain",
+      "Stabilize",
+      "Enact"
+    ],
+    "scopes": [
+      "Self",
+      "Bond",
+      "Group",
+      "Case",
+      "Setting",
+      "System",
+      "Network",
+      "Legacy",
+      "Collective"
+    ],
+    "encoding": "Goal + Operation + Scope + Goal×Operation",
+    "dimension": 118
+  },
+  "prototypes": {
+    "PL": [
+      [
+        "Connection",
+        "Tune",
+        "Group",
+        3
+      ],
+      [
+        "Integration",
+        "Reframe",
+        "Group",
+        2
+      ],
+      [
+        "Agency",
+        "Tune",
+        "Bond",
+        1
+      ]
+    ],
+    "AR": [
+      [
+        "Capability",
+        "Orient",
+        "System",
+        3
+      ],
+      [
+        "Integration",
+        "Tune",
+        "Self",
+        2
+      ],
+      [
+        "Understanding",
+        "Probe",
+        "System",
+        1
+      ]
+    ],
+    "SI": [
+      [
+        "Continuity",
+        "Maintain",
+        "Legacy",
+        3
+      ],
+      [
+        "Workability",
+        "Maintain",
+        "System",
+        2
+      ],
+      [
+        "Agency",
+        "Bound",
+        "Bond",
+        1
+      ]
+    ],
+    "AD": [
+      [
+        "Agency",
+        "Bound",
+        "Self",
+        3
+      ],
+      [
+        "Agency",
+        "Reconfigure",
+        "Network",
+        2
+      ],
+      [
+        "Workability",
+        "Enact",
+        "Case",
+        1
+      ]
+    ],
+    "LY": [
+      [
+        "Agency",
+        "Enact",
+        "Case",
+        3
+      ],
+      [
+        "Workability",
+        "Reconfigure",
+        "Setting",
+        2
+      ],
+      [
+        "Integration",
+        "Reframe",
+        "Self",
+        1
+      ]
+    ],
+    "OR": [
+      [
+        "Integration",
+        "Reframe",
+        "Group",
+        3
+      ],
+      [
+        "Understanding",
+        "StressTest",
+        "Case",
+        2
+      ],
+      [
+        "Agency",
+        "Bound",
+        "Self",
+        1
+      ]
+    ],
+    "MI": [
+      [
+        "Connection",
+        "Reconfigure",
+        "Setting",
+        3
+      ],
+      [
+        "Connection",
+        "Tune",
+        "Bond",
+        2
+      ],
+      [
+        "Integration",
+        "Reframe",
+        "Self",
+        1
+      ]
+    ],
+    "VE": [
+      [
+        "Integration",
+        "Tune",
+        "Self",
+        3
+      ],
+      [
+        "Agency",
+        "Bound",
+        "Self",
+        2
+      ],
+      [
+        "Connection",
+        "Tune",
+        "Group",
+        1
+      ]
+    ],
+    "HA": [
+      [
+        "Connection",
+        "Maintain",
+        "Bond",
+        3
+      ],
+      [
+        "Connection",
+        "Tune",
+        "Bond",
+        2
+      ],
+      [
+        "Integration",
+        "Tune",
+        "Group",
+        1
+      ]
+    ],
+    "PO": [
+      [
+        "Coordination",
+        "Orient",
+        "Group",
+        3
+      ],
+      [
+        "Viability",
+        "Maintain",
+        "Setting",
+        2
+      ],
+      [
+        "Integration",
+        "Tune",
+        "Group",
+        1
+      ]
+    ],
+    "AC": [
+      [
+        "Workability",
+        "Reconfigure",
+        "Case",
+        3
+      ],
+      [
+        "Viability",
+        "Maintain",
+        "Bond",
+        2
+      ],
+      [
+        "Understanding",
+        "Probe",
+        "Case",
+        1
+      ]
+    ],
+    "VG": [
+      [
+        "Integration",
+        "Reframe",
+        "Self",
+        3
+      ],
+      [
+        "Agency",
+        "Bound",
+        "Self",
+        2
+      ],
+      [
+        "Integration",
+        "Maintain",
+        "Self",
+        1
+      ]
+    ],
+    "FE": [
+      [
+        "Viability",
+        "Bound",
+        "Setting",
+        3
+      ],
+      [
+        "Viability",
+        "Bound",
+        "Bond",
+        2
+      ],
+      [
+        "Connection",
+        "Maintain",
+        "Bond",
+        1
+      ]
+    ],
+    "BA": [
+      [
+        "Capability",
+        "Orient",
+        "Collective",
+        3
+      ],
+      [
+        "Integration",
+        "Reframe",
+        "Self",
+        2
+      ],
+      [
+        "Connection",
+        "Enact",
+        "Bond",
+        1
+      ]
+    ],
+    "MA": [
+      [
+        "Workability",
+        "Enact",
+        "Case",
+        3
+      ],
+      [
+        "Viability",
+        "Reconfigure",
+        "Setting",
+        2
+      ],
+      [
+        "Agency",
+        "Bound",
+        "Self",
+        1
+      ]
+    ],
+    "ML": [
+      [
+        "Viability",
+        "StressTest",
+        "Collective",
+        3
+      ],
+      [
+        "Viability",
+        "Bound",
+        "System",
+        2
+      ],
+      [
+        "Integration",
+        "Reframe",
+        "Self",
+        1
+      ]
+    ],
+    "DR": [
+      [
+        "Coordination",
+        "Bound",
+        "Group",
+        3
+      ],
+      [
+        "Workability",
+        "Reconfigure",
+        "System",
+        2
+      ],
+      [
+        "Continuity",
+        "Maintain",
+        "Group",
+        1
+      ]
+    ],
+    "RE": [
+      [
+        "Viability",
+        "Tune",
+        "Setting",
+        3
+      ],
+      [
+        "Viability",
+        "Bound",
+        "Setting",
+        2
+      ],
+      [
+        "Workability",
+        "Maintain",
+        "Setting",
+        1
+      ]
+    ],
+    "ZG": [
+      [
+        "Viability",
+        "Reconfigure",
+        "System",
+        3
+      ],
+      [
+        "Understanding",
+        "Probe",
+        "Case",
+        2
+      ],
+      [
+        "Integration",
+        "Tune",
+        "Bond",
+        1
+      ]
+    ],
+    "NU": [
+      [
+        "Coordination",
+        "Reconfigure",
+        "Network",
+        3
+      ],
+      [
+        "Continuity",
+        "Maintain",
+        "Legacy",
+        2
+      ],
+      [
+        "Workability",
+        "Bound",
+        "System",
+        1
+      ]
+    ],
+    "GA": [
+      [
+        "Workability",
+        "Maintain",
+        "Setting",
+        3
+      ],
+      [
+        "Viability",
+        "Maintain",
+        "Setting",
+        2
+      ],
+      [
+        "Workability",
+        "Reconfigure",
+        "Case",
+        1
+      ]
+    ]
+  },
+  "scoring": {
+    "prototypeWeights": [
+      3,
+      2,
+      1
+    ],
+    "counterfactualKappa": 0.5,
+    "robustCounterfactualKappas": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "interpretation": "Scores and stability are relative design diagnostics, not membership probabilities."
+  },
+  "items": [
+    {
+      "id": "A-BP01",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "當你在聚會中發現氣氛有點僵時，你通常會：",
+      "left": "敏銳地介入，巧妙引導大家的互動，確保每個人都能重新融入圈子。",
+      "right": "將全副心力放在那個看起來最失落的特定朋友身上，確保他感到安全。",
+      "score": {
+        "left": [
+          "Connection",
+          "Tune",
+          "Group"
+        ],
+        "right": [
+          "Connection",
+          "Maintain",
+          "Bond"
+        ]
+      },
+      "targets": [
+        "PL",
+        "HA"
+      ],
+      "context": "social_gathering"
+    },
+    {
+      "id": "A-BP11",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "下列哪種情況更讓你感到無法忍受？",
+      "left": "一個群體為了維持表面和平，強硬壓制了真正重要的反對聲音。",
+      "right": "一套聽起來很完美的理念，在自己的真實生活與實踐中卻總是處處矛盾。",
+      "score": {
+        "left": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        "right": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ]
+      },
+      "targets": [
+        "OR",
+        "VG"
+      ],
+      "context": "values"
+    },
+    {
+      "id": "A-BP12",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "對你來說，建立一套「個人習慣」的最高境界是：",
+      "left": "它能像機器一樣穩定運作，確保我的生活機能不會因為疲憊而崩潰。",
+      "right": "它能將我過去壓抑的情感與理念融合，讓生活與內在不再互相打架。",
+      "score": {
+        "left": [
+          "Viability",
+          "Reconfigure",
+          "System"
+        ],
+        "right": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ]
+      },
+      "targets": [
+        "ZG",
+        "VG"
+      ],
+      "context": "personal_habit"
+    },
+    {
+      "id": "B-BP11",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "當你接觸到一門深奧的學問或哲學時，你花最多心力在：",
+      "left": "修正這套理論，讓它能真實地融入我個人的生活與內在經驗，不產生矛盾。",
+      "right": "忠實地整理並保護這套知識體系，確保它可以完整地交給下一代。",
+      "score": {
+        "left": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ],
+        "right": [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ]
+      },
+      "targets": [
+        "VG",
+        "SI"
+      ],
+      "context": "learning"
+    },
+    {
+      "id": "B-BP15",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "當兩派人馬對於一個解決方案僵持不下時，你覺得問題出在哪？",
+      "left": "這個方案試圖掩蓋雙方真實存在的根本矛盾，只是粉飾太平。",
+      "right": "這個方案缺乏標準化的回饋機制，沒有把真實的影響與失敗模式算進去。",
+      "score": {
+        "left": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        "right": [
+          "Viability",
+          "Reconfigure",
+          "System"
+        ]
+      },
+      "targets": [
+        "OR",
+        "ZG"
+      ],
+      "context": "disagreement"
+    },
+    {
+      "id": "B-BP17",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "如果旅行途中遇到突發狀況，前面的路斷了，你會：",
+      "left": "就算沒有地圖，我也會立刻開始嘗試走一條全新的路。",
+      "right": "專注於搬開眼前擋路的石頭，讓原本的計畫能繼續推進。",
+      "score": {
+        "left": [
+          "Agency",
+          "Enact",
+          "Case"
+        ],
+        "right": [
+          "Workability",
+          "Enact",
+          "Case"
+        ]
+      },
+      "targets": [
+        "LY",
+        "MA"
+      ],
+      "context": "travel"
+    },
+    {
+      "id": "C-BP001",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "你參加一個小型聚會，發現氣氛有些尷尬，幾個人似乎搭不上話。你通常會：",
+      "left": "主動調節現場氣氛，拋出話題或調整互動方式，把大家重新拉進對話裡。",
+      "right": "先調整自己的狀態，確保自己的節奏放鬆且包容，讓自己不被氣氛拖著走。",
+      "score": {
+        "left": [
+          "Connection",
+          "Tune",
+          "Group"
+        ],
+        "right": [
+          "Integration",
+          "Tune",
+          "Self"
+        ]
+      },
+      "targets": [
+        "PL",
+        "VE"
+      ],
+      "context": "social_gathering"
+    },
+    {
+      "id": "C-BP005",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "你發現某個團隊的決策結構讓底層成員幾乎沒有真正的選擇權。你會：",
+      "left": "重新界定權限與規則，確保每個人都能掌握真正的自主決定權與退場機制。",
+      "right": "與其去改規則，不如直接行動，先示範走出一條沒有人走過的新路。",
+      "score": {
+        "left": [
+          "Agency",
+          "Bound",
+          "Self"
+        ],
+        "right": [
+          "Agency",
+          "Enact",
+          "Case"
+        ]
+      },
+      "targets": [
+        "AD",
+        "LY"
+      ],
+      "context": "agency"
+    },
+    {
+      "id": "C-BP008",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "你接手一個歷史悠久但有些混亂的知識型社團。你認為最有價值的貢獻是：",
+      "left": "把珍貴的知識與實踐方法整理成完整體系，確保它們能被傳承給下一代。",
+      "right": "幫現在的團隊重新找到穩定的共同方向，讓大家在混亂中恢復步調一致。",
+      "score": {
+        "left": [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ],
+        "right": [
+          "Coordination",
+          "Orient",
+          "Group"
+        ]
+      },
+      "targets": [
+        "SI",
+        "PO"
+      ],
+      "context": "legacy"
+    },
+    {
+      "id": "C-BP016",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "團隊在現有的辦公空間裡總是難以產生火花。你會：",
+      "left": "直接調整互動的頻率和方式，親自帶動大家，讓當下的氣氛活絡起來。",
+      "right": "重新配置空間的動線和使用規則，把這裡打造成一個讓大家自然想留下來的環境。",
+      "score": {
+        "left": [
+          "Connection",
+          "Tune",
+          "Group"
+        ],
+        "right": [
+          "Connection",
+          "Reconfigure",
+          "Setting"
+        ]
+      },
+      "targets": [
+        "PL",
+        "MI"
+      ],
+      "context": "workspace"
+    },
+    {
+      "id": "C-BP018",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "你和朋友去海外自助旅行，租來的車半路拋錨，而且完全沒有網路訊號。你更傾向：",
+      "left": "直接行動，拿起裝備往看起來像有村莊的方向走，邊走邊見機行事。",
+      "right": "先解決眼前的死結，試著修理引擎或排除路障，只要車子能動就能繼續原訂計畫。",
+      "score": {
+        "left": [
+          "Agency",
+          "Enact",
+          "Case"
+        ],
+        "right": [
+          "Workability",
+          "Enact",
+          "Case"
+        ]
+      },
+      "targets": [
+        "LY",
+        "MA"
+      ],
+      "context": "travel"
+    },
+    {
+      "id": "C-BP020",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "公司的出貨流程出包，導致一批重要客戶抱怨。你會：",
+      "left": "重新設計整個出貨與回饋系統，確保這種錯誤未來不再反覆發生。",
+      "right": "迅速診斷這次是哪裡卡住，用最實際有效的方法先讓這批貨順利送達。",
+      "score": {
+        "left": [
+          "Viability",
+          "Reconfigure",
+          "System"
+        ],
+        "right": [
+          "Workability",
+          "Reconfigure",
+          "Case"
+        ]
+      },
+      "targets": [
+        "ZG",
+        "AC"
+      ],
+      "context": "work_system"
+    },
+    {
+      "id": "C-BP022",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "帶領一個剛成立的專案小組，初期最重要的任務是：",
+      "left": "幫他們建立一個共同的指標和默契，讓大家知道現在該朝哪個方向前進。",
+      "right": "教他們一套獨立判斷的方法，確保未來你不在時，他們也能自己解決新問題。",
+      "score": {
+        "left": [
+          "Coordination",
+          "Orient",
+          "Group"
+        ],
+        "right": [
+          "Capability",
+          "Orient",
+          "System"
+        ]
+      },
+      "targets": [
+        "PO",
+        "AR"
+      ],
+      "context": "team"
+    },
+    {
+      "id": "D-BP01",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "當你在一個群體中發現大家氣氛不太對、參與度參差不齊時：",
+      "left": "針對每個人的狀態微調我的應對方式與距離，讓大家都能重新連結並參與。",
+      "right": "先調整自己的心態與視角，確保我能在不同需求中保持平衡，不讓自己被過度消耗。",
+      "score": {
+        "left": [
+          "Connection",
+          "Tune",
+          "Group"
+        ],
+        "right": [
+          "Integration",
+          "Tune",
+          "Self"
+        ]
+      },
+      "targets": [
+        "PL",
+        "VE"
+      ],
+      "context": "group_dynamics"
+    },
+    {
+      "id": "D-BP02",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "面對一段對你很重要、但近期充滿壓力與不平衡的長期關係：",
+      "left": "給這段特定關係比一般人更長的修復期，持續付出直到它恢復，或直到必須設下死線。",
+      "right": "優先考量整體的社交與群體互動，不讓自己困在單一對象的情緒中。",
+      "score": {
+        "left": [
+          "Connection",
+          "Maintain",
+          "Bond"
+        ],
+        "right": [
+          "Connection",
+          "Tune",
+          "Group"
+        ]
+      },
+      "targets": [
+        "HA",
+        "PL"
+      ],
+      "context": "relationship"
+    },
+    {
+      "id": "D-BP08",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "你認為給予他人「最好的幫助」通常是：",
+      "left": "傳遞一個具有啟發性的大原則，把改變的責任與力量交還給他們自己。",
+      "right": "提供一套詳細、可重複使用的決策鷹架，協助他們建立獨立判斷能力。",
+      "score": {
+        "left": [
+          "Capability",
+          "Orient",
+          "Collective"
+        ],
+        "right": [
+          "Capability",
+          "Orient",
+          "System"
+        ]
+      },
+      "targets": [
+        "BA",
+        "AR"
+      ],
+      "context": "mentoring"
+    },
+    {
+      "id": "D-BP19",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "面對一項「理論上很合理，但心裡就是過不去」的決策：",
+      "left": "承認矛盾的存在，重新框架問題，讓雙方的合理性都能並存。",
+      "right": "向內深掘，調整自己的實踐方式，直到情感與理智能真正整合。",
+      "score": {
+        "left": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        "right": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ]
+      },
+      "targets": [
+        "OR",
+        "VG"
+      ],
+      "context": "internal_split"
+    },
+    {
+      "id": "D-BP23",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "在幫助一個新手時，你最希望看到的最終結果是：",
+      "left": "他能自己掌握這套思考工具，未來遇到不同狀況都能獨立判斷。",
+      "right": "他能真正理解「為自己負責」的道理，從內在產生改變的動力。",
+      "score": {
+        "left": [
+          "Capability",
+          "Orient",
+          "System"
+        ],
+        "right": [
+          "Capability",
+          "Orient",
+          "Collective"
+        ]
+      },
+      "targets": [
+        "AR",
+        "BA"
+      ],
+      "context": "guidance"
+    },
+    {
+      "id": "D-BP24",
+      "format": "BP",
+      "burden": 1.0,
+      "prompt": "要解決一項長期困擾團隊的錯誤：",
+      "left": "找出造成誤差的變數，重新設計這套常規機制，確保它未來能穩定運作。",
+      "right": "鎖定這次出錯的具體原因，用最實際有效的方法修復，確保當下能過關。",
+      "score": {
+        "left": [
+          "Viability",
+          "Reconfigure",
+          "System"
+        ],
+        "right": [
+          "Workability",
+          "Reconfigure",
+          "Case"
+        ]
+      },
+      "targets": [
+        "ZG",
+        "AC"
+      ],
+      "context": "work_system"
+    },
+    {
+      "id": "A-BW30",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "如果你要花十年寫一本傳世的著作，這本書最可能的定位是：",
+      "options": [
+        {
+          "id": "A",
+          "text": "忠實記錄並保存一門即將失傳的古老傳統與深厚知識。",
+          "fragment": [
+            "Continuity",
+            "Maintain",
+            "Legacy"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "探討如何將宏大的理論與真實、甚至矛盾的生命經驗融為一體。",
+          "fragment": [
+            "Integration",
+            "Reframe",
+            "Self"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "提供一套強大的決策思維模型，讓讀者能用來解決自己的問題。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "System"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "傳遞一個喚醒人的宏觀訊息，讓人意識到自己必須為未來負責。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "Collective"
+          ]
+        }
+      ],
+      "targets": [
+        "SI",
+        "VG",
+        "AR",
+        "BA"
+      ],
+      "context": "knowledge"
+    },
+    {
+      "id": "A-BW33",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "如果你負責管理一座社區共享農園，你最在意的是：",
+      "options": [
+        {
+          "id": "A",
+          "text": "這裡有沒有變成一個讓所有人都有歸屬感、想一再回來的空間。",
+          "fragment": [
+            "Connection",
+            "Reconfigure",
+            "Setting"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "每天的除草、澆水與設施維護有沒有踏實地被執行。",
+          "fragment": [
+            "Workability",
+            "Maintain",
+            "Setting"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "雨水回收與備用種子庫是否足以應付極端氣候的衝擊。",
+          "fragment": [
+            "Viability",
+            "Tune",
+            "Setting"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "農園的門禁與進入條件是否清楚，確保核心空間不被任意干擾。",
+          "fragment": [
+            "Viability",
+            "Bound",
+            "Setting"
+          ]
+        }
+      ],
+      "targets": [
+        "MI",
+        "GA",
+        "RE",
+        "FE"
+      ],
+      "context": "setting"
+    },
+    {
+      "id": "A-BW36",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "當你同時被十幾個死線追著跑，感到極度崩潰時，你傾向怎麼解救自己？",
+      "options": [
+        {
+          "id": "A",
+          "text": "把所有任務變成可追蹤的清單與流程，靠系統度過難關。",
+          "fragment": [
+            "Viability",
+            "Reconfigure",
+            "System"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "重新與各方交涉，改變彼此的介面與期待，從根本重構任務網路。",
+          "fragment": [
+            "Coordination",
+            "Reconfigure",
+            "Network"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "抓出目前最痛、最影響運作的那個案子，先把它解決。",
+          "fragment": [
+            "Workability",
+            "Reconfigure",
+            "Case"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "保留固定的小儀式與日常節奏，用熟悉的方式維持生活基準。",
+          "fragment": [
+            "Workability",
+            "Maintain",
+            "Setting"
+          ]
+        }
+      ],
+      "targets": [
+        "ZG",
+        "NU",
+        "AC",
+        "GA"
+      ],
+      "context": "overwhelm"
+    },
+    {
+      "id": "B-BW31",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "家庭或節日聚會上，親戚之間因為立場不同而氣氛緊繃。你會優先怎麼做？",
+      "options": [
+        {
+          "id": "A",
+          "text": "在對話中穿針引線，調整大家的發言節奏，讓互動重新流動。",
+          "fragment": [
+            "Connection",
+            "Tune",
+            "Group"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "退一步微調自己的回應方式，讓不同立場能和平共處。",
+          "fragment": [
+            "Integration",
+            "Tune",
+            "Self"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "佈置一個舒適的小角落，讓想喘口氣的人有個能回去的地方。",
+          "fragment": [
+            "Connection",
+            "Reconfigure",
+            "Setting"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "只鎖定那個我最在乎的家人，確保這段關係沒有因此受傷。",
+          "fragment": [
+            "Connection",
+            "Maintain",
+            "Bond"
+          ]
+        }
+      ],
+      "targets": [
+        "PL",
+        "VE",
+        "MI",
+        "HA"
+      ],
+      "context": "family"
+    },
+    {
+      "id": "B-BW36",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "當朋友面臨一個可能改變人生的重大選擇，跑來向你求救時，你會優先怎麼做？",
+      "options": [
+        {
+          "id": "A",
+          "text": "給他一個能拉高視野的原則，並把最後責任交還給他自己。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "Collective"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "確保他的選擇沒有受到家人或權威的強制干預。",
+          "fragment": [
+            "Agency",
+            "Bound",
+            "Self"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "幫他看見不同選擇背後的合法需求，讓內在不再互相撕扯。",
+          "fragment": [
+            "Integration",
+            "Tune",
+            "Self"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "根據他的情緒起伏調整陪伴方式，陪他把這段過程走完。",
+          "fragment": [
+            "Connection",
+            "Tune",
+            "Group"
+          ]
+        }
+      ],
+      "targets": [
+        "BA",
+        "AD",
+        "VE",
+        "PL"
+      ],
+      "context": "life_choice"
+    },
+    {
+      "id": "B-BW38",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "你的兩位好友因為對某件事的看法南轅北轍，吵得不可開交。你會優先怎麼做？",
+      "options": [
+        {
+          "id": "A",
+          "text": "不急著調停，讓衝突把真正的矛盾逼出來，再找能包容雙方的新框架。",
+          "fragment": [
+            "Integration",
+            "Reframe",
+            "Group"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "先在自己心裡消化衝突，找到能讓兩種價值觀在我心中共存的觀點。",
+          "fragment": [
+            "Integration",
+            "Reframe",
+            "Self"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "退一步調整自己的參與方式，避免自己因選邊站而失去平衡。",
+          "fragment": [
+            "Integration",
+            "Tune",
+            "Self"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "積極在兩人之間穿梭微調，促使他們重新找到連結。",
+          "fragment": [
+            "Connection",
+            "Tune",
+            "Group"
+          ]
+        }
+      ],
+      "targets": [
+        "OR",
+        "VG",
+        "VE",
+        "PL"
+      ],
+      "context": "conflict"
+    },
+    {
+      "id": "B-BW39",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "你滿心期待地準備出發去旅行，卻發現通往機場／車站的主要道路被突發事故封閉。你會優先怎麼做？",
+      "options": [
+        {
+          "id": "A",
+          "text": "立刻抄小路或嘗試前所未有的替代路線，自己走出一條路。",
+          "fragment": [
+            "Agency",
+            "Enact",
+            "Case"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "專注於移除眼前這個特定障礙，讓原本的計畫恢復推進。",
+          "fragment": [
+            "Workability",
+            "Enact",
+            "Case"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "務實評估現況，找出目前最可靠、最能保證抵達的具體方案。",
+          "fragment": [
+            "Workability",
+            "Reconfigure",
+            "Case"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "盤點剩餘的時間與金錢，彈性調整，確保自己即使去不成也有退路。",
+          "fragment": [
+            "Viability",
+            "Tune",
+            "Setting"
+          ]
+        }
+      ],
+      "targets": [
+        "LY",
+        "MA",
+        "AC",
+        "RE"
+      ],
+      "context": "travel"
+    },
+    {
+      "id": "C-BW032",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "你在編寫一本提供給後輩的指導手冊，你最希望達成的成效是：",
+      "options": [
+        {
+          "id": "A",
+          "text": "讓珍貴的實踐方法能毫無遺漏地交接下去，經得起時間考驗。",
+          "fragment": [
+            "Continuity",
+            "Maintain",
+            "Legacy"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "讓讀者能將理論與自身真實經驗整合，不再有認知斷層。",
+          "fragment": [
+            "Integration",
+            "Reframe",
+            "Self"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "讓讀者學會一套思考鷹架，遇到手冊沒寫的新狀況也能獨立判斷。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "System"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "讓讀者知道如何建立回饋機制，當系統失效時能重新設計它。",
+          "fragment": [
+            "Viability",
+            "Reconfigure",
+            "System"
+          ]
+        }
+      ],
+      "targets": [
+        "SI",
+        "VG",
+        "AR",
+        "ZG"
+      ],
+      "context": "knowledge"
+    },
+    {
+      "id": "C-BW033",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "面臨長期的極端氣候，你負責管理一座社區水源。你的首要策略是：",
+      "options": [
+        {
+          "id": "A",
+          "text": "重新設計供水管線與監測機制，降低未來再度缺水的系統性風險。",
+          "fragment": [
+            "Viability",
+            "Reconfigure",
+            "System"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "延續社區一直以來的在地維護方式，依每天狀況微調用水。",
+          "fragment": [
+            "Workability",
+            "Maintain",
+            "Setting"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "高度警戒水位變化，緊縮外借資源的權限，確保在地仍有足夠儲備。",
+          "fragment": [
+            "Viability",
+            "Bound",
+            "Setting"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "在大型抽水計畫前先做最嚴苛的壓力測試，避免不可逆的枯竭。",
+          "fragment": [
+            "Viability",
+            "StressTest",
+            "Collective"
+          ]
+        }
+      ],
+      "targets": [
+        "ZG",
+        "GA",
+        "RE",
+        "ML"
+      ],
+      "context": "resource"
+    },
+    {
+      "id": "C-BW034",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "在一個沒有明確指引的模糊危機中，你會優先怎麼做？",
+      "options": [
+        {
+          "id": "A",
+          "text": "在別人還在猶豫時直接用行動創造出一個全新的處理路徑。",
+          "fragment": [
+            "Agency",
+            "Enact",
+            "Case"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "鎖定目前最擋路的那顆絆腳石，直接把它移開。",
+          "fragment": [
+            "Workability",
+            "Enact",
+            "Case"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "先快速診斷事件的具體範圍，給出能穩住現況的務實解法。",
+          "fragment": [
+            "Workability",
+            "Reconfigure",
+            "Case"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "先確認大家的選擇權沒有被剝奪，必要時重新劃定權限。",
+          "fragment": [
+            "Agency",
+            "Bound",
+            "Self"
+          ]
+        }
+      ],
+      "targets": [
+        "LY",
+        "MA",
+        "AC",
+        "AD"
+      ],
+      "context": "crisis"
+    },
+    {
+      "id": "C-BW035",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "面對一個不斷向你尋求人生解答的追隨者，你會：",
+      "options": [
+        {
+          "id": "A",
+          "text": "提供一個決策框架，一步步引導他，直到他能自己分析問題。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "System"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "傳遞一個長遠理念，告訴他只有自己能改變自己，然後退一步。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "Collective"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "邀請他進入一個深厚的知識傳承體系，成為延續智慧的一份子。",
+          "fragment": [
+            "Continuity",
+            "Maintain",
+            "Legacy"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "幫他找到一個可以依循的穩定座標，讓他迷失時知道怎麼穩住陣腳。",
+          "fragment": [
+            "Coordination",
+            "Orient",
+            "Group"
+          ]
+        }
+      ],
+      "targets": [
+        "AR",
+        "BA",
+        "SI",
+        "PO"
+      ],
+      "context": "mentoring"
+    },
+    {
+      "id": "C-BW036",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "當群體內部出現嚴重的意識形態對立，兩邊爭執不下時：",
+      "options": [
+        {
+          "id": "A",
+          "text": "把矛盾推到足夠清楚，直到雙方必須重構框架才能共存。",
+          "fragment": [
+            "Integration",
+            "Reframe",
+            "Group"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "退回自身，調節自己的視角，讓我能同時容納兩種需求。",
+          "fragment": [
+            "Integration",
+            "Tune",
+            "Self"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "向內反思自己是否也有類似的理論與實踐分裂需要整合。",
+          "fragment": [
+            "Integration",
+            "Reframe",
+            "Self"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "改變互動頻率與方式，用較輕鬆的方式重新建立群體連結。",
+          "fragment": [
+            "Connection",
+            "Tune",
+            "Group"
+          ]
+        }
+      ],
+      "targets": [
+        "OR",
+        "VE",
+        "VG",
+        "PL"
+      ],
+      "context": "ideology"
+    },
+    {
+      "id": "C-BW037",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "你參加一個沒人負責發號施令的志工建屋計畫，現場進度大延宕。你會：",
+      "options": [
+        {
+          "id": "A",
+          "text": "跳出來擔任臨時總指揮，劃下界線並強制分配工作。",
+          "fragment": [
+            "Coordination",
+            "Bound",
+            "Group"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "召集大家，確立今天最重要的共同標準，讓大家依此同步。",
+          "fragment": [
+            "Coordination",
+            "Orient",
+            "Group"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "重新設計各小組間的交接介面與資源分配。",
+          "fragment": [
+            "Coordination",
+            "Reconfigure",
+            "Network"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "檢視是否有人被迫承擔不合理工作，並幫他們守住拒絕的權利。",
+          "fragment": [
+            "Agency",
+            "Bound",
+            "Self"
+          ]
+        }
+      ],
+      "targets": [
+        "DR",
+        "PO",
+        "NU",
+        "AD"
+      ],
+      "context": "governance"
+    },
+    {
+      "id": "C-BW038",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "你的電腦系統突然崩潰，這對工作影響極大。你會：",
+      "options": [
+        {
+          "id": "A",
+          "text": "先借別台電腦或用手機，把眼前卡住的工作送出去再說。",
+          "fragment": [
+            "Workability",
+            "Enact",
+            "Case"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "務實檢查硬體與軟體設定，找到出錯點並確實修好。",
+          "fragment": [
+            "Workability",
+            "Reconfigure",
+            "Case"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "趁機重新設計工作流程與備份機制，避免同樣死角再發生。",
+          "fragment": [
+            "Viability",
+            "Reconfigure",
+            "System"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "如果可能涉及不可逆資料損壞，就先停手，確認最壞風險再處理。",
+          "fragment": [
+            "Viability",
+            "StressTest",
+            "Collective"
+          ]
+        }
+      ],
+      "targets": [
+        "MA",
+        "AC",
+        "ZG",
+        "ML"
+      ],
+      "context": "technical"
+    },
+    {
+      "id": "D-BW01",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "你接手一個士氣渙散、大家像一盤散沙的團隊專案。你第一步會：",
+      "options": [
+        {
+          "id": "A",
+          "text": "重新確立一個大家都能認同的基準點，讓團隊找回共同節奏。",
+          "fragment": [
+            "Coordination",
+            "Orient",
+            "Group"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "觀察每個人的狀態，微調輔助方式，讓邊緣化的人重新參與。",
+          "fragment": [
+            "Connection",
+            "Tune",
+            "Group"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "暫時集中決策權，明確劃定每個人的角色與死線。",
+          "fragment": [
+            "Coordination",
+            "Bound",
+            "Group"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "傳遞一個宏觀訊息，提醒大家為自己的選擇與成長負責。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "Collective"
+          ]
+        }
+      ],
+      "targets": [
+        "PO",
+        "PL",
+        "DR",
+        "BA"
+      ],
+      "context": "team"
+    },
+    {
+      "id": "D-BW05",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "有人提出一項能帶來巨大收益，但會徹底改變現有生態的提案。你的反應是：",
+      "options": [
+        {
+          "id": "A",
+          "text": "檢視它在實務案例中到底可不可靠，要求看到具體證據。",
+          "fragment": [
+            "Workability",
+            "Reconfigure",
+            "Case"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "如果有明顯阻礙，就立刻行動去破解，邊做邊學。",
+          "fragment": [
+            "Workability",
+            "Enact",
+            "Case"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "要求極端壓力測試，只要有不可挽回的巨大風險就不放行。",
+          "fragment": [
+            "Viability",
+            "StressTest",
+            "Collective"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "把改變視為系統變異，測量回饋數據並重新設計機制。",
+          "fragment": [
+            "Viability",
+            "Reconfigure",
+            "System"
+          ]
+        }
+      ],
+      "targets": [
+        "AC",
+        "MA",
+        "ML",
+        "ZG"
+      ],
+      "context": "risk"
+    },
+    {
+      "id": "D-BW08",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "當你熟悉的社交圈或常去的地方變得越來越陌生且充滿敵意：",
+      "options": [
+        {
+          "id": "A",
+          "text": "改變參與規則，讓它重新成為一個大家有歸屬感的地方。",
+          "fragment": [
+            "Connection",
+            "Reconfigure",
+            "Setting"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "在最關鍵的領域設下防線，先確保核心不受侵犯。",
+          "fragment": [
+            "Viability",
+            "Bound",
+            "Setting"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "透過日常維護與修補，用務實方式保持這地方運轉。",
+          "fragment": [
+            "Workability",
+            "Maintain",
+            "Setting"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "追蹤資源與風向變化，保持彈性，確保自己隨時有退路。",
+          "fragment": [
+            "Viability",
+            "Tune",
+            "Setting"
+          ]
+        }
+      ],
+      "targets": [
+        "MI",
+        "FE",
+        "GA",
+        "RE"
+      ],
+      "context": "setting"
+    },
+    {
+      "id": "D-BW12",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "一段關係讓你有「失衡、一直單方面付出」的感覺。你會：",
+      "options": [
+        {
+          "id": "A",
+          "text": "給這段關係特別長的修復期，努力修補，直到真的撐不下去才設界線。",
+          "fragment": [
+            "Connection",
+            "Maintain",
+            "Bond"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "調整自己的心態與投入，讓整體生活重新回到平衡。",
+          "fragment": [
+            "Integration",
+            "Tune",
+            "Self"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "立刻畫出明確界線，保護自己的自主與同意權。",
+          "fragment": [
+            "Agency",
+            "Bound",
+            "Self"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "根據對方當下狀態微調互動方式，試著讓彼此重新接上。",
+          "fragment": [
+            "Connection",
+            "Tune",
+            "Bond"
+          ]
+        }
+      ],
+      "targets": [
+        "HA",
+        "VE",
+        "AD",
+        "PL"
+      ],
+      "context": "relationship"
+    },
+    {
+      "id": "D-BW14",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "如果你要推動一場大規模的社會或社群變革，你更傾向相信：",
+      "options": [
+        {
+          "id": "A",
+          "text": "改變來自從更高層級重新設計資源分配與網絡結構。",
+          "fragment": [
+            "Coordination",
+            "Reconfigure",
+            "Network"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "改變來自每個個體真正理解並願意為自己的選擇負責。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "Collective"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "改變來自建立一條沒有人走過、但實際可行的全新路徑。",
+          "fragment": [
+            "Agency",
+            "Enact",
+            "Case"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "改變來自讓被隱藏的矛盾充分暴露，迫使人們重新定義問題。",
+          "fragment": [
+            "Integration",
+            "Reframe",
+            "Group"
+          ]
+        }
+      ],
+      "targets": [
+        "NU",
+        "BA",
+        "LY",
+        "OR"
+      ],
+      "context": "macro_change"
+    },
+    {
+      "id": "D-BW15",
+      "format": "BW",
+      "burden": 2.0,
+      "prompt": "你在幫助一個因連續失敗而極度沮喪的朋友。什麼時候你會覺得「幫夠了」？",
+      "options": [
+        {
+          "id": "A",
+          "text": "當他掌握一套判斷方法，下次遇到不同難題也能自己處理。",
+          "fragment": [
+            "Capability",
+            "Orient",
+            "System"
+          ]
+        },
+        {
+          "id": "B",
+          "text": "當他重新回到社交圈，能自然和大家互動。",
+          "fragment": [
+            "Connection",
+            "Tune",
+            "Group"
+          ]
+        },
+        {
+          "id": "C",
+          "text": "當我確認他有一個安全的保護範圍，外界暫時傷害不到他。",
+          "fragment": [
+            "Viability",
+            "Bound",
+            "Setting"
+          ]
+        },
+        {
+          "id": "D",
+          "text": "當我們之間的信任連結被修復，他知道這段關係還在。",
+          "fragment": [
+            "Connection",
+            "Maintain",
+            "Bond"
+          ]
+        }
+      ],
+      "targets": [
+        "AR",
+        "PL",
+        "FE",
+        "HA"
+      ],
+      "context": "helping"
+    },
+    {
+      "id": "A-CP49",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "某個認識的人頻繁不請自來，嚴重干擾了你原本平靜的生活空間。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "設定明確規則，規定什麼情況下才可以進入我的空間。"
+        },
+        {
+          "id": "2",
+          "text": "在維持基本友好下，持續花心力修補與照顧這段關係。"
+        },
+        {
+          "id": "3",
+          "text": "正面劃清界線，堅定捍衛自己說不與擁有私人空間的權利。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "我所守護的空間再次恢復安全與寧靜。"
+        },
+        {
+          "id": "2",
+          "text": "這段特定的關係撐過危機，依然可以持續。"
+        },
+        {
+          "id": "3",
+          "text": "我的意志沒有被別人強行綁架或稀釋。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Viability",
+          "Bound",
+          "Setting"
+        ],
+        "1,2": [
+          "Connection",
+          "Bound",
+          "Bond"
+        ],
+        "1,3": [
+          "Agency",
+          "Bound",
+          "Self"
+        ],
+        "2,1": [
+          "Viability",
+          "Maintain",
+          "Setting"
+        ],
+        "2,2": [
+          "Connection",
+          "Maintain",
+          "Bond"
+        ],
+        "2,3": [
+          "Agency",
+          "Maintain",
+          "Self"
+        ],
+        "3,1": [
+          "Viability",
+          "Bound",
+          "Setting"
+        ],
+        "3,2": [
+          "Connection",
+          "Bound",
+          "Bond"
+        ],
+        "3,3": [
+          "Agency",
+          "Bound",
+          "Self"
+        ]
+      },
+      "targets": [
+        "FE",
+        "HA",
+        "AD"
+      ],
+      "context": "intrusion"
+    },
+    {
+      "id": "A-CP50",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "你所在的樂團正在創作新歌，但兩名核心成員對曲風有截然不同的堅持。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "暫停爭吵，引導大家回想成立這支樂團時最核心的方向。"
+        },
+        {
+          "id": "2",
+          "text": "重新框架兩邊的動機，試著讓兩種對立力量在作品裡同時存在。"
+        },
+        {
+          "id": "3",
+          "text": "改變自己的節奏與配合方式，用自己的彈性去包容兩股力量。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "所有人重新對齊方向，能順暢把作品完成。"
+        },
+        {
+          "id": "2",
+          "text": "作品保留了看似衝突但缺一不可的元素，形成新的整合。"
+        },
+        {
+          "id": "3",
+          "text": "在這場風暴中，我依然保持自己的完整與平衡。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Coordination",
+          "Orient",
+          "Group"
+        ],
+        "1,2": [
+          "Integration",
+          "Orient",
+          "Group"
+        ],
+        "1,3": [
+          "Integration",
+          "Orient",
+          "Self"
+        ],
+        "2,1": [
+          "Coordination",
+          "Reframe",
+          "Group"
+        ],
+        "2,2": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        "2,3": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ],
+        "3,1": [
+          "Coordination",
+          "Tune",
+          "Group"
+        ],
+        "3,2": [
+          "Integration",
+          "Tune",
+          "Group"
+        ],
+        "3,3": [
+          "Integration",
+          "Tune",
+          "Self"
+        ]
+      },
+      "targets": [
+        "PO",
+        "OR",
+        "VE"
+      ],
+      "context": "creative"
+    },
+    {
+      "id": "B-CP42",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "當你要交接一項複雜的工作或技藝給別人時：",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "整理並維護這份資料，確保它完整無缺。"
+        },
+        {
+          "id": "2",
+          "text": "重新梳理它，讓它在邏輯與實踐上不再自相矛盾。"
+        },
+        {
+          "id": "3",
+          "text": "找出這份工作的核心精神，為接手的人指引方向。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "這套珍貴的知識能經得起時間考驗並延續。"
+        },
+        {
+          "id": "2",
+          "text": "原本衝突的做法終於能和諧共存。"
+        },
+        {
+          "id": "3",
+          "text": "團隊能圍繞穩定的共同標準繼續推進。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ],
+        "1,2": [
+          "Integration",
+          "Maintain",
+          "Legacy"
+        ],
+        "1,3": [
+          "Coordination",
+          "Maintain",
+          "Legacy"
+        ],
+        "2,1": [
+          "Continuity",
+          "Reframe",
+          "Self"
+        ],
+        "2,2": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ],
+        "2,3": [
+          "Coordination",
+          "Reframe",
+          "Self"
+        ],
+        "3,1": [
+          "Continuity",
+          "Orient",
+          "Group"
+        ],
+        "3,2": [
+          "Integration",
+          "Orient",
+          "Group"
+        ],
+        "3,3": [
+          "Coordination",
+          "Orient",
+          "Group"
+        ]
+      },
+      "targets": [
+        "SI",
+        "VG",
+        "PO"
+      ],
+      "context": "handoff"
+    },
+    {
+      "id": "B-CP44",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "面對團隊中一個反覆發生的爭執：",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "刻意施壓這個爭執點，看它到底會在哪裡崩潰。"
+        },
+        {
+          "id": "2",
+          "text": "記錄失敗資料，重新設計整個溝通流程。"
+        },
+        {
+          "id": "3",
+          "text": "找一個能解決今天這次爭吵的務實方案。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "雙方真正看見底層矛盾，並找到能包容彼此的新框架。"
+        },
+        {
+          "id": "2",
+          "text": "這個機制未來不再因同樣盲點反覆失敗。"
+        },
+        {
+          "id": "3",
+          "text": "眼前問題被可靠解決，大家可以繼續工作。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Integration",
+          "StressTest",
+          "Case"
+        ],
+        "1,2": [
+          "Viability",
+          "StressTest",
+          "Case"
+        ],
+        "1,3": [
+          "Workability",
+          "StressTest",
+          "Case"
+        ],
+        "2,1": [
+          "Integration",
+          "Reconfigure",
+          "System"
+        ],
+        "2,2": [
+          "Viability",
+          "Reconfigure",
+          "System"
+        ],
+        "2,3": [
+          "Workability",
+          "Reconfigure",
+          "System"
+        ],
+        "3,1": [
+          "Integration",
+          "Reconfigure",
+          "Case"
+        ],
+        "3,2": [
+          "Viability",
+          "Reconfigure",
+          "Case"
+        ],
+        "3,3": [
+          "Workability",
+          "Reconfigure",
+          "Case"
+        ]
+      },
+      "targets": [
+        "OR",
+        "ZG",
+        "AC"
+      ],
+      "context": "team_dispute"
+    },
+    {
+      "id": "B-CP45",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "當你發現共用大樓出現嚴重的結構裂縫：",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "極限測試裂縫，評估它會不會造成不可逆的倒塌風險。"
+        },
+        {
+          "id": "2",
+          "text": "立刻把眼前最危險的碎石搬開，讓通道恢復暢通。"
+        },
+        {
+          "id": "3",
+          "text": "快速盤點自身資源，隨時準備應對環境惡化。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "確認大樓即使受損，未來仍具備可復原的承載能力。"
+        },
+        {
+          "id": "2",
+          "text": "眼前的具體障礙被移除，任務得以繼續推進。"
+        },
+        {
+          "id": "3",
+          "text": "最糟情況下，自己與身邊的人仍有足夠儲備撐下去。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Viability",
+          "StressTest",
+          "Collective"
+        ],
+        "1,2": [
+          "Workability",
+          "StressTest",
+          "Case"
+        ],
+        "1,3": [
+          "Viability",
+          "StressTest",
+          "Setting"
+        ],
+        "2,1": [
+          "Viability",
+          "Enact",
+          "Collective"
+        ],
+        "2,2": [
+          "Workability",
+          "Enact",
+          "Case"
+        ],
+        "2,3": [
+          "Viability",
+          "Enact",
+          "Setting"
+        ],
+        "3,1": [
+          "Viability",
+          "Tune",
+          "Collective"
+        ],
+        "3,2": [
+          "Workability",
+          "Tune",
+          "Case"
+        ],
+        "3,3": [
+          "Viability",
+          "Tune",
+          "Setting"
+        ]
+      },
+      "targets": [
+        "ML",
+        "MA",
+        "RE"
+      ],
+      "context": "structural_risk"
+    },
+    {
+      "id": "B-CP46",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "因為工作調動，你必須和伴侶搬到一個完全陌生的城市。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "重建新環境的生活動線，讓它慢慢產生歸屬感。"
+        },
+        {
+          "id": "2",
+          "text": "花更多心力維護你和伴侶之間這段專屬關係。"
+        },
+        {
+          "id": "3",
+          "text": "調整自己的心態，在陌生環境與自身需求間取得平衡。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "在新地方不再感到格格不入，隨時能安心回去。"
+        },
+        {
+          "id": "2",
+          "text": "即使外在變化再大，這段關係依然緊密可持續。"
+        },
+        {
+          "id": "3",
+          "text": "不同情緒與生活需求都能共存，不必長期壓抑。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Connection",
+          "Reconfigure",
+          "Setting"
+        ],
+        "1,2": [
+          "Connection",
+          "Reconfigure",
+          "Bond"
+        ],
+        "1,3": [
+          "Integration",
+          "Reconfigure",
+          "Self"
+        ],
+        "2,1": [
+          "Connection",
+          "Maintain",
+          "Setting"
+        ],
+        "2,2": [
+          "Connection",
+          "Maintain",
+          "Bond"
+        ],
+        "2,3": [
+          "Integration",
+          "Maintain",
+          "Self"
+        ],
+        "3,1": [
+          "Connection",
+          "Tune",
+          "Setting"
+        ],
+        "3,2": [
+          "Connection",
+          "Tune",
+          "Bond"
+        ],
+        "3,3": [
+          "Integration",
+          "Tune",
+          "Self"
+        ]
+      },
+      "targets": [
+        "MI",
+        "HA",
+        "VE"
+      ],
+      "context": "relocation"
+    },
+    {
+      "id": "B-CP50",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "如果要你撰寫一本關於複雜人際關係的指南：",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "把前人留下的智慧精華完整整理出來。"
+        },
+        {
+          "id": "2",
+          "text": "提供一套可重複使用的決策地圖供讀者參考。"
+        },
+        {
+          "id": "3",
+          "text": "刻意把那些最尖銳、最矛盾的情境拋出來探討。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "這份知識能被下一代繼承並延續。"
+        },
+        {
+          "id": "2",
+          "text": "讀者未來遇到新關係時能自己做出判斷。"
+        },
+        {
+          "id": "3",
+          "text": "讀者能看見矛盾背後的結構，學會容納不同立場。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ],
+        "1,2": [
+          "Capability",
+          "Maintain",
+          "Legacy"
+        ],
+        "1,3": [
+          "Integration",
+          "Maintain",
+          "Legacy"
+        ],
+        "2,1": [
+          "Continuity",
+          "Orient",
+          "System"
+        ],
+        "2,2": [
+          "Capability",
+          "Orient",
+          "System"
+        ],
+        "2,3": [
+          "Integration",
+          "Orient",
+          "System"
+        ],
+        "3,1": [
+          "Continuity",
+          "StressTest",
+          "Case"
+        ],
+        "3,2": [
+          "Capability",
+          "StressTest",
+          "Case"
+        ],
+        "3,3": [
+          "Integration",
+          "StressTest",
+          "Case"
+        ]
+      },
+      "targets": [
+        "SI",
+        "AR",
+        "OR"
+      ],
+      "context": "knowledge"
+    },
+    {
+      "id": "C-CP048",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "你發現自己一直深信的某個生活哲學，最近在實際應用時老是卡卡的。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "向內深掘，重新詮釋這套哲學，把被排斥的情緒經驗整合進來。"
+        },
+        {
+          "id": "2",
+          "text": "回到這套哲學最原始的經典或傳承，持續維護它的核心。"
+        },
+        {
+          "id": "3",
+          "text": "把它帶到群體中，刻意檢視它與現實矛盾碰撞時哪裡撐不住。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "理論與我個人的真實體驗不再分裂。"
+        },
+        {
+          "id": "2",
+          "text": "這份知識體系依然完整，能繼續被傳承。"
+        },
+        {
+          "id": "3",
+          "text": "我重構了問題，讓它能容納現實中看似對立的矛盾。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ],
+        "1,2": [
+          "Continuity",
+          "Reframe",
+          "Legacy"
+        ],
+        "1,3": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        "2,1": [
+          "Integration",
+          "Maintain",
+          "Self"
+        ],
+        "2,2": [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ],
+        "2,3": [
+          "Integration",
+          "Maintain",
+          "Group"
+        ],
+        "3,1": [
+          "Integration",
+          "StressTest",
+          "Self"
+        ],
+        "3,2": [
+          "Continuity",
+          "StressTest",
+          "Legacy"
+        ],
+        "3,3": [
+          "Integration",
+          "StressTest",
+          "Group"
+        ]
+      },
+      "targets": [
+        "VG",
+        "SI",
+        "OR"
+      ],
+      "context": "belief"
+    },
+    {
+      "id": "D-CP01",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "團隊裡有兩個人常常為了同一件事暗中較勁，導致氣氛很糟。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "根據當下氣氛，微調我介入的時機與力道。"
+        },
+        {
+          "id": "2",
+          "text": "換個說法重新定義他們的問題，讓它不只是一場零和遊戲。"
+        },
+        {
+          "id": "3",
+          "text": "設計小測試或提問，驗證到底是什麼原因踩到他們的雷。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "雙方能重新在群體中自然互動。"
+        },
+        {
+          "id": "2",
+          "text": "雙方發現彼此核心需求其實可以同時存在。"
+        },
+        {
+          "id": "3",
+          "text": "我們真正弄清楚摩擦背後的成因與機制。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Connection",
+          "Tune",
+          "Group"
+        ],
+        "1,2": [
+          "Integration",
+          "Tune",
+          "Group"
+        ],
+        "1,3": [
+          "Understanding",
+          "Tune",
+          "Group"
+        ],
+        "2,1": [
+          "Connection",
+          "Reframe",
+          "Group"
+        ],
+        "2,2": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        "2,3": [
+          "Understanding",
+          "Reframe",
+          "Group"
+        ],
+        "3,1": [
+          "Connection",
+          "Probe",
+          "Group"
+        ],
+        "3,2": [
+          "Integration",
+          "Probe",
+          "Group"
+        ],
+        "3,3": [
+          "Understanding",
+          "Probe",
+          "Group"
+        ]
+      },
+      "targets": [
+        "PL",
+        "OR",
+        "AC"
+      ],
+      "context": "social_conflict"
+    },
+    {
+      "id": "D-CP03",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "你的朋友陷入一個爛攤子，不知道該怎麼辦。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "給他一個穩定的決策參考點，讓他有方向但自己決定。"
+        },
+        {
+          "id": "2",
+          "text": "觀察他的情緒起伏，給予適當距離的陪伴與支持。"
+        },
+        {
+          "id": "3",
+          "text": "直接幫他踏出具體第一步，讓事情先動起來。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "他未來遇到類似新問題時，有能力獨立判斷。"
+        },
+        {
+          "id": "2",
+          "text": "他在過程中保有真實選擇權，沒有被任何人強迫。"
+        },
+        {
+          "id": "3",
+          "text": "眼前這個爛攤子總算被解決，日子能繼續過。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Capability",
+          "Orient",
+          "Bond"
+        ],
+        "1,2": [
+          "Agency",
+          "Orient",
+          "Bond"
+        ],
+        "1,3": [
+          "Workability",
+          "Orient",
+          "Bond"
+        ],
+        "2,1": [
+          "Capability",
+          "Tune",
+          "Bond"
+        ],
+        "2,2": [
+          "Agency",
+          "Tune",
+          "Bond"
+        ],
+        "2,3": [
+          "Workability",
+          "Tune",
+          "Bond"
+        ],
+        "3,1": [
+          "Capability",
+          "Enact",
+          "Bond"
+        ],
+        "3,2": [
+          "Agency",
+          "Enact",
+          "Bond"
+        ],
+        "3,3": [
+          "Workability",
+          "Enact",
+          "Bond"
+        ]
+      },
+      "targets": [
+        "AR",
+        "AD",
+        "MA",
+        "FE"
+      ],
+      "context": "helping"
+    },
+    {
+      "id": "D-CP04",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "你依賴的一個重要軟體或規則突然出現反常失誤。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "刻意給它極端條件，測試它會在哪裡徹底崩潰。"
+        },
+        {
+          "id": "2",
+          "text": "打開底層設定，重新修改運作程序或資源分配。"
+        },
+        {
+          "id": "3",
+          "text": "先降低外部干擾，讓它回到原本的基準線。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "確保這個機制不會引發不可挽回的巨大災難。"
+        },
+        {
+          "id": "2",
+          "text": "我真正搞懂它為什麼失常的底層原因。"
+        },
+        {
+          "id": "3",
+          "text": "它現在能穩定幫我完成眼前任務。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Viability",
+          "StressTest",
+          "System"
+        ],
+        "1,2": [
+          "Understanding",
+          "StressTest",
+          "System"
+        ],
+        "1,3": [
+          "Workability",
+          "StressTest",
+          "System"
+        ],
+        "2,1": [
+          "Viability",
+          "Reconfigure",
+          "System"
+        ],
+        "2,2": [
+          "Understanding",
+          "Reconfigure",
+          "System"
+        ],
+        "2,3": [
+          "Workability",
+          "Reconfigure",
+          "System"
+        ],
+        "3,1": [
+          "Viability",
+          "Stabilize",
+          "System"
+        ],
+        "3,2": [
+          "Understanding",
+          "Stabilize",
+          "System"
+        ],
+        "3,3": [
+          "Workability",
+          "Stabilize",
+          "System"
+        ]
+      },
+      "targets": [
+        "ML",
+        "ZG",
+        "AR"
+      ],
+      "context": "system"
+    },
+    {
+      "id": "D-CP06",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "社群中爆發兩派價值觀的嚴重對立，氣氛緊張。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "改變討論框架，讓大家看到這不是非黑即白的選擇。"
+        },
+        {
+          "id": "2",
+          "text": "劃下紅線，限制過度攻擊性的行為。"
+        },
+        {
+          "id": "3",
+          "text": "先降低情緒波動，讓大家回到可以對話的基準點。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "雙方最在乎的核心價值都能並存。"
+        },
+        {
+          "id": "2",
+          "text": "大家能在同一個空間裡順利共事。"
+        },
+        {
+          "id": "3",
+          "text": "所有人又能重新連結，不再有人被排除在外。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        "1,2": [
+          "Coordination",
+          "Reframe",
+          "Group"
+        ],
+        "1,3": [
+          "Connection",
+          "Reframe",
+          "Group"
+        ],
+        "2,1": [
+          "Integration",
+          "Bound",
+          "Group"
+        ],
+        "2,2": [
+          "Coordination",
+          "Bound",
+          "Group"
+        ],
+        "2,3": [
+          "Connection",
+          "Bound",
+          "Group"
+        ],
+        "3,1": [
+          "Integration",
+          "Stabilize",
+          "Group"
+        ],
+        "3,2": [
+          "Coordination",
+          "Stabilize",
+          "Group"
+        ],
+        "3,3": [
+          "Connection",
+          "Stabilize",
+          "Group"
+        ]
+      },
+      "targets": [
+        "OR",
+        "DR",
+        "MI"
+      ],
+      "context": "community_clash"
+    },
+    {
+      "id": "D-CP07",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "你負責將一項瀕臨失傳的手藝或知識交給下一批人。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "悉心保養這份知識的核心，確保它不失真。"
+        },
+        {
+          "id": "2",
+          "text": "透過小測驗或提問，確認對方真的吸收了。"
+        },
+        {
+          "id": "3",
+          "text": "重新拆解知識結構，讓它更符合現代人的學習介面。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "這份知識可以跨越世代成功交接。"
+        },
+        {
+          "id": "2",
+          "text": "學習者未來遇到變體時有能力獨立判斷。"
+        },
+        {
+          "id": "3",
+          "text": "外在知識與學習者的真實體驗能真正整合。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ],
+        "1,2": [
+          "Capability",
+          "Maintain",
+          "Legacy"
+        ],
+        "1,3": [
+          "Integration",
+          "Maintain",
+          "Legacy"
+        ],
+        "2,1": [
+          "Continuity",
+          "Probe",
+          "Legacy"
+        ],
+        "2,2": [
+          "Capability",
+          "Probe",
+          "Legacy"
+        ],
+        "2,3": [
+          "Integration",
+          "Probe",
+          "Legacy"
+        ],
+        "3,1": [
+          "Continuity",
+          "Reconfigure",
+          "Legacy"
+        ],
+        "3,2": [
+          "Capability",
+          "Reconfigure",
+          "Legacy"
+        ],
+        "3,3": [
+          "Integration",
+          "Reconfigure",
+          "Legacy"
+        ]
+      },
+      "targets": [
+        "SI",
+        "VG",
+        "AR"
+      ],
+      "context": "legacy"
+    },
+    {
+      "id": "D-CP08",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "你站在一個十字路口，這個決定會劇烈改變你的生活。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "想像最壞情境，刻意挑戰這個決定最脆弱的環節。"
+        },
+        {
+          "id": "2",
+          "text": "尋找更多資訊，看清不同選項背後的機制與因果。"
+        },
+        {
+          "id": "3",
+          "text": "設下停損點，清楚界定自己願意承擔到什麼程度。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "這個決定不會毀掉我未來重新站起來的能力。"
+        },
+        {
+          "id": "2",
+          "text": "我對這個選擇背後的機制已經足夠理解。"
+        },
+        {
+          "id": "3",
+          "text": "這是出自我的自由意志，我願意為它負責。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Viability",
+          "StressTest",
+          "Self"
+        ],
+        "1,2": [
+          "Understanding",
+          "StressTest",
+          "Self"
+        ],
+        "1,3": [
+          "Agency",
+          "StressTest",
+          "Self"
+        ],
+        "2,1": [
+          "Viability",
+          "Probe",
+          "Self"
+        ],
+        "2,2": [
+          "Understanding",
+          "Probe",
+          "Self"
+        ],
+        "2,3": [
+          "Agency",
+          "Probe",
+          "Self"
+        ],
+        "3,1": [
+          "Viability",
+          "Bound",
+          "Self"
+        ],
+        "3,2": [
+          "Understanding",
+          "Bound",
+          "Self"
+        ],
+        "3,3": [
+          "Agency",
+          "Bound",
+          "Self"
+        ]
+      },
+      "targets": [
+        "ML",
+        "OR",
+        "AD"
+      ],
+      "context": "decision"
+    },
+    {
+      "id": "D-CP10",
+      "format": "CP",
+      "burden": 1.5,
+      "prompt": "你無可避免地必須參與一個充滿情緒勒索與潛規則的圈子。",
+      "aPrompt": "你最自然會先怎麼做？",
+      "aOptions": [
+        {
+          "id": "1",
+          "text": "劃定自己的絕對領域，只要越線就拒絕配合。"
+        },
+        {
+          "id": "2",
+          "text": "改變自己對這些規則的詮釋方式，不被它們綁架。"
+        },
+        {
+          "id": "3",
+          "text": "根據當下情況微調自己展現的態度，以應對壓力。"
+        }
+      ],
+      "bPrompt": "哪種結果最會讓你覺得「這件事處理到位了」？",
+      "bOptions": [
+        {
+          "id": "1",
+          "text": "我依然保有隨時離開的自由與完整選擇權。"
+        },
+        {
+          "id": "2",
+          "text": "我能在這個環境中保持內在價值觀的完整。"
+        },
+        {
+          "id": "3",
+          "text": "我仍能建立並維持必要的社交連結。"
+        }
+      ],
+      "cells": {
+        "1,1": [
+          "Agency",
+          "Bound",
+          "Self"
+        ],
+        "1,2": [
+          "Integration",
+          "Bound",
+          "Self"
+        ],
+        "1,3": [
+          "Connection",
+          "Bound",
+          "Self"
+        ],
+        "2,1": [
+          "Agency",
+          "Reframe",
+          "Self"
+        ],
+        "2,2": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ],
+        "2,3": [
+          "Connection",
+          "Reframe",
+          "Self"
+        ],
+        "3,1": [
+          "Agency",
+          "Tune",
+          "Self"
+        ],
+        "3,2": [
+          "Integration",
+          "Tune",
+          "Self"
+        ],
+        "3,3": [
+          "Connection",
+          "Tune",
+          "Self"
+        ]
+      },
+      "targets": [
+        "AD",
+        "VG",
+        "VE",
+        "BA"
+      ],
+      "context": "toxic_social"
+    },
+    {
+      "id": "B-CF54",
+      "format": "CF",
+      "burden": 1.2,
+      "condition1": "你們面對一片完全沒有路徑的荒野，不知道該往哪走。",
+      "condition2": "你們正走在一條明確的路上，但前面突然倒下一棵大樹擋住去路。",
+      "left": "自己先踏出第一步，用行動創造一條新路。",
+      "right": "集中力量把眼前的具體障礙移開，讓原本的路恢復暢通。",
+      "score": {
+        "left": [
+          "Agency",
+          "Enact",
+          "Case"
+        ],
+        "right": [
+          "Workability",
+          "Enact",
+          "Case"
+        ]
+      },
+      "stableTarget": "LY",
+      "switchTarget": "MA",
+      "targets": [
+        "LY",
+        "MA"
+      ],
+      "context": "blocker"
+    },
+    {
+      "id": "B-CF58",
+      "format": "CF",
+      "burden": 1.2,
+      "condition1": "你要把一份工作交接給下週就要來上班的新手同事。",
+      "condition2": "你要退休了，準備將畢生鑽研的獨門技藝交接給下一代傳人。",
+      "left": "確保接手的人了解目前共同目標與工作節奏。",
+      "right": "把工作背後完整的歷史與核心知識體系傳授給他。",
+      "score": {
+        "left": [
+          "Coordination",
+          "Orient",
+          "Group"
+        ],
+        "right": [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ]
+      },
+      "stableTarget": "PO",
+      "switchTarget": "SI",
+      "targets": [
+        "PO",
+        "SI"
+      ],
+      "context": "legacy_horizon"
+    },
+    {
+      "id": "C-CF055",
+      "format": "CF",
+      "burden": 1.2,
+      "condition1": "你負責的網站首頁圖片跑版了。",
+      "condition2": "你發現客服、物流、行銷三個部門因為資料不同步，導致大量客訴。",
+      "left": "診斷眼前具體問題，先把這個案例確實修好。",
+      "right": "重新設計跨單位的權責與資源交接網路。",
+      "score": {
+        "left": [
+          "Workability",
+          "Reconfigure",
+          "Case"
+        ],
+        "right": [
+          "Coordination",
+          "Reconfigure",
+          "Network"
+        ]
+      },
+      "stableTarget": "AC",
+      "switchTarget": "NU",
+      "targets": [
+        "AC",
+        "NU"
+      ],
+      "context": "scope"
+    },
+    {
+      "id": "C-CF057",
+      "format": "CF",
+      "burden": 1.2,
+      "condition1": "一個剛出社會、什麼都不懂的新人向你求助。",
+      "condition2": "一個工作十年的老手，反覆抱怨同一個無解的辦公室政治問題。",
+      "left": "給他一套具體分析鷹架，教他如何一步步做判斷。",
+      "right": "講一個長遠原則，把改變責任交還給他，然後退一步。",
+      "score": {
+        "left": [
+          "Capability",
+          "Orient",
+          "System"
+        ],
+        "right": [
+          "Capability",
+          "Orient",
+          "Collective"
+        ]
+      },
+      "stableTarget": "AR",
+      "switchTarget": "BA",
+      "targets": [
+        "AR",
+        "BA"
+      ],
+      "context": "guidance"
+    },
+    {
+      "id": "D-CF07",
+      "format": "CF",
+      "burden": 1.2,
+      "condition1": "你學習一套理論，發現它在實務操作上一直失敗。",
+      "condition2": "你學習一套理論，實務成功，但與你內心的真實感受完全矛盾。",
+      "left": "診斷實務上的錯誤，針對具體案例重新配置與修補。",
+      "right": "向內重新框架這套理論，直到它能包容原本被排除的情感經驗。",
+      "score": {
+        "left": [
+          "Workability",
+          "Reconfigure",
+          "Case"
+        ],
+        "right": [
+          "Integration",
+          "Reframe",
+          "Self"
+        ]
+      },
+      "stableTarget": "AC",
+      "switchTarget": "VG",
+      "targets": [
+        "AC",
+        "VG"
+      ],
+      "context": "theory"
+    },
+    {
+      "id": "D-CF08",
+      "format": "CF",
+      "burden": 1.2,
+      "condition1": "面對一個純粹因為雙方誤會而產生的爭論。",
+      "condition2": "面對一個反映兩種根本價值觀衝突的激烈爭論。",
+      "left": "找出雙方可調整的平衡點，微調視角以恢復和諧。",
+      "right": "讓矛盾保持足夠張力，看清底層對立，再重新定義問題。",
+      "score": {
+        "left": [
+          "Integration",
+          "Tune",
+          "Self"
+        ],
+        "right": [
+          "Integration",
+          "Reframe",
+          "Group"
+        ]
+      },
+      "stableTarget": "VE",
+      "switchTarget": "OR",
+      "targets": [
+        "VE",
+        "OR"
+      ],
+      "context": "argument"
+    }
+  ]
+}

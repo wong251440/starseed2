@@ -1,6 +1,6 @@
 import {parseImport,validateResponses,MODEL_VERSION,APP_VERSION,questions} from '../src/shared/questionnaire';
-import {loadScoringModel,score} from './scorer';
-import HASHES from './model-hashes.json';
+import {score} from './rpcs';
+import HASHES from './rpcs-hashes.json';
 import civs from '../src/data/civilizations.json';
 interface Env { DB: D1Database; ASSETS: Fetcher; RATE_LIMITER?: RateLimit; BUILD_VERSION: string; ALLOWED_ORIGINS?: string }
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -29,14 +29,14 @@ export default {
  const origin=request.headers.get('origin');const allowedOrigins=(env.ALLOWED_ORIGINS||'').split(',').map(v=>v.trim()).filter(Boolean);if(origin&&origin!==new URL(request.url).origin&&!allowedOrigins.includes(origin))fail('請從本站提交。',403);
  if(env.RATE_LIMITER){const {success}=await env.RATE_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'local'});if(!success)fail('提交次數較多，請稍後再試。',429);}
  const data=await body(request);
- if(path==='/api/score'){validateResponses(data.responses);const model=await loadScoringModel(env.ASSETS);return json({modelVersion:MODEL_VERSION,result:score({responses:data.responses},model)});}
+ if(path==='/api/score'){validateResponses(data.responses);return json({modelVersion:MODEL_VERSION,result:score(data.responses)});}
  if(path==='/api/attempts'){
   if(data.demo===true)fail('範例不收集校準資料。');
   const responses=parseImport(data),attemptId=id(data.attemptId),participantId=id(data.participantId),tokenHash=await hash(id(data.feedbackToken));
   if(typeof data.imported!=='boolean')fail('缺少匯入狀態。');
   const startedAt=date(data.startedAt),completedAt=date(data.completedAt),duration=data.durationMs;
   if(typeof duration!=='number'||!Number.isSafeInteger(duration)||duration<0||duration>31536000000||Date.parse(completedAt)<Date.parse(startedAt)||Date.parse(completedAt)>Date.now()+300000||duration!==Date.parse(completedAt)-Date.parse(startedAt))fail('完成時間不正確。');
-  const model=await loadScoringModel(env.ASSETS),result=score({responses},model),encoded=JSON.stringify({responses:Object.fromEntries(questions.map(q=>[q.id,responses[q.id]]))});
+  const result=score(responses),encoded=JSON.stringify({responses:Object.fromEntries(questions.map(q=>[q.id,responses[q.id]]))});
   const previous=await env.DB.prepare('SELECT participant_id,feedback_token_hash,raw_answers FROM attempts WHERE id=?').bind(attemptId).first<{participant_id:string;feedback_token_hash:string;raw_answers:string}>();
   if(previous){if(previous.participant_id!==participantId||previous.feedback_token_hash!==tokenHash||previous.raw_answers!==encoded)fail('這組提交識別碼已用於其他答案。',409);return json({attemptId,modelVersion:MODEL_VERSION,result,saved:true});}
   const metrics=result.diagnostic,primary=result.public.primary,primaryId=primary?civs.find(c=>c.lineageId===primary.id)?.id:null;

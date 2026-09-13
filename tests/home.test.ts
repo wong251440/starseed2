@@ -39,6 +39,6 @@ describe('Home journey actions',()=>{
   const {draft,attempt}=completed();expect(home({...draft,startedAt:'2026-09-02T00:00:00.000Z'},attempt)).toContain('繼續上次的旅程');
  });
  it('offers resume for changed previous answers',()=>{
-  const {draft,attempt}=completed();draft.responses[questions[0].id]=1;expect(home(draft,attempt)).toContain('繼續上次的旅程');
+  const {draft,attempt}=completed();draft.responses[questions[0].id]=2;expect(home(draft,attempt)).toContain('繼續上次的旅程');
  });
 });

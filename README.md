@@ -1,13 +1,12 @@
 # Starseed 21
 
-S4-RPD60 Production Final 60: 26 bipolar, 14 best-worst, and 20 crossed-priority
-questions. Scoring Layer v4 with v4.1 interpretation is frozen in
-`starseed_s4_rpd_web_handoff_v4_1_min/`. The model version is
-`S21-scoring-v4.1-s4rpd-99f5e4ac3bbf`; application version is `2.2.0`.
+RPCS questionnaire `starseed_quiz_min_v1`: 60 questions, comprising 19 bipolar,
+20 best–worst, 15 crossed-priority and 6 counterfactual pairs. Application version
+is `3.0.0`; the deployment model identifier is `RPCS-starseed-quiz-min-v1`.
 
-## Local Development
+## Local development
 
-Use Node.js 22.13 or later (the API tests use `node:sqlite`).
+Use Node.js 22.13 or later (`node:sqlite` is used by API tests).
 
 ```sh
 npm ci
@@ -17,48 +16,53 @@ npm run db:local
 npx wrangler dev --port 8787
 ```
 
-Open `http://localhost:8787` for the built application and local database.
-For frontend hot reload, run `npm run dev` in a second terminal; Vite proxies
-`/api` to the local Worker on port 8787. Local attempts never write to production.
+Open `http://localhost:8787`. For frontend hot reload, run `npm run dev`;
+Vite proxies `/api` to the local Worker on port 8787. Local attempts never write
+to production. The sample report calls `/api/score`, which does not save answers.
 
-## Scoring And Data
+## Scoring contract
 
-`POST /api/score` accepts `{ "responses": { ... } }` and returns
-`{ modelVersion, result: { public, diagnostic } }` without saving a record.
-`POST /api/attempts` validates versioned exports plus attempt metadata, recomputes
-the same result, and saves it to D1. Feedback still requires the attempt token.
-The browser uses server results; it does not download the numerical model.
+The supplied `starseed_quiz_min_v1/quiz.json` and `scoring.mjs` remain unchanged.
+`worker/rpcs-engine.mjs` ports that scorer with memoization of immutable
+prototype/state vectors, avoiding repeated geometry construction in each request.
+Parity tests compare every output and all seven scenarios to the supplied scorer.
+`worker/rpcs.ts` validates all 60 answers before scoring, maps CP
+`{operation, goal}` to `{a, b}`, and maps the new lineage codes to stable site IDs:
+AD → AN, VE → VN, VG → VE, ZG → ZE. Civilization names, texts and routes stay unchanged.
+CF answers are `{first: 'L' | 'R', second: 'L' | 'R'}`; both are required.
 
-All 22 golden fixtures must pass within their absolute tolerance of `2e-6`.
-The 21 independent structural T-scores do not sum to 100. Stability explains
-structural robustness and never changes the point scores or ranking.
+Ranking uses the reference scorer's order unchanged. For display, raw fit
+[-1, 1] becomes `(fit + 1) * 50`; this is not the old structural T-score.
+Scores do not sum to 100 and are not probabilities. Stability is the percentage
+of seven settings that retain the original Primary. Pair-specific margin is a
+separate calculation from the global first/second score gap; the UI explains
+both. The new model does not supply the old percentiles, family-drop tests,
+per-item contributions or 1,024-corner geometry, so none are fabricated in reports.
+The full answer review remains available in questionnaire order.
 
-`scripts/prepare_strict180_model.py` packages the supplied S4-RPD60 NumPy arrays into the
-checked-in gzip-compressed binary asset and Worker metadata, retaining native precision.
-The Worker decompresses the asset losslessly into its shared array buffer. Normal
-builds need no Python. To regenerate from the frozen source, install its NumPy
-requirement and run that script, then rerun the tests.
+`POST /api/score` accepts `{responses}` and returns `{modelVersion, result}`.
+`POST /api/attempts` validates a versioned export and attempt metadata,
+recomputes the same result and saves it in D1. Feedback requires the attempt token.
+The server applies existing body size, origin and rate-limit checks. Source hashes
+in `worker/rpcs-hashes.json` identify the supplied question/scorer files stored
+with each attempt. Regenerate those hashes if either frozen source changes.
 
-New local drafts/results use `starseed21-s4rpd-*` keys. Previous S4
-`starseed21-v4-*` records remain untouched; their answers cannot be reused
-with the new questionnaire. Old `starseed2-*` answer data
-remains available for archive export; it cannot be converted into new answers.
-Old v4.4 scoring code/data remain for historical verification, outside the new
-runtime path. Existing civilization asset/route IDs remain stable; 21 and 22 are
-removed from the current atlas, while Gaian retains asset/route ID 23.
+## Previous versions
 
-## Production Release
+Drafts and results use `starseed21-rpcs-v1-*` storage keys and export schema 4.
+S4-RPD and earlier browser records remain untouched; their answers and result
+links cannot be converted into the new questionnaire. Exported answers are
+version checked. The previous scorer, types, model assets and parity tests remain
+for historical verification; they are not used by the current API.
+Existing D1 tables already support the versioned response object, so this release
+requires no new migration and does not rewrite historical attempts.
 
-Production uses Vercel for the frontend and Cloudflare Workers/D1 for the API.
-Release requires both deployments, plus the schema migration. After review:
+## Release
 
 1. Run `npm test` and `npm run build`.
-2. Apply `npm run db:remote`. Migration `0002_strict180.sql` preserves historical
-   attempts and feedback while allowing the new response format.
-3. Deploy the Worker with `npx wrangler deploy`, including `dist/model/`.
-4. Deploy the frontend with `npx vercel --prod` using the existing linked project.
-5. Verify `/api/health` reports the new model and test the sample report.
+2. Deploy the Worker with `npx wrangler deploy`.
+3. Deploy Vercel with `npx vercel --prod --yes` using the linked project.
+4. Verify `/api/health`, `/api/score` and `/sample` on the production domain.
 
-Old open browser tabs must reload to use the new questionnaire/API contract.
-Do not revert the database migration when rolling back application code: the
-expanded table retains the old format and all saved data.
+Both frontend and API must use the same model version. Open old browser tabs
+must reload for the new questionnaire. Retain the existing database on rollback.

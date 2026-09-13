@@ -3,7 +3,7 @@ export {default as HASHES} from './model-hashes.json';
 import type {
   ClassificationStability, ItemContribution, PairBoundaryGeometry, PairStability,
   RankingEntry, ScoringResult, StabilityLabel,
-} from '../src/shared/result';
+} from '../src/shared/result-v4';
 
 type NumericArray = Float32Array | Float64Array;
 export interface ScoringModel { arrays: Record<string, NumericArray> }

@@ -81,3 +81,5 @@
   .strict-quiz .quiz-actions>.button{min-width:0;max-width:70%;gap:12px}
 }
 @media(prefers-reduced-motion:reduce){.strict-quiz .question-content{animation:none}.strict-quiz *{transition:none}}
+
+.cross-steps{gap:16px}.cross-steps .cross-step-progress{margin:0}.cross-steps .cross-step-actions{margin-top:0}.cross-steps legend:focus{outline:none}
