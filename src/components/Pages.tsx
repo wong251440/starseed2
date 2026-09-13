@@ -59,7 +59,7 @@ export function OfficialText({id}:{id:number}){
   20:['肯伊·威斯特 Kanye West','查爾斯三世 King Charles III','威廉王子 Prince William','梅鐸 Rupert Murdoch','亨利·季辛吉 Henry Kissinger'],
   21:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica']
  };
- const enriched=useMemo(()=>{const names=celebrityMap[id]||[];let chapter=0;return text.split('\n').flatMap(line=>{if(/^#\s/.test(line)){chapter++;if(chapter<=2)return [line,'',`> ✦ **同一片星區，曾在人間留下痕跡**`, `> 有些靈魂會在這些名字裡認出熟悉的光：${names.join(' · ')}`,''];}return [line];}).join('\n');},[text,id]);
+ const enriched=useMemo(()=>{const names=celebrityMap[id]||[];let chapter=0;return text.split('\n').flatMap(line=>{if(/^#\s/.test(line)){chapter++;if(chapter===3)return ['',`> ✦ **著名${civilization(String(id)).name}座**`,`> 曾在地球留下光芒的代表人物`,`> ${names.map(n=>`**${n}**`).join('　')}`,'',line];}return [line];}).join('\n');},[text,id]);
  const chapters=useMemo(()=>enriched.split('\n').map((line,i)=>({line:i+1,title:line.replace(/^#+\s*/,'').replace(/\*\*/g,'')})).filter((_,i)=>/^#{1,3}\s/.test(enriched.split('\n')[i])),[enriched]);
  if(error)return <div className="panel"><p>文明檔案暫時未能載入。</p><button className="button" onClick={()=>setRetry(retry+1)}>重新載入完整文案</button></div>;
  if(!text)return <div className="loading" role="status"><Orbit/> 正在展開文明檔案……</div>;
