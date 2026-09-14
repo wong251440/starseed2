@@ -10,7 +10,7 @@
 .category-block{margin-top:56px;padding-top:35px;border-top:2px solid var(--category)}
 .category-heading{border-left:4px solid var(--category);padding:16px 22px;background:color-mix(in srgb,var(--category) 8%,transparent);flex-wrap:wrap}
 .category-heading>span.category-count{border:0;border-radius:0;width:auto;height:auto;font-size:.75rem;margin-left:auto;color:var(--category)}
-.category-heading p{width:100%;max-width:none;margin-left:0}
+.category-heading p{width:100%;max-width:760px;margin:8px 0 2px;font-size:1.08rem;line-height:1.8;color:#f2ead8;font-weight:500;letter-spacing:.04em}
 .category-heading h2{font-weight:600}
 .quiz-shell{min-height:100dvh}
 .quiz-actions{margin-top:40px}
