@@ -37,29 +37,28 @@ export function Atlas(){useTitle('文明圖鑑');return <div className="atlas-pa
 export function OfficialText({id}:{id:number}){
  const [text,setText]=useState(''),[error,setError]=useState(false),[retry,setRetry]=useState(0);
  useEffect(()=>{const abort=new AbortController();setText('');setError(false);fetch(`/texts/${id}.md`,{signal:abort.signal}).then(r=>{if(!r.ok)throw Error();return r.text();}).then(setText).catch(e=>{if(e.name!=='AbortError')setError(true);});return()=>abort.abort();},[id,retry]);
- const celebrityMap:Record<number,string[]>={
-  1:['麥可·傑克森 Michael Jackson','黛安娜王妃 Princess Diana','約翰·藍儂 John Lennon','基努·李維 Keanu Reeves','瑪丹娜 Madonna'],
-  2:['尼古拉·特斯拉 Nikola Tesla','佛萊迪·墨裘瑞 Freddie Mercury','吉米·亨德里克斯 Jimi Hendrix','巴布·馬利 Bob Marley','喬治·哈里遜 George Harrison'],
-  3:['大衛·鮑伊 David Bowie','巴拉克·歐巴馬 Barack Obama','史達林 Joseph Stalin','瑪格·羅比 Margot Robbie','勞倫斯·費許朋 Laurence Fishburne'],
-  4:['貓王 Elvis Presley','戴夫·查普爾 Dave Chappelle','林肯 Abraham Lincoln','安潔莉娜·裘莉 Angelina Jolie','李奧納多·狄卡皮歐 Leonardo DiCaprio'],
-  5:['泰勒絲 Taylor Swift','安海瑟薇 Anne Hathaway','安東尼·霍普金斯 Anthony Hopkins','夏奇拉 Shakira','亞當·崔佛 Adam Driver'],
-  6:['唐納·川普 Donald Trump','哈利王子 Prince Harry','瑪麗蓮·夢露 Marilyn Monroe','艾倫·狄珍妮 Ellen DeGeneres','葛莉塔·童貝里 Greta Thunberg'],
-  7:['拉娜·德芮 Lana Del Rey','詹姆斯·卡麥隆 James Cameron','傑森·摩莫亞 Jason Momoa','恩雅 Enya','IU 李知恩'],
-  8:['奧黛麗·赫本 Audrey Hepburn','莫妮卡·貝露琪 Monica Bellucci','艾西瓦婭·雷 Aishwarya Rai','Prince 王子','葛麗絲·凱莉 Grace Kelly'],
-  9:['甘地 Mahatma Gandhi','孔子 Confucius','席琳·狄翁 Celine Dion','桃莉·巴頓 Dolly Parton','德蕾莎修女 Mother Teresa'],
-  10:['賈斯汀·杜魯道 Justin Trudeau','摩根·費里曼 Morgan Freeman','薩提亞·納德拉 Satya Nadella','楊紫瓊 Michelle Yeoh','湯姆·漢克斯 Tom Hanks'],
-  11:['傑夫·貝佐斯 Jeff Bezos','提姆·柏內茲-李 Tim Berners-Lee','史蒂夫·沃茲尼亞克 Steve Wozniak','黃仁勳 Jensen Huang','馬雲 Jack Ma'],
-  12:['坂本龍一 Ryuichi Sakamoto','漢斯·季默 Hans Zimmer','馬友友 Yo-Yo Ma','碧玉 Björk','王菲 Faye Wong'],
-  13:['碧昂絲 Beyoncé','凱特·布蘭琪 Cate Blanchett','鞏俐 Gong Li','蕾哈娜 Rihanna','娜歐蜜·坎貝兒 Naomi Campbell'],
-  14:['卡爾·薩根 Carl Sagan','尼爾·德葛拉司·泰森 Neil deGrasse Tyson','愛蜜莉亞·艾爾哈特 Amelia Earhart','瑪雅·安傑盧 Maya Angelou','AURORA'],
-  15:['巴茲·艾德林 Buzz Aldrin','尼爾·阿姆斯壯 Neil Armstrong','梅·傑米森 Mae Jemison','克里斯·哈德菲爾德 Chris Hadfield','理查·布蘭森 Richard Branson'],
-  16:['P. Diddy / Sean Combs','歐本海默 J. Robert Oppenheimer','愛因斯坦 Albert Einstein','史蒂芬·霍金 Stephen Hawking','高爾 Al Gore'],
-  17:['妮姬·米娜 Nicki Minaj','阿諾·史瓦辛格 Arnold Schwarzenegger','約翰·屈伏塔 John Travolta','麥克·泰森 Mike Tyson','肯卓克·拉瑪 Kendrick Lamar'],
-  18:['伊莉莎白二世 Queen Elizabeth II','喬治·W·布希 George W. Bush','希拉蕊·柯林頓 Hillary Clinton','馬克·祖克柏 Mark Zuckerberg','賈斯汀·比伯 Justin Bieber'],
-  19:['伊隆·馬斯克 Elon Musk','比爾·蓋茲 Bill Gates','蒂妲·絲雲頓 Tilda Swinton','班奈狄克·康柏拜區 Benedict Cumberbatch','安雅·泰勒-喬伊 Anya Taylor-Joy'],
-  20:['肯伊·威斯特 Kanye West','查爾斯三世 King Charles III','威廉王子 Prince William','梅鐸 Rupert Murdoch','亨利·季辛吉 Henry Kissinger'],
- 21:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica'],
- 23:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica']
+ const celebrityMap:Record<number,string[]>=\{
+  1:["黛安娜王妃（Princess Diana）", "約翰·藍儂（John Lennon）", "奧黛麗·赫本（Audrey Hepburn）", "鄧麗君", "基努·李維（Keanu Reeves）"],
+  2:["尼古拉·特斯拉（Nikola Tesla）", "史蒂芬·霍金（Stephen Hawking）", "艾倫·圖靈（Alan Turing）", "李奧納多·達文西（Leonardo da Vinci）", "黃仁勳"],
+  3:["李小龍", "鮑勃·馬利（Bob Marley）", "麥可·傑克森（Michael Jackson）", "傑森·摩莫亞（Jason Momoa）", "金·凱瑞（Jim Carrey）"],
+  4:["大衛·鮑伊（David Bowie）", "碧玉（Björk）", "史蒂夫·賈伯斯（Steve Jobs）", "三毛", "喬治·歐威爾（George Orwell）"],
+  5:["佛萊迪·墨裘瑞（Freddie Mercury）", "瑪丹娜（Madonna）", "亞歷山大大帝（Alexander the Great）", "穆罕默德·阿里（Muhammad Ali）", "碧昂絲（Beyoncé）"],
+  6:["阿爾伯特·愛因斯坦（Albert Einstein）", "羅伯特·奧本海默（J. Robert Oppenheimer）", "比爾·蓋茲（Bill Gates）", "傑夫·貝佐斯（Jeff Bezos）", "克里斯多福·諾蘭（Christopher Nolan）"],
+  7:["張國榮", "恩雅（Enya）", "文森·梵谷（Vincent van Gogh）", "周深", "漢斯·克里斯汀·安徒生（Hans Christian Andersen）"],
+  8:["瑪麗蓮·夢露（Marilyn Monroe）", "伊麗莎白·泰勒（Elizabeth Taylor）", "金城武", "林青霞", "亞蘭·德倫（Alain Delon）"],
+  9:["德蕾莎修女（Mother Teresa）", "聖雄甘地（Mahatma Gandhi）", "達賴喇嘛", "證嚴法師", "羅賓·威廉斯（Robin Williams）"],
+  10:["鄭和", "斐迪南·麥哲倫（Ferdinand Magellan）", "摩根·費里曼（Morgan Freeman）", "湯姆·漢克斯（Tom Hanks）", "楊紫瓊"],
+  11:["艾薩克·牛頓（Isaac Newton）", "理查·費曼（Richard Feynman）", "提姆·柏納-李（Tim Berners-Lee）", "張忠謀", "尼爾·阿姆斯壯（Neil Armstrong）"],
+  12:["王菲", "弗雷德里克·蕭邦（Frédéric Chopin）", "史丹利·庫柏力克（Stanley Kubrick）", "坂本龍一", "周杰倫"],
+  13:["安潔莉娜·裘莉（Angelina Jolie）", "鞏俐", "莫文蔚", "王祖賢", "泰勒絲（Taylor Swift）"],
+  14:["老子", "蘇格拉底（Socrates）", "女神卡卡（Lady Gaga）", "G-Dragon（權志龍）", "王子（Prince）"],
+  15:["伊隆·馬斯克（Elon Musk）", "阿諾·史瓦辛格（Arnold Schwarzenegger）", "道格拉斯·麥克阿瑟（Douglas MacArthur）", "曹操", "甄子丹"],
+  16:["愛德華·泰勒（Edward Teller）", "諾斯特拉達穆斯（Nostradamus）", "芙烈達·卡蘿（Frida Kahlo）", "路德維希·范·貝多芬（Ludwig van Beethoven）", "小勞勃·道尼（Robert Downey Jr.）"],
+  17:["秦始皇", "拿破崙·波拿巴（Napoleon Bonaparte）", "凱撒（Julius Caesar）", "成吉思汗", "約瑟夫·史達林（Joseph Stalin）"],
+  18:["伊莉莎白二世（Queen Elizabeth II）", "喬治·W·布希（George W. Bush）", "亨利·季辛吉（Henry Kissinger）", "馬克·祖克柏（Mark Zuckerberg）", "小賈斯汀（Justin Bieber）"],
+  19:["山姆·奧特曼（Sam Altman）", "提姆·庫克（Tim Cook）", "賴利·佩吉（Larry Page）", "馬雲", "孫宇晨"],
+  20:["唐納·川普（Donald Trump）", "薩達姆·海珊（Saddam Hussein）", "克麗奧佩脫拉七世／埃及豔后（Cleopatra VII）", "拉美西斯二世（Ramesses II）", "圖坦卡門（Tutankhamun）"],
+  21:["珍·古德（Jane Goodall）", "大衛·艾登堡（David Attenborough）", "宮崎駿", "葛莉塔·童貝里（Greta Thunberg）", "齊柏林"],
  };
  const names=celebrityMap[id]||[];const civ=civs.find(item=>String(item.id)===String(id));
  const splitAt=useMemo(()=>{let count=0;const lines=text.split('\n');const index=lines.findIndex(line=>/^#{1,3}\s/.test(line)&&++count===3);return index<0?lines.length:index;},[text]);
