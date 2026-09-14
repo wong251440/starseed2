@@ -37,7 +37,7 @@ export function Atlas(){useTitle('文明圖鑑');return <div className="atlas-pa
 export function OfficialText({id}:{id:number}){
  const [text,setText]=useState(''),[error,setError]=useState(false),[retry,setRetry]=useState(0);
  useEffect(()=>{const abort=new AbortController();setText('');setError(false);fetch(`/texts/${id}.md`,{signal:abort.signal}).then(r=>{if(!r.ok)throw Error();return r.text();}).then(setText).catch(e=>{if(e.name!=='AbortError')setError(true);});return()=>abort.abort();},[id,retry]);
- const celebrityMap:Record<number,string[]>=\{
+ const celebrityMap:Record<number,string[]>={
   1:["黛安娜王妃（Princess Diana）", "約翰·藍儂（John Lennon）", "奧黛麗·赫本（Audrey Hepburn）", "鄧麗君", "基努·李維（Keanu Reeves）"],
   2:["尼古拉·特斯拉（Nikola Tesla）", "史蒂芬·霍金（Stephen Hawking）", "艾倫·圖靈（Alan Turing）", "李奧納多·達文西（Leonardo da Vinci）", "黃仁勳"],
   3:["李小龍", "鮑勃·馬利（Bob Marley）", "麥可·傑克森（Michael Jackson）", "傑森·摩莫亞（Jason Momoa）", "金·凱瑞（Jim Carrey）"],
