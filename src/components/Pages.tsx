@@ -58,9 +58,10 @@ export function OfficialText({id}:{id:number}){
   18:['伊莉莎白二世 Queen Elizabeth II','喬治·W·布希 George W. Bush','希拉蕊·柯林頓 Hillary Clinton','馬克·祖克柏 Mark Zuckerberg','賈斯汀·比伯 Justin Bieber'],
   19:['伊隆·馬斯克 Elon Musk','比爾·蓋茲 Bill Gates','蒂妲·絲雲頓 Tilda Swinton','班奈狄克·康柏拜區 Benedict Cumberbatch','安雅·泰勒-喬伊 Anya Taylor-Joy'],
   20:['肯伊·威斯特 Kanye West','查爾斯三世 King Charles III','威廉王子 Prince William','梅鐸 Rupert Murdoch','亨利·季辛吉 Henry Kissinger'],
-  21:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica']
+ 21:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica'],
+ 23:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica']
  };
- const names=celebrityMap[id]||[];const civ=civs.find(item=>item.id===id);
+ const names=celebrityMap[id]||[];const civ=civs.find(item=>String(item.id)===String(id));
  const splitAt=useMemo(()=>{let count=0;const lines=text.split('\n');const index=lines.findIndex(line=>/^#{1,3}\s/.test(line)&&++count===3);return index<0?lines.length:index;},[text]);
  const before=text.split('\n').slice(0,splitAt).join('\n'),after=text.split('\n').slice(splitAt).join('\n');
  const chapters=useMemo(()=>text.split('\n').map((line,i)=>({line:i+1,title:line.replace(/^#+\s*/,'').replace(/\*\*/g,'')})).filter((_,i)=>/^#{1,3}\s/.test(text.split('\n')[i])),[text]);
