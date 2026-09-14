@@ -60,7 +60,7 @@ export function OfficialText({id}:{id:number}){
   21:['史帝夫·厄文 Steve Irwin','大衛·艾登堡 David Attenborough','珍·古德 Jane Goodall','宮崎駿 Hayao Miyazaki','荷西·穆希卡 José Mujica']
  };
  const names=celebrityMap[id]||[];const civ=civs.find(item=>item.id===id);
- const splitAt=useMemo(()=>{let count=0;const lines=text.split('\n');const index=lines.findIndex(line=>/^#\s/.test(line)&&++count===3);return index<0?lines.length:index;},[text]);
+ const splitAt=useMemo(()=>{let count=0;const lines=text.split('\n');const index=lines.findIndex(line=>/^#{1,3}\s/.test(line)&&++count===3);return index<0?lines.length:index;},[text]);
  const before=text.split('\n').slice(0,splitAt).join('\n'),after=text.split('\n').slice(splitAt).join('\n');
  const chapters=useMemo(()=>text.split('\n').map((line,i)=>({line:i+1,title:line.replace(/^#+\s*/,'').replace(/\*\*/g,'')})).filter((_,i)=>/^#{1,3}\s/.test(text.split('\n')[i])),[text]);
  if(error)return <div className="panel"><p>文明檔案暫時未能載入。</p><button className="button" onClick={()=>setRetry(retry+1)}>重新載入完整文案</button></div>;
