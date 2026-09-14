@@ -58,7 +58,8 @@ export function OfficialText({id}:{id:number}){
   18:["伊莉莎白二世（Queen Elizabeth II）", "喬治·W·布希（George W. Bush）", "亨利·季辛吉（Henry Kissinger）", "馬克·祖克柏（Mark Zuckerberg）", "小賈斯汀（Justin Bieber）"],
   19:["山姆·奧特曼（Sam Altman）", "提姆·庫克（Tim Cook）", "賴利·佩吉（Larry Page）", "馬雲", "孫宇晨"],
   20:["唐納·川普（Donald Trump）", "薩達姆·海珊（Saddam Hussein）", "克麗奧佩脫拉七世／埃及豔后（Cleopatra VII）", "拉美西斯二世（Ramesses II）", "圖坦卡門（Tutankhamun）"],
-  21:["珍·古德（Jane Goodall）", "大衛·艾登堡（David Attenborough）", "宮崎駿", "葛莉塔·童貝里（Greta Thunberg）", "齊柏林"],
+ 21:["珍·古德（Jane Goodall）", "大衛·艾登堡（David Attenborough）", "宮崎駿", "葛莉塔·童貝里（Greta Thunberg）", "齊柏林"],
+ 23:["珍·古德（Jane Goodall）", "大衛·艾登堡（David Attenborough）", "宮崎駿", "葛莉塔·童貝里（Greta Thunberg）", "齊柏林"],
  };
  const names=celebrityMap[id]||[];const civ=civs.find(item=>String(item.id)===String(id));
  const splitAt=useMemo(()=>{let count=0;const lines=text.split('\n');const index=lines.findIndex(line=>/^#{1,3}\s/.test(line)&&++count===3);return index<0?lines.length:index;},[text]);
