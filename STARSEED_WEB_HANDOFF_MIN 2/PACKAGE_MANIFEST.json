@@ -1,0 +1,44 @@
+{
+  "package": "STARSEED_WEB_HANDOFF_MIN",
+  "selection_version": "V4-RPCB-60",
+  "scoring_version": "PRCS-v2.0",
+  "official_model_fingerprint": "79dec38680e6f71004b88d0d2c4e8162622251277ae3f9b5a9bfaeb036ab2396",
+  "files": [
+    {
+      "path": "AI_IMPLEMENTATION_PROMPT.md",
+      "sha256": "acb3c43148e2d90e79d0c75e5207dd9f41a9e7fdb5477f1591fe19c0d55624db"
+    },
+    {
+      "path": "README_FIRST.md",
+      "sha256": "c4ad8444f9cfe6d5bb7cc2f3243975d58144a219879079e38fe6177769c1123c"
+    },
+    {
+      "path": "backend/api_adapter.py",
+      "sha256": "04677d6579c0aeb4d23cb86da7976ac9640fa468cb5cce6ca114d07480ff7313"
+    },
+    {
+      "path": "backend/prcs_scoring.py",
+      "sha256": "c02ca2700804e15a328c33cfc56925514d3bfeff0e23ec2d9644eec5ab12695f"
+    },
+    {
+      "path": "quiz_model.json",
+      "sha256": "0830e2671bbfad1827d9ba47d37377e65d1e5e5732f49df9119540003a32a554"
+    },
+    {
+      "path": "result_ui_contract.json",
+      "sha256": "ae6c708e58966460e79a8194f2f5cc3dc363c749476c955e2d76d24ea061a2d3"
+    },
+    {
+      "path": "schemas/answers.schema.json",
+      "sha256": "70fa522ff5282bcc31c55509af7b6780c00fd335f8aad243f3de10c9f183fa2b"
+    },
+    {
+      "path": "schemas/result.schema.json",
+      "sha256": "89018effc10fc6314e6fbfdff3da58a04f95c1f177ea12df7f2c9212885102c3"
+    },
+    {
+      "path": "tests/smoke_test.py",
+      "sha256": "1c046c76c829f59248677a97d1b8661d66be58b0753b5878b7104fff14688f11"
+    }
+  ]
+}

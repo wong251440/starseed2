@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/prcs/result-schema-v2.json",
+  "title": "PRCS v2 Scoring Result",
+  "type": "object",
+  "required": ["model_version", "selection_version", "model_fingerprint", "status", "response_counts", "total_items"],
+  "properties": {
+    "model_version": {"const": "PRCS-v2.0"},
+    "selection_version": {"const": "V4-RPCB-60"},
+    "model_fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "context_taxonomy_version": {"type": "string"},
+    "status": {"enum": ["INSUFFICIENT_SIGNAL", "SENSITIVE", "ROBUST_TO_REGISTERED_SUITE"]},
+    "primary": {"type": ["string", "null"]},
+    "runner_up": {"type": ["string", "null"]},
+    "nominal_tie": {"type": "boolean"},
+    "tie_set": {"type": "array", "items": {"type": "string"}},
+    "ranking": {"type": "array", "items": {"type": "object", "required": ["lineage", "similarity"], "properties": {"lineage": {"type": "string"}, "similarity": {"type": "number", "minimum": -1, "maximum": 1}}, "additionalProperties": false}},
+    "primary_similarity": {"type": "number"},
+    "runner_up_similarity": {"type": "number"},
+    "global_margin": {"type": "number"},
+    "basin_depth": {"type": "number"},
+    "nearest_boundary": {"type": "string"},
+    "response_amplitude": {"type": "number", "minimum": 0, "maximum": 1},
+    "response_counts": {
+      "type": "object",
+      "required": ["answered", "missing", "directional", "midpoint"],
+      "properties": {
+        "answered": {"type": "integer", "minimum": 0, "maximum": 60},
+        "missing": {"type": "integer", "minimum": 0, "maximum": 60},
+        "directional": {"type": "integer", "minimum": 0, "maximum": 60},
+        "midpoint": {"type": "integer", "minimum": 0, "maximum": 60}
+      },
+      "additionalProperties": false
+    },
+    "total_items": {"const": 60},
+    "information_coverage": {"type": "object"},
+    "direct_boundary": {"type": "object"},
+    "boundary_conflict": {"type": "boolean"},
+    "evidence_consistency": {"enum": ["CONSISTENT", "MIXED", "NO_DIRECT_ITEMS"]},
+    "prototype_robustness": {"type": "object"},
+    "context_robustness": {"type": "object"},
+    "item_dropout_robustness": {"type": ["object", "null"]},
+    "one_notch_flip_radius": {"type": "object"},
+    "separator_contributions": {"type": "object"},
+    "registered_suite": {"type": "object"},
+    "reason": {"type": "string"},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

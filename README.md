@@ -1,12 +1,13 @@
 # Starseed 21
 
-RPCS questionnaire `starseed_quiz_min_v1`: 60 questions, comprising 19 bipolar,
-20 best–worst, 15 crossed-priority and 6 counterfactual pairs. Application version
-is `3.0.0`; the deployment model identifier is `RPCS-starseed-quiz-min-v1`.
+Current handoff: `STARSEED_WEB_HANDOFF_MIN 2`. The authoritative `quiz_model.json`
+provides 60 seven-point bipolar questions. App version: `4.0.0`.
+Scoring: `PRCS-v2.0`; selection: `V4-RPCB-60`.
+Official fingerprint: `79dec38680e6f71004b88d0d2c4e8162622251277ae3f9b5a9bfaeb036ab2396`.
 
 ## Local development
 
-Use Node.js 22.13 or later (`node:sqlite` is used by API tests).
+Node.js 22.13 or later is required for API tests using node:sqlite.
 
 ```sh
 npm ci
@@ -16,53 +17,47 @@ npm run db:local
 npx wrangler dev --port 8787
 ```
 
-Open `http://localhost:8787`. For frontend hot reload, run `npm run dev`;
-Vite proxies `/api` to the local Worker on port 8787. Local attempts never write
-to production. The sample report calls `/api/score`, which does not save answers.
+Open http://localhost:8787. Vite hot reload (`npm run dev`) proxies the API to
+this local Worker. Sample/shared score requests do not save answers.
 
-## Scoring contract
+## Scoring and storage
 
-The supplied `starseed_quiz_min_v1/quiz.json` and `scoring.mjs` remain unchanged.
-`worker/rpcs-engine.mjs` ports that scorer with memoization of immutable
-prototype/state vectors, avoiding repeated geometry construction in each request.
-Parity tests compare every output and all seven scenarios to the supplied scorer.
-`worker/rpcs.ts` validates all 60 answers before scoring, maps CP
-`{operation, goal}` to `{a, b}`, and maps the new lineage codes to stable site IDs:
-AD → AN, VE → VN, VG → VE, ZG → ZE. Civilization names, texts and routes stay unchanged.
-CF answers are `{first: 'L' | 'R', second: 'L' | 'R'}`; both are required.
+`worker/prcs.ts` ports the supplied Python scorer without changing questions,
+measurement axes, prototype weights, or Primary selection. It precomputes the
+model-only codewords and evaluates the complete registered suite, including all
+60 + 1,770 + 34,220 one/two/three-item dropout combinations for complete answers.
 
-Ranking uses the reference scorer's order unchanged. For display, raw fit
-[-1, 1] becomes `(fit + 1) * 50`; this is not the old structural T-score.
-Scores do not sum to 100 and are not probabilities. Stability is the percentage
-of seven settings that retain the original Primary. Pair-specific margin is a
-separate calculation from the global first/second score gap; the UI explains
-both. The new model does not supply the old percentiles, family-drop tests,
-per-item contributions or 1,024-corner geometry, so none are fabricated in reports.
-The full answer review remains available in questionnaire order.
+The Python smoke test is unchanged:
+`python3 "STARSEED_WEB_HANDOFF_MIN 2/tests/smoke_test.py"` (requires NumPy).
+`tests/fixtures/prcs-reference.json` contains Python outputs for all 21 canonical
+codeword profiles and full, partial, midpoint and empty cases. Parity tests compare
+every output within floating-point tolerance. Equivalent equal-gain notch witness
+items can exchange order due to NumPy BLAS vs JavaScript rounding; the edit count,
+competitor and each witness gain must match. Stable ranking/tie rules are retained.
 
-`POST /api/score` accepts `{responses}` and returns `{modelVersion, result}`.
-`POST /api/attempts` validates a versioned export and attempt metadata,
-recomputes the same result and saves it in D1. Feedback requires the attempt token.
-The server applies existing body size, origin and rate-limit checks. Source hashes
-in `worker/rpcs-hashes.json` identify the supplied question/scorer files stored
-with each attempt. Regenerate those hashes if either frozen source changes.
+POST /api/score accepts `{answers: {UID: 1..7 | null}}` or the direct UID object,
+and returns the full authoritative JSON. Omitted/null means missing; 4 is answered
+midpoint. A deployed-client compatibility path accepts complete `{responses}` and
+returns the site's existing wrapper. Saved attempts still require all 60 answers.
 
-## Previous versions
+The result adapter maps model codes to established story keys:
+AD → AN, VE → VN, VG → VE, ZG → ZE. In particular Venusian and Vegan are distinct.
+Civilization stories, names, categories, routes and celebrity content are unchanged.
+Primary copy is selected solely by nominal Primary; no runner-up-specific lore is
+generated. Similarity is displayed as (similarity + 1) × 50, not a probability or
+T-score. Stability uses the registered suite status, not the previous seven-setting
+percentage. Full raw output is retained in diagnostic.raw and persisted in D1.
 
-Drafts and results use `starseed21-rpcs-v1-*` storage keys and export schema 4.
-S4-RPD and earlier browser records remain untouched; their answers and result
-links cannot be converted into the new questionnaire. Exported answers are
-version checked. The previous scorer, types, model assets and parity tests remain
-for historical verification; they are not used by the current API.
-Existing D1 tables already support the versioned response object, so this release
-requires no new migration and does not rewrite historical attempts.
+Existing body limits, origin checks, rate limits, feedback token protection and
+idempotency remain. Source hashes in worker/prcs-hashes.json are stored with attempts.
+No D1 migration or historical data rewrite is needed.
 
-## Release
+## Previous versions and release
 
-1. Run `npm test` and `npm run build`.
-2. Deploy the Worker with `npx wrangler deploy`.
-3. Deploy Vercel with `npx vercel --prod --yes` using the linked project.
-4. Verify `/api/health`, `/api/score` and `/sample` on the production domain.
+Draft/attempt keys are `starseed21-prcs-v2-*`; exports use schema 5.
+Old browser records remain untouched; old answers cannot be applied to new UIDs.
+Historical model sources/scorers remain available but are not used by the current API.
 
-Both frontend and API must use the same model version. Open old browser tabs
-must reload for the new questionnaire. Retain the existing database on rollback.
+Run tests and build, deploy Worker with `npx wrangler deploy`, then frontend with
+`npx vercel --prod --yes`. Wait for READY and verify production /api/health,
+an unsaved /api/score, and /sample. Frontend and backend must use the same release.

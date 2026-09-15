@@ -19,10 +19,10 @@ function completed(){
 }
 describe('Home journey actions',()=>{
  it('does not offer resume before answering',()=>expect(home(freshDraft())).not.toContain('繼續上次的旅程'));
- it('offers resume for neutral and partial multistep responses',()=>{
+ it('offers resume for neutral and partial retake responses',()=>{
   const draft=freshDraft();draft.responses[questions[0].id]=4;
   expect(home(draft)).toContain('繼續上次的旅程');
-  draft.responses={[questions.find(q=>q.format==='BWS')!.id]:{best:'A'}};
+  draft.responses={[questions[1].id]:1};
   expect(home(draft)).toContain('繼續上次的旅程');
  });
  it('offers resume alongside previous result and restart after a partial retake',()=>{
@@ -39,6 +39,6 @@ describe('Home journey actions',()=>{
   const {draft,attempt}=completed();expect(home({...draft,startedAt:'2026-09-02T00:00:00.000Z'},attempt)).toContain('繼續上次的旅程');
  });
  it('offers resume for changed previous answers',()=>{
-  const {draft,attempt}=completed();draft.responses[questions[0].id]=2;expect(home(draft,attempt)).toContain('繼續上次的旅程');
+  const {draft,attempt}=completed();draft.responses[questions[0].id]=draft.responses[questions[0].id]===2?3:2;expect(home(draft,attempt)).toContain('繼續上次的旅程');
  });
 });

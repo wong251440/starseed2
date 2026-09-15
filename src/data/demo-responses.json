@@ -1,187 +1,64 @@
 {
   "responses": {
-    "A-BP01": 1,
-    "A-BP11": 1,
-    "A-BP12": 1,
-    "B-BP11": 1,
-    "B-BP15": 1,
-    "B-BP17": 1,
-    "C-BP001": 1,
-    "C-BP005": 1,
-    "C-BP008": 1,
-    "C-BP016": 1,
-    "C-BP018": 1,
-    "C-BP020": 1,
-    "C-BP022": 1,
-    "D-BP01": 1,
-    "D-BP02": 1,
-    "D-BP08": 1,
-    "D-BP19": 1,
-    "D-BP23": 1,
-    "D-BP24": 1,
-    "A-BW30": {
-      "best": "A",
-      "worst": "B"
-    },
-    "A-BW33": {
-      "best": "A",
-      "worst": "B"
-    },
-    "A-BW36": {
-      "best": "A",
-      "worst": "B"
-    },
-    "B-BW31": {
-      "best": "A",
-      "worst": "B"
-    },
-    "B-BW36": {
-      "best": "A",
-      "worst": "B"
-    },
-    "B-BW38": {
-      "best": "A",
-      "worst": "B"
-    },
-    "B-BW39": {
-      "best": "A",
-      "worst": "B"
-    },
-    "C-BW032": {
-      "best": "A",
-      "worst": "B"
-    },
-    "C-BW033": {
-      "best": "A",
-      "worst": "B"
-    },
-    "C-BW034": {
-      "best": "A",
-      "worst": "B"
-    },
-    "C-BW035": {
-      "best": "A",
-      "worst": "B"
-    },
-    "C-BW036": {
-      "best": "A",
-      "worst": "B"
-    },
-    "C-BW037": {
-      "best": "A",
-      "worst": "B"
-    },
-    "C-BW038": {
-      "best": "A",
-      "worst": "B"
-    },
-    "D-BW01": {
-      "best": "A",
-      "worst": "B"
-    },
-    "D-BW05": {
-      "best": "A",
-      "worst": "B"
-    },
-    "D-BW08": {
-      "best": "A",
-      "worst": "B"
-    },
-    "D-BW12": {
-      "best": "A",
-      "worst": "B"
-    },
-    "D-BW14": {
-      "best": "A",
-      "worst": "B"
-    },
-    "D-BW15": {
-      "best": "A",
-      "worst": "B"
-    },
-    "A-CP49": {
-      "operation": 1,
-      "goal": 1
-    },
-    "A-CP50": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B-CP42": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B-CP44": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B-CP45": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B-CP46": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B-CP50": {
-      "operation": 1,
-      "goal": 1
-    },
-    "C-CP048": {
-      "operation": 1,
-      "goal": 1
-    },
-    "D-CP01": {
-      "operation": 1,
-      "goal": 1
-    },
-    "D-CP03": {
-      "operation": 1,
-      "goal": 1
-    },
-    "D-CP04": {
-      "operation": 1,
-      "goal": 1
-    },
-    "D-CP06": {
-      "operation": 1,
-      "goal": 1
-    },
-    "D-CP07": {
-      "operation": 1,
-      "goal": 1
-    },
-    "D-CP08": {
-      "operation": 1,
-      "goal": 1
-    },
-    "D-CP10": {
-      "operation": 1,
-      "goal": 1
-    },
-    "B-CF54": {
-      "first": "L",
-      "second": "L"
-    },
-    "B-CF58": {
-      "first": "L",
-      "second": "L"
-    },
-    "C-CF055": {
-      "first": "L",
-      "second": "L"
-    },
-    "C-CF057": {
-      "first": "L",
-      "second": "L"
-    },
-    "D-CF07": {
-      "first": "L",
-      "second": "L"
-    },
-    "D-CF08": {
-      "first": "L",
-      "second": "L"
-    }
+    "A-05": 5,
+    "D-08": 4,
+    "A-21": 4,
+    "A-22": 4,
+    "D-19": 3,
+    "B-Q16": 4,
+    "B-Q32": 4,
+    "B-Q43": 5,
+    "B-Q46": 5,
+    "B-Q48": 4,
+    "B-Q53": 5,
+    "B-Q60": 4,
+    "C-Q10": 4,
+    "R02": 2,
+    "D-28": 4,
+    "R16": 4,
+    "B-Q19": 4,
+    "A-31": 3,
+    "B-Q30": 3,
+    "A-55": 7,
+    "R10": 3,
+    "R24": 3,
+    "R12": 3,
+    "B-Q12": 5,
+    "D-31": 4,
+    "A-24": 5,
+    "D-43": 4,
+    "B-Q15": 3,
+    "D-41": 3,
+    "A-12": 3,
+    "C-Q13": 5,
+    "D-23": 4,
+    "A-57": 3,
+    "D-24": 3,
+    "B-Q45": 3,
+    "C-Q15": 4,
+    "A-06": 5,
+    "B-Q26": 3,
+    "A-40": 3,
+    "B-Q35": 4,
+    "A-56": 5,
+    "D-15": 4,
+    "D-07": 4,
+    "A-28": 4,
+    "A-14": 5,
+    "C-Q44": 4,
+    "D-34": 4,
+    "C-Q21": 4,
+    "A-60": 5,
+    "A-25": 4,
+    "C-Q16": 5,
+    "A-01": 2,
+    "B-Q04": 4,
+    "C-Q28": 7,
+    "C-Q40": 5,
+    "C-Q41": 4,
+    "C-Q03": 1,
+    "B-Q41": 2,
+    "A-30": 4,
+    "A-18": 4
   }
 }

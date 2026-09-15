@@ -1,7 +1,7 @@
-import quiz from '../../starseed_quiz_min_v1/quiz.json';
-export const MODEL_VERSION='RPCS-starseed-quiz-min-v1';
-export const APP_VERSION='3.0.0';
-export const SCHEMA_VERSION=4;
+import quiz from '../../STARSEED_WEB_HANDOFF_MIN 2/quiz_model.json';
+export const MODEL_VERSION='PRCS-v2.0';
+export const APP_VERSION='4.0.0';
+export const SCHEMA_VERSION=5;
 export type Choice='A'|'B'|'C'|'D';
 export type Priority=1|2|3;
 export type Side='L'|'R';
@@ -10,18 +10,11 @@ export type DraftAnswer=number|{best?:Choice;worst?:Choice}|{operation?:Priority
 export type Responses=Record<string,Answer>;
 export type DraftResponses=Record<string,DraftAnswer>;
 export type Question={id:string;stem:string}&({format:'BIP';left:string;right:string}|{format:'BWS';options:Record<Choice,string>}|{format:'CROSS';operation_prompt:string;operations:Record<Priority,string>;goal_prompt:string;goals:Record<Priority,string>}|{format:'CF';condition1:string;condition2:string;left:string;right:string});
-export const questions:Question[]=quiz.items.map(item=>{
- const base={id:item.id,stem:item.prompt??'條件不同時，你會怎樣選擇？'};
- switch(item.format){
-  case 'BP':return {...base,format:'BIP',left:item.left!,right:item.right!};
-  case 'BW':return {...base,format:'BWS',options:Object.fromEntries(item.options!.map(o=>[o.id,o.text])) as Record<Choice,string>};
-  case 'CP':return {...base,format:'CROSS',operation_prompt:item.aPrompt!,operations:Object.fromEntries(item.aOptions!.map(o=>[o.id,o.text])) as Record<Priority,string>,goal_prompt:item.bPrompt!,goals:Object.fromEntries(item.bOptions!.map(o=>[o.id,o.text])) as Record<Priority,string>};
-  case 'CF':return {...base,format:'CF',condition1:item.condition1!,condition2:item.condition2!,left:item.left!,right:item.right!};
-  default:throw Error('Unknown question format');
- }
-});
+export const questions:Question[]=quiz.items.map(item=>({id:item.uid,stem:item.prompt,format:'BIP',left:item.left_text,right:item.right_text}));
+export const SELECTION_VERSION=quiz.selection_version;
+export const MODEL_FINGERPRINT=quiz.official_model_fingerprint;
 export const QUESTION_COUNT=questions.length;
-export const instructions={BIP:{scale:['完全偏左','明顯偏左','稍微偏左','兩者接近／視情況','稍微偏右','明顯偏右','完全偏右']}};
+export const instructions={BIP:{scale:['完全偏左','明顯偏左','稍微偏左','兩邊同樣自然／沒有明顯偏向','稍微偏右','明顯偏右','完全偏右']}};
 const record=(v:unknown):v is Record<string,unknown>=>Boolean(v)&&typeof v==='object'&&!Array.isArray(v);
 const choice=(v:unknown):v is Choice=>typeof v==='string'&&['A','B','C','D'].includes(v);
 const priority=(v:unknown):v is Priority=>Number.isInteger(v)&&Number(v)>=1&&Number(v)<=3;
@@ -42,7 +35,7 @@ export function isCompleteAnswer(q:Question,v:unknown):v is Answer{
  return 'first' in v&&'second' in v&&side(v.first)&&side(v.second);
 }
 export function validateResponses(v:unknown):asserts v is Responses{
- if(!record(v)||Object.keys(v).length!==QUESTION_COUNT||!questions.every(q=>isCompleteAnswer(q,v[q.id])))throw Error(`答案必須依照題型完整回答 ${QUESTION_COUNT} 題，最像與最不像不可相同。`);
+ if(!record(v)||Object.keys(v).length!==QUESTION_COUNT||!questions.every(q=>isCompleteAnswer(q,v[q.id])))throw Error(`答案必須以正式 UID 完整回答 ${QUESTION_COUNT} 題，每題為 1 至 7。`);
 }
 export function parseImport(v:unknown):Responses{
  if(!record(v))throw Error('請選擇有效的答案 JSON 檔案。');

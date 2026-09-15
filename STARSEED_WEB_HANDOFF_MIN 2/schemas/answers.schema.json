@@ -1,0 +1,730 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/prcs/answer-schema-v2.json",
+  "title": "PRCS v2 Answer Payload",
+  "description": "Object keyed by the 60 frozen V4 item UIDs. Omitted or null means missing; 4 is a real midpoint.",
+  "type": "object",
+  "properties": {
+    "A-05": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-08": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-21": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-22": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-19": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q16": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q32": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q43": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q46": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q48": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q53": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q60": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q10": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "R02": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-28": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "R16": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q19": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-31": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q30": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-55": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "R10": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "R24": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "R12": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q12": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-31": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-24": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-43": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q15": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-41": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-12": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q13": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-23": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-57": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-24": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q45": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q15": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-06": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q26": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-40": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q35": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-56": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-15": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-07": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-28": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-14": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q44": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "D-34": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q21": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-60": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-25": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q16": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-01": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q04": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q28": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q40": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q41": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "C-Q03": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "B-Q41": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-30": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "A-18": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,113 @@
+{
+  "rule": "Primary lineage code selects the existing website primary Starseed copy. Do not invent or replace that copy in this package.",
+  "lineages": {
+    "PL": {
+      "display_name": "Pleiadian",
+      "existing_primary_copy_key": "PL"
+    },
+    "AR": {
+      "display_name": "Arcturian",
+      "existing_primary_copy_key": "AR"
+    },
+    "SI": {
+      "display_name": "Sirian",
+      "existing_primary_copy_key": "SI"
+    },
+    "AD": {
+      "display_name": "Andromedan",
+      "existing_primary_copy_key": "AD"
+    },
+    "LY": {
+      "display_name": "Lyran",
+      "existing_primary_copy_key": "LY"
+    },
+    "OR": {
+      "display_name": "Orion",
+      "existing_primary_copy_key": "OR"
+    },
+    "MI": {
+      "display_name": "Mintakan",
+      "existing_primary_copy_key": "MI"
+    },
+    "VE": {
+      "display_name": "Venusian",
+      "existing_primary_copy_key": "VE"
+    },
+    "HA": {
+      "display_name": "Hadarian",
+      "existing_primary_copy_key": "HA"
+    },
+    "PO": {
+      "display_name": "Polarian",
+      "existing_primary_copy_key": "PO"
+    },
+    "AC": {
+      "display_name": "Alpha Centaurian",
+      "existing_primary_copy_key": "AC"
+    },
+    "VG": {
+      "display_name": "Vegan",
+      "existing_primary_copy_key": "VG"
+    },
+    "FE": {
+      "display_name": "Feline",
+      "existing_primary_copy_key": "FE"
+    },
+    "BA": {
+      "display_name": "Blue Avian",
+      "existing_primary_copy_key": "BA"
+    },
+    "MA": {
+      "display_name": "Martian",
+      "existing_primary_copy_key": "MA"
+    },
+    "ML": {
+      "display_name": "Maldekian",
+      "existing_primary_copy_key": "ML"
+    },
+    "DR": {
+      "display_name": "Draconian",
+      "existing_primary_copy_key": "DR"
+    },
+    "RE": {
+      "display_name": "Reptilian",
+      "existing_primary_copy_key": "RE"
+    },
+    "ZG": {
+      "display_name": "Zeta Grey",
+      "existing_primary_copy_key": "ZG"
+    },
+    "NU": {
+      "display_name": "Anunnaki / Nibiruan",
+      "existing_primary_copy_key": "NU"
+    },
+    "GA": {
+      "display_name": "Gaian",
+      "existing_primary_copy_key": "GA"
+    }
+  },
+  "generic_ui_copy": {
+    "closest_alternative_label": "最接近的另一個類型",
+    "stability_label": "結果穩定度",
+    "ROBUST_TO_REGISTERED_SUITE": "在預先設定的模型變體、情境類別移除、最多三題缺失，以及最多三題各移動一格的壓力測試下，主要結果維持不變。這不是機率。",
+    "SENSITIVE": "主要結果在至少一種預先設定的壓力測試下可能改變，表示你位於兩個或多個類型較接近的區域。",
+    "INSUFFICIENT_SIGNAL": "目前回答沒有足夠方向性訊號，例如所有已答題都選中間值。",
+    "mixed_evidence": "直接區分主要結果與最接近類型的題目，部分較支持另一側。這不會覆寫主要結果。",
+    "technical_disclaimer": "相似度、margin 與 stability 是幾何診斷，不是類型機率，也不是心理測驗效度估計。"
+  },
+  "recommended_result_page": {
+    "required": [
+      "primary code -> existing primary Starseed copy"
+    ],
+    "optional_generic": [
+      "runner_up display name",
+      "stability status + generic explanation",
+      "response counts/coverage for debugging or advanced UI"
+    ],
+    "do_not_generate": [
+      "runner-up-specific Starseed prose",
+      "pair-specific Starseed lore prose",
+      "percentage probability such as “82% Pleiadian”"
+    ]
+  }
+}

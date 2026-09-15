@@ -1,6 +1,7 @@
-import {parseImport,validateResponses,MODEL_VERSION,APP_VERSION,questions} from '../src/shared/questionnaire';
+import {parseImport,validateResponses,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questions} from '../src/shared/questionnaire';
+import {scorePRCS,validateAnswers} from './prcs';
 import {score} from './rpcs';
-import HASHES from './rpcs-hashes.json';
+import HASHES from './prcs-hashes.json';
 import civs from '../src/data/civilizations.json';
 interface Env { DB: D1Database; ASSETS: Fetcher; RATE_LIMITER?: RateLimit; BUILD_VERSION: string; ALLOWED_ORIGINS?: string }
 const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -23,13 +24,17 @@ export default {
  const path=new URL(request.url).pathname;
  if(!path.startsWith('/api/'))return env.ASSETS.fetch(request);
  try{
- if(path==='/api/health'&&request.method==='GET'){await env.DB.prepare('SELECT 1').first();return json({ok:true,modelVersion:MODEL_VERSION,appVersion:APP_VERSION,buildVersion:env.BUILD_VERSION});}
+ if(path==='/api/health'&&request.method==='GET'){await env.DB.prepare('SELECT 1').first();return json({ok:true,modelVersion:MODEL_VERSION,selectionVersion:SELECTION_VERSION,modelFingerprint:MODEL_FINGERPRINT,appVersion:APP_VERSION,buildVersion:env.BUILD_VERSION});}
  if(!['/api/score','/api/attempts','/api/feedback'].includes(path))return json({error:'找不到此服務。'},404);
  if(request.method!=='POST')return json({error:'請使用 POST。'},405);
  const origin=request.headers.get('origin');const allowedOrigins=(env.ALLOWED_ORIGINS||'').split(',').map(v=>v.trim()).filter(Boolean);if(origin&&origin!==new URL(request.url).origin&&!allowedOrigins.includes(origin))fail('請從本站提交。',403);
  if(env.RATE_LIMITER){const {success}=await env.RATE_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'local'});if(!success)fail('提交次數較多，請稍後再試。',429);}
  const data=await body(request);
- if(path==='/api/score'){validateResponses(data.responses);return json({modelVersion:MODEL_VERSION,result:score(data.responses)});}
+ if(path==='/api/score'){
+  // Preserve the deployed site's wrapper contract; the authoritative answers API returns raw PRCS JSON.
+  if('responses' in data){validateResponses(data.responses);return json({modelVersion:MODEL_VERSION,result:score(data.responses)});}
+  const answers='answers' in data?data.answers:data;validateAnswers(answers);return json(scorePRCS(answers));
+ }
  if(path==='/api/attempts'){
   if(data.demo===true)fail('範例不收集校準資料。');
   const responses=parseImport(data),attemptId=id(data.attemptId),participantId=id(data.participantId),tokenHash=await hash(id(data.feedbackToken));
