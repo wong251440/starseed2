@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ChevronLeft, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
-  answeredCount, instructions, isCompleteAnswer, QUESTION_COUNT, questions,
+  answeredCount, instructions, isCompleteAnswer, QUESTION_COUNT, questions, questionsForMode,
   type Choice, type DraftAnswer, type Priority, type Side, type Responses,
 } from '../shared/questionnaire';
 import type { Draft } from '../shared/session';
@@ -16,14 +16,16 @@ type Props = {
 export default function Quiz({ draft, setDraft, complete }: Props) {
   const [mapOpen, setMapOpen] = useState(false);
   const [crossStep, setCrossStep] = useState<0 | 1>(0);
+  const modeQuestions=questionsForMode(draft.mode);
   const heading = useRef<HTMLHeadingElement>(null);
   const stepHeading = useRef<HTMLLegendElement>(null);
-  const currentIndex = Number.isInteger(draft.index) && draft.index >= 0 && draft.index < questions.length ? draft.index : 0;
-  const question = questions[currentIndex];
+  const currentIndex = Number.isInteger(draft.index) && draft.index >= 0 && draft.index < modeQuestions.length ? draft.index : 0;
+  const question = modeQuestions[currentIndex];
   const value = draft.responses[question.id];
-  const answered = answeredCount(draft.responses);
+  const answered = answeredCount(draft.responses,draft.mode);
   const currentComplete = isCompleteAnswer(question, value);
-  const lastQuestion = currentIndex === QUESTION_COUNT - 1;
+  const questionCount=modeQuestions.length;
+  const lastQuestion = currentIndex === questionCount - 1;
   const name = `question-${currentIndex + 1}`;
 
   useEffect(() => { heading.current?.focus(); }, [currentIndex]);
@@ -35,7 +37,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
   }
 
   function move(index: number) {
-    const target = Number.isInteger(index) && index >= 0 && index < questions.length ? index : 0;
+    const target = Number.isInteger(index) && index >= 0 && index < modeQuestions.length ? index : 0;
     setDraft({ ...draft, index: target });
     setMapOpen(false);
   }
@@ -43,8 +45,8 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
   function next() {
     if (!currentComplete) return;
     if (!lastQuestion) return move(currentIndex + 1);
-    if (answered === QUESTION_COUNT) return complete(draft.responses as Responses);
-    const nextUnanswered = questions.findIndex(item => !isCompleteAnswer(item, draft.responses[item.id]));
+    if (answered === questionCount) return complete(draft.responses as Responses);
+    const nextUnanswered = modeQuestions.findIndex(item => !isCompleteAnswer(item, draft.responses[item.id]));
     if (nextUnanswered >= 0) move(nextUnanswered);
   }
 
@@ -67,14 +69,14 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
       <span>旅程會保存在此裝置</span>
     </div>
     <div className="quiz-progress">
-      <span>第 {currentIndex + 1} 題 / {QUESTION_COUNT}</span>
+    <span>第 {currentIndex + 1} 題 / {questionCount}</span>
       <button type="button" onClick={() => setMapOpen(!mapOpen)} aria-expanded={mapOpen} aria-controls="quiz-question-map">
-        已回答 {answered} / {QUESTION_COUNT}<Menu size={16} aria-hidden="true" />
+        已回答 {answered} / {questionCount}<Menu size={16} aria-hidden="true" />
       </button>
     </div>
-    <progress max={QUESTION_COUNT} value={answered} aria-label={`已回答 ${answered} 題，共 ${QUESTION_COUNT} 題`} />
+    <progress max={questionCount} value={answered} aria-label={`已回答 ${answered} 題，共 ${questionCount} 題`} />
     {mapOpen && <nav id="quiz-question-map" className="question-map" aria-label="題目導覽">
-      {questions.map((item, index) => {
+      {modeQuestions.map((item, index) => {
         const answer = draft.responses[item.id];
         const done = isCompleteAnswer(item, answer);
         const partial = answer !== undefined && !done;

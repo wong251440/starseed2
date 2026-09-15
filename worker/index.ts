@@ -1,5 +1,6 @@
 import {parseImport,validateResponses,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questions} from '../src/shared/questionnaire';
 import {scorePRCS,validateAnswers} from './prcs';
+import {scoreQuick,validateQuick} from './prcs-quick';
 import {score} from './rpcs';
 import HASHES from './prcs-hashes.json';
 import civs from '../src/data/civilizations.json';
@@ -33,7 +34,7 @@ export default {
  if(path==='/api/score'){
   // Preserve the deployed site's wrapper contract; the authoritative answers API returns raw PRCS JSON.
   if('responses' in data){validateResponses(data.responses);return json({modelVersion:MODEL_VERSION,result:score(data.responses)});}
-  const answers='answers' in data?data.answers:data;validateAnswers(answers);return json(scorePRCS(answers));
+  const answers='answers' in data?data.answers:data; const mode=data.mode==='quick'?'quick':'full'; if(mode==='quick'){validateQuick(answers);return json(scoreQuick(answers));} validateAnswers(answers);return json(scorePRCS(answers));
  }
  if(path==='/api/attempts'){
   if(data.demo===true)fail('範例不收集校準資料。');

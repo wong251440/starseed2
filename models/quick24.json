@@ -1,0 +1,1371 @@
+{
+  "model_version": "PRCS-v2.0",
+  "context_taxonomy_version": "context-domains-v1",
+  "scoring_rule": "projective-cosine-v2",
+  "response_encoding": {
+    "1": -1.0,
+    "2": -0.6666666666666666,
+    "3": -0.3333333333333333,
+    "4": 0.0,
+    "5": 0.3333333333333333,
+    "6": 0.6666666666666666,
+    "7": 1.0
+  },
+  "quiz_instructions": {
+    "zh_TW": "每題都有兩個合理方向。請選擇你更自然、更優先會採取的一側。1 代表左邊更像你，4 代表兩邊同樣自然／沒有明顯偏向，7 代表右邊更像你。4 不是「不知道」。"
+  },
+  "dimensions": {
+    "goals": [
+      "Connection",
+      "Agency",
+      "Understanding",
+      "Workability",
+      "Integration",
+      "Continuity",
+      "Viability",
+      "Capability",
+      "Coordination"
+    ],
+    "operations": [
+      "Tune",
+      "Probe",
+      "StressTest",
+      "Reframe",
+      "Orient",
+      "Reconfigure",
+      "Bound",
+      "Maintain",
+      "Stabilize",
+      "Enact"
+    ],
+    "scopes": [
+      "Self",
+      "Bond",
+      "Group",
+      "Case",
+      "Setting",
+      "System",
+      "Network",
+      "Legacy",
+      "Collective"
+    ]
+  },
+  "lineages": [
+    {
+      "code": "PL",
+      "display_name": "Pleiadian",
+      "prototype_fragments": [
+        [
+          "Connection",
+          "Tune",
+          "Group"
+        ],
+        [
+          "Agency",
+          "Tune",
+          "Bond"
+        ],
+        [
+          "Integration",
+          "Reframe",
+          "Self"
+        ]
+      ]
+    },
+    {
+      "code": "AR",
+      "display_name": "Arcturian",
+      "prototype_fragments": [
+        [
+          "Capability",
+          "Orient",
+          "System"
+        ],
+        [
+          "Agency",
+          "Bound",
+          "Bond"
+        ],
+        [
+          "Workability",
+          "Reconfigure",
+          "System"
+        ]
+      ]
+    },
+    {
+      "code": "SI",
+      "display_name": "Sirian",
+      "prototype_fragments": [
+        [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ],
+        [
+          "Integration",
+          "Reframe",
+          "System"
+        ],
+        [
+          "Capability",
+          "Orient",
+          "Group"
+        ]
+      ]
+    },
+    {
+      "code": "AD",
+      "display_name": "Andromedan",
+      "prototype_fragments": [
+        [
+          "Agency",
+          "Bound",
+          "Self"
+        ],
+        [
+          "Agency",
+          "Reconfigure",
+          "Network"
+        ],
+        [
+          "Capability",
+          "Orient",
+          "Group"
+        ]
+      ]
+    },
+    {
+      "code": "LY",
+      "display_name": "Lyran",
+      "prototype_fragments": [
+        [
+          "Agency",
+          "Enact",
+          "Case"
+        ],
+        [
+          "Workability",
+          "Reconfigure",
+          "Setting"
+        ],
+        [
+          "Integration",
+          "Reframe",
+          "Self"
+        ]
+      ]
+    },
+    {
+      "code": "OR",
+      "display_name": "Orion",
+      "prototype_fragments": [
+        [
+          "Integration",
+          "Reframe",
+          "Group"
+        ],
+        [
+          "Understanding",
+          "StressTest",
+          "Case"
+        ],
+        [
+          "Understanding",
+          "Probe",
+          "System"
+        ]
+      ]
+    },
+    {
+      "code": "MI",
+      "display_name": "Mintakan",
+      "prototype_fragments": [
+        [
+          "Connection",
+          "Reconfigure",
+          "Setting"
+        ],
+        [
+          "Connection",
+          "Stabilize",
+          "Group"
+        ],
+        [
+          "Connection",
+          "Tune",
+          "Network"
+        ]
+      ]
+    },
+    {
+      "code": "VE",
+      "display_name": "Venusian",
+      "prototype_fragments": [
+        [
+          "Integration",
+          "Tune",
+          "Self"
+        ],
+        [
+          "Connection",
+          "Stabilize",
+          "Group"
+        ],
+        [
+          "Understanding",
+          "Reframe",
+          "Self"
+        ]
+      ]
+    },
+    {
+      "code": "HA",
+      "display_name": "Hadarian",
+      "prototype_fragments": [
+        [
+          "Connection",
+          "Maintain",
+          "Bond"
+        ],
+        [
+          "Connection",
+          "Tune",
+          "Bond"
+        ],
+        [
+          "Agency",
+          "Bound",
+          "Bond"
+        ]
+      ]
+    },
+    {
+      "code": "PO",
+      "display_name": "Polarian",
+      "prototype_fragments": [
+        [
+          "Coordination",
+          "Orient",
+          "Group"
+        ],
+        [
+          "Continuity",
+          "Maintain",
+          "Group"
+        ],
+        [
+          "Integration",
+          "Stabilize",
+          "Group"
+        ]
+      ]
+    },
+    {
+      "code": "AC",
+      "display_name": "Alpha Centaurian",
+      "prototype_fragments": [
+        [
+          "Workability",
+          "Reconfigure",
+          "Case"
+        ],
+        [
+          "Understanding",
+          "Probe",
+          "Case"
+        ],
+        [
+          "Viability",
+          "Maintain",
+          "Bond"
+        ]
+      ]
+    },
+    {
+      "code": "VG",
+      "display_name": "Vegan",
+      "prototype_fragments": [
+        [
+          "Integration",
+          "Reframe",
+          "Self"
+        ],
+        [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ],
+        [
+          "Understanding",
+          "Probe",
+          "System"
+        ]
+      ]
+    },
+    {
+      "code": "FE",
+      "display_name": "Feline",
+      "prototype_fragments": [
+        [
+          "Viability",
+          "Bound",
+          "Setting"
+        ],
+        [
+          "Connection",
+          "Maintain",
+          "Bond"
+        ],
+        [
+          "Capability",
+          "Orient",
+          "Bond"
+        ]
+      ]
+    },
+    {
+      "code": "BA",
+      "display_name": "Blue Avian",
+      "prototype_fragments": [
+        [
+          "Capability",
+          "Orient",
+          "Collective"
+        ],
+        [
+          "Integration",
+          "Reframe",
+          "Self"
+        ],
+        [
+          "Agency",
+          "Bound",
+          "Group"
+        ]
+      ]
+    },
+    {
+      "code": "MA",
+      "display_name": "Martian",
+      "prototype_fragments": [
+        [
+          "Workability",
+          "Enact",
+          "Case"
+        ],
+        [
+          "Viability",
+          "Reconfigure",
+          "Setting"
+        ],
+        [
+          "Agency",
+          "Bound",
+          "Self"
+        ]
+      ]
+    },
+    {
+      "code": "ML",
+      "display_name": "Maldekian",
+      "prototype_fragments": [
+        [
+          "Viability",
+          "StressTest",
+          "Collective"
+        ],
+        [
+          "Viability",
+          "Bound",
+          "System"
+        ],
+        [
+          "Viability",
+          "Maintain",
+          "Setting"
+        ]
+      ]
+    },
+    {
+      "code": "DR",
+      "display_name": "Draconian",
+      "prototype_fragments": [
+        [
+          "Coordination",
+          "Bound",
+          "Group"
+        ],
+        [
+          "Coordination",
+          "Enact",
+          "Group"
+        ],
+        [
+          "Workability",
+          "Reconfigure",
+          "System"
+        ]
+      ]
+    },
+    {
+      "code": "RE",
+      "display_name": "Reptilian",
+      "prototype_fragments": [
+        [
+          "Viability",
+          "Tune",
+          "Setting"
+        ],
+        [
+          "Viability",
+          "Bound",
+          "Setting"
+        ],
+        [
+          "Workability",
+          "Enact",
+          "Case"
+        ]
+      ]
+    },
+    {
+      "code": "ZG",
+      "display_name": "Zeta Grey",
+      "prototype_fragments": [
+        [
+          "Viability",
+          "Reconfigure",
+          "System"
+        ],
+        [
+          "Understanding",
+          "Probe",
+          "Case"
+        ],
+        [
+          "Integration",
+          "Tune",
+          "Self"
+        ]
+      ]
+    },
+    {
+      "code": "NU",
+      "display_name": "Anunnaki / Nibiruan",
+      "prototype_fragments": [
+        [
+          "Coordination",
+          "Reconfigure",
+          "Network"
+        ],
+        [
+          "Viability",
+          "Reconfigure",
+          "Collective"
+        ],
+        [
+          "Continuity",
+          "Maintain",
+          "Legacy"
+        ]
+      ]
+    },
+    {
+      "code": "GA",
+      "display_name": "Gaian",
+      "prototype_fragments": [
+        [
+          "Workability",
+          "Maintain",
+          "Setting"
+        ],
+        [
+          "Viability",
+          "Tune",
+          "Setting"
+        ],
+        [
+          "Continuity",
+          "Maintain",
+          "Group"
+        ]
+      ]
+    }
+  ],
+  "prototype_weight_scenarios": {
+    "nominal": [
+      3.0,
+      2.0,
+      1.0
+    ],
+    "secondary_soft": [
+      3.0,
+      1.8,
+      1.1
+    ],
+    "more_balanced": [
+      2.8,
+      2.2,
+      1.0
+    ],
+    "primary_heavy": [
+      3.2,
+      1.8,
+      1.0
+    ],
+    "tertiary_heavier": [
+      2.7,
+      2.0,
+      1.3
+    ]
+  },
+  "registered_suite": {
+    "whole_context_domain_knockouts": [
+      "relational",
+      "home_environment",
+      "work_org",
+      "technical_problem",
+      "learning_guidance",
+      "community_governance",
+      "risk_resource",
+      "agency_decision",
+      "personal_internal"
+    ],
+    "arbitrary_item_dropout_max": 3,
+    "distinct_one_notch_item_edits_max": 3
+  },
+  "context_domains": {
+    "relational": "Close relationships, interpersonal support, social connection and conflict.",
+    "home_environment": "Personal living environment, relocation, everyday home/setting adaptation.",
+    "work_org": "Projects, teams, organizational execution, handoff and workplace coordination.",
+    "technical_problem": "Systems, tools, technology, troubleshooting, failure mechanisms and technical redesign.",
+    "learning_guidance": "Learning, teaching, advising, knowledge transmission and interpretive guidance.",
+    "community_governance": "Communities, public/group rules, moderation, governance and collective coordination.",
+    "risk_resource": "Risk, scarcity, survival, resource protection and catastrophic downside.",
+    "agency_decision": "Autonomy, initiative, action under constraint and difficult personal/strategic choices.",
+    "personal_internal": "Beliefs, internal coherence, values, self-integration and internal conflict."
+  },
+  "selection_version": "V4-RPCB-QUICK24",
+  "quiz_mode": "quick",
+  "items": [
+    {
+      "display_order": 1,
+      "uid": "D-19",
+      "prompt": "當我們來到一個完全陌生的領域（例如新興市場或全新興趣），我會：",
+      "left_text": "當那個無所畏懼的拓荒者，靠著行動力直接摸索出一條路。",
+      "right_text": "先在邊緣建立一個安全基地，確認防禦與資源無虞後，再慢慢開放探索。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Agency",
+        "Enact",
+        "Case"
+      ],
+      "right": [
+        "Viability",
+        "Bound",
+        "Setting"
+      ],
+      "edges": [
+        "LY",
+        "FE"
+      ],
+      "context_domain": "agency_decision",
+      "family": "Agency",
+      "source_context": "New_Frontier",
+      "evidence": "PROVISIONAL_LY",
+      "redundancy_tag": "initiate_vs_guard_1\\"
+    },
+    {
+      "display_order": 2,
+      "uid": "B-Q43",
+      "prompt": "當我覺得自己長久以來信仰的某種價值觀，其實在現實中會傷害到人時，我會：",
+      "left_text": "將這種現實的回饋視為系統性的缺陷，著手去修改這套價值觀的運作機制。",
+      "right_text": "深刻地往內反省，調整我的實踐方式，確保我沒有為了守住理論而排除了真實的人性。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Viability",
+        "Reconfigure",
+        "System"
+      ],
+      "right": [
+        "Integration",
+        "Reframe",
+        "Self"
+      ],
+      "edges": [
+        "ZG",
+        "VG"
+      ],
+      "context_domain": "personal_internal",
+      "family": "C2_Knowledge",
+      "source_context": "Value_Crisis",
+      "evidence": "STRONG-BRANCH",
+      "redundancy_tag": "viability_mechanism_vs_lived_coherence_1\\"
+    },
+    {
+      "display_order": 3,
+      "uid": "B-Q46",
+      "prompt": "在一段長期的伴侶或密友關係中，如果對方常常做出一些讓你覺得耗損的事，你會：",
+      "left_text": "給這段關係設下明確的停損點與界線，但在界線內我依然會全力維護這份感情。",
+      "right_text": "退回自己的空間，重新平衡我的心理狀態，不讓自己因為對方的狀態而失去自我。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Agency",
+        "Bound",
+        "Bond"
+      ],
+      "right": [
+        "Integration",
+        "Tune",
+        "Self"
+      ],
+      "edges": [
+        "HA",
+        "VE"
+      ],
+      "context_domain": "relational",
+      "family": "C1_Relational",
+      "source_context": "Draining_Partner",
+      "evidence": "WEAK-STRONG",
+      "redundancy_tag": "bond_limits_vs_self_balance_1\\"
+    },
+    {
+      "display_order": 4,
+      "uid": "C-Q10",
+      "prompt": "面對一項可能會帶來龐大收益，但也可能徹底摧毀現有根基的新技術（如 AI 導入），我會：",
+      "left_text": "要求在投入前先做極端的破壞性測試，確認最壞情況的底線，避免造成不可逆的傷害。",
+      "right_text": "先小規模試點，把失敗當成數據回饋，一邊測試一邊重新調整機制的設計。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Viability",
+        "StressTest",
+        "Collective"
+      ],
+      "right": [
+        "Understanding",
+        "Probe",
+        "Case"
+      ],
+      "edges": [
+        "ML",
+        "ZG"
+      ],
+      "context_domain": "technical_problem",
+      "family": "Practicality_Risk",
+      "source_context": "Technology_Adoption",
+      "evidence": "MEDIUM-HIGH",
+      "redundancy_tag": "irreversible_risk_vs_feedback_viability_1\\"
+    },
+    {
+      "display_order": 5,
+      "uid": "R02",
+      "prompt": "面對一個情緒起伏很大、總是讓辦公室氣壓很低的同事，我比較傾向：",
+      "left_text": "主動去關心他的狀態，用不同的溝通方式試著安撫他，讓他重新融入團隊。",
+      "right_text": "調整我自己的心態與涉入程度，劃分好心理界線，不讓他的焦慮破壞我內在的平衡。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Connection",
+        "Tune",
+        "Group"
+      ],
+      "right": [
+        "Integration",
+        "Tune",
+        "Self"
+      ],
+      "edges": [
+        "PL",
+        "VE"
+      ],
+      "context_domain": "work_org",
+      "family": "Relational",
+      "source_context": "Difficult_Colleague",
+      "evidence": "ACTIVE",
+      "redundancy_tag": "support_adaptation_vs_internal_equilibrium_new"
+    },
+    {
+      "display_order": 6,
+      "uid": "D-28",
+      "prompt": "當看到某個設備故障、或某件事情運作不順時，我的習慣是：",
+      "left_text": "動手前先冷靜診斷，確保我完全理解哪裡壞了再對症下藥。",
+      "right_text": "先動手推推看、轉轉看，在實際操作中測試障礙到底卡在哪。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Understanding",
+        "Probe",
+        "Case"
+      ],
+      "right": [
+        "Workability",
+        "Enact",
+        "Case"
+      ],
+      "edges": [
+        "AC",
+        "MA"
+      ],
+      "context_domain": "technical_problem",
+      "family": "Practicality",
+      "source_context": "Equipment_Failure",
+      "evidence": "PROVISIONAL_MA",
+      "redundancy_tag": "diagnose_vs_enact_1\\"
+    },
+    {
+      "display_order": 7,
+      "uid": "A-55",
+      "prompt": "如果我是一個社群的意見領袖，我最希望帶來的影響是：",
+      "left_text": "讓每個人都覺醒並為自己負責，不再依賴任何權威或救世主",
+      "right_text": "讓社群裡的每個人都能感受到實質的支持，彼此緊密連結並互相幫助",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Capability",
+        "Orient",
+        "Collective"
+      ],
+      "right": [
+        "Connection",
+        "Tune",
+        "Group"
+      ],
+      "edges": [
+        "BA",
+        "PL"
+      ],
+      "context_domain": "community_governance",
+      "family": "Relational",
+      "source_context": "Opinion_Leader",
+      "evidence": "MEDIUM",
+      "redundancy_tag": "BA_PL_leadership\\"
+    },
+    {
+      "display_order": 8,
+      "uid": "R10",
+      "prompt": "遇到兩種歷史悠久但互相衝突的哲學觀點時，我通常會覺得：",
+      "left_text": "太棒了，讓它們正面碰撞，這股張力一定能逼出更高層次的真理！",
+      "right_text": "必須非常謹慎地分別記錄並保存這兩種智慧的原貌，不要隨便把它們混為一談。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Integration",
+        "Reframe",
+        "Group"
+      ],
+      "right": [
+        "Continuity",
+        "Maintain",
+        "Legacy"
+      ],
+      "edges": [
+        "OR",
+        "SI"
+      ],
+      "context_domain": "learning_guidance",
+      "family": "Knowledge_Legacy",
+      "source_context": "Philosophical_Clash",
+      "evidence": "ACTIVE",
+      "redundancy_tag": "force_synthesis_vs_preserve_distinct_heritage_new"
+    },
+    {
+      "display_order": 9,
+      "uid": "R12",
+      "prompt": "如果要發起一個全新的非營利組織，我認為初期最不可或缺的是：",
+      "left_text": "一套讓大家合作起來有默契、能穩定推進日常決策的會議與協作節奏。",
+      "right_text": "一份能經得起時間考驗、深刻論述我們為何存在的創始宣言與知識庫。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Coordination",
+        "Orient",
+        "Group"
+      ],
+      "right": [
+        "Continuity",
+        "Maintain",
+        "Legacy"
+      ],
+      "edges": [
+        "PO",
+        "SI"
+      ],
+      "context_domain": "community_governance",
+      "family": "Orientation_Legacy",
+      "source_context": "Starting_NGO",
+      "evidence": "ACTIVE",
+      "redundancy_tag": "cadence_reference_vs_foundational_corpus_new"
+    },
+    {
+      "display_order": 10,
+      "uid": "D-43",
+      "prompt": "回到人際關係，當某個我非常在乎的伴侶或摯友狀態不佳時，我會：",
+      "left_text": "願意單方面承受一段時間的失衡，盡全力保護這份獨特的牽絆不斷裂。",
+      "right_text": "在守護他的同時，也確保我有設定好健康的界線，不會無底限地妥協。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Connection",
+        "Maintain",
+        "Bond"
+      ],
+      "right": [
+        "Agency",
+        "Bound",
+        "Self"
+      ],
+      "edges": [
+        "HA",
+        "AD"
+      ],
+      "context_domain": "relational",
+      "family": "Relational_Agency",
+      "source_context": "Partner_Struggling",
+      "evidence": "ACTIVE",
+      "redundancy_tag": "bond_maintenance_vs_protect_choice_1\\"
+    },
+    {
+      "display_order": 11,
+      "uid": "B-Q15",
+      "prompt": "當專案卡關，遇到一個很明顯的阻礙時，我認為最好的做法是：",
+      "left_text": "自己創造一個全新的方向或方法繞過去，因為舊路顯然不通。",
+      "right_text": "針對那個特定的阻礙直接動手排除，讓原本的任務可以盡快恢復推進。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Agency",
+        "Enact",
+        "Case"
+      ],
+      "right": [
+        "Workability",
+        "Enact",
+        "Case"
+      ],
+      "edges": [
+        "LY",
+        "MA"
+      ],
+      "context_domain": "work_org",
+      "family": "C3_Agency",
+      "source_context": "Stalled_Project",
+      "evidence": "PROVISIONAL-PROVISIONAL",
+      "redundancy_tag": "originate_direction_vs_clear_blocker_1\\"
+    },
+    {
+      "display_order": 12,
+      "uid": "D-41",
+      "prompt": "遇到資源嚴重短缺時，我優先考量的是：",
+      "left_text": "守住我當下的據點跟庫存，確保我或我周遭的人能度過難關。",
+      "right_text": "從更高層級重新盤點整個網絡的基礎設施，看要把資源調度到哪個單位。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Viability",
+        "Tune",
+        "Setting"
+      ],
+      "right": [
+        "Coordination",
+        "Reconfigure",
+        "Network"
+      ],
+      "edges": [
+        "RE",
+        "NU"
+      ],
+      "context_domain": "risk_resource",
+      "family": "Governance",
+      "source_context": "Resource_Shortage",
+      "evidence": "PROVISIONAL_NU",
+      "redundancy_tag": "local_reserve_vs_macro_resource_1\\"
+    },
+    {
+      "display_order": 13,
+      "uid": "D-24",
+      "prompt": "如果一個團隊失去動力、像一盤散沙，我會：",
+      "left_text": "辦一場深度的對齊會議，找回我們當初承諾的共同價值觀。",
+      "right_text": "直接重構團隊架構，改變分工與資源配置，打破現有僵局。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Coordination",
+        "Orient",
+        "Group"
+      ],
+      "right": [
+        "Coordination",
+        "Reconfigure",
+        "Network"
+      ],
+      "edges": [
+        "PO",
+        "NU"
+      ],
+      "context_domain": "work_org",
+      "family": "Orientation",
+      "source_context": "Team_Slump",
+      "evidence": "PROVISIONAL_NU",
+      "redundancy_tag": "orient_group_vs_restructure_network_1\\"
+    },
+    {
+      "display_order": 14,
+      "uid": "B-Q45",
+      "prompt": "面對一個「大家都說不可能做到」的任務，如果你決定要接，你的心態會是：",
+      "left_text": "就算沒有前例，只要我開始動手做，自然能披荊斬棘走出一條路。",
+      "right_text": "我會先仔細盤點手邊的工具，做足診斷，用最務實的方法破解它。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Agency",
+        "Enact",
+        "Case"
+      ],
+      "right": [
+        "Workability",
+        "Reconfigure",
+        "Case"
+      ],
+      "edges": [
+        "LY",
+        "AC"
+      ],
+      "context_domain": "agency_decision",
+      "family": "C3_Agency",
+      "source_context": "Impossible_Task",
+      "evidence": "PROVISIONAL-WEAK",
+      "redundancy_tag": "originate_direction_vs_practical_case_1\\"
+    },
+    {
+      "display_order": 15,
+      "uid": "A-06",
+      "prompt": "如果我因為工作必須搬到一個全新的城市，我最看重的是：",
+      "left_text": "能在那裡找到或建立一個讓我感到安心、像「家」一樣的生活圈",
+      "right_text": "能跟我原本最在乎的幾位親密好友繼續維持深厚的聯繫",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Connection",
+        "Reconfigure",
+        "Setting"
+      ],
+      "right": [
+        "Connection",
+        "Maintain",
+        "Bond"
+      ],
+      "edges": [
+        "MI",
+        "HA"
+      ],
+      "context_domain": "home_environment",
+      "family": "Relational",
+      "source_context": "Relocation",
+      "evidence": "MEDIUM-LOW",
+      "redundancy_tag": "MI_HA_moving\\"
+    },
+    {
+      "display_order": 16,
+      "uid": "B-Q26",
+      "prompt": "當發現公司內部多個部門各自為政、效率低落時，我認為真正的解法是：",
+      "left_text": "找一個強而有力的負責人，明確規範誰聽誰的，把執行力逼出來。",
+      "right_text": "重新設計整個組織的資源分配與網絡介面，讓部門之間在結構上就不會互相卡住。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Coordination",
+        "Bound",
+        "Group"
+      ],
+      "right": [
+        "Coordination",
+        "Reconfigure",
+        "Network"
+      ],
+      "edges": [
+        "DR",
+        "NU"
+      ],
+      "context_domain": "work_org",
+      "family": "C6_Governance",
+      "source_context": "Corporate_Inefficiency",
+      "evidence": "COUPLED-PROVISIONAL",
+      "redundancy_tag": "enforce_execution_vs_macro_architecture_1\\"
+    },
+    {
+      "display_order": 17,
+      "uid": "A-56",
+      "prompt": "對於我所信仰的哲學或價值觀，我認為最重要的是：",
+      "left_text": "確保這套珍貴的智慧能夠被妥善保存，原汁原味地傳遞給下一個人",
+      "right_text": "不斷用我真實的生活經驗去碰撞它，直到它與我個人的內在完全契合",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Continuity",
+        "Maintain",
+        "Legacy"
+      ],
+      "right": [
+        "Integration",
+        "Reframe",
+        "Self"
+      ],
+      "edges": [
+        "SI",
+        "VG"
+      ],
+      "context_domain": "personal_internal",
+      "family": "Knowledge_System",
+      "source_context": "Beliefs",
+      "evidence": "MEDIUM-LOW",
+      "redundancy_tag": "SI_VG_beliefs\\"
+    },
+    {
+      "display_order": 18,
+      "uid": "D-15",
+      "prompt": "面對一個突然癱瘓的重要工作任務，我的第一直覺是：",
+      "left_text": "把眼光放遠，趁機重新梳理並改造整個工作機制，預防下次再發生。",
+      "right_text": "就事論事，趕快找出眼前這個特定的瓶頸在哪，先讓這個任務恢復運作。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Viability",
+        "Reconfigure",
+        "System"
+      ],
+      "right": [
+        "Workability",
+        "Reconfigure",
+        "Case"
+      ],
+      "edges": [
+        "ZG",
+        "AC"
+      ],
+      "context_domain": "technical_problem",
+      "family": "Knowledge",
+      "source_context": "Crisis_Response",
+      "evidence": "ACTIVE",
+      "redundancy_tag": "system_redesign_vs_case_repair_1\\"
+    },
+    {
+      "display_order": 19,
+      "uid": "D-07",
+      "prompt": "團隊接下了一個全新、沒有前例可循的專案，大家都很猶豫，我會：",
+      "left_text": "給出一個有邏輯的決策框架，教大家未來怎麼判斷這類問題。",
+      "right_text": "刻意提出最強烈的反面意見或極端情況，測試這個計畫在壓力下會不會崩潰。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Capability",
+        "Orient",
+        "System"
+      ],
+      "right": [
+        "Understanding",
+        "StressTest",
+        "Case"
+      ],
+      "edges": [
+        "AR",
+        "OR"
+      ],
+      "context_domain": "work_org",
+      "family": "Knowledge",
+      "source_context": "New_Project",
+      "evidence": "ACTIVE",
+      "redundancy_tag": "scaffold_vs_pressure_1\\"
+    },
+    {
+      "display_order": 20,
+      "uid": "C-Q44",
+      "prompt": "一個好的領導者，在面對混亂時最該做的是：",
+      "left_text": "果斷集中權力，清晰劃分每個人的職責邊界，強制讓團隊的動作同步起來。",
+      "right_text": "幫團隊找回初衷與穩定的衡量標準，讓大家能在這個共享座標下各自發揮。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Coordination",
+        "Bound",
+        "Group"
+      ],
+      "right": [
+        "Coordination",
+        "Orient",
+        "Group"
+      ],
+      "edges": [
+        "DR",
+        "PO"
+      ],
+      "context_domain": "community_governance",
+      "family": "Governance_Resource",
+      "source_context": "Leadership_Philosophy",
+      "evidence": "MEDIUM-LOW",
+      "redundancy_tag": "enforced_coordination_vs_shared_compass_2\\"
+    },
+    {
+      "display_order": 21,
+      "uid": "D-34",
+      "prompt": "評價一種生活態度時，我比較傾向認同：",
+      "left_text": "人要時刻警惕那些可能徹底毀滅現有成就的系統性大災難。",
+      "right_text": "把每一天眼前的生活過好，用心維護身邊具體且熟悉的事物。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Viability",
+        "StressTest",
+        "Collective"
+      ],
+      "right": [
+        "Workability",
+        "Maintain",
+        "Setting"
+      ],
+      "edges": [
+        "ML",
+        "GA"
+      ],
+      "context_domain": "risk_resource",
+      "family": "Risk",
+      "source_context": "Life_Philosophy",
+      "evidence": "COMPARATOR_GA",
+      "redundancy_tag": "catastrophe_gate_vs_ongoing_adaptation_1\\"
+    },
+    {
+      "display_order": 22,
+      "uid": "A-25",
+      "prompt": "當我處在一個規則很不合理的組織中，我會：",
+      "left_text": "不管那些規則，直接用我的方式開創一個新局面向大家證明",
+      "right_text": "致力於改變這些規定，把選擇的權利重新交還給每一個人",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Agency",
+        "Enact",
+        "Case"
+      ],
+      "right": [
+        "Agency",
+        "Reconfigure",
+        "Network"
+      ],
+      "edges": [
+        "AD",
+        "LY"
+      ],
+      "context_domain": "community_governance",
+      "family": "Agency_Initiative",
+      "source_context": "Unfair_Rules",
+      "evidence": "MEDIUM",
+      "redundancy_tag": "AD_LY_rules\\"
+    },
+    {
+      "display_order": 23,
+      "uid": "B-Q04",
+      "prompt": "當有人向我尋求重要的人生或工作建議時，我通常傾向：",
+      "left_text": "給他們一個大方向的原則或核心觀念，讓他們學會自己對自己負責，然後我就退開。",
+      "right_text": "給他們一套具體、可重複使用的判斷框架，確保他們以後遇到類似情況知道怎麼做決定。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Capability",
+        "Orient",
+        "Collective"
+      ],
+      "right": [
+        "Capability",
+        "Orient",
+        "System"
+      ],
+      "edges": [
+        "BA",
+        "AR"
+      ],
+      "context_domain": "learning_guidance",
+      "family": "C4_Orientation",
+      "source_context": "Giving_Advice",
+      "evidence": "SOURCE-STRONG",
+      "redundancy_tag": "broad_message_vs_detailed_scaffold_1\\"
+    },
+    {
+      "display_order": 24,
+      "uid": "C-Q41",
+      "prompt": "面對一個在道德或理念上與我南轅北轍的人，我傾向：",
+      "left_text": "不斷深挖雙方的矛盾點，讓最真實的衝突浮現出來，藉此看清問題的全貌。",
+      "right_text": "調整我自己的內部視角，尋找一個能同時容納我們兩人各自合理性的寬廣心態。",
+      "scale": {
+        "min": 1,
+        "midpoint": 4,
+        "max": 7,
+        "left_label": "左邊更像我",
+        "midpoint_label": "兩邊同樣自然／沒有明顯偏向",
+        "right_label": "右邊更像我"
+      },
+      "left": [
+        "Integration",
+        "Reframe",
+        "Group"
+      ],
+      "right": [
+        "Integration",
+        "Tune",
+        "Self"
+      ],
+      "edges": [
+        "OR",
+        "VE"
+      ],
+      "context_domain": "personal_internal",
+      "family": "Knowledge_System",
+      "source_context": "Ideological_Clash",
+      "evidence": "MEDIUM",
+      "redundancy_tag": "group_polarity_vs_self_balance_1\\"
+    }
+  ],
+  "item_count": 24,
+  "official_model_fingerprint": "6ec961fce5b5a4d39039d7736d76ddb6e1c3cc2f07fc69db15e354c80cdfdaf0"
+}

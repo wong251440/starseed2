@@ -1,4 +1,4 @@
-import model from '../STARSEED_WEB_HANDOFF_MIN 2/quiz_model.json';
+import model from '../models/quick24.json';
 
 // Formula-for-formula port of the supplied PRCSScorer; model/order are authoritative.
 const TOL=1e-12;
@@ -21,7 +21,7 @@ const codes=Object.fromEntries(Object.entries(model.prototype_weight_scenarios).
  return [name,prototypes.map(p=>axes.map(d=>dot(p.map((v,k)=>v-mean[k]),d)))];
 }));
 export type PRCSAnswers=Record<string,number|null>;
-export function validateAnswers(value:unknown):asserts value is PRCSAnswers{
+export function validateQuick(value:unknown):asserts value is PRCSAnswers{
  if(!value||typeof value!=='object'||Array.isArray(value)||Object.entries(value).some(([uid,v])=>!ids.includes(uid)||(v!==null&&(typeof v!=='number'||!Number.isInteger(v)||v<1||v>7))))throw Error('答案只接受正式題目 UID，以及 1 至 7 的整數或 null。');
 }
 function core(y:number[],idx:number[],scenario='nominal'){
@@ -63,8 +63,8 @@ function dropout(y:number[],idx:number[],winner:number){
  }
  return {min_dropout_to_flip:min??`>${max}`,by_k};
 }
-export function scorePRCS(answers:PRCSAnswers,exactDropout=true){
- validateAnswers(answers);
+export function scoreQuick(answers:PRCSAnswers,exactDropout=true){
+ validateQuick(answers);
  const idx=ids.flatMap((id,i)=>answers[id]!==undefined&&answers[id]!==null?[i]:[]);
  const y=ids.map(id=>answers[id]==null?0:(answers[id]!-4)/3),c=core(y,idx);
  const directional=idx.filter(i=>Math.abs(y[i])>TOL).length;
@@ -93,5 +93,5 @@ export function scorePRCS(answers:PRCSAnswers,exactDropout=true){
  const robust=c.ties.length===1&&prototype_robustness.all_same_primary&&context_robustness.all_same_primary&&(!item_dropout_robustness||item_dropout_robustness.min_dropout_to_flip===`>${maxD}`)&&(one_notch_flip_radius.min_edits===null||one_notch_flip_radius.min_edits>maxN);
  return {...common,status:robust?'ROBUST_TO_REGISTERED_SUITE' as const:'SENSITIVE' as const,primary:lineages[w],runner_up:lineages[r],nominal_tie:c.ties.length>1,tie_set:c.ties.map(i=>lineages[i]),ranking:c.order.map(i=>({lineage:lineages[i],similarity:c.scores[i]})),primary_similarity:c.scores[w],runner_up_similarity:c.scores[r],global_margin:c.margin,basin_depth:c.basin,nearest_boundary:lineages[c.nearest],response_amplitude:Math.sqrt(sum(idx.map(i=>y[i]*y[i]))/idx.length),information_coverage:{primary_runner_up:coverage(r),primary_vs_all:{minimum_against_any_competitor:Math.min(...allCoverage),mean_against_competitors:sum(allCoverage)/allCoverage.length}},direct_boundary,boundary_conflict:conflict,evidence_consistency:conflict?'MIXED':'NO_DIRECT_ITEMS'===direct_boundary.conflict?'NO_DIRECT_ITEMS':'CONSISTENT',prototype_robustness,context_robustness,item_dropout_robustness,one_notch_flip_radius,separator_contributions:{supports_primary:contrib.filter(x=>x.contribution>=0).sort((a,b)=>b.contribution-a.contribution).slice(0,6),supports_runner_up:contrib.filter(x=>x.contribution<0).sort((a,b)=>a.contribution-b.contribution).slice(0,6)},registered_suite:{passed:robust,max_arbitrary_item_dropout:maxD,max_distinct_one_notch_item_edits:maxN},notes:['Similarities, margins and stability are geometric diagnostics, not probabilities.','Nominal Primary is never overridden by robustness or direct-boundary diagnostics.']};
 }
-export type PRCSResult=ReturnType<typeof scorePRCS>;
+export type PRCSResult=ReturnType<typeof scoreQuick>;
 export type ClassifiedPRCS=Extract<PRCSResult,{primary:string}>;
