@@ -9,7 +9,10 @@ export function write(key:string,value:unknown){try{localStorage.setItem(key,JSO
 export function freshDraft(mode:QuizMode='full'):Draft{return {modelVersion:MODEL_VERSION,mode,responses:{},index:0,startedAt:new Date().toISOString()};}
 export function loadDraft():Draft{
  const d=read<Draft>(DRAFT_KEY);
- if(d&&d.modelVersion===MODEL_VERSION&&(d.mode==='quick'||d.mode==='full')&&d.responses&&typeof d.responses==='object'&&!Array.isArray(d.responses)&&Object.entries(d.responses).every(([id,value])=>{const q=questionsForMode(d.mode).find(q=>q.id===id);return q&&isDraftAnswer(q,value);})&&Number.isInteger(d.index)&&d.index>=0&&d.index<questionsForMode(d.mode).length&&Number.isFinite(Date.parse(d.startedAt)))return d;
+ if(d&&d.modelVersion===MODEL_VERSION&&d.responses&&typeof d.responses==='object'&&!Array.isArray(d.responses)){
+  const modes:QuizMode[]=d.mode==='quick'||d.mode==='full'?[d.mode]:['full','quick'];
+  for(const mode of modes){if(Object.entries(d.responses).every(([id,value])=>{const q=questionsForMode(mode).find(q=>q.id===id);return q&&isDraftAnswer(q,value);})&&Number.isInteger(d.index)&&d.index>=0&&d.index<questionsForMode(mode).length&&Number.isFinite(Date.parse(d.startedAt)))return {...d,mode};}
+ }
  return freshDraft();
 }
 export function loadAttempt():Attempt|null{const a=read<Attempt>(ATTEMPT_KEY);try{if(!a||a.modelVersion!==MODEL_VERSION||a.schemaVersion!==SCHEMA_VERSION)return null;const mode=responseMode(a.responses,a.mode);return {...a,mode};}catch{return null;}}
