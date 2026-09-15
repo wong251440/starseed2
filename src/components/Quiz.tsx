@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, ChevronLeft, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
-  answeredCount, instructions, isCompleteAnswer, QUESTION_COUNT, questions, questionsForMode,
+  answeredCount, instructions, isCompleteAnswer, questionsForMode,
   type Choice, type DraftAnswer, type Priority, type Side, type Responses,
 } from '../shared/questionnaire';
 import type { Draft } from '../shared/session';
@@ -188,7 +188,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
         <ChevronLeft size={17} aria-hidden="true" />上一題
       </button>
       <button type="button" className="button gold" onClick={next} disabled={!currentComplete || ((question.format === 'CROSS' || question.format === 'CF') && crossStep === 0)}>
-        {lastQuestion ? answered === QUESTION_COUNT ? '開啟我的星際報告' : '完成尚未回答的題目' : '下一題'}
+        {lastQuestion ? answered === questionCount ? '開啟我的星際報告' : '完成尚未回答的題目' : '下一題'}
         <ArrowRight size={18} aria-hidden="true" />
       </button>
     </div>

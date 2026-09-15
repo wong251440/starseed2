@@ -1,4 +1,4 @@
-import {parseImport,validateResponses,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questions} from '../src/shared/questionnaire';
+import {parseImport,validateResponses,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questionsForMode,responseMode} from '../src/shared/questionnaire';
 import {scorePRCS,validateAnswers} from './prcs';
 import {scoreQuick,validateQuick} from './prcs-quick';
 import {score} from './rpcs';
@@ -33,8 +33,8 @@ export default {
  const data=await body(request);
  if(path==='/api/score'){
   // Preserve the deployed site's wrapper contract; the authoritative answers API returns raw PRCS JSON.
-  if('responses' in data){validateResponses(data.responses);return json({modelVersion:MODEL_VERSION,result:score(data.responses)});}
-  const answers='answers' in data?data.answers:data; const mode=data.mode==='quick'?'quick':'full'; if(mode==='quick'){validateQuick(answers);return json(scoreQuick(answers));} validateAnswers(answers);return json(scorePRCS(answers));
+  if('responses' in data){const mode=responseMode(data.responses,data.mode);validateResponses(data.responses,mode);return json({modelVersion:MODEL_VERSION,result:score(data.responses,mode)});}
+  const answers='answers' in data?data.answers:data; if(data.mode!==undefined&&data.mode!=='quick'&&data.mode!=='full')fail('測驗模式不正確。'); const mode=data.mode==='quick'?'quick':'full'; if(mode==='quick'){validateQuick(answers);return json(scoreQuick(answers));} validateAnswers(answers);return json(scorePRCS(answers));
  }
  if(path==='/api/attempts'){
   if(data.demo===true)fail('範例不收集校準資料。');
@@ -42,7 +42,7 @@ export default {
   if(typeof data.imported!=='boolean')fail('缺少匯入狀態。');
   const startedAt=date(data.startedAt),completedAt=date(data.completedAt),duration=data.durationMs;
   if(typeof duration!=='number'||!Number.isSafeInteger(duration)||duration<0||duration>31536000000||Date.parse(completedAt)<Date.parse(startedAt)||Date.parse(completedAt)>Date.now()+300000||duration!==Date.parse(completedAt)-Date.parse(startedAt))fail('完成時間不正確。');
-  const result=score(responses),encoded=JSON.stringify({responses:Object.fromEntries(questions.map(q=>[q.id,responses[q.id]]))});
+  const mode=responseMode(responses,data.mode),result=score(responses,mode),encoded=JSON.stringify({responses:Object.fromEntries(questionsForMode(mode).map(q=>[q.id,responses[q.id]]))});
   const previous=await env.DB.prepare('SELECT participant_id,feedback_token_hash,raw_answers FROM attempts WHERE id=?').bind(attemptId).first<{participant_id:string;feedback_token_hash:string;raw_answers:string}>();
   if(previous){if(previous.participant_id!==participantId||previous.feedback_token_hash!==tokenHash||previous.raw_answers!==encoded)fail('這組提交識別碼已用於其他答案。',409);return json({attemptId,modelVersion:MODEL_VERSION,result,saved:true});}
   const metrics=result.diagnostic,primary=result.public.primary,primaryId=primary?civs.find(c=>c.lineageId===primary.id)?.id:null;

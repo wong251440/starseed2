@@ -1,4 +1,4 @@
-import model from '../STARSEED_WEB_HANDOFF_MIN 2/quiz_model.json';
+import model from '../models/full54.json';
 
 // Formula-for-formula port of the supplied PRCSScorer; model/order are authoritative.
 const TOL=1e-12;

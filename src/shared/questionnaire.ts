@@ -43,10 +43,17 @@ export function isCompleteAnswer(q:Question,v:unknown):v is Answer{
 export function validateResponses(v:unknown,mode:QuizMode='full'):asserts v is Responses{
  const qs=questionsForMode(mode); if(!record(v)||Object.keys(v).length!==qs.length||!qs.every(q=>isCompleteAnswer(q,v[q.id])))throw Error(`答案必須以正式 UID 完整回答 ${qs.length} 題，每題為 1 至 7。`);
 }
+// Recover completed records created before mode was persisted; require an exact UID set.
+export function responseMode(responses:unknown, supplied?:unknown):QuizMode{
+ if(supplied!==undefined&&supplied!=='quick'&&supplied!=='full')throw Error('測驗模式不正確。');
+ if(supplied){validateResponses(responses,supplied);return supplied;}
+ for(const mode of ['quick','full'] as const){try{validateResponses(responses,mode);return mode;}catch{}}
+ throw Error('答案與目前 24 / 54 題測驗不相容。');
+}
 export function parseImport(v:unknown):Responses{
  if(!record(v))throw Error('請選擇有效的答案 JSON 檔案。');
- if(v.schemaVersion!==SCHEMA_VERSION||v.modelVersion!==MODEL_VERSION)throw Error('答案檔案屬於不同測驗版本，請重新完成新版 60 題測驗。');
- validateResponses(v.responses);return v.responses;
+ if(v.schemaVersion!==SCHEMA_VERSION||v.modelVersion!==MODEL_VERSION)throw Error('答案檔案屬於不同測驗版本，請重新完成新版測驗。');
+ validateResponses(v.responses,responseMode(v.responses,v.mode));return v.responses;
 }
-export function makeExport(responses:Responses){validateResponses(responses);return {schemaVersion:SCHEMA_VERSION,modelVersion:MODEL_VERSION,responses};}
+export function makeExport(responses:Responses){const mode=responseMode(responses);return {schemaVersion:SCHEMA_VERSION,modelVersion:MODEL_VERSION,mode,responses};}
 export function answeredCount(responses:DraftResponses, mode:QuizMode='full'){return questionsForMode(mode).filter(q=>isCompleteAnswer(q,responses[q.id])).length;}
