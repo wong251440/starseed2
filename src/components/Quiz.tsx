@@ -16,7 +16,8 @@ type Props = {
 export default function Quiz({ draft, setDraft, complete }: Props) {
   const [mapOpen, setMapOpen] = useState(false);
   const [crossStep, setCrossStep] = useState<0 | 1>(0);
-  const modeQuestions=questionsForMode(draft.mode);
+  const activeMode=draft.mode==='quick'?'quick':'full';
+  const modeQuestions=questionsForMode(activeMode);
   const heading = useRef<HTMLHeadingElement>(null);
   const stepHeading = useRef<HTMLLegendElement>(null);
   const currentIndex = Number.isInteger(draft.index) && draft.index >= 0 && draft.index < modeQuestions.length ? draft.index : 0;
