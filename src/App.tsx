@@ -4,7 +4,7 @@ import {ArrowUpRight,ArrowRight,Upload,Menu,X,Orbit,Compass,Download} from 'luci
 import civs from './data/civilizations.json';
 import Quiz from './components/Quiz';
 import {parseImport,makeExport,MODEL_VERSION,responseMode,type Responses} from './shared/questionnaire';
-import {freshDraft,loadDraft,loadAttempt,newAttempt,write,DRAFT_KEY,ATTEMPT_KEY,type Draft,type Attempt} from './shared/session';
+import {captureReferral,freshDraft,loadDraft,loadAttempt,newAttempt,write,DRAFT_KEY,ATTEMPT_KEY,type Draft,type Attempt} from './shared/session';
 import {Report,Civilization,Atlas,Privacy} from './components/Pages';
 export const categories=[{name:'心域文明',desc:'來自共振之海的靈魂，天生記得如何讓彼此重新相連。',color:'#9bc6bf',symbol:'01'},{name:'無界文明',desc:'他們記得，所有界限都只是宇宙暫時畫下的線。',color:'#a6bde5',symbol:'02'},{name:'智序文明',desc:'當混沌遮蔽真相，他們將重新辨認星辰運行的法則。',color:'#b3a4d5',symbol:'03'},{name:'聖殿文明',desc:'來自古老守護序列的承載者，使萬物不失其火種。',color:'#d5b98b',symbol:'04'}];
 export function Icon({id,size='large'}:{id:number;size?:'large'|'small'}){return <img className={`civ-icon ${size}`} src={`/icons/${id}${size==='small'?'-small':''}.webp`} alt={`${civs.find(c=>c.id===id)?.name}文明`} width={size==='small'?160:768} height={size==='small'?160:768} loading={size==='small'?'lazy':'eager'}/>;}
@@ -13,7 +13,7 @@ export default function App(){
  const [draft,setDraft]=useState<Draft>(loadDraft),[attempt,setAttempt]=useState<Attempt|null>(loadAttempt),[message,setMessage]=useState(''),[menu,setMenu]=useState(false);
  const file=useRef<HTMLInputElement>(null),navigate=useNavigate(),location=useLocation();
  useEffect(()=>{setMenu(false);window.scrollTo(0,0);},[location.pathname]);
- useEffect(()=>{const mode=new URLSearchParams(location.search).get('mode');if(location.pathname==='/quiz'&&(mode==='quick'||mode==='full')&&draft.mode!==mode)setDraft(freshDraft(mode));},[location.pathname,location.search]);
+ useEffect(()=>{captureReferral(location.search);const mode=new URLSearchParams(location.search).get('mode');if(location.pathname==='/quiz'&&(mode==='quick'||mode==='full')&&draft.mode!==mode)setDraft(freshDraft(mode));},[location.pathname,location.search]);
  useEffect(()=>{if(!write(DRAFT_KEY,draft))setMessage('此瀏覽器無法保存本機進度，完成後請匯出答案。');},[draft]);
  function complete(responses:Responses,imported=false){const a=newAttempt(responses,imported?new Date().toISOString():draft.startedAt,imported,imported?responseMode(responses):draft.mode);setAttempt(a);write(ATTEMPT_KEY,a);navigate('/report');}
  async function importFile(e:ChangeEvent<HTMLInputElement>){const f=e.target.files?.[0];e.target.value='';if(!f)return;try{if(f.size>16384)throw new Error('答案檔案過大，請選擇本站匯出的 JSON 檔案。');const answers=parseImport(JSON.parse(await f.text()));setMessage('');complete(answers,true);}catch(error){setMessage((error as Error).message);}}

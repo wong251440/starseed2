@@ -20,6 +20,7 @@ async function body(request:Request):Promise<Record<string,unknown>> {
  if(!data||typeof data!=='object'||Array.isArray(data))fail('資料格式不正確。');return data;
 }
 function date(v:unknown){if(typeof v!=='string'||!Number.isFinite(Date.parse(v)))fail('時間格式不正確。');return v as string;}
+function referral(v:unknown){if(v===undefined||v===null)return null;if(typeof v!=='string'||!/^[A-Za-z0-9_-]{1,64}$/.test(v))fail('來源代碼格式不正確。');return v;}
 export default {
  async fetch(request:Request,env:Env):Promise<Response>{
  const path=new URL(request.url).pathname;
@@ -40,7 +41,7 @@ export default {
   if(data.demo===true)fail('範例不收集校準資料。');
   const responses=parseImport(data),attemptId=id(data.attemptId),participantId=id(data.participantId),tokenHash=await hash(id(data.feedbackToken));
   if(typeof data.imported!=='boolean')fail('缺少匯入狀態。');
-  const startedAt=date(data.startedAt),completedAt=date(data.completedAt),duration=data.durationMs;
+  const startedAt=date(data.startedAt),completedAt=date(data.completedAt),duration=data.durationMs,referralCode=referral(data.referralCode);
   if(typeof duration!=='number'||!Number.isSafeInteger(duration)||duration<0||duration>31536000000||Date.parse(completedAt)<Date.parse(startedAt)||Date.parse(completedAt)>Date.now()+300000||duration!==Date.parse(completedAt)-Date.parse(startedAt))fail('完成時間不正確。');
   const mode=responseMode(responses,data.mode),result=score(responses,mode),encoded=JSON.stringify({responses:Object.fromEntries(questionsForMode(mode).map(q=>[q.id,responses[q.id]]))});
   const previous=await env.DB.prepare('SELECT participant_id,feedback_token_hash,raw_answers FROM attempts WHERE id=?').bind(attemptId).first<{participant_id:string;feedback_token_hash:string;raw_answers:string}>();
@@ -49,7 +50,7 @@ export default {
   if(result.public.status==='classified'&&!primaryId)throw new Error('Unknown model lineage');
   await env.DB.batch([
    env.DB.prepare('INSERT INTO participants(id) VALUES(?) ON CONFLICT(id) DO NOTHING').bind(participantId),
-   env.DB.prepare('INSERT INTO attempts(id,participant_id,feedback_token_hash,model_version,production_hashes,started_at,completed_at,duration_ms,raw_answers,status,primary_id,scores,metrics,imported,app_version,build_version) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING').bind(attemptId,participantId,tokenHash,MODEL_VERSION,JSON.stringify(HASHES),startedAt,completedAt,duration,encoded,result.public.status,primaryId??null,JSON.stringify(result.public.scores),JSON.stringify(metrics),data.imported?1:0,APP_VERSION,env.BUILD_VERSION||APP_VERSION)
+   env.DB.prepare('INSERT INTO attempts(id,participant_id,feedback_token_hash,model_version,production_hashes,started_at,completed_at,duration_ms,raw_answers,status,primary_id,scores,metrics,imported,app_version,build_version,referral_code) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING').bind(attemptId,participantId,tokenHash,MODEL_VERSION,JSON.stringify(HASHES),startedAt,completedAt,duration,encoded,result.public.status,primaryId??null,JSON.stringify(result.public.scores),JSON.stringify(metrics),data.imported?1:0,APP_VERSION,env.BUILD_VERSION||APP_VERSION,referralCode)
   ]);
   const stored=await env.DB.prepare('SELECT participant_id,feedback_token_hash,raw_answers FROM attempts WHERE id=?').bind(attemptId).first<{participant_id:string;feedback_token_hash:string;raw_answers:string}>();
   if(!stored||stored.participant_id!==participantId||stored.feedback_token_hash!==tokenHash||stored.raw_answers!==encoded)fail('這組提交識別碼已用於其他答案。',409);

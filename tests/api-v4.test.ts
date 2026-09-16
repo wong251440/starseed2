@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import worker from '../worker/index';
 import {MODEL_VERSION,APP_VERSION,makeExport,type Responses} from '../src/shared/questionnaire';
 import demo from '../src/data/demo-responses.json';
-const oldSchema=readFileSync('migrations/0001_calibration.sql','utf8'),migration=readFileSync('migrations/0002_strict180.sql','utf8');
+const oldSchema=readFileSync('migrations/0001_calibration.sql','utf8'),migration=readFileSync('migrations/0002_strict180.sql','utf8')+readFileSync('migrations/0003_referral_code.sql','utf8');
 const assets={fetch:async()=>new Response('unused')};
 let db:DatabaseSync;
 beforeEach(()=>{db=new DatabaseSync(':memory:');db.exec('PRAGMA foreign_keys=ON;'+oldSchema);});
@@ -24,7 +24,7 @@ describe('PRCS API and historical migration',()=>{
   db.prepare('INSERT INTO attempts(id,participant_id,feedback_token_hash,model_version,production_hashes,started_at,completed_at,duration_ms,raw_answers,status,primary_id,scores,metrics,imported,app_version,build_version) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)').run('old-attempt','old-participant','hash','v4.4','{}','2026-09-01','2026-09-01',0,JSON.stringify(Array(80).fill(1)),'SCORED',21,'[]','{}',0,'1.0.0','old');
   db.prepare('INSERT INTO feedback(attempt_id,fit,self_lineage,prior_identity,comment) VALUES(?,?,?,?,?)').run('old-attempt',7,22,'unsure','preserve');
   const old=db.prepare('SELECT * FROM attempts').get(),feedback=db.prepare('SELECT * FROM feedback').get();
-  migrate();expect(db.prepare('SELECT * FROM attempts').get()).toEqual(old);expect(db.prepare('SELECT * FROM feedback').get()).toEqual(feedback);expect(db.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
+  migrate();const migrated=db.prepare('SELECT * FROM attempts').get() as Record<string,unknown>;expect(migrated.referral_code).toBeNull();delete migrated.referral_code;expect(migrated).toEqual(old);expect(db.prepare('SELECT * FROM feedback').get()).toEqual(feedback);expect(db.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
   expect(()=>db.prepare("UPDATE attempts SET status='classified',raw_answers='{}'").run()).toThrow();
  });
  it('returns authoritative raw JSON for answers/direct bodies without collecting data',async()=>{
@@ -46,10 +46,16 @@ describe('PRCS API and historical migration',()=>{
   migrate();const a=payload(),e=env();
   const response=await worker.fetch(request('/api/attempts',{...a,result:{primary:'forged'},scores:[]}),e);
   expect(response.status).toBe(201);const data=await response.json() as any;expect(data.result.public.primary.id).toBe('PL');
-  const stored=db.prepare('SELECT * FROM attempts').get() as any;expect(stored.primary_id).toBe(1);expect(stored.model_version).toBe(MODEL_VERSION);expect(JSON.parse(stored.raw_answers)).toEqual(demo);expect(JSON.parse(stored.metrics).raw).toEqual(data.result.diagnostic.raw);
+  const stored=db.prepare('SELECT * FROM attempts').get() as any;expect(stored.primary_id).toBe(1);expect(stored.model_version).toBe(MODEL_VERSION);expect(stored.referral_code).toBeNull();expect(JSON.parse(stored.raw_answers)).toEqual(demo);expect(JSON.parse(stored.metrics).raw).toEqual(data.result.diagnostic.raw);
   expect((await worker.fetch(request('/api/attempts',a),e)).status).toBe(200);
   expect((await worker.fetch(request('/api/attempts',{...a,responses:{...a.responses,'A-05':2}}),e)).status).toBe(409);
   expect(db.prepare('SELECT count(*) n FROM attempts').get()?.n).toBe(1);
+ });
+ it('stores a valid referral code with the anonymous result',async()=>{
+  migrate();const a=payload(),e=env();
+  expect((await worker.fetch(request('/api/attempts',{...a,referralCode:'kol_amy-2026'}),e)).status).toBe(201);
+  expect(db.prepare('SELECT referral_code FROM attempts').get()).toEqual({referral_code:'kol_amy-2026'});
+  expect((await worker.fetch(request('/api/attempts',{...payload(),referralCode:'not valid'}),e)).status).toBe(400);
  });
  it('requires full valid answers, current version and permitted origin',async()=>{
   migrate();const e=env();
