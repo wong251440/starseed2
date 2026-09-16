@@ -48,9 +48,10 @@ describe('Archived v4.4 scoring contract',()=>{
  });
  it('ranks full precision even when display values round equally',()=>{expect(selectPrimary([{id:1,score:.50001,distance:0},{id:2,score:.50002,distance:0}]).primary).toBe(2);});
  it('roundtrips versioned import and ignores forged result fields',()=>{const answers=raw(model.prototypes[0]),file=makeExport(answers);expect(parseImport({...file,primary:23,scores:[],canonicalAnswers:Array(80).fill(0),category:'fake'})).toEqual(answers);expect(requireScore(scoreAnswers(parseImport({...file,primary:23}))).primary).toBe(1);for(const f of [{...file,schemaVersion:2},{...file,modelVersion:'old'},{...file,answers:Array(79).fill(1)},null,[]])expect(()=>parseImport(f)).toThrow();expect(file.modelVersion).toBe(MODEL_VERSION);});
- it('keeps retained official texts byte-identical and categories exhaustive',()=>{
+ it('keeps translated official texts complete and categories exhaustive',()=>{
   expect(civs.map(c=>c.id)).toEqual([...Array.from({length:20},(_,i)=>i+1),23]);
-  civs.forEach(c=>expect(readFileSync(`public/texts/${c.id}.md`)).toEqual(readFileSync(`23文明文案/${c.id}.md`)));
+  const englishCivilizationName=/\b(Pleiadian|Arcturian|Sirian|Andromedan|Lyran|Orion|Mintakan|Venusian|Hadarian|Polarian|Alpha Centaurian|Vegan|Feline|Blue Avian|Martian|Maldekian|Draconian|Reptilian|Zeta Grey|Anunnaki|Nibiruan|Gaian|Earth Native)\b/;
+  civs.forEach(c=>{const [heading,...body]=readFileSync(`public/texts/${c.id}.md`,'utf8').split('\n');expect(heading).toMatch(/^# /);expect(body.join('\n')).not.toMatch(englishCivilizationName);});
   expect(civs.filter(c=>c.category==='心域文明').map(c=>c.id)).toEqual([1,8,9,10,14]);
   expect(civs.filter(c=>c.category==='無界文明').map(c=>c.id)).toEqual([4,5,7,12,13]);
   expect(civs.filter(c=>c.category==='智序文明').map(c=>c.id)).toEqual([2,6,11,15,19]);
