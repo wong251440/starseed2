@@ -105,3 +105,29 @@
 @media (max-width:600px){.official-prose blockquote{padding:1.25rem 1.1rem}.official-prose blockquote::after{font-size:.7rem}.official-prose blockquote p:first-child{font-size:1.1rem}}
 
 .quiz-entry-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:20px 0}.quiz-entry-actions>.button{margin:0}.final-call .quiz-entry-actions{justify-content:center}@media(max-width:700px){.quiz-entry-actions{flex-direction:column;align-items:stretch;gap:12px}.quiz-entry-actions>.button{justify-content:center;width:100%;margin:0}}
+
+/* Result navigation and civilization exploration. */
+.report-topline{justify-content:flex-end;min-height:0}
+.result-identity .result-category{display:inline-flex;align-items:center;padding:8px 14px;border-color:var(--category);color:var(--category);background:color-mix(in srgb,var(--category) 12%,transparent);font-size:.95rem;font-weight:600;letter-spacing:.14em}
+.pair-comparison-details{margin-top:58px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pair-comparison-details>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:70px;cursor:pointer;list-style:none;color:var(--gold)}
+.pair-comparison-details>summary::-webkit-details-marker{display:none}
+.pair-comparison-details>summary>span:last-child{font-size:.76rem;color:var(--muted)}
+.pair-comparison-details[open]>summary{border-bottom:1px solid var(--line)}
+.pair-comparison-details[open]>summary>span:last-child{color:var(--gold)}
+.pair-comparison-details .pair-lab{margin-top:0;padding:36px 0 10px}
+.ranked-civilization-rail{margin-top:68px;padding-top:42px;border-top:1px solid var(--line)}
+.ranked-civilization-rail .section-heading{margin-bottom:24px}
+.ranked-civilization-rail h2{font-size:clamp(1.5rem,2.5vw,2rem);margin-top:6px}
+.civilization-rail-scroller{display:flex;gap:14px;overflow-x:auto;padding:5px 1px 17px;scroll-snap-type:x proximity;scrollbar-color:var(--gold) transparent}
+.civilization-rail-card{position:relative;flex:0 0 164px;min-height:214px;padding:17px 15px;border:1px solid var(--line);background:linear-gradient(145deg,#121b2b,#0d1420);scroll-snap-align:start;transition:transform .2s,border-color .2s}
+.civilization-rail-card:hover{transform:translateY(-4px);border-color:var(--category)}
+.civilization-rail-rank{display:block;color:var(--category);font-family:monospace;font-size:.72rem}
+.civilization-rail-card .civ-icon{width:72px;margin:15px 0 13px;border:1px solid #ffffff16}
+.civilization-rail-card strong{display:block;font-size:.96rem;font-weight:500;line-height:1.5}
+.civilization-rail-card small{display:block;margin-top:4px;color:var(--muted);font-size:.66rem}
+.civilization-rail-score{position:absolute;right:14px;bottom:13px;color:var(--category);font-family:monospace;font-size:.72rem}
+.home-atlas .atlas-preview{display:flex;gap:22px;overflow-x:auto;padding:5px 1px 18px;margin-top:38px;scroll-snap-type:x proximity;scrollbar-color:var(--gold) transparent}
+.home-atlas .atlas-preview>a{flex:0 0 clamp(145px,14vw,190px);scroll-snap-align:start}
+@media(min-width:701px){.invitation-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(42px,6vw,86px)}.invitation-grid .prose{max-width:680px}.home-atlas .atlas-preview>a{flex-basis:180px}}
+@media(max-width:700px){.result-identity .result-category{font-size:.82rem;padding:7px 12px}.pair-comparison-details{margin-top:42px}.pair-comparison-details>summary{min-height:62px}.pair-comparison-details .pair-lab{padding-top:25px}.ranked-civilization-rail{margin-top:50px;padding-top:32px}.civilization-rail-card{flex-basis:145px;min-height:198px;padding:14px}.civilization-rail-card .civ-icon{width:62px;margin:12px 0}.home-atlas .atlas-preview{gap:15px;margin-top:24px}.home-atlas .atlas-preview>a{flex-basis:132px}.home-atlas .atlas-preview h3{font-size:.95rem}}

@@ -12,8 +12,10 @@ const domains:Record<string,string>={relational:'人際關係',home_environment:
 function Stat({label,value,note}:{label:string;value:string;note:string}){return <div className="pair-stat"><span>{label}</span><strong>{value}</strong><p>{note}</p></div>;}
 export default function PairComparison({result}:{result:ClassifiedResult}){
  const d=result.diagnostic.raw,rows=result.diagnostic.ranking.slice(0,2),notch=d.one_notch_flip_radius.min_edits;
- return <section className="pair-lab" id="boundary" aria-labelledby="pair-title">
-  <header className="pair-intro"><div><p className="eyebrow">02 / 第一名與第二名 · 深入比較</p><h2 id="pair-title">同一份答案，<br/>兩個接近的方向。</h2><p>第一名由完整答案的方向相似度決定。以下檢查幫助你理解差距與敏感程度，不會改寫主要結果。</p></div><div className="pair-lead"><span>兩者匹配指數差距</span><strong>{(d.global_margin*50).toFixed(2)}<small> 分</small></strong><p>來自兩者原始相似度之差 × 50，不是身份比例。</p></div></header>
+ return <details className="pair-comparison-details" id="boundary">
+  <summary><span className="eyebrow">02 / 第一名與第二名 · 深入比較</span><span>查看比較</span></summary>
+  <section className="pair-lab" aria-labelledby="pair-title">
+  <header className="pair-intro"><div><h2 id="pair-title">同一份答案，<br/>兩個接近的方向。</h2><p>第一名由完整答案的方向相似度決定。以下檢查幫助你理解差距與敏感程度，不會改寫主要結果。</p></div><div className="pair-lead"><span>兩者匹配指數差距</span><strong>{(d.global_margin*50).toFixed(2)}<small> 分</small></strong><p>來自兩者原始相似度之差 × 50，不是身份比例。</p></div></header>
   <div className="pair-profiles">{rows.map((r,i)=>{const c=civs.find(c=>c.lineageId===r.id)!;return <article key={r.id} className={`pair-profile ${i?'is-runner':''}`}><div className="pair-profile-top"><Icon id={c.id}/><div><span>{i?ui.generic_ui_copy.closest_alternative_label:'Primary · 主要文明'}</span><h3>{c.name}</h3><p>{c.english}</p></div><strong>{r.score.toFixed(1)}<small>匹配指數</small></strong></div><Stat label="原始方向相似度" value={num(r.rawFit)} note="範圍 −1 至 1；越高，這份答案的整體方向越接近該類型。"/><Link className="text-button" to={`/civilizations/${c.id}`}>閱讀文明檔案 →</Link></article>;})}</div>
   <section className="pair-band"><h3>這個差距有多容易改變？</h3><div className="pair-stat-grid">
    <Stat label="最少幾題各移動一格，可讓第一名不再獨自領先" value={notch===null?'一格微調仍無法到達邊界':`${notch} 題`} note="每題只向左或右移動一格，而且是不同題目。到達平手邊界也算；不是預測你下次會改幾題。"/>
@@ -28,5 +30,5 @@ export default function PairComparison({result}:{result:ClassifiedResult}){
   </section>
   <section className="pair-band"><h3>哪些回答把兩者拉開？</h3><p>以下數字是回答對「第一名相對第二名」的分離方向貢獻，正數支持第一名，負數支持第二名；不是單題分數或身份比例。</p>{[d.separator_contributions.supports_primary,d.separator_contributions.supports_runner_up].map((items,i)=><div key={i}><h4>{i?'較支持第二名的回答':'較支持第一名的回答'}</h4>{items.map(x=><p key={x.item}>{questions.find(q=>q.id===x.item)?.stem} <strong>{x.contribution>0?'+':''}{num(x.contribution)}</strong></p>)}</div>)}</section>
   <p className="chart-note">{ui.generic_ui_copy.technical_disclaimer}</p>
- </section>;
+ </section></details>;
 }
