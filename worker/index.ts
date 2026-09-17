@@ -21,12 +21,14 @@ async function body(request:Request):Promise<Record<string,unknown>> {
 }
 function date(v:unknown){if(typeof v!=='string'||!Number.isFinite(Date.parse(v)))fail('時間格式不正確。');return v as string;}
 function referral(v:unknown){if(v===undefined||v===null)return null;if(typeof v!=='string'||!/^[A-Za-z0-9_-]{1,64}$/.test(v))fail('來源代碼格式不正確。');return v;}
+function pretest(v:unknown){if(v===undefined||v===null)return null;if(!v||typeof v!=='object'||Array.isArray(v))fail('測驗前認同資料格式不正確。');const data=v as Record<string,unknown>,familiarity=data.familiarity,priorIdentity=data.priorIdentity,priorLineage=data.priorLineage;if(!['none','some','expert'].includes(familiarity as string)||!['yes','no','unsure'].includes(priorIdentity as string)||!(priorLineage===null||(typeof priorLineage==='number'&&Number.isInteger(priorLineage)&&civs.some(c=>c.id===priorLineage)) )||(priorIdentity==='yes'&&priorLineage===null)||(priorIdentity!=='yes'&&priorLineage!==null))fail('測驗前認同資料格式不正確。');return {familiarity:familiarity as string,priorIdentity:priorIdentity as string,priorLineage:priorLineage as number|null};}
+function compactMetrics(result:ReturnType<typeof score>){const raw=result.diagnostic.raw;const common={status:raw.status,selection_version:raw.selection_version,model_fingerprint:raw.model_fingerprint,context_taxonomy_version:raw.context_taxonomy_version,response_counts:raw.response_counts,total_items:raw.total_items};if(raw.status==='INSUFFICIENT_SIGNAL')return common;return {...common,primary_similarity:raw.primary_similarity,runner_up_similarity:raw.runner_up_similarity,global_margin:raw.global_margin,basin_depth:raw.basin_depth,nearest_boundary:raw.nearest_boundary,response_amplitude:raw.response_amplitude,information_coverage:raw.information_coverage,boundary_conflict:raw.boundary_conflict,evidence_consistency:raw.evidence_consistency,registered_suite:raw.registered_suite};}
 export default {
  async fetch(request:Request,env:Env):Promise<Response>{
  const path=new URL(request.url).pathname;
  if(!path.startsWith('/api/'))return env.ASSETS.fetch(request);
  try{
- if(path==='/api/health'&&request.method==='GET'){await env.DB.prepare('SELECT 1').first();return json({ok:true,modelVersion:MODEL_VERSION,selectionVersion:SELECTION_VERSION,modelFingerprint:MODEL_FINGERPRINT,appVersion:APP_VERSION,buildVersion:env.BUILD_VERSION});}
+ if(path==='/api/health'&&request.method==='GET'){await env.DB.prepare('SELECT 1').first();return json({ok:true,modelVersion:MODEL_VERSION,selectionVersion:SELECTION_VERSION,modelFingerprint:MODEL_FINGERPRINT,buildVersion:env.BUILD_VERSION||APP_VERSION});}
  if(!['/api/score','/api/attempts','/api/feedback'].includes(path))return json({error:'找不到此服務。'},404);
  if(request.method!=='POST')return json({error:'請使用 POST。'},405);
  const origin=request.headers.get('origin');const allowedOrigins=(env.ALLOWED_ORIGINS||'').split(',').map(v=>v.trim()).filter(Boolean);if(origin&&origin!==new URL(request.url).origin&&!allowedOrigins.includes(origin))fail('請從本站提交。',403);
@@ -41,28 +43,28 @@ export default {
   if(data.demo===true)fail('範例不收集校準資料。');
   const responses=parseImport(data),attemptId=id(data.attemptId),participantId=id(data.participantId),tokenHash=await hash(id(data.feedbackToken));
   if(typeof data.imported!=='boolean')fail('缺少匯入狀態。');
-  const startedAt=date(data.startedAt),completedAt=date(data.completedAt),duration=data.durationMs,referralCode=referral(data.referralCode);
+  const startedAt=date(data.startedAt),completedAt=date(data.completedAt),duration=data.durationMs,referralCode=referral(data.referralCode),pretestData=pretest(data.pretest);
   if(typeof duration!=='number'||!Number.isSafeInteger(duration)||duration<0||duration>31536000000||Date.parse(completedAt)<Date.parse(startedAt)||Date.parse(completedAt)>Date.now()+300000||duration!==Date.parse(completedAt)-Date.parse(startedAt))fail('完成時間不正確。');
   const mode=responseMode(responses,data.mode),result=score(responses,mode),encoded=JSON.stringify({responses:Object.fromEntries(questionsForMode(mode).map(q=>[q.id,responses[q.id]]))});
   const previous=await env.DB.prepare('SELECT participant_id,feedback_token_hash,raw_answers FROM attempts WHERE id=?').bind(attemptId).first<{participant_id:string;feedback_token_hash:string;raw_answers:string}>();
   if(previous){if(previous.participant_id!==participantId||previous.feedback_token_hash!==tokenHash||previous.raw_answers!==encoded)fail('這組提交識別碼已用於其他答案。',409);return json({attemptId,modelVersion:MODEL_VERSION,result,saved:true});}
-  const metrics=result.diagnostic,primary=result.public.primary,primaryId=primary?civs.find(c=>c.lineageId===primary.id)?.id:null;
+  const metrics=compactMetrics(result),primary=result.public.primary,primaryId=primary?civs.find(c=>c.lineageId===primary.id)?.id:null;
   if(result.public.status==='classified'&&!primaryId)throw new Error('Unknown model lineage');
   await env.DB.batch([
    env.DB.prepare('INSERT INTO participants(id) VALUES(?) ON CONFLICT(id) DO NOTHING').bind(participantId),
-   env.DB.prepare('INSERT INTO attempts(id,participant_id,feedback_token_hash,model_version,production_hashes,started_at,completed_at,duration_ms,raw_answers,status,primary_id,scores,metrics,imported,app_version,build_version,referral_code) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING').bind(attemptId,participantId,tokenHash,MODEL_VERSION,JSON.stringify(HASHES),startedAt,completedAt,duration,encoded,result.public.status,primaryId??null,JSON.stringify(result.public.scores),JSON.stringify(metrics),data.imported?1:0,APP_VERSION,env.BUILD_VERSION||APP_VERSION,referralCode)
+   env.DB.prepare('INSERT INTO attempts(id,participant_id,feedback_token_hash,model_version,production_hashes,duration_ms,raw_answers,status,primary_id,scores,metrics,imported,build_version,referral_code,quiz_mode,pretest_familiarity,pretest_prior_identity,pretest_prior_lineage) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING').bind(attemptId,participantId,tokenHash,MODEL_VERSION,JSON.stringify(HASHES),duration,encoded,result.public.status,primaryId??null,JSON.stringify(result.public.scores),JSON.stringify(metrics),data.imported?1:0,env.BUILD_VERSION||APP_VERSION,referralCode,mode,pretestData?.familiarity??null,pretestData?.priorIdentity??null,pretestData?.priorLineage??null)
   ]);
   const stored=await env.DB.prepare('SELECT participant_id,feedback_token_hash,raw_answers FROM attempts WHERE id=?').bind(attemptId).first<{participant_id:string;feedback_token_hash:string;raw_answers:string}>();
   if(!stored||stored.participant_id!==participantId||stored.feedback_token_hash!==tokenHash||stored.raw_answers!==encoded)fail('這組提交識別碼已用於其他答案。',409);
   return json({attemptId,modelVersion:MODEL_VERSION,result,saved:true},201);
  }
  const attemptId=id(data.attemptId),tokenHash=await hash(id(data.feedbackToken));
- const row=await env.DB.prepare('SELECT id,model_version FROM attempts WHERE id=? AND feedback_token_hash=?').bind(attemptId,tokenHash).first<{id:string;model_version:string}>();
+ const row=await env.DB.prepare('SELECT id,model_version,pretest_prior_identity,pretest_prior_lineage FROM attempts WHERE id=? AND feedback_token_hash=?').bind(attemptId,tokenHash).first<{id:string;model_version:string;pretest_prior_identity:string|null;pretest_prior_lineage:number|null}>();
  if(!row)fail('找不到可提交回饋的測驗，請先儲存結果。',404);
  if(typeof data.fit!=='number'||!Number.isInteger(data.fit)||data.fit<1||data.fit>7)fail('請選擇 1 至 7 的符合程度。');
- const lineage=(v:unknown)=>v===null||(typeof v==='number'&&Number.isInteger(v)&&(row.model_version===MODEL_VERSION?civs.some(c=>c.id===v):v>=1&&v<=23));
- if(!lineage(data.selfLineage)||!lineage(data.priorLineage)||!['yes','no','unsure'].includes(data.priorIdentity as string)||typeof data.comment!=='string'||data.comment.length>2000||(data.priorIdentity!=='yes'&&data.priorLineage!==null))fail('回饋格式不正確。');
- await env.DB.prepare("INSERT INTO feedback(attempt_id,fit,self_lineage,prior_identity,prior_lineage,comment) VALUES(?,?,?,?,?,?) ON CONFLICT(attempt_id) DO UPDATE SET fit=excluded.fit,self_lineage=excluded.self_lineage,prior_identity=excluded.prior_identity,prior_lineage=excluded.prior_lineage,comment=excluded.comment,updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now')").bind(attemptId,data.fit,data.selfLineage,data.priorIdentity,data.priorLineage,data.comment).run();
+ const priorIdentity=data.priorIdentity??row.pretest_prior_identity??'unsure',priorLineage=data.priorLineage??row.pretest_prior_lineage??null;const lineage=(v:unknown)=>v===null||(typeof v==='number'&&Number.isInteger(v)&&(row.model_version===MODEL_VERSION?civs.some(c=>c.id===v):v>=1&&v<=23));
+ if(!lineage(data.selfLineage)||!lineage(priorLineage)||!['yes','no','unsure'].includes(priorIdentity as string)||typeof data.comment!=='string'||data.comment.length>2000||(priorIdentity!=='yes'&&priorLineage!==null))fail('回饋格式不正確。');
+ await env.DB.prepare("INSERT INTO feedback(attempt_id,fit,self_lineage,prior_identity,prior_lineage,comment) VALUES(?,?,?,?,?,?) ON CONFLICT(attempt_id) DO UPDATE SET fit=excluded.fit,self_lineage=excluded.self_lineage,prior_identity=excluded.prior_identity,prior_lineage=excluded.prior_lineage,comment=excluded.comment,updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now')").bind(attemptId,data.fit,data.selfLineage,priorIdentity,priorLineage,data.comment).run();
  return json({saved:true});
  }catch(error){const e=error as Error&{status?:number};const status=e.status||(e.message.includes('答案')||e.message.includes('版本')||e.message.includes('JSON')?400:500);return json({error:status===500?'暫時無法儲存，答案仍保存在此裝置。請稍後重試。':e.message},status);}
  }

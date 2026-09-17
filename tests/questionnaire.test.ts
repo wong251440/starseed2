@@ -29,6 +29,6 @@ describe('PRCS question and storage contract',()=>{
   const draft={modelVersion:MODEL_VERSION,responses:{[questions[0].id]:4},index:28,startedAt:'2026-09-07T00:00:00Z'};
   const entries:Record<string,string>={[DRAFT_KEY]:JSON.stringify(draft),'starseed2-attempt':JSON.stringify({modelVersion:'old',answers:Array(80).fill(1)})};
   const setItem=vi.fn();vi.stubGlobal('localStorage',{getItem:(key:string)=>entries[key]??null,setItem});
-  expect(loadDraft()).toEqual(draft);expect(legacyData()?.attempt).not.toBeNull();expect(setItem).not.toHaveBeenCalled();
+  expect(loadDraft()).toEqual({...draft,mode:'full',referralCode:null});expect(legacyData()?.attempt).not.toBeNull();expect(setItem).not.toHaveBeenCalled();
  });
 });
