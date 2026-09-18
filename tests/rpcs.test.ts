@@ -35,20 +35,20 @@ describe('PRCS production integration',()=>{
   const html=renderToStaticMarkup(createElement(MemoryRouter,null,createElement(PairComparison,{result:r as Extract<typeof r,{public:{status:'classified'}}> })));
   expect(html).toContain('24,804');expect(html).not.toContain('換 7 種設定');expect(html).toContain('不是類型機率');
  });
- it('caps clarity when a registered prototype-weight scenario changes Primary',()=>{
+ it('does not let prototype diagnostics cap clarity',()=>{
   const raw=structuredClone(scorePRCS(demo.responses));
   if(raw.status==='INSUFFICIENT_SIGNAL')throw Error('Expected classified result');
   raw.prototype_robustness.scenarios[0].primary=raw.runner_up;
   const result=adaptResult(raw);
   if(result.public.status!=='classified')throw Error('Expected classified result');
-  expect(result.public.classificationClarity).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'clear'});
+  expect(result.public.classificationClarity).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'very_clear'});
  });
  it('shows the two ranked match scores and their rounded gap in the clarity panel',()=>{
   const result=adaptResult(scorePRCS(demo.responses));
   if(result.public.status!=='classified')throw Error('Expected classified result');
   const html=renderToStaticMarkup(createElement(MemoryRouter,null,createElement(ClassificationClarity,{result})));
   expect(html).toContain('第一名 · 昴宿星');
-  expect(html).toContain('第二名 · 獵戶座');
+  expect(html).toContain('第二名 · 北極星');
   expect(html).toContain('分數相差');
   expect(html).toContain('個契合度點');
  });

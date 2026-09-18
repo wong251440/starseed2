@@ -18,6 +18,9 @@ export const questions=questionsByMode.full;
 export const questionsForMode=(mode:QuizMode)=>questionsByMode[mode];
 export function wordingVersionsForMode(mode:QuizMode){return Object.fromEntries(questionsForMode(mode).map(question=>[question.id,question.wordingVersion]));}
 export function hasActiveWordingVersions(value:unknown,mode:QuizMode){const expected=wordingVersionsForMode(mode);return record(value)&&Object.keys(value).length===Object.keys(expected).length&&Object.entries(expected).every(([id,version])=>value[id]===version);}
+export function hasPresentationFlips(value:unknown,mode:QuizMode){const ids=questionsForMode(mode).map(question=>question.id);return record(value)&&Object.keys(value).length===ids.length&&ids.every(id=>typeof value[id]==='boolean');}
+export function canonicalResponseForDisplay(displayed:number,flipped:boolean){return flipped?8-displayed:displayed;}
+export function displayResponseForCanonical(canonical:number,flipped:boolean){return flipped?8-canonical:canonical;}
 export const SELECTION_VERSION=fullQuiz.selection_version;
 export const MODEL_FINGERPRINT=fullQuiz.official_model_fingerprint;
 export const MODE_METADATA={quick:{selectionVersion:quickQuiz.selection_version,fingerprint:quickQuiz.official_model_fingerprint,count:quickQuiz.items.length},full:{selectionVersion:fullQuiz.selection_version,fingerprint:fullQuiz.official_model_fingerprint,count:fullQuiz.items.length}};
@@ -58,5 +61,5 @@ export function parseImport(v:unknown):Responses{
  const mode=responseMode(v.responses,v.mode);if(!hasActiveWordingVersions(v.itemVersions,mode))throw Error('答案檔案的題目文案版本與目前測驗不相容，請重新完成新版測驗。');
  validateResponses(v.responses,mode);return v.responses;
 }
-export function makeExport(responses:Responses,itemVersions:Record<string,number>=wordingVersionsForMode(responseMode(responses))){const mode=responseMode(responses);return {schemaVersion:SCHEMA_VERSION,modelVersion:MODEL_VERSION,mode,itemVersions,responses};}
+export function makeExport(responses:Responses,itemVersions:Record<string,number>=wordingVersionsForMode(responseMode(responses)),presentationFlips?:Record<string,boolean>){const mode=responseMode(responses);if(presentationFlips!==undefined&&!hasPresentationFlips(presentationFlips,mode))throw Error('答案檔案的呈現順序不正確。');return {schemaVersion:SCHEMA_VERSION,modelVersion:MODEL_VERSION,mode,itemVersions,responses,...(presentationFlips?{presentationFlips}: {})};}
 export function answeredCount(responses:DraftResponses, mode:QuizMode='full'){return questionsForMode(mode).filter(q=>isCompleteAnswer(q,responses[q.id])).length;}

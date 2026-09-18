@@ -1,11 +1,13 @@
 import model from '../models/full54.json';
-import {CALIBRATION_VERSION,calibratedResponse} from './prcs-calibration';
+import {CALIBRATION_VERSION,calibratedResponse,empiricalWeight} from './prcs-calibration';
 
 // Formula-for-formula port of the supplied PRCSScorer; model/order are authoritative.
 const TOL=1e-12;
 const sum=(x:number[])=>x.reduce((a,b)=>a+b,0);
 const dot=(a:number[],b:number[])=>sum(a.map((v,i)=>v*b[i]));
 const norm=(a:number[])=>Math.sqrt(dot(a,a));
+const weightedDot=(a:number[],b:number[],weights:number[])=>sum(a.map((v,i)=>weights[i]*v*b[i]));
+const weightedNorm=(a:number[],weights:number[])=>Math.sqrt(weightedDot(a,a,weights));
 const {goals,operations,scopes}=model.dimensions;
 const base=goals.length+operations.length+scopes.length;
 function phi(f:string[]){
@@ -14,7 +16,7 @@ function phi(f:string[]){
  x[goals.length+operations.length+scopes.indexOf(s)]=1;
  x[base+goals.indexOf(g)*operations.length+operations.indexOf(o)]=1;return x;
 }
-const ids=model.items.map(i=>i.uid),wordingVersions=model.items.map(i=>i.wording_version??1),lineages=model.lineages.map(l=>l.code);
+const ids=model.items.map(i=>i.uid),wordingVersions=model.items.map(i=>i.wording_version??1),weights=model.items.map((i,index)=>empiricalWeight(i.uid,wordingVersions[index])),lineages=model.lineages.map(l=>l.code);
 const axes=model.items.map(i=>{const a=phi(i.left),b=phi(i.right),d=b.map((v,k)=>v-a[k]);return d.map(v=>v/norm(d));});
 const codes=Object.fromEntries(Object.entries(model.prototype_weight_scenarios).map(([name,weights])=>{
  const prototypes=model.lineages.map(l=>{const f=l.prototype_fragments.map(phi);return f[0].map((_,k)=>sum(weights.map((w,i)=>w*f[i][k]))/sum(weights));});
@@ -26,14 +28,14 @@ export function validateAnswers(value:unknown):asserts value is PRCSAnswers{
  if(!value||typeof value!=='object'||Array.isArray(value)||Object.entries(value).some(([uid,v])=>!ids.includes(uid)||(v!==null&&(typeof v!=='number'||!Number.isInteger(v)||v<1||v>7))))throw Error('答案只接受正式題目 UID，以及 1 至 7 的整數或 null。');
 }
 function core(y:number[],idx:number[],scenario='nominal'){
- const yy=idx.map(i=>y[i]),yn=norm(yy);if(yn<=TOL)return null;
+ const yy=idx.map(i=>y[i]),ww=idx.map(i=>weights[i]),yn=weightedNorm(yy,ww);if(yn<=TOL)return null;
  const cc=codes[scenario].map(c=>idx.map(i=>c[i]));
- const cn=cc.map(norm);if(cn.some(n=>n<=TOL))throw Error('A lineage codeword vanished on answered dimensions');
+ const cn=cc.map(c=>weightedNorm(c,ww));if(cn.some(n=>n<=TOL))throw Error('A lineage codeword vanished on answered dimensions');
  const chat=cc.map((c,i)=>c.map(v=>v/cn[i])),yhat=yy.map(v=>v/yn);
- const scores=chat.map(c=>dot(c,yhat)),order=scores.map((_,i)=>i).sort((a,b)=>scores[b]-scores[a]||a-b);
+ const scores=chat.map(c=>weightedDot(c,yhat,ww)),order=scores.map((_,i)=>i).sort((a,b)=>scores[b]-scores[a]||a-b);
  const [w,r]=order,ties=order.filter(i=>Math.abs(scores[i]-scores[w])<=TOL);
  let basin=Infinity,nearest=-1;
- for(let j=0;j<lineages.length;j++){if(j===w)continue;const v=chat[w].map((a,k)=>a-chat[j][k]),nv=norm(v),margin=nv<=TOL?0:dot(yhat,v)/nv;if(margin<basin){basin=margin;nearest=j;}}
+ for(let j=0;j<lineages.length;j++){if(j===w)continue;const v=chat[w].map((a,k)=>a-chat[j][k]),nv=weightedNorm(v,ww),margin=nv<=TOL?0:weightedDot(yhat,v,ww)/nv;if(margin<basin){basin=margin;nearest=j;}}
  return {scores,chat,yhat,order,w,r,ties,basin,nearest,margin:scores[w]-scores[r]};
 }
 function minNotch(y:number[],coeff:number[],positive=true):{k:number|null;used:number[]}{
@@ -47,16 +49,16 @@ function minNotch(y:number[],coeff:number[],positive=true):{k:number|null;used:n
  return {k:null,used};
 }
 function dropout(y:number[],idx:number[],winner:number){
- const code=codes.nominal.map(c=>idx.map(i=>c[i])),yy=idx.map(i=>y[i]);
- const dots=code.map(c=>dot(c,yy)),squares=code.map(c=>dot(c,c)),y2=dot(yy,yy);
+ const code=codes.nominal.map(c=>idx.map(i=>c[i])),yy=idx.map(i=>y[i]),ww=idx.map(i=>weights[i]);
+ const dots=code.map(c=>weightedDot(c,yy,ww)),squares=code.map(c=>weightedDot(c,c,ww)),y2=weightedDot(yy,yy,ww);
  const by_k:Record<string,{scenario_count:number;flip_count:number}>={};let min:number|null=null;
  const max=model.registered_suite.arbitrary_item_dropout_max;
  for(let k=1;k<=Math.min(max,idx.length-1);k++){
   let count=0,flips=0;const chosen:number[]=[];
   const visit=(start:number)=>{if(chosen.length<k){for(let i=start;i<=idx.length-(k-chosen.length);i++){chosen.push(i);visit(i+1);chosen.pop();}return;}
-   count++;let removedY=0;for(const i of chosen)removedY+=yy[i]*yy[i];const remainY=y2-removedY;
+   count++;let removedY=0;for(const i of chosen)removedY+=ww[i]*yy[i]*yy[i];const remainY=y2-removedY;
    let valid=remainY>TOL,best=-Infinity,win=0;
-   for(let l=0;l<lineages.length;l++){let removedDot=0,removedC=0;for(const i of chosen){removedDot+=yy[i]*code[l][i];removedC+=code[l][i]*code[l][i];}
+   for(let l=0;l<lineages.length;l++){let removedDot=0,removedC=0;for(const i of chosen){removedDot+=ww[i]*yy[i]*code[l][i];removedC+=ww[i]*code[l][i]*code[l][i];}
     const remainC=squares[l]-removedC;if(remainC<=TOL)valid=false;
     const s=(dots[l]-removedDot)/Math.sqrt(remainY*remainC);if(s>best){best=s;win=l;}}
    if(!valid||win!==winner)flips++;
@@ -79,15 +81,15 @@ export function scorePRCS(answers:PRCSAnswers,exactDropout=true){
  const context_robustness={all_same_primary:contextRows.every(x=>x.same_primary),scenarios:contextRows};
  const item_dropout_robustness=exactDropout?dropout(y,idx,w):null;
  let one_notch_flip_radius:{min_edits:number|null;competitor?:string;items?:string[]}={min_edits:null};
- for(let j=0;j<lineages.length;j++){if(j===w)continue;const v=c.chat[w].map((a,k)=>a-c.chat[j][k]),n=minNotch(idx.map(i=>y[i]),v);if(n.k!==null&&(one_notch_flip_radius.min_edits===null||n.k<one_notch_flip_radius.min_edits))one_notch_flip_radius={min_edits:n.k,competitor:lineages[j],items:n.used.slice(0,n.k).map(i=>ids[idx[i]])};}
+ for(let j=0;j<lineages.length;j++){if(j===w)continue;const v=c.chat[w].map((a,k)=>weights[idx[k]]*(a-c.chat[j][k])),n=minNotch(idx.map(i=>y[i]),v);if(n.k!==null&&(one_notch_flip_radius.min_edits===null||n.k<one_notch_flip_radius.min_edits))one_notch_flip_radius={min_edits:n.k,competitor:lineages[j],items:n.used.slice(0,n.k).map(i=>ids[idx[i]])};}
  const boundary=c.chat[w].map((v,i)=>v-c.chat[r][i]);
  const direct=idx.filter(i=>{const edges=new Set(model.items[i].edges);return edges.size===2&&edges.has(lineages[w])&&edges.has(lineages[r]);});
  let direct_boundary:{items:string[];supports:string|null;conflict:string;signed_contribution?:number}={items:[],supports:null,conflict:'NO_DIRECT_ITEMS'};
- if(direct.length){const loc=direct.map(i=>idx.indexOf(i)),yd=direct.map(i=>y[i]),bd=loc.map(i=>boundary[i]),signed=dot(yd,bd);let supports='TIE',conflict='NONE';
-  if(signed>TOL)supports=lineages[w];else if(signed<-TOL){supports=lineages[r];const n=minNotch(yd,bd,false);conflict=n.k===null||n.k>=2?'PERSISTENT':'FRAGILE';}
+ if(direct.length){const loc=direct.map(i=>idx.indexOf(i)),yd=direct.map(i=>y[i]),bd=loc.map(i=>boundary[i]),wd=loc.map(i=>weights[idx[i]]),signed=weightedDot(yd,bd,wd);let supports='TIE',conflict='NONE';
+  if(signed>TOL)supports=lineages[w];else if(signed<-TOL){supports=lineages[r];const n=minNotch(yd,bd.map((v,i)=>wd[i]*v),false);conflict=n.k===null||n.k>=2?'PERSISTENT':'FRAGILE';}
   direct_boundary={items:direct.map(i=>ids[i]),supports,signed_contribution:signed,conflict};}
- const conflict=['FRAGILE','PERSISTENT'].includes(direct_boundary.conflict),bn=norm(boundary)+1e-15;
- const contrib=idx.map((q,i)=>({item:ids[q],contribution:c.yhat[i]*boundary[i]/bn}));
+ const conflict=['FRAGILE','PERSISTENT'].includes(direct_boundary.conflict),bn=weightedNorm(boundary,idx.map(i=>weights[i]))+1e-15;
+ const contrib=idx.map((q,i)=>({item:ids[q],contribution:weights[q]*c.yhat[i]*boundary[i]/bn}));
  const coverage=(j:number)=>{const diff=codes.nominal[w].map((v,i)=>(v-codes.nominal[j][i])**2),den=sum(diff);return den<=TOL?null:sum(idx.map(i=>diff[i]))/den;};
  const allCoverage=lineages.flatMap((_,j)=>j!==w?[coverage(j)!]:[]);
  const maxD=model.registered_suite.arbitrary_item_dropout_max,maxN=model.registered_suite.distinct_one_notch_item_edits_max;

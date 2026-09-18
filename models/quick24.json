@@ -587,8 +587,8 @@
       "display_order": 2,
       "uid": "B-Q43",
       "prompt": "當我覺得自己長久以來信仰的某種價值觀，其實在現實中會傷害到人時，我會：",
-      "left_text": "將這種現實的回饋視為系統性的缺陷，著手去修改這套價值觀的運作機制。",
-      "right_text": "深刻地往內反省，調整我的實踐方式，確保我沒有為了守住理論而排除了真實的人性。",
+      "left_text": "把這種現實的回饋看成這套價值觀在實際運作上的問題，著手調整它的運作方式。",
+      "right_text": "回頭反省自己是怎麼理解和實踐它的，調整到它跟我實際看到、感受到的情況能對得上。",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -615,7 +615,8 @@
       "family": "C2_Knowledge",
       "source_context": "Value_Crisis",
       "evidence": "STRONG-BRANCH",
-      "redundancy_tag": "viability_mechanism_vs_lived_coherence_1\\"
+      "redundancy_tag": "viability_mechanism_vs_lived_coherence_1\\",
+      "wording_version": 2
     },
     {
       "display_order": 3,
@@ -1303,8 +1304,8 @@
       "display_order": 23,
       "uid": "B-Q04",
       "prompt": "當有人向我尋求重要的人生或工作建議時，我通常傾向：",
-      "left_text": "給他們一個大方向的原則或核心觀念，讓他們學會自己對自己負責，然後我就退開。",
-      "right_text": "給他們一套具體、可重複使用的判斷框架，確保他們以後遇到類似情況知道怎麼做決定。",
+      "left_text": "給他們一個大方向的原則或核心觀念，讓他們照自己的判斷去做決定。",
+      "right_text": "給他們一套比較具體、可以重複使用的判斷方法，讓他們以後遇到類似情況也知道怎麼判斷。",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1331,7 +1332,8 @@
       "family": "C4_Orientation",
       "source_context": "Giving_Advice",
       "evidence": "SOURCE-STRONG",
-      "redundancy_tag": "broad_message_vs_detailed_scaffold_1\\"
+      "redundancy_tag": "broad_message_vs_detailed_scaffold_1\\",
+      "wording_version": 2
     },
     {
       "display_order": 24,

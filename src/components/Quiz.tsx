@@ -3,7 +3,7 @@ import { ArrowRight, ChevronLeft, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   answeredCount, instructions, isCompleteAnswer, questionsForMode,
-  type Choice, type DraftAnswer, type Priority, type Side, type Responses,
+  canonicalResponseForDisplay, displayResponseForCanonical, type Choice, type DraftAnswer, type Priority, type Side, type Responses,
 } from '../shared/questionnaire';
 import type { Draft } from '../shared/session';
 
@@ -23,6 +23,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
   const currentIndex = Number.isInteger(draft.index) && draft.index >= 0 && draft.index < modeQuestions.length ? draft.index : 0;
   const question = modeQuestions[currentIndex];
   const value = draft.responses[question.id];
+  const flipped=draft.presentationFlips[question.id]===true;
   const answered = answeredCount(draft.responses,draft.mode);
   const currentComplete = isCompleteAnswer(question, value);
   const questionCount=modeQuestions.length;
@@ -94,18 +95,18 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
 
       {question.format === 'BIP' && <>
         <div className="poles">
-          <div><span>左側</span><p>{question.left}</p></div>
-          <div><span>右側</span><p>{question.right}</p></div>
+          <div><span>左側</span><p>{flipped?question.right:question.left}</p></div>
+          <div><span>右側</span><p>{flipped?question.left:question.right}</p></div>
         </div>
         <fieldset className="strict-scale">
           <legend className="sr-only">你的傾向</legend>
           <div className="strict-scale-options">
-            {instructions.BIP.scale.map((label, index) => <label key={index} className={`${value === index + 1 ? 'selected ' : ''}strength-${Math.abs(index - 3)}`}>
-              <input type="radio" name={name} value={index + 1} checked={value === index + 1}
-                onChange={() => save(index + 1)} aria-label={`${index + 1}，${label}`} />
+            {instructions.BIP.scale.map((label, index) => {const displayed=index+1,selected=typeof value==='number'&&displayResponseForCanonical(value,flipped)===displayed;return <label key={index} className={`${selected ? 'selected ' : ''}strength-${Math.abs(index - 3)}`}>
+              <input type="radio" name={name} value={displayed} checked={selected}
+                onChange={() => save(canonicalResponseForDisplay(displayed,flipped))} aria-label={`${displayed}，${label}`} />
               <span className="strict-scale-number" aria-hidden="true" />
               <span className="strict-scale-label">{label}</span>
-            </label>)}
+            </label>;})}
           </div>
           <div className="strict-scale-captions" aria-hidden="true">
             <span>明顯偏左</span><span>左右差不多</span><span>明顯偏右</span>

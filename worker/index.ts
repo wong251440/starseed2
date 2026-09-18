@@ -1,4 +1,4 @@
-import {parseImport,validateResponses,makeExport,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questionsForMode,responseMode,wordingVersionsForMode,hasActiveWordingVersions} from '../src/shared/questionnaire';
+import {parseImport,validateResponses,makeExport,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questionsForMode,responseMode,wordingVersionsForMode,hasActiveWordingVersions,hasPresentationFlips} from '../src/shared/questionnaire';
 import {scorePRCS,validateAnswers} from './prcs';
 import {scoreQuick,validateQuick} from './prcs-quick';
 import {score} from './rpcs';
@@ -64,7 +64,8 @@ export default {
   const startedAt=date(data.startedAt),completedAt=date(data.completedAt),duration=data.durationMs,referralCode=referral(data.referralCode),pretestData=pretest(data.pretest);
   if(typeof duration!=='number'||!Number.isSafeInteger(duration)||duration<0||duration>31536000000||Date.parse(completedAt)<Date.parse(startedAt)||Date.parse(completedAt)>Date.now()+300000||duration!==Date.parse(completedAt)-Date.parse(startedAt))fail('完成時間不正確。');
   const mode=responseMode(responses,data.mode);if(!hasActiveWordingVersions(data.itemVersions,mode))fail('題目文案版本與目前測驗不相容，請重新完成新版測驗。');
-  const result=score(responses,mode),encoded=JSON.stringify({responses:Object.fromEntries(questionsForMode(mode).map(q=>[q.id,responses[q.id]])),item_versions:wordingVersionsForMode(mode)});
+  const presentationFlips=data.presentationFlips===undefined?Object.fromEntries(questionsForMode(mode).map(q=>[q.id,false])):data.presentationFlips;if(!hasPresentationFlips(presentationFlips,mode))fail('題目呈現順序不正確。');
+  const result=score(responses,mode),encoded=JSON.stringify({responses:Object.fromEntries(questionsForMode(mode).map(q=>[q.id,responses[q.id]])),item_versions:wordingVersionsForMode(mode),presentation_flips:presentationFlips});
   const previous=await env.DB.prepare('SELECT participant_id,feedback_token_hash,raw_answers FROM attempts WHERE id=?').bind(attemptId).first<{participant_id:string;feedback_token_hash:string;raw_answers:string}>();
   if(previous){if(previous.participant_id!==participantId||previous.feedback_token_hash!==tokenHash||previous.raw_answers!==encoded)fail('這組提交識別碼已用於其他答案。',409);return json({attemptId,modelVersion:MODEL_VERSION,result,saved:true});}
   const metrics=compactMetrics(result),primary=result.public.primary,primaryId=primary?civs.find(c=>c.lineageId===primary.id)?.id:null;

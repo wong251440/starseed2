@@ -5,6 +5,7 @@ import fullQuiz from '../models/full54.json';
 import demo from '../src/data/demo-responses.json';
 afterEach(()=>vi.unstubAllGlobals());
 const answers=()=>structuredClone(demo.responses) as Responses;
+const neutralFlips=(mode:'quick'|'full'='full')=>Object.fromEntries(questionsForMode(mode).map(question=>[question.id,false]));
 describe('PRCS question and storage contract',()=>{
  it('renders the current full model UIDs, text and wording versions exactly',()=>{
   expect(MODEL_VERSION).toBe('PRCS-v2.0');
@@ -31,11 +32,11 @@ describe('PRCS question and storage contract',()=>{
   const draft={modelVersion:MODEL_VERSION,responses:{[questions[0].id]:4},index:28,startedAt:'2026-09-07T00:00:00Z'};
   const entries:Record<string,string>={[DRAFT_KEY]:JSON.stringify(draft),'starseed2-attempt':JSON.stringify({modelVersion:'old',answers:Array(80).fill(1)})};
   const setItem=vi.fn();vi.stubGlobal('localStorage',{getItem:(key:string)=>entries[key]??null,setItem});
-  expect(loadDraft()).toEqual({...draft,mode:'full',referralCode:null,itemVersions:wordingVersionsForMode('full')});expect(legacyData()?.attempt).not.toBeNull();expect(setItem).not.toHaveBeenCalled();
+  expect(loadDraft()).toEqual({...draft,mode:'full',referralCode:null,itemVersions:wordingVersionsForMode('full'),presentationFlips:neutralFlips()});expect(legacyData()?.attempt).not.toBeNull();expect(setItem).not.toHaveBeenCalled();
  });
  it('clears only answers whose wording version changed before an old draft resumes',()=>{
   const draft={modelVersion:MODEL_VERSION,responses:{'A-05':4,'A-06':5},index:1,startedAt:'2026-09-07T00:00:00Z'};
   vi.stubGlobal('localStorage',{getItem:(key:string)=>key===DRAFT_KEY?JSON.stringify(draft):null});
-  expect(loadDraft()).toEqual({...draft,mode:'full',responses:{'A-05':4},referralCode:null,itemVersions:wordingVersionsForMode('full')});
+  expect(loadDraft()).toEqual({...draft,mode:'full',responses:{'A-05':4},referralCode:null,itemVersions:wordingVersionsForMode('full'),presentationFlips:neutralFlips()});
  });
 });

@@ -1,0 +1,153 @@
+{
+  "schema": "prcs-wording-registry/v2",
+  "changes": [
+    {
+      "uid": "B-Q43",
+      "old_item_key": "B-Q43@v1",
+      "new_item_key": "B-Q43@v2",
+      "geometry_unchanged": true,
+      "left_fragment": [
+        "Viability",
+        "Reconfigure",
+        "System"
+      ],
+      "right_fragment": [
+        "Integration",
+        "Reframe",
+        "Self"
+      ],
+      "edges": [
+        "ZG",
+        "VG"
+      ],
+      "v1": {
+        "prompt": "當我覺得自己長久以來信仰的某種價值觀，其實在現實中會傷害到人時，我會：",
+        "left_text": "將這種現實的回饋視為系統性的缺陷，著手去修改這套價值觀的運作機制。",
+        "right_text": "深刻地往內反省，調整我的實踐方式，確保我沒有為了守住理論而排除了真實的人性。",
+        "historical_known_n": 200,
+        "historical_conditional_bias_raw": 0.519591,
+        "historical_rest_r_diagnostic": -0.010343,
+        "status": "deprecated_do_not_pool_with_v2"
+      },
+      "v2": {
+        "prompt": "當我覺得自己長久以來信仰的某種價值觀，其實在現實中會傷害到人時，我會：",
+        "left_text": "把這種現實的回饋看成這套價值觀在實際運作上的問題，著手調整它的運作方式。",
+        "right_text": "回頭反省自己是怎麼理解和實踐它的，調整到它跟我實際看到、感受到的情況能對得上。",
+        "active_offset": 0.0,
+        "weight": 1.0,
+        "status": "collecting_v2"
+      }
+    },
+    {
+      "uid": "B-Q04",
+      "old_item_key": "B-Q04@v1",
+      "new_item_key": "B-Q04@v2",
+      "geometry_unchanged": true,
+      "left_fragment": [
+        "Capability",
+        "Orient",
+        "Collective"
+      ],
+      "right_fragment": [
+        "Capability",
+        "Orient",
+        "System"
+      ],
+      "edges": [
+        "BA",
+        "AR"
+      ],
+      "v1": {
+        "prompt": "當有人向我尋求重要的人生或工作建議時，我通常傾向：",
+        "left_text": "給他們一個大方向的原則或核心觀念，讓他們學會自己對自己負責，然後我就退開。",
+        "right_text": "給他們一套具體、可重複使用的判斷框架，確保他們以後遇到類似情況知道怎麼做決定。",
+        "historical_known_n": 200,
+        "historical_conditional_bias_raw": -0.435085,
+        "historical_rest_r_diagnostic": 0.069569,
+        "status": "deprecated_do_not_pool_with_v2"
+      },
+      "v2": {
+        "prompt": "當有人向我尋求重要的人生或工作建議時，我通常傾向：",
+        "left_text": "給他們一個大方向的原則或核心觀念，讓他們照自己的判斷去做決定。",
+        "right_text": "給他們一套比較具體、可以重複使用的判斷方法，讓他們以後遇到類似情況也知道怎麼判斷。",
+        "active_offset": 0.0,
+        "weight": 1.0,
+        "status": "collecting_v2"
+      }
+    },
+    {
+      "uid": "C-Q03",
+      "old_item_key": "C-Q03@v1",
+      "new_item_key": "C-Q03@v2",
+      "geometry_unchanged": true,
+      "left_fragment": [
+        "Connection",
+        "Tune",
+        "Group"
+      ],
+      "right_fragment": [
+        "Connection",
+        "Reconfigure",
+        "Setting"
+      ],
+      "edges": [
+        "PL",
+        "MI"
+      ],
+      "v1": {
+        "prompt": "如果一個新人剛加入我的社群或職場且顯得很格格不入，我覺得最根本的解法是：",
+        "left_text": "我親自帶著他，根據他的反應隨時調整話題，引導他融入大家。",
+        "right_text": "修改團隊的例行會議或空間動線設計，打造一個不用靠別人硬帶也能自然產生歸屬感的環境。",
+        "historical_known_n": 157,
+        "historical_conditional_bias_raw": -0.345837,
+        "historical_rest_r_diagnostic": -0.011029,
+        "status": "deprecated_do_not_pool_with_v2"
+      },
+      "v2": {
+        "prompt": "如果一個新人剛加入我的社群或職場，而且顯得很格格不入，我比較傾向：",
+        "left_text": "我會主動帶著他熟悉大家，根據他的反應調整互動方式，讓他慢慢融入。",
+        "right_text": "我會調整團隊的例行活動或空間安排，讓新人不用特別被誰帶，也比較容易自然融入。",
+        "active_offset": 0.0,
+        "weight": 1.0,
+        "status": "collecting_v2"
+      }
+    },
+    {
+      "uid": "C-Q40",
+      "old_item_key": "C-Q40@v1",
+      "new_item_key": "C-Q40@v2",
+      "geometry_unchanged": true,
+      "left_fragment": [
+        "Workability",
+        "Enact",
+        "Case"
+      ],
+      "right_fragment": [
+        "Viability",
+        "Tune",
+        "Setting"
+      ],
+      "edges": [
+        "MA",
+        "RE"
+      ],
+      "v1": {
+        "prompt": "當團隊遇到一個卡住所有進度的明顯死結時，我通常會：",
+        "left_text": "不管三七二十一，馬上動手把這個死結解開或砍斷，先讓事情能繼續往前走。",
+        "right_text": "先冷靜觀察四周資源的變化，判斷這個死結是否會威脅到我們最核心的生存儲備。",
+        "historical_known_n": 157,
+        "historical_conditional_bias_raw": 0.30857,
+        "historical_rest_r_diagnostic": 0.021357,
+        "status": "deprecated_do_not_pool_with_v2"
+      },
+      "v2": {
+        "prompt": "當團隊遇到一個卡住所有進度的明顯死結時，我通常會：",
+        "left_text": "我會先直接動手處理這個死結，想辦法把障礙排除，讓事情能繼續往前走。",
+        "right_text": "我會先觀察手邊資源和周遭狀況的變化，判斷這個死結會不會影響我們撐下去的能力。",
+        "active_offset": 0.0,
+        "weight": 1.0,
+        "status": "collecting_v2"
+      }
+    }
+  ]
+}

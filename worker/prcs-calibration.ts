@@ -1,4 +1,4 @@
-import config from '../models/prcs-empirical-calibration-v0.3.json';
+import config from '../models/prcs-production-calibration-v0.4.json';
 
 type CalibrationItem={
  uid:string;
@@ -10,17 +10,21 @@ type CalibrationItem={
 };
 
 const items=config.items as Record<string,CalibrationItem>;
-export const CALIBRATION_VERSION=config.calibration_version;
+export const CALIBRATION_VERSION=config.release_id;
 
 function entry(uid:string,wordingVersion:number){
  const item=items[`${uid}@v${wordingVersion}`];
  if(!item)throw Error(`Missing empirical calibration entry for ${uid}@v${wordingVersion}`);
- if(item.uid!==uid||item.wording_version!==wordingVersion||item.item_key!==`${uid}@v${wordingVersion}`||item.weight!==1)throw Error(`Invalid empirical calibration entry for ${uid}@v${wordingVersion}`);
+ if(item.uid!==uid||item.wording_version!==wordingVersion||item.item_key!==`${uid}@v${wordingVersion}`||!Number.isFinite(item.active_offset)||!Number.isFinite(item.weight)||item.weight<=0)throw Error(`Invalid empirical calibration entry for ${uid}@v${wordingVersion}`);
  return item;
 }
 
 export function empiricalOffset(uid:string,wordingVersion=1){
  return entry(uid,wordingVersion).active_offset;
+}
+
+export function empiricalWeight(uid:string,wordingVersion=1){
+ return entry(uid,wordingVersion).weight;
 }
 
 export function calibratedResponse(uid:string,wordingVersion:number,answer:number|null|undefined){

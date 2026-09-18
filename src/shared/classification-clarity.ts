@@ -19,5 +19,5 @@ export interface ClassificationClarity {
 export function classifyClarity({form,primary,runnerUp,marginRaw,prototypeStable}:{form:QuizMode;primary:string;runnerUp:string;marginRaw:number;prototypeStable:boolean}):ClassificationClarity{
  const thresholds=CLASSIFICATION_CLARITY_THRESHOLDS[form];
  const baseTier:ClassificationClarityTier=marginRaw<thresholds.veryClose?'very_close':marginRaw<thresholds.close?'close':marginRaw<thresholds.clear?'clear':'very_clear';
- return {form,primary,runnerUp,marginRaw,baseTier,prototypeStable,tier:baseTier==='very_clear'&&!prototypeStable?'clear':baseTier};
+ return {form,primary,runnerUp,marginRaw,baseTier,prototypeStable,tier:baseTier};
 }

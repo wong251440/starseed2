@@ -33,7 +33,7 @@ describe('PRCS API and historical migration',()=>{
    const response=await worker.fetch(request('/api/score',body),e);expect(response.status).toBe(200);
    const d=await response.json() as any;expect(d.model_version).toBe('PRCS-v2.0');expect(d.selection_version).toBe('V4-RPCB-FULL54');expect(d.model_fingerprint).toBe('b2b0cdfa11aca0a28ac195352784fdd8a67ac4f6838c644914127673184dfed6');expect(d.primary).toBe('PL');expect(d.item_dropout_robustness.by_k['3'].scenario_count).toBe(24804);
   }
-  const partial=await worker.fetch(request('/api/score',{answers:{'A-05':null,'D-08':4}}),e);expect(partial.status).toBe(200);const partialResult=await partial.json() as any;expect(partialResult.status).toBe('SENSITIVE');expect(partialResult.calibration_version).toBe('PRCS-EMP-INT-v0.3-20260918');
+  const partial=await worker.fetch(request('/api/score',{answers:{'A-05':null,'D-08':4}}),e);expect(partial.status).toBe(200);const partialResult=await partial.json() as any;expect(partialResult.status).toBe('SENSITIVE');expect(partialResult.calibration_version).toBe('PRCS-CAL-WGT-v0.4-20260919');
   for(const answers of [{'A-05':'4'},{'A-05':true},{unknown:4},[],{'A-05':{best:'A'}}])expect((await worker.fetch(request('/api/score',{answers}),e)).status).toBe(400);
   expect(db.prepare('SELECT count(*) n FROM attempts').get()?.n).toBe(0);
  });
@@ -54,7 +54,7 @@ describe('PRCS API and historical migration',()=>{
   migrate();const a=payload(),e=env();
   const response=await worker.fetch(request('/api/attempts',{...a,result:{primary:'forged'},scores:[]}),e);
   expect(response.status).toBe(201);const data=await response.json() as any;expect(data.result.public.primary.id).toBe('PL');
-  const stored=db.prepare('SELECT * FROM attempts').get() as any;expect(stored.primary_id).toBe(1);expect(stored.model_version).toBe(MODEL_VERSION);expect(stored.referral_code).toBeNull();expect(stored.quiz_mode).toBe('full');expect(JSON.parse(stored.raw_answers)).toEqual({responses:demo.responses,item_versions:wordingVersionsForMode('full')});const metrics=JSON.parse(stored.metrics);expect(metrics).toMatchObject({model_fingerprint:data.result.diagnostic.raw.model_fingerprint,calibration_version:'PRCS-EMP-INT-v0.3-20260918',global_margin:data.result.diagnostic.raw.global_margin,information_coverage:data.result.diagnostic.raw.information_coverage,classificationClarity:data.result.public.classificationClarity});expect(metrics).not.toHaveProperty('raw');
+  const stored=db.prepare('SELECT * FROM attempts').get() as any;expect(stored.primary_id).toBe(1);expect(stored.model_version).toBe(MODEL_VERSION);expect(stored.referral_code).toBeNull();expect(stored.quiz_mode).toBe('full');expect(JSON.parse(stored.raw_answers)).toEqual({responses:demo.responses,item_versions:wordingVersionsForMode('full'),presentation_flips:Object.fromEntries(Object.keys(demo.responses).map(id=>[id,false]))});const metrics=JSON.parse(stored.metrics);expect(metrics).toMatchObject({model_fingerprint:data.result.diagnostic.raw.model_fingerprint,calibration_version:'PRCS-CAL-WGT-v0.4-20260919',global_margin:data.result.diagnostic.raw.global_margin,information_coverage:data.result.diagnostic.raw.information_coverage,classificationClarity:data.result.public.classificationClarity});expect(metrics).not.toHaveProperty('raw');
   expect((await worker.fetch(request('/api/attempts',a),e)).status).toBe(200);
   expect((await worker.fetch(request('/api/attempts',{...a,responses:{...a.responses,'A-05':2}}),e)).status).toBe(409);
   expect((await worker.fetch(request('/api/attempts',(({itemVersions,...legacy})=>legacy)(a)),e)).status).toBe(400);
@@ -70,7 +70,8 @@ describe('PRCS API and historical migration',()=>{
  it('requires full valid answers, current version and permitted origin',async()=>{
   migrate();const e=env();
   for(const invalid of [{responses:{}},{responses:{...demo.responses,'A-BW30':{best:'A',worst:'A'}}},{responses:{...demo.responses,'A-CP49':{operation:1}}}])expect((await worker.fetch(request('/api/score',invalid),e)).status).toBe(400);
-  expect((await worker.fetch(request('/api/attempts',{...payload(),modelVersion:'old'}),e)).status).toBe(400);
+ expect((await worker.fetch(request('/api/attempts',{...payload(),modelVersion:'old'}),e)).status).toBe(400);
+  expect((await worker.fetch(request('/api/attempts',{...payload(),presentationFlips:{'A-05':true}}),e)).status).toBe(400);
   expect((await worker.fetch(request('/api/score',demo,'https://untrusted.example'),e)).status).toBe(403);
  });
  it('keeps feedback token protection and limits new lineage choices to the21 supported civilizations',async()=>{

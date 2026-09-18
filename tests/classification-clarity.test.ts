@@ -10,9 +10,9 @@ describe('classification clarity layer',()=>{
  ] as const)('uses %s threshold boundaries at raw margin %f', (form,marginRaw,tier)=>{
   expect(clarity(form,marginRaw)).toMatchObject({form,primary:'PL',runnerUp:'AR',marginRaw,baseTier:tier,tier,prototypeStable:true});
  });
- it('caps only an unstable very-clear result at clear',()=>{
-  expect(clarity('full',.10,false)).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'clear'});
-  expect(clarity('quick',.20,false)).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'clear'});
+ it('keeps clarity based solely on its raw-fit margin',()=>{
+  expect(clarity('full',.10,false)).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'very_clear'});
+  expect(clarity('quick',.20,false)).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'very_clear'});
   expect(clarity('full',.05,false)).toMatchObject({baseTier:'clear',tier:'clear'});
  });
 });
