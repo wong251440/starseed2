@@ -9,7 +9,7 @@ import {freshDraft} from '../src/shared/session';
 import {questions} from '../src/shared/questionnaire';
 import Quiz from '../src/components/Quiz';
 import PairComparison from '../src/components/PairComparison';
-import {ReportPrelude} from '../src/components/Pages';
+import {ClassificationClarity,ReportPrelude} from '../src/components/Pages';
 import demo from '../src/data/demo-responses.json';
 import model from '../STARSEED_WEB_HANDOFF_MIN 2/quiz_model.json';
 import civs from '../src/data/civilizations.json';
@@ -42,6 +42,15 @@ describe('PRCS production integration',()=>{
   const result=adaptResult(raw);
   if(result.public.status!=='classified')throw Error('Expected classified result');
   expect(result.public.classificationClarity).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'clear'});
+ });
+ it('shows the two ranked match scores and their rounded gap in the clarity panel',()=>{
+  const result=adaptResult(scorePRCS(demo.responses));
+  if(result.public.status!=='classified')throw Error('Expected classified result');
+  const html=renderToStaticMarkup(createElement(MemoryRouter,null,createElement(ClassificationClarity,{result})));
+  expect(html).toContain('第一名 · 昴宿星');
+  expect(html).toContain('第二名 · 獵戶座');
+  expect(html).toContain('分數相差');
+  expect(html).toContain('個契合度點');
  });
  it('normalizes match scores by form without changing raw-cosine ranking',()=>{
   const rawCosine=.102,quick=toMatchScore(rawCosine,'quick'),full=toMatchScore(rawCosine,'full');
