@@ -4,6 +4,7 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {MemoryRouter} from 'react-router-dom';
 import {scorePRCS,validateAnswers} from '../worker/prcs';
 import {adaptResult,siteLineage} from '../src/shared/result';
+import {MATCH_SCORE_CONSTANTS,toMatchScore} from '../src/shared/match-score';
 import {freshDraft} from '../src/shared/session';
 import {questions} from '../src/shared/questionnaire';
 import Quiz from '../src/components/Quiz';
@@ -27,8 +28,20 @@ describe('PRCS production integration',()=>{
   const raw=scorePRCS(demo.responses),r=adaptResult(raw);
   expect(r.diagnostic.raw).toEqual(raw);expect(r.public.primary?.id).toBe('PL');
   if(r.public.status!=='classified')throw Error('Expected classified');
+  expect(r.diagnostic.ranking.map(row=>row.id)).toEqual(raw.ranking.map(row=>siteLineage(row.lineage)));
+  expect(r.diagnostic.ranking.map(row=>row.rawCosine)).toEqual(raw.ranking.map(row=>row.similarity));
+  expect(r.diagnostic.ranking.every(row=>Number.isFinite(row.zScore)&&Number.isFinite(row.matchScore))).toBe(true);
   const html=renderToStaticMarkup(createElement(MemoryRouter,null,createElement(PairComparison,{result:r as Extract<typeof r,{public:{status:'classified'}}> })));
   expect(html).toContain('24,804');expect(html).not.toContain('換 7 種設定');expect(html).toContain('不是類型機率');
+ });
+ it('normalizes match scores by form without changing raw-cosine ranking',()=>{
+  const rawCosine=.102,quick=toMatchScore(rawCosine,'quick'),full=toMatchScore(rawCosine,'full');
+  expect(quick.zScore).toBeCloseTo(rawCosine/MATCH_SCORE_CONSTANTS.quick.rawCosineScale);
+  expect(full.zScore).toBeCloseTo(rawCosine/MATCH_SCORE_CONSTANTS.full.rawCosineScale);
+  expect(full.matchScore).toBeGreaterThan(quick.matchScore);
+  expect(toMatchScore(0,'full').matchScore).toBe(50);
+  expect(toMatchScore(-.1,'full').matchScore).toBeLessThan(50);
+  expect(toMatchScore(.1,'full').matchScore).toBeGreaterThan(50);
  });
  it('accepts null / omitted UID as missing and 4 as valid midpoint',()=>{
   const r=scorePRCS(Object.fromEntries(questions.map((q,i)=>[q.id,i===0?null:4])));

@@ -40,7 +40,7 @@ describe('PRCS API and historical migration',()=>{
  it('preserves the deployed responses wrapper without collecting sample/shared answers',async()=>{
   migrate();const response=await worker.fetch(request('/api/score',demo),env());
   expect(response.status).toBe(200);const data=await response.json() as any;
-  expect(data.modelVersion).toBe(MODEL_VERSION);expect(data.result.public.primary.id).toBe('PL');expect(data.result.diagnostic.ranking).toHaveLength(21);expect(db.prepare('SELECT count(*) n FROM attempts').get()?.n).toBe(0);
+  expect(data.modelVersion).toBe(MODEL_VERSION);expect(data.result.public.primary.id).toBe('PL');expect(data.result.diagnostic.ranking).toHaveLength(21);expect(data.result.diagnostic.ranking[0]).toMatchObject({rawCosine:expect.any(Number),zScore:expect.any(Number),matchScore:expect.any(Number)});expect(data.result.public.scores.PL).toBe(data.result.diagnostic.ranking[0].matchScore);expect(db.prepare('SELECT count(*) n FROM attempts').get()?.n).toBe(0);
  });
  it('recomputes results, saves new data idempotently and rejects changed answers for the same attempt',async()=>{
   migrate();const a=payload(),e=env();
