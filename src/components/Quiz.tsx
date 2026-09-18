@@ -103,7 +103,7 @@ export default function Quiz({ draft, setDraft, complete }: Props) {
             {instructions.BIP.scale.map((label, index) => <label key={index} className={`${value === index + 1 ? 'selected ' : ''}strength-${Math.abs(index - 3)}`}>
               <input type="radio" name={name} value={index + 1} checked={value === index + 1}
                 onChange={() => save(index + 1)} aria-label={`${index + 1}，${label}`} />
-              <span className="strict-scale-number" aria-hidden="true">{index + 1}</span>
+              <span className="strict-scale-number" aria-hidden="true" />
               <span className="strict-scale-label">{label}</span>
             </label>)}
           </div>
