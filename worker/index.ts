@@ -1,4 +1,4 @@
-import {parseImport,validateResponses,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questionsForMode,responseMode,wordingVersionsForMode,hasActiveWordingVersions} from '../src/shared/questionnaire';
+import {parseImport,validateResponses,makeExport,MODEL_VERSION,APP_VERSION,SELECTION_VERSION,MODEL_FINGERPRINT,questionsForMode,responseMode,wordingVersionsForMode,hasActiveWordingVersions} from '../src/shared/questionnaire';
 import {scorePRCS,validateAnswers} from './prcs';
 import {scoreQuick,validateQuick} from './prcs-quick';
 import {score} from './rpcs';
@@ -11,6 +11,7 @@ const json=(data: unknown,status=200)=>Response.json(data,{status,headers:{'Cach
 function fail(message: string,status=400): never { throw Object.assign(new Error(message),{status}); }
 function id(v: unknown) { if(typeof v!=='string'||!uuid.test(v)) fail('匿名識別碼格式不正確。'); return v as string; }
 const hash=async(value:string)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value)))).map(v=>v.toString(16).padStart(2,'0')).join('');
+function shareCode(){const bytes=crypto.getRandomValues(new Uint8Array(12));let text='';for(const byte of bytes)text+=String.fromCharCode(byte);return btoa(text).replace(/\+/g,'-').replace(/\//g,'_');}
 async function body(request:Request):Promise<Record<string,unknown>> {
  if(!request.headers.get('content-type')?.startsWith('application/json')) fail('請使用 JSON 格式。',415);
  const reader=request.body?.getReader(); if(!reader) fail('缺少資料。');
@@ -30,11 +31,27 @@ export default {
  if(!path.startsWith('/api/'))return env.ASSETS.fetch(request);
  try{
  if(path==='/api/health'&&request.method==='GET'){await env.DB.prepare('SELECT 1').first();return json({ok:true,modelVersion:MODEL_VERSION,selectionVersion:SELECTION_VERSION,modelFingerprint:MODEL_FINGERPRINT,calibrationVersion:CALIBRATION_VERSION,buildVersion:env.BUILD_VERSION||APP_VERSION});}
- if(!['/api/score','/api/attempts','/api/feedback'].includes(path))return json({error:'找不到此服務。'},404);
+ const sharedMatch=path.match(/^\/api\/shares\/([A-Za-z0-9_-]{16})$/);
+ if(sharedMatch&&request.method==='GET'){
+  const row=await env.DB.prepare('SELECT payload FROM shared_reports WHERE code=?').bind(sharedMatch[1]).first<{payload:string}>();
+  if(!row)return json({error:'這份分享連結不存在或已失效。'},404);
+  try{parseImport(JSON.parse(row.payload));}catch{return json({error:'這份分享連結屬於不同測驗版本。'},410);}
+  return json({payload:JSON.parse(row.payload)});
+ }
+ if(!['/api/score','/api/attempts','/api/feedback','/api/shares'].includes(path))return json({error:'找不到此服務。'},404);
  if(request.method!=='POST')return json({error:'請使用 POST。'},405);
  const origin=request.headers.get('origin');const allowedOrigins=(env.ALLOWED_ORIGINS||'').split(',').map(v=>v.trim()).filter(Boolean);if(origin&&origin!==new URL(request.url).origin&&!allowedOrigins.includes(origin))fail('請從本站提交。',403);
  if(env.RATE_LIMITER){const {success}=await env.RATE_LIMITER.limit({key:request.headers.get('CF-Connecting-IP')||'local'});if(!success)fail('提交次數較多，請稍後再試。',429);}
  const data=await body(request);
+ if(path==='/api/shares'){
+  let responses:ReturnType<typeof parseImport>;try{responses=parseImport(data.payload);}catch(error){fail((error as Error).message);}
+  const payload=JSON.stringify(makeExport(responses));
+  for(let attempt=0;attempt<3;attempt++){
+   const code=shareCode(),created=await env.DB.prepare('INSERT INTO shared_reports(code,payload) VALUES(?,?) ON CONFLICT(code) DO NOTHING RETURNING code').bind(code,payload).first<{code:string}>();
+   if(created?.code)return json({code});
+  }
+  fail('暫時未能建立分享連結，請再試一次。',500);
+ }
  if(path==='/api/score'){
   // Preserve the deployed site's wrapper contract; the authoritative answers API returns raw PRCS JSON.
   if('responses' in data){const mode=responseMode(data.responses,data.mode);validateResponses(data.responses,mode);return json({modelVersion:MODEL_VERSION,result:score(data.responses,mode)});}

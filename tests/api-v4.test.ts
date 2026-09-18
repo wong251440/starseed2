@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import worker from '../worker/index';
 import {MODEL_VERSION,makeExport,wordingVersionsForMode,type Responses} from '../src/shared/questionnaire';
 import demo from '../src/data/demo-responses.json';
-const oldSchema=readFileSync('migrations/0001_calibration.sql','utf8'),migration=readFileSync('migrations/0002_strict180.sql','utf8')+readFileSync('migrations/0003_referral_code.sql','utf8')+readFileSync('migrations/0004_attempt_metadata.sql','utf8');
+const oldSchema=readFileSync('migrations/0001_calibration.sql','utf8'),migration=readFileSync('migrations/0002_strict180.sql','utf8')+readFileSync('migrations/0003_referral_code.sql','utf8')+readFileSync('migrations/0004_attempt_metadata.sql','utf8')+readFileSync('migrations/0005_shared_reports.sql','utf8');
 const assets={fetch:async()=>new Response('unused')};
 let db:DatabaseSync;
 beforeEach(()=>{db=new DatabaseSync(':memory:');db.exec('PRAGMA foreign_keys=ON;'+oldSchema);});
@@ -41,6 +41,14 @@ describe('PRCS API and historical migration',()=>{
   migrate();const response=await worker.fetch(request('/api/score',demo),env());
   expect(response.status).toBe(200);const data=await response.json() as any;
   expect(data.modelVersion).toBe(MODEL_VERSION);expect(data.result.public.primary.id).toBe('PL');expect(data.result.diagnostic.ranking).toHaveLength(21);expect(data.result.diagnostic.ranking[0]).toMatchObject({rawCosine:expect.any(Number),zScore:expect.any(Number),matchScore:expect.any(Number)});expect(data.result.public.classificationClarity).toMatchObject({form:'full',primary:'PL',runnerUp:expect.any(String),marginRaw:expect.any(Number),baseTier:expect.any(String),prototypeStable:expect.any(Boolean),tier:expect.any(String)});expect(data.result.public.scores.PL).toBe(data.result.diagnostic.ranking[0].matchScore);expect(db.prepare('SELECT count(*) n FROM attempts').get()?.n).toBe(0);
+ });
+ it('creates a short share code and returns its validated canonical payload',async()=>{
+  migrate();const e=env(),shared=makeExport(demo.responses as Responses);
+  const created=await worker.fetch(request('/api/shares',{payload:shared}),e);expect(created.status).toBe(200);
+  const {code}=await created.json() as {code:string};expect(code).toMatch(/^[A-Za-z0-9_-]{16}$/);
+  const retrieved=await worker.fetch(new Request(`https://test.local/api/shares/${code}`),e);expect(retrieved.status).toBe(200);expect((await retrieved.json() as {payload:unknown}).payload).toEqual(shared);
+  expect((await worker.fetch(new Request('https://test.local/api/shares/aaaaaaaaaaaaaaaa'),e)).status).toBe(404);
+  expect((await worker.fetch(request('/api/shares',{payload:{...shared,modelVersion:'old'}}),e)).status).toBe(400);
  });
  it('recomputes results, saves new data idempotently and rejects changed answers for the same attempt',async()=>{
   migrate();const a=payload(),e=env();
