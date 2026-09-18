@@ -22,6 +22,7 @@
 .boundary-detail-v4 .duel-metrics strong{font-size:1.4rem}
 .stability-panel{padding:28px 30px;background:#a0baca08;border:1px solid #a0baca2a;border-radius:4px;margin:4px 0 35px}
 .stability-panel.is-sensitive{background:#d5bb8d08;border-color:#d5bb8d35}
+.clarity-panel{padding:25px 30px;margin:4px 0 22px;border-left:2px solid var(--gold);background:linear-gradient(90deg,#d5bb8d10,transparent);max-width:780px}.clarity-panel h2{font-size:1.4rem;margin:7px 0 9px}.clarity-panel>p:last-child{font-size:.92rem;color:#c4ccd8;line-height:1.95}
 .stability-heading{margin-bottom:15px}
 .stability-heading h2{font-size:1.35rem;margin-top:5px}
 .stability-index{display:flex;align-items:baseline;gap:7px;white-space:nowrap}
@@ -72,6 +73,7 @@
  .boundary-detail-v4 .duel-metrics{grid-template-columns:1fr 1fr;gap:23px 18px}
  .boundary-detail-v4 .duel-metrics strong{font-size:1.2rem}
  .stability-panel{padding:21px 20px;margin-bottom:25px}
+ .clarity-panel{padding:20px;margin-bottom:20px}.clarity-panel>p:last-child{font-size:.84rem}
  .stability-heading{gap:12px}
  .stability-heading .eyebrow{font-size:.65rem;letter-spacing:.12em}
  .stability-heading h2{font-size:1.2rem}

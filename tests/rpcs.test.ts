@@ -31,8 +31,17 @@ describe('PRCS production integration',()=>{
   expect(r.diagnostic.ranking.map(row=>row.id)).toEqual(raw.ranking.map(row=>siteLineage(row.lineage)));
   expect(r.diagnostic.ranking.map(row=>row.rawCosine)).toEqual(raw.ranking.map(row=>row.similarity));
   expect(r.diagnostic.ranking.every(row=>Number.isFinite(row.zScore)&&Number.isFinite(row.matchScore))).toBe(true);
+  expect(r.public.classificationClarity).toMatchObject({form:'full',primary:'PL',runnerUp:raw.runner_up,marginRaw:raw.primary_similarity-raw.runner_up_similarity,prototypeStable:true});
   const html=renderToStaticMarkup(createElement(MemoryRouter,null,createElement(PairComparison,{result:r as Extract<typeof r,{public:{status:'classified'}}> })));
   expect(html).toContain('24,804');expect(html).not.toContain('換 7 種設定');expect(html).toContain('不是類型機率');
+ });
+ it('caps clarity when a registered prototype-weight scenario changes Primary',()=>{
+  const raw=structuredClone(scorePRCS(demo.responses));
+  if(raw.status==='INSUFFICIENT_SIGNAL')throw Error('Expected classified result');
+  raw.prototype_robustness.scenarios[0].primary=raw.runner_up;
+  const result=adaptResult(raw);
+  if(result.public.status!=='classified')throw Error('Expected classified result');
+  expect(result.public.classificationClarity).toMatchObject({baseTier:'very_clear',prototypeStable:false,tier:'clear'});
  });
  it('normalizes match scores by form without changing raw-cosine ranking',()=>{
   const rawCosine=.102,quick=toMatchScore(rawCosine,'quick'),full=toMatchScore(rawCosine,'full');
