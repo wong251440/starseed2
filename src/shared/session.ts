@@ -5,7 +5,7 @@ export const ATTEMPT_KEY='starseed21-prcs-v2-attempt';
 export const REFERRAL_KEY='starseed21-referral';
 export type Pretest={familiarity:'none'|'some'|'expert';priorIdentity:'yes'|'no'|'unsure';priorLineage:number|null};
 export type Draft={modelVersion:string;mode:QuizMode;responses:DraftResponses;index:number;startedAt:string;referralCode:string|null;itemVersions:Record<string,number>};
-export type Attempt={mode:QuizMode;attemptId:string;participantId:string;feedbackToken:string;schemaVersion:number;modelVersion:string;responses:Responses;startedAt:string;completedAt:string;durationMs:number;imported:boolean;referralCode:string|null;itemVersions?:Record<string,number>;pretest?:Pretest;saved:boolean;result?:ScoringResult};
+export type Attempt={mode:QuizMode;attemptId:string;participantId:string;feedbackToken:string;schemaVersion:number;modelVersion:string;responses:Responses;startedAt:string;completedAt:string;durationMs:number;imported:boolean;referralCode:string|null;itemVersions?:Record<string,number>;pretest?:Pretest;reportIntroSeen?:boolean;saved:boolean;result?:ScoringResult};
 export function read<T>(key:string):T|null{try{return JSON.parse(localStorage.getItem(key)||'null');}catch{return null;}}
 export function write(key:string,value:unknown){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{return false;}}
 export function captureReferral(search:string){const ref=new URLSearchParams(search).get('ref')?.trim();if(ref&&/^[A-Za-z0-9_-]{1,64}$/.test(ref))write(REFERRAL_KEY,ref);}
@@ -19,9 +19,9 @@ export function loadDraft():Draft{
  }
  return freshDraft();
 }
-export function loadAttempt():Attempt|null{const a=read<Attempt>(ATTEMPT_KEY);try{if(!a||a.modelVersion!==MODEL_VERSION||a.schemaVersion!==SCHEMA_VERSION)return null;const mode=responseMode(a.responses,a.mode);return {...a,mode};}catch{return null;}}
+export function loadAttempt():Attempt|null{const a=read<Attempt>(ATTEMPT_KEY);try{if(!a||a.modelVersion!==MODEL_VERSION||a.schemaVersion!==SCHEMA_VERSION)return null;const mode=responseMode(a.responses,a.mode);return {...a,mode,reportIntroSeen:typeof a.reportIntroSeen==='boolean'?a.reportIntroSeen:Boolean(a.saved)};}catch{return null;}}
 export function participant(){let p=read<string>('starseed2-participant');if(!p||!/^[0-9a-f-]{36}$/i.test(p)){p=crypto.randomUUID();write('starseed2-participant',p);}return p;}
-export function newAttempt(responses:Responses,startedAt:string,imported:boolean,mode:QuizMode='full',lockedReferralCode:string|null=referralCode()):Attempt{validateResponses(responses,mode);const completedAt=new Date().toISOString();return {mode,attemptId:crypto.randomUUID(),participantId:participant(),feedbackToken:crypto.randomUUID(),schemaVersion:SCHEMA_VERSION,modelVersion:MODEL_VERSION,responses:structuredClone(responses),startedAt,completedAt,durationMs:Math.max(0,Date.parse(completedAt)-Date.parse(startedAt)),imported,referralCode:lockedReferralCode,itemVersions:wordingVersionsForMode(mode),saved:false};}
+export function newAttempt(responses:Responses,startedAt:string,imported:boolean,mode:QuizMode='full',lockedReferralCode:string|null=referralCode()):Attempt{validateResponses(responses,mode);const completedAt=new Date().toISOString();return {mode,attemptId:crypto.randomUUID(),participantId:participant(),feedbackToken:crypto.randomUUID(),schemaVersion:SCHEMA_VERSION,modelVersion:MODEL_VERSION,responses:structuredClone(responses),startedAt,completedAt,durationMs:Math.max(0,Date.parse(completedAt)-Date.parse(startedAt)),imported,referralCode:lockedReferralCode,itemVersions:wordingVersionsForMode(mode),reportIntroSeen:false,saved:false};}
 export async function submitAttempt(a:Attempt){
  const response=await fetch('/api/attempts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...a,mode:responseMode(a.responses,a.mode),result:undefined})});
  const data=await response.json() as {error?:string;modelVersion:string;result:ScoringResult};

@@ -8,6 +8,7 @@ import {freshDraft} from '../src/shared/session';
 import {questions} from '../src/shared/questionnaire';
 import Quiz from '../src/components/Quiz';
 import PairComparison from '../src/components/PairComparison';
+import {ReportPrelude} from '../src/components/Pages';
 import demo from '../src/data/demo-responses.json';
 import model from '../STARSEED_WEB_HANDOFF_MIN 2/quiz_model.json';
 import civs from '../src/data/civilizations.json';
@@ -38,5 +39,10 @@ describe('PRCS production integration',()=>{
  });
  it('rejects invalid input at the scorer boundary',()=>{
   for(const a of [[],null,{unknown:4},{[questions[0].id]:'4'},{[questions[0].id]:true},{[questions[0].id]:8},{[questions[0].id]:1.1},{[questions[0].id]:{best:'A'}}])expect(()=>validateAnswers(a)).toThrow();
+ });
+ it('shows the correct pre-report message for each familiarity level',()=>{
+  const newcomer=renderToStaticMarkup(createElement(ReportPrelude,{familiarity:'none',onContinue:()=>{}}));
+  expect(newcomer).toContain('請先深呼吸：');expect(newcomer).toContain('這份檔案將為你揭露：');expect(newcomer).not.toContain('顛覆你的預期');
+  for(const familiarity of ['some','expert'] as const){const familiar=renderToStaticMarkup(createElement(ReportPrelude,{familiarity,onContinue:()=>{}}));expect(familiar).toContain('請先做好心理準備：');expect(familiar).toContain('顛覆你的預期');expect(familiar).not.toContain('這份檔案將為你揭露：');}
  });
 });
