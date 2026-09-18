@@ -37,6 +37,15 @@ const reportSubtitle:Record<number,string>={
  23:'你身上有一種古老到近乎沉默的記憶：你記得的故鄉，就是腳下這顆星球',
 };
 const localCelebrityImages:Record<string,string>={
+ '德蕾莎修女（Mother Teresa）':'/celebrities/mother-teresa.webp',
+ '比爾·蓋茲（Bill Gates）':'/celebrities/bill-gates.webp',
+ '鮑勃·馬利（Bob Marley）':'/celebrities/bob-marley.webp',
+ '傑森·摩莫亞（Jason Momoa）':'/celebrities/jason-momoa.webp',
+ '麥可·傑克森（Michael Jackson）':'/celebrities/michael-jackson.webp',
+ '喬治·W·布希（George W. Bush）':'/celebrities/george-w-bush.webp',
+ '克麗奧佩脫拉七世／埃及豔后（Cleopatra VII）':'/celebrities/cleopatra-vii.webp',
+ '拉美西斯二世（Ramesses II）':'/celebrities/ramesses-ii.webp',
+ '大衛·艾登堡（David Attenborough）':'/celebrities/david-attenborough.webp',
  '老子':'/celebrities/laozi.webp',
  '蘇格拉底（Socrates）':'/celebrities/socrates.webp',
  '女神卡卡（Lady Gaga）':'/celebrities/lady-gaga.webp',
