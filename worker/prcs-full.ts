@@ -1,4 +1,5 @@
 import model from '../models/full54.json';
+import {CALIBRATION_VERSION,calibratedResponse} from './prcs-calibration';
 
 // Formula-for-formula port of the supplied PRCSScorer; model/order are authoritative.
 const TOL=1e-12;
@@ -13,7 +14,7 @@ function phi(f:string[]){
  x[goals.length+operations.length+scopes.indexOf(s)]=1;
  x[base+goals.indexOf(g)*operations.length+operations.indexOf(o)]=1;return x;
 }
-const ids=model.items.map(i=>i.uid),lineages=model.lineages.map(l=>l.code);
+const ids=model.items.map(i=>i.uid),wordingVersions=model.items.map(i=>i.wording_version??1),lineages=model.lineages.map(l=>l.code);
 const axes=model.items.map(i=>{const a=phi(i.left),b=phi(i.right),d=b.map((v,k)=>v-a[k]);return d.map(v=>v/norm(d));});
 const codes=Object.fromEntries(Object.entries(model.prototype_weight_scenarios).map(([name,weights])=>{
  const prototypes=model.lineages.map(l=>{const f=l.prototype_fragments.map(phi);return f[0].map((_,k)=>sum(weights.map((w,i)=>w*f[i][k]))/sum(weights));});
@@ -66,9 +67,9 @@ function dropout(y:number[],idx:number[],winner:number){
 export function scorePRCS(answers:PRCSAnswers,exactDropout=true){
  validateAnswers(answers);
  const idx=ids.flatMap((id,i)=>answers[id]!==undefined&&answers[id]!==null?[i]:[]);
- const y=ids.map(id=>answers[id]==null?0:(answers[id]!-4)/3),c=core(y,idx);
+ const y=ids.map((id,i)=>calibratedResponse(id,wordingVersions[i],answers[id])),c=core(y,idx);
  const directional=idx.filter(i=>Math.abs(y[i])>TOL).length;
- const common={model_version:model.model_version,selection_version:model.selection_version,model_fingerprint:model.official_model_fingerprint,context_taxonomy_version:model.context_taxonomy_version,response_counts:{answered:idx.length,missing:ids.length-idx.length,directional,midpoint:idx.length-directional},total_items:ids.length};
+ const common={model_version:model.model_version,selection_version:model.selection_version,model_fingerprint:model.official_model_fingerprint,calibration_version:CALIBRATION_VERSION,context_taxonomy_version:model.context_taxonomy_version,response_counts:{answered:idx.length,missing:ids.length-idx.length,directional,midpoint:idx.length-directional},total_items:ids.length};
  if(!c)return {...common,status:'INSUFFICIENT_SIGNAL' as const,primary:null,runner_up:null,reason:'No directional signal: all answered responses are midpoint or no items are answered.'};
  const {w,r}=c;
  const protoRows=Object.keys(codes).map(scenario=>{const x=core(y,idx,scenario);return {scenario,primary:x?lineages[x.w]:null,runner_up:x?lineages[x.r]:null,global_margin:x?x.margin:null,evaluable:x!==null};});

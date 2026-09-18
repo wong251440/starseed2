@@ -1233,8 +1233,8 @@
       "display_order": 21,
       "uid": "R24",
       "prompt": "在評估一項備受爭議的顛覆性科技（例如 AI）時，我最感興趣的是：",
-      "left_text": "它如何揭露了人類內心的恐懼與矛盾，並迫使我們重新定義「何謂人類」。",
-      "right_text": "它在運作中產生了多少系統性偏差（Bias），我們該如何從工程上重新設計它的存活與容錯率。",
+      "left_text": "它如何揭露人類內心的恐懼與矛盾，並讓我們重新思考「何謂人類」。",
+      "right_text": "它實際運作時會在哪些地方出錯或產生偏差，以及要怎麼重新設計，讓整個系統更穩定。",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1261,7 +1261,8 @@
       "family": "Knowledge_Risk",
       "source_context": "Disruptive_Tech",
       "evidence": "ACTIVE",
-      "redundancy_tag": "societal_shadow_work_vs_engineering_variance_new"
+      "redundancy_tag": "societal_shadow_work_vs_engineering_variance_new",
+      "wording_version": 2
     },
     {
       "display_order": 22,
@@ -1505,8 +1506,8 @@
       "display_order": 29,
       "uid": "C-Q13",
       "prompt": "當我發現自己深信的某個理論在現實中一直行不通時，我通常會：",
-      "left_text": "持續向內深掘，重新框架我的認知，直到理論與我的真實情緒感受不再分裂。",
-      "right_text": "直接把這個理論丟回充滿矛盾的團體中去衝撞，看看在極限施壓下會剩下什麼。",
+      "left_text": "回頭整理自己的想法，重新理解這套理論，直到它跟我的真實感受能對得上。",
+      "right_text": "把這個理論拿去跟立場不同的人碰一碰，看看真的遇到矛盾和質疑時還站不站得住。",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1533,7 +1534,8 @@
       "family": "Knowledge_System",
       "source_context": "Internal_Conflict",
       "evidence": "MEDIUM",
-      "redundancy_tag": "self_integration_vs_group_polarity_1\\"
+      "redundancy_tag": "self_integration_vs_group_polarity_1\\",
+      "wording_version": 2
     },
     {
       "display_order": 30,
@@ -1675,8 +1677,8 @@
       "display_order": 34,
       "uid": "A-06",
       "prompt": "如果我因為工作必須搬到一個全新的城市，我最看重的是：",
-      "left_text": "能在那裡找到或建立一個讓我感到安心、像「家」一樣的生活圈",
-      "right_text": "能跟我原本最在乎的幾位親密好友繼續維持深厚的聯繫",
+      "left_text": "能在那裡找到或建立一個新的生活圈，慢慢融入新的地方",
+      "right_text": "能跟我原本最親近的幾位朋友繼續保持緊密的聯繫",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1703,7 +1705,8 @@
       "family": "Relational",
       "source_context": "Relocation",
       "evidence": "MEDIUM-LOW",
-      "redundancy_tag": "MI_HA_moving\\"
+      "redundancy_tag": "MI_HA_moving\\",
+      "wording_version": 2
     },
     {
       "display_order": 35,
@@ -1879,8 +1882,8 @@
       "display_order": 40,
       "uid": "D-07",
       "prompt": "團隊接下了一個全新、沒有前例可循的專案，大家都很猶豫，我會：",
-      "left_text": "給出一個有邏輯的決策框架，教大家未來怎麼判斷這類問題。",
-      "right_text": "刻意提出最強烈的反面意見或極端情況，測試這個計畫在壓力下會不會崩潰。",
+      "left_text": "給出一個有邏輯的決策框架，讓大家知道接下來可以怎麼判斷這類問題。",
+      "right_text": "提出一些反面的情況和可能出問題的地方，看看這個計畫遇到壓力時還站不站得住。",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1907,14 +1910,15 @@
       "family": "Knowledge",
       "source_context": "New_Project",
       "evidence": "ACTIVE",
-      "redundancy_tag": "scaffold_vs_pressure_1\\"
+      "redundancy_tag": "scaffold_vs_pressure_1\\",
+      "wording_version": 2
     },
     {
       "display_order": 41,
       "uid": "A-28",
       "prompt": "當公司面臨突如其來的資源危機，場面一片混亂時：",
-      "left_text": "我會要求立刻將指揮權集中，強制同步所有人的行動來度過難關",
-      "right_text": "我會立刻盤點並保留手邊的生存物資，快速適應新的惡劣環境",
+      "left_text": "我會先把指揮和分工集中起來，讓所有人的行動一致，一起度過眼前的難關",
+      "right_text": "我會先盤點並保留手邊的重要資源，再根據眼前的狀況調整應對方式",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1941,7 +1945,8 @@
       "family": "Governance_Resource",
       "source_context": "Crisis",
       "evidence": "LOW",
-      "redundancy_tag": "DR_RE_crisis\\"
+      "redundancy_tag": "DR_RE_crisis\\",
+      "wording_version": 2
     },
     {
       "display_order": 42,
@@ -2321,8 +2326,8 @@
       "display_order": 53,
       "uid": "B-Q41",
       "prompt": "當朋友因為一項重要的人生選擇陷入深深的焦慮時，我通常會：",
-      "left_text": "不斷調整我的支持方式與距離，直到他覺得自己的感受有被好好接住。",
-      "right_text": "引導他轉換視角，找出一種不需要放棄任何一方重要需求、能與矛盾共存的心態。",
+      "left_text": "看他的狀態調整我陪伴的方式和距離，讓他覺得自己的感受有被理解。",
+      "right_text": "陪他換個角度想，看看有沒有一種想法，能讓他不用急著二選一，也能接受心裡的矛盾。",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -2349,7 +2354,8 @@
       "family": "C1_Relational",
       "source_context": "Friend_in_Crisis",
       "evidence": "STRONG-STRONG",
-      "redundancy_tag": "differentiated_vs_self_balance_2\\"
+      "redundancy_tag": "differentiated_vs_self_balance_2\\",
+      "wording_version": 2
     },
     {
       "display_order": 54,

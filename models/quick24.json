@@ -1029,8 +1029,8 @@
       "display_order": 15,
       "uid": "A-06",
       "prompt": "如果我因為工作必須搬到一個全新的城市，我最看重的是：",
-      "left_text": "能在那裡找到或建立一個讓我感到安心、像「家」一樣的生活圈",
-      "right_text": "能跟我原本最在乎的幾位親密好友繼續維持深厚的聯繫",
+      "left_text": "能在那裡找到或建立一個新的生活圈，慢慢融入新的地方",
+      "right_text": "能跟我原本最親近的幾位朋友繼續保持緊密的聯繫",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1057,7 +1057,8 @@
       "family": "Relational",
       "source_context": "Relocation",
       "evidence": "MEDIUM-LOW",
-      "redundancy_tag": "MI_HA_moving\\"
+      "redundancy_tag": "MI_HA_moving\\",
+      "wording_version": 2
     },
     {
       "display_order": 16,
@@ -1165,8 +1166,8 @@
       "display_order": 19,
       "uid": "D-07",
       "prompt": "團隊接下了一個全新、沒有前例可循的專案，大家都很猶豫，我會：",
-      "left_text": "給出一個有邏輯的決策框架，教大家未來怎麼判斷這類問題。",
-      "right_text": "刻意提出最強烈的反面意見或極端情況，測試這個計畫在壓力下會不會崩潰。",
+      "left_text": "給出一個有邏輯的決策框架，讓大家知道接下來可以怎麼判斷這類問題。",
+      "right_text": "提出一些反面的情況和可能出問題的地方，看看這個計畫遇到壓力時還站不站得住。",
       "scale": {
         "min": 1,
         "midpoint": 4,
@@ -1193,7 +1194,8 @@
       "family": "Knowledge",
       "source_context": "New_Project",
       "evidence": "ACTIVE",
-      "redundancy_tag": "scaffold_vs_pressure_1\\"
+      "redundancy_tag": "scaffold_vs_pressure_1\\",
+      "wording_version": 2
     },
     {
       "display_order": 20,

@@ -14,7 +14,7 @@ function home(draft:Draft,attempt:Attempt|null=null){
 }
 function completed(){
  vi.stubGlobal('localStorage',{getItem:()=>null,setItem:()=>{}});
- const draft={...freshDraft(),startedAt:'2026-09-01T00:00:00.000Z',responses:structuredClone(demo.responses) as Responses,index:59};
+ const draft={...freshDraft(),startedAt:'2026-09-01T00:00:00.000Z',responses:structuredClone(demo.responses) as Responses,index:questions.length-1};
  return {draft,attempt:newAttempt(draft.responses,draft.startedAt,false)};
 }
 describe('Home journey actions',()=>{

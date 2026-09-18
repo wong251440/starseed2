@@ -27,13 +27,14 @@ describe('PRCS production integration',()=>{
   expect(r.diagnostic.raw).toEqual(raw);expect(r.public.primary?.id).toBe('PL');
   if(r.public.status!=='classified')throw Error('Expected classified');
   const html=renderToStaticMarkup(createElement(MemoryRouter,null,createElement(PairComparison,{result:r as Extract<typeof r,{public:{status:'classified'}}> })));
-  expect(html).toContain('34,220');expect(html).not.toContain('換 7 種設定');expect(html).toContain('不是類型機率');
+  expect(html).toContain('24,804');expect(html).not.toContain('換 7 種設定');expect(html).toContain('不是類型機率');
  });
  it('accepts null / omitted UID as missing and 4 as valid midpoint',()=>{
   const r=scorePRCS(Object.fromEntries(questions.map((q,i)=>[q.id,i===0?null:4])));
-  expect(r.status).toBe('INSUFFICIENT_SIGNAL');
-  expect(r.response_counts).toEqual({answered:59,missing:1,directional:0,midpoint:59});
-  expect(scorePRCS({}).response_counts.missing).toBe(60);
+  expect(r.status).toBe('SENSITIVE');
+  expect(r.response_counts).toMatchObject({answered:53,missing:1});
+  expect(r.response_counts.directional).toBeGreaterThan(0);
+  expect(scorePRCS({}).response_counts.missing).toBe(54);
  });
  it('rejects invalid input at the scorer boundary',()=>{
   for(const a of [[],null,{unknown:4},{[questions[0].id]:'4'},{[questions[0].id]:true},{[questions[0].id]:8},{[questions[0].id]:1.1},{[questions[0].id]:{best:'A'}}])expect(()=>validateAnswers(a)).toThrow();
