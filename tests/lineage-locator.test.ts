@@ -45,7 +45,7 @@ describe('Civilization Lineage Locator v1.1',()=>{
  });
  it('highlights only the resolved graph route, never arbitrary high ranked civilizations',()=>{
   const result=resolveLineage(ranking({LY:2,AC:1.8,PL:1.3,VG:-.2}),'full');
-  expect(treeHighlightCodes(result)).toEqual(['SOURCE','LY','VG','AC']);
+  expect(treeHighlightCodes(result)).toEqual(['SOURCE','LY_GROUP','LY','VG','AC']);
   expect(treeHighlightCodes(result)).not.toContain('PL');
  });
 });
