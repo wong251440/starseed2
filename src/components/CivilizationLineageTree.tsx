@@ -2,7 +2,7 @@ import type {CSSProperties} from 'react';
 import type {LineageResolution} from '../shared/lineage-locator';
 
 const WIDTH=940;
-const HEIGHT=1960;
+const HEIGHT=1700;
 
 const ICON_IDS:Record<string,number>={
  PL:1,AR:2,SI:3,AD:4,LY:5,OR:6,MI:7,VE:8,HA:9,PO:10,AC:11,
@@ -10,54 +10,54 @@ const ICON_IDS:Record<string,number>={
 };
 
 const NODES=[
- ['LY','5. 天琴座人',90,210],['RE','18. 爬蟲族',350,210],['AR','2. 大角星人',610,210],
- ['DR','17. 天龍座人',350,370],['PO','10. 北極星人',555,370],['BA','14. 藍鳥人',675,370],
- ['VE','8. 金星人',790,370],['ML','16. 馬爾德克人',885,525],
- ['FE','13. 貓科星族',90,420],['PL','1. 昴宿星人',90,575],['AD','4. 仙女座人',90,730],
- ['VG','12. 織女星人',90,885],['AC','11. 半人馬座α星人',220,1035],
- ['HA','9. 哈達爾星人',340,1155],['ZG','19. 澤塔灰人',220,1205],['SI','3. 天狼星人',220,1360],
- ['OR','6. 獵戶座人',500,1420],['MI','7. 明塔卡星人',500,1570],
- ['NU','20. 阿努納奇／尼比魯人',690,1595],['MA','15. 火星人',745,1750],
- ['GA','21. 蓋亞人（地球原生）',865,1900],
+ ['LY','5. 天琴座人',90,185],['RE','18. 爬蟲族',350,185],['AR','2. 大角星人',610,185],
+ ['DR','17. 天龍座人',350,330],['PO','10. 北極星人',555,330],['BA','14. 藍鳥人',675,330],
+ ['VE','8. 金星人',790,330],['ML','16. 馬爾德克人',885,460],
+ ['FE','13. 貓科星族',90,335],['PL','1. 昴宿星人',90,470],['AD','4. 仙女座人',90,605],
+ ['VG','12. 織女星人',90,740],['AC','11. 半人馬座α星人',215,865],
+ ['HA','9. 哈達爾星人',330,985],['ZG','19. 澤塔灰人',215,1030],['SI','3. 天狼星人',215,1155],
+ ['OR','6. 獵戶座人',500,1250],['MI','7. 明塔卡星人',500,1400],
+ ['NU','20. 阿努納奇／尼比魯人',690,1410],['MA','15. 火星人',745,1530],
+ ['GA','21. 蓋亞人（地球原生）',865,1630],
 ] as const;
 
-type Connector={from:string;to:string;points:string;label?:string;labelX?:number;labelY?:number;labelAnchor?:'start'|'middle'|'end'};
+type Connector={from:string;to:string;points:string;label?:string;labelX?:number;labelY?:number;labelAnchor?:'start'|'middle'|'end';labelTransform?:string};
 
 const CONNECTORS:Connector[]=[
- {from:'SOURCE',to:'LY',points:'470,85 470,125 90,125 90,170'},
- {from:'SOURCE',to:'RE',points:'470,85 470,125 350,125 350,170'},
- {from:'SOURCE',to:'AR',points:'470,85 470,125 610,125 610,170'},
- {from:'SOURCE',to:'SOL',points:'470,85 470,125 845,125 845,170'},
+ {from:'SOURCE',to:'LY',points:'470,82 470,110 90,110 90,145'},
+ {from:'SOURCE',to:'RE',points:'470,82 470,110 350,110 350,145'},
+ {from:'SOURCE',to:'AR',points:'470,82 470,110 610,110 610,145'},
+ {from:'SOURCE',to:'SOL',points:'470,82 470,110 845,110 845,145'},
 
- {from:'LY',to:'FE',points:'55,210 30,210 30,420 55,420'},
- {from:'LY',to:'PL',points:'55,210 30,210 30,575 55,575'},
- {from:'LY',to:'AD',points:'55,210 30,210 30,730 55,730'},
- {from:'LY',to:'VG',points:'55,210 30,210 30,885 55,885'},
+ {from:'LY',to:'FE',points:'55,185 30,185 30,335 55,335'},
+ {from:'LY',to:'PL',points:'55,185 30,185 30,470 55,470'},
+ {from:'LY',to:'AD',points:'55,185 30,185 30,605 55,605'},
+ {from:'LY',to:'VG',points:'55,185 30,185 30,740 55,740'},
 
- {from:'RE',to:'DR',points:'350,250 350,330'},
- {from:'AR',to:'PO',points:'610,250 610,290 555,290 555,330'},
- {from:'AR',to:'BA',points:'610,250 610,290 675,290 675,330'},
- {from:'SOL',to:'VE',points:'845,245 845,290 790,290 790,330'},
- {from:'SOL',to:'ML',points:'845,245 845,445 885,445 885,485'},
+ {from:'RE',to:'DR',points:'350,225 350,290'},
+ {from:'AR',to:'PO',points:'610,225 610,265 555,265 555,290'},
+ {from:'AR',to:'BA',points:'610,225 610,265 675,265 675,290'},
+ {from:'SOL',to:'VE',points:'845,220 845,265 790,265 790,290'},
+ {from:'SOL',to:'ML',points:'845,220 845,400 885,400 885,420'},
 
- {from:'VG',to:'AC',points:'125,885 165,885 165,1035 185,1035'},
- {from:'VG',to:'ZG',points:'125,885 165,885 165,1205 185,1205'},
- {from:'VG',to:'SI',points:'125,885 165,885 165,1360 185,1360'},
- {from:'AC',to:'HA',points:'255,1035 290,1035 290,1155 305,1155'},
+ {from:'VG',to:'AC',points:'125,740 160,740 160,865 180,865'},
+ {from:'VG',to:'ZG',points:'125,740 160,740 160,1030 180,1030'},
+ {from:'VG',to:'SI',points:'125,740 160,740 160,1155 180,1155'},
+ {from:'AC',to:'HA',points:'250,865 285,865 285,985 295,985'},
 
- {from:'LY',to:'OR',points:'55,210 12,210 12,1265 450,1265 480,1380',label:'5. 天琴座人的主幹',labelX:185,labelY:1251},
- {from:'VG',to:'OR',points:'125,885 145,885 145,1310 430,1310 480,1385',label:'12. 織女星人的支流',labelX:260,labelY:1296},
- {from:'SI',to:'OR',points:'255,1360 420,1360 465,1400'},
- {from:'OR',to:'MI',points:'500,1460 500,1530'},
+ {from:'LY',to:'OR',points:'55,185 12,185 12,1080 440,1080 485,1210',label:'5. 天琴座人的主幹',labelX:505,labelY:1065},
+ {from:'VG',to:'OR',points:'125,740 140,740 140,1120 420,1120 485,1215',label:'12. 織女星人的支流',labelX:385,labelY:1105},
+ {from:'SI',to:'OR',points:'250,1155 420,1155 485,1220'},
+ {from:'OR',to:'MI',points:'500,1290 500,1360'},
 
- {from:'SI',to:'NU',points:'255,1335 585,1335 585,1580 655,1580',label:'3. 天狼星人的另一支流',labelX:410,labelY:1321},
- {from:'DR',to:'NU',points:'385,370 410,370 410,1485 655,1485 675,1555',label:'17. 天龍座人的另一支流',labelX:525,labelY:1471},
- {from:'OR',to:'NU',points:'535,1420 615,1420 615,1545 655,1570'},
+ {from:'SI',to:'NU',points:'250,1185 590,1185 590,1395 655,1395',label:'3. 天狼星人的另一支流',labelX:430,labelY:1170},
+ {from:'DR',to:'NU',points:'385,330 420,330 420,1320 650,1320 680,1370',label:'17. 天龍座人的另一支流',labelX:435,labelY:805,labelAnchor:'middle',labelTransform:'rotate(-90 435 805)'},
+ {from:'OR',to:'NU',points:'535,1250 620,1250 620,1360 655,1390'},
 
- {from:'PL',to:'GA',points:'125,575 815,575 815,1865 830,1885'},
- {from:'NU',to:'GA',points:'725,1595 850,1595 850,1860'},
- {from:'ML',to:'MA',points:'885,565 885,1670 745,1670 745,1710',label:'16. 馬爾德克人的延伸',labelX:765,labelY:1656},
- {from:'MA',to:'GA',points:'780,1750 805,1750 805,1900 830,1900'},
+ {from:'PL',to:'GA',points:'125,470 805,470 805,1595 830,1615'},
+ {from:'NU',to:'GA',points:'725,1410 850,1410 850,1590'},
+ {from:'ML',to:'MA',points:'885,500 885,1450 745,1450 745,1490',label:'16. 馬爾德克人的延伸',labelX:900,labelY:940,labelAnchor:'middle',labelTransform:'rotate(-90 900 940)'},
+ {from:'MA',to:'GA',points:'780,1530 815,1530 815,1630 830,1630'},
 ];
 
 const DISPLAY_PATHS:Record<string,string[]>={
@@ -102,7 +102,7 @@ export default function CivilizationLineageTree({resolution}:{resolution:Lineage
       const isActive=activeEdges.has(`${link.from}>${link.to}`);
       return <g key={`${link.from}-${link.to}-${index}`}>
        <polyline points={link.points} markerEnd={`url(#genealogy-${isActive?'active-':''}arrow)`} className={`genealogy-connector${isActive?' is-active':''}`}/>
-       {link.label&&<text x={link.labelX} y={link.labelY} textAnchor={link.labelAnchor??'middle'} className={`genealogy-route-label${isActive?' is-active':''}`}>{link.label}</text>}
+       {link.label&&<text x={link.labelX} y={link.labelY} textAnchor={link.labelAnchor??'middle'} transform={link.labelTransform} className={`genealogy-route-label${isActive?' is-active':''}`}>{link.label}</text>}
       </g>;
      })}
     </svg>
