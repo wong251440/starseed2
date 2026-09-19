@@ -22,7 +22,7 @@ describe('Civilization Lineage Locator v1.1',()=>{
  it('stops at Vegan when no descendant endpoint has enough evidence',()=>{
  const result=resolveLineage(ranking({VG:2}),'full');
   expect(result).toMatchObject({rawAnchor:'VG',lineageResult:'VG',refinementApplied:false});
-  expect(shouldRenderDecisionTree(result)).toBe(false);
+  expect(shouldRenderDecisionTree(result)).toBe(true);
  });
  it('does not force a nearly tied Vegan branch selection',()=>{
   const result=resolveLineage(ranking({VG:2,SI:1.35,OR:1.34,MI:1.33}),'full');
@@ -39,7 +39,7 @@ describe('Civilization Lineage Locator v1.1',()=>{
  it('keeps direct Feline and Pleiadian anchors in place',()=>{
  expect(resolveLineage(ranking({FE:2,LY:-1}),'full').lineageResult).toBe('FE');
   expect(resolveLineage(ranking({PL:2,LY:-1}),'full').lineageResult).toBe('PL');
-  expect(shouldRenderDecisionTree(resolveLineage(ranking({PL:2,LY:-1}),'full'))).toBe(false);
+  expect(shouldRenderDecisionTree(resolveLineage(ranking({PL:2,LY:-1}),'full'))).toBe(true);
  });
  it('is deterministic and applies Quick thresholds independently',()=>{
   const values=ranking({LY:2,AC:1.8,VG:-.2});

@@ -21,7 +21,7 @@ export function loadDraft():Draft{
  }
  return freshDraft();
 }
-export function loadAttempt():Attempt|null{const a=read<Attempt>(ATTEMPT_KEY);try{if(!a||a.modelVersion!==MODEL_VERSION||a.schemaVersion!==SCHEMA_VERSION)return null;const mode=responseMode(a.responses,a.mode);return {...a,mode,reportIntroSeen:typeof a.reportIntroSeen==='boolean'?a.reportIntroSeen:Boolean(a.saved)};}catch{return null;}}
+export function loadAttempt():Attempt|null{const a=read<Attempt>(ATTEMPT_KEY);try{if(!a||a.schemaVersion!==SCHEMA_VERSION)return null;const mode=responseMode(a.responses,a.mode);return {...a,mode,reportIntroSeen:typeof a.reportIntroSeen==='boolean'?a.reportIntroSeen:Boolean(a.saved)};}catch{return null;}}
 export function participant(){let p=read<string>('starseed2-participant');if(!p||!/^[0-9a-f-]{36}$/i.test(p)){p=crypto.randomUUID();write('starseed2-participant',p);}return p;}
 export function newAttempt(responses:Responses,startedAt:string,imported:boolean,mode:QuizMode='full',lockedReferralCode:string|null=referralCode(),presentationFlips:Record<string,boolean>=freshPresentationFlips(mode)):Attempt{validateResponses(responses,mode);if(!hasPresentationFlips(presentationFlips,mode))throw Error('題目呈現順序不正確。');const completedAt=new Date().toISOString();return {mode,attemptId:crypto.randomUUID(),participantId:participant(),feedbackToken:crypto.randomUUID(),schemaVersion:SCHEMA_VERSION,modelVersion:MODEL_VERSION,responses:structuredClone(responses),startedAt,completedAt,durationMs:Math.max(0,Date.parse(completedAt)-Date.parse(startedAt)),imported,referralCode:lockedReferralCode,itemVersions:wordingVersionsForMode(mode),presentationFlips:structuredClone(presentationFlips),reportIntroSeen:false,saved:false};}
 export async function submitAttempt(a:Attempt){
