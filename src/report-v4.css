@@ -115,11 +115,9 @@
 .lineage-portrait-canvas .lineage-source-orbit{top:18px}.lineage-portrait-canvas .lineage-source-orbit strong{font-size:.8rem}.lineage-portrait-canvas .lineage-apex{left:23%;top:73.91%}
 @media(max-width:700px){.lineage-unified-canvas.lineage-portrait-canvas{min-width:1000px;height:1840px}}
 
-/* Pure genealogy view: four ancestry trunks, one shared origin and one Earth convergence. */
-.lineage-unified-canvas.lineage-genealogy-canvas{min-width:900px;height:1760px;background:radial-gradient(ellipse at 50% 3%,#405a7b1a,transparent 18%),radial-gradient(ellipse at 20% 48%,#263d5912,transparent 31%)}
-.lineage-genealogy-canvas .lineage-source-orbit{top:14px}.lineage-genealogy-canvas .lineage-source-orbit strong{font-size:.86rem;color:#c0ccdc}
-.genealogy-connector{fill:none;stroke:#687991;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.64}.genealogy-connector.is-active{stroke:#e7c65c;stroke-width:2.8;opacity:1;filter:drop-shadow(0 0 4px #e7c65c88)}
-.lineage-branch-hub{position:absolute;z-index:3;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;min-width:138px;color:#9cabbf;font-size:.76rem;letter-spacing:.11em;white-space:nowrap}.lineage-branch-hub::before{content:'◆';margin-right:7px;color:#657790;font-size:.56rem}.lineage-branch-hub.is-active{color:#f3d887;text-shadow:0 0 12px #e7c65c55}.lineage-branch-hub.is-active::before{color:#e7c65c}
-.lineage-genealogy-canvas .lineage-icon-label{font-size:.81rem;color:#98a8bd}.lineage-genealogy-canvas .lineage-icon-node.is-active .lineage-icon-label{color:#f3d887}.lineage-genealogy-canvas .lineage-icon-node.is-final .lineage-icon-label{font-size:.88rem;color:#ffe7a7}
-.lineage-genealogy-humanity{left:84.45%;top:97.2%}.lineage-genealogy-humanity i{width:52px;height:52px;border-color:#74869f;background:#101b2c;color:#d4deea;box-shadow:0 5px 16px #0003}.lineage-genealogy-humanity strong{font-size:.82rem;color:#c8d4e2}
-@media(max-width:700px){.lineage-unified-canvas.lineage-genealogy-canvas{min-width:900px;height:1760px}.lineage-genealogy-canvas .lineage-icon-label{font-size:.81rem}.lineage-branch-hub{font-size:.75rem}}
+/* Decision graph only: show the one formal ancestry tree relevant to this result. */
+.civilization-decision-tree{margin-top:28px}.lineage-decision-canvas{position:relative;min-width:980px;height:520px;background:radial-gradient(ellipse at 28% 52%,#405a7b1c,transparent 33%),radial-gradient(ellipse at 74% 49%,#263d5914,transparent 32%)}
+.lineage-decision-canvas.is-reptilian{background:radial-gradient(ellipse at 50% 50%,#38495b1b,transparent 38%)}
+.decision-connector{fill:none;stroke:#687991;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;opacity:.72}.decision-connector.is-active{stroke:#e7c65c;stroke-width:2.8;opacity:1;filter:drop-shadow(0 0 4px #e7c65c88)}
+.lineage-decision-canvas .lineage-icon-label{font-size:.82rem;color:#98a8bd}.lineage-decision-canvas .lineage-icon-node.is-active .lineage-icon-label{color:#f3d887}.lineage-decision-canvas .lineage-icon-node.is-final .lineage-icon-label{font-size:.9rem;color:#ffe7a7}
+@media(max-width:700px){.lineage-decision-canvas{min-width:980px;height:520px}.lineage-decision-canvas .lineage-icon-label{font-size:.81rem}}
