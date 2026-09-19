@@ -1,5 +1,6 @@
 import {describe,expect,it} from 'vitest';
-import config from '../models/prcs-production-calibration-v0.4.json';
+import {createHash} from 'node:crypto';
+import config from '../models/prcs-production-calibration-v0.5.json';
 import full from '../models/full54.json';
 import quick from '../models/quick24.json';
 import changes from '../models/prcs-wording-changes-v2.json';
@@ -9,11 +10,14 @@ import demo from '../src/data/demo-responses.json';
 
 describe('production weighted calibration',()=>{
  it('uses the supplied versioned offsets and frozen weights without clipping',()=>{
-  expect(CALIBRATION_VERSION).toBe(config.release_id);
+ expect(CALIBRATION_VERSION).toBe(config.release_id);
+  expect(config.release_id).toBe('PRCS-EMP-v0.5-N518-20260919');
   expect(Object.values(config.items)).toHaveLength(56);
   expect(new Set([...full.items,...quick.items].map(item=>`${item.uid}@v${item.wording_version??1}`))).toEqual(new Set(Object.keys(config.items)));
   expect(Math.min(...Object.values(config.items).map(item=>item.weight))).toBe(.8);
   expect(Math.max(...Object.values(config.items).map(item=>item.weight))).toBe(1.25);
+  const projection=Object.entries(config.items).sort(([left],[right])=>left.localeCompare(right)).map(([key,item])=>[key,item.active_offset,item.weight]);
+  expect(createHash('sha256').update(JSON.stringify(projection)).digest('hex')).toBe('9ae228c262279526d075d21121e39d26d72fe1b2c96cc77f072aeafe55b2ae55');
   expect(empiricalOffset('D-34',1)).toBe(config.items['D-34@v1'].active_offset);
   expect(empiricalWeight('D-34',1)).toBe(config.items['D-34@v1'].weight);
   expect(calibratedResponse('D-34',1,1)).toBeCloseTo(-1-config.items['D-34@v1'].active_offset,12);
@@ -33,7 +37,10 @@ describe('production weighted calibration',()=>{
    expect(empiricalOffset(change.uid,2)).toBe(config.items[`${change.uid}@v2`].active_offset);
    expect(empiricalWeight(change.uid,2)).toBe(config.items[`${change.uid}@v2`].weight);
   }
- for(const uid of ['B-Q43','B-Q04','C-Q03','C-Q40'])expect(config.items[`${uid}@v2`]).toMatchObject({active_offset:0,weight:1});
+ expect(config.items['B-Q43@v2']).toMatchObject({active_offset:.200366,weight:.8});
+ expect(config.items['B-Q04@v2']).toMatchObject({active_offset:-.294313,weight:.8});
+ expect(config.items['C-Q03@v2']).toMatchObject({active_offset:-.194482,weight:.88});
+ expect(config.items['C-Q40@v2']).toMatchObject({active_offset:.007226,weight:1.05});
  });
  it('uses the configured weighted-cosine formula for every lineage ranking',()=>{
   const {goals,operations,scopes}=full.dimensions,base=goals.length+operations.length+scopes.length;

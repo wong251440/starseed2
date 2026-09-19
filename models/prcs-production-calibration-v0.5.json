@@ -1,0 +1,490 @@
+{
+  "schema": "prcs-production-calibration/v0.5",
+  "release_id": "PRCS-EMP-v0.5-N518-20260919",
+  "source": {
+    "attempts": 518,
+    "unique_participants": 505,
+    "first_full": 385,
+    "first_quick": 120
+  },
+  "policy": {
+    "offset_model": "conditional intercept, shrinkage kappa=50",
+    "offset_formula": "offset = n/(n+50) * b",
+    "answer_value": "x_q = encode(canonical_response_q) - offset_q",
+    "clip_after_offset": false,
+    "weighted_cosine": "unchanged from v0.4",
+    "weights": "retain v0.4 for 52 items; activate empirical weights for four current v2 items",
+    "wording_changes": false,
+    "item_version_changes": false
+  },
+  "keep_unchanged": {
+    "clarity_full": [
+      0.02,
+      0.05,
+      0.1
+    ],
+    "clarity_quick": [
+      0.05,
+      0.12,
+      0.2
+    ],
+    "left_right_randomization": true,
+    "canonical_recoding": true,
+    "person_centering": false,
+    "source_specific_scoring": false,
+    "familiarity_specific_scoring": false,
+    "mode_specific_shared_item_correction": false,
+    "prototype_cap": false,
+    "lineage_locator": "keep current implementation and thresholds unchanged; feed it the newly calibrated weighted rawFit values"
+  },
+  "items": {
+    "A-01@v1": {
+      "uid": "A-01",
+      "wording_version": 1,
+      "item_key": "A-01@v1",
+      "status": "calibrated",
+      "active_offset": -0.242885,
+      "weight": 0.8
+    },
+    "A-05@v1": {
+      "uid": "A-05",
+      "wording_version": 1,
+      "item_key": "A-05@v1",
+      "status": "calibrated",
+      "active_offset": 0.278853,
+      "weight": 1.05
+    },
+    "A-06@v2": {
+      "uid": "A-06",
+      "wording_version": 2,
+      "item_key": "A-06@v2",
+      "status": "calibrated",
+      "active_offset": -0.391586,
+      "weight": 0.88
+    },
+    "A-12@v1": {
+      "uid": "A-12",
+      "wording_version": 1,
+      "item_key": "A-12@v1",
+      "status": "calibrated",
+      "active_offset": 0.091289,
+      "weight": 0.8
+    },
+    "A-14@v1": {
+      "uid": "A-14",
+      "wording_version": 1,
+      "item_key": "A-14@v1",
+      "status": "calibrated",
+      "active_offset": 0.123813,
+      "weight": 1.15
+    },
+    "A-21@v1": {
+      "uid": "A-21",
+      "wording_version": 1,
+      "item_key": "A-21@v1",
+      "status": "calibrated",
+      "active_offset": -0.218333,
+      "weight": 0.88
+    },
+    "A-22@v1": {
+      "uid": "A-22",
+      "wording_version": 1,
+      "item_key": "A-22@v1",
+      "status": "calibrated",
+      "active_offset": -0.076356,
+      "weight": 0.88
+    },
+    "A-24@v1": {
+      "uid": "A-24",
+      "wording_version": 1,
+      "item_key": "A-24@v1",
+      "status": "calibrated",
+      "active_offset": -0.001686,
+      "weight": 0.88
+    },
+    "A-25@v1": {
+      "uid": "A-25",
+      "wording_version": 1,
+      "item_key": "A-25@v1",
+      "status": "calibrated",
+      "active_offset": 0.105506,
+      "weight": 0.88
+    },
+    "A-28@v2": {
+      "uid": "A-28",
+      "wording_version": 2,
+      "item_key": "A-28@v2",
+      "status": "calibrated",
+      "active_offset": 0.119603,
+      "weight": 1.15
+    },
+    "A-30@v1": {
+      "uid": "A-30",
+      "wording_version": 1,
+      "item_key": "A-30@v1",
+      "status": "calibrated",
+      "active_offset": 0.148715,
+      "weight": 1.05
+    },
+    "A-31@v1": {
+      "uid": "A-31",
+      "wording_version": 1,
+      "item_key": "A-31@v1",
+      "status": "calibrated",
+      "active_offset": 0.286988,
+      "weight": 1.05
+    },
+    "A-40@v1": {
+      "uid": "A-40",
+      "wording_version": 1,
+      "item_key": "A-40@v1",
+      "status": "calibrated",
+      "active_offset": 0.253974,
+      "weight": 1.25
+    },
+    "A-55@v1": {
+      "uid": "A-55",
+      "wording_version": 1,
+      "item_key": "A-55@v1",
+      "status": "calibrated",
+      "active_offset": -0.080725,
+      "weight": 0.88
+    },
+    "A-56@v1": {
+      "uid": "A-56",
+      "wording_version": 1,
+      "item_key": "A-56@v1",
+      "status": "calibrated",
+      "active_offset": 0.254505,
+      "weight": 1.15
+    },
+    "A-57@v1": {
+      "uid": "A-57",
+      "wording_version": 1,
+      "item_key": "A-57@v1",
+      "status": "calibrated",
+      "active_offset": -0.009327,
+      "weight": 1.25
+    },
+    "B-Q04@v2": {
+      "uid": "B-Q04",
+      "wording_version": 2,
+      "item_key": "B-Q04@v2",
+      "status": "calibrated",
+      "active_offset": -0.294313,
+      "weight": 0.8
+    },
+    "B-Q12@v1": {
+      "uid": "B-Q12",
+      "wording_version": 1,
+      "item_key": "B-Q12@v1",
+      "status": "calibrated",
+      "active_offset": -0.002818,
+      "weight": 1.15
+    },
+    "B-Q15@v1": {
+      "uid": "B-Q15",
+      "wording_version": 1,
+      "item_key": "B-Q15@v1",
+      "status": "calibrated",
+      "active_offset": 0.002903,
+      "weight": 1.25
+    },
+    "B-Q16@v1": {
+      "uid": "B-Q16",
+      "wording_version": 1,
+      "item_key": "B-Q16@v1",
+      "status": "calibrated",
+      "active_offset": 0.220917,
+      "weight": 0.88
+    },
+    "B-Q19@v1": {
+      "uid": "B-Q19",
+      "wording_version": 1,
+      "item_key": "B-Q19@v1",
+      "status": "calibrated",
+      "active_offset": 0.038965,
+      "weight": 0.88
+    },
+    "B-Q26@v1": {
+      "uid": "B-Q26",
+      "wording_version": 1,
+      "item_key": "B-Q26@v1",
+      "status": "calibrated",
+      "active_offset": 0.316189,
+      "weight": 1.15
+    },
+    "B-Q30@v1": {
+      "uid": "B-Q30",
+      "wording_version": 1,
+      "item_key": "B-Q30@v1",
+      "status": "calibrated",
+      "active_offset": -0.002089,
+      "weight": 0.8
+    },
+    "B-Q32@v1": {
+      "uid": "B-Q32",
+      "wording_version": 1,
+      "item_key": "B-Q32@v1",
+      "status": "calibrated",
+      "active_offset": -0.244746,
+      "weight": 1.15
+    },
+    "B-Q35@v1": {
+      "uid": "B-Q35",
+      "wording_version": 1,
+      "item_key": "B-Q35@v1",
+      "status": "calibrated",
+      "active_offset": 0.197253,
+      "weight": 0.8
+    },
+    "B-Q41@v2": {
+      "uid": "B-Q41",
+      "wording_version": 2,
+      "item_key": "B-Q41@v2",
+      "status": "calibrated",
+      "active_offset": 0.126975,
+      "weight": 0.88
+    },
+    "B-Q43@v2": {
+      "uid": "B-Q43",
+      "wording_version": 2,
+      "item_key": "B-Q43@v2",
+      "status": "calibrated",
+      "active_offset": 0.200366,
+      "weight": 0.8
+    },
+    "B-Q45@v1": {
+      "uid": "B-Q45",
+      "wording_version": 1,
+      "item_key": "B-Q45@v1",
+      "status": "calibrated",
+      "active_offset": 0.005381,
+      "weight": 1.25
+    },
+    "B-Q46@v1": {
+      "uid": "B-Q46",
+      "wording_version": 1,
+      "item_key": "B-Q46@v1",
+      "status": "calibrated",
+      "active_offset": 0.137621,
+      "weight": 1.05
+    },
+    "B-Q48@v1": {
+      "uid": "B-Q48",
+      "wording_version": 1,
+      "item_key": "B-Q48@v1",
+      "status": "calibrated",
+      "active_offset": -0.138118,
+      "weight": 1.15
+    },
+    "B-Q53@v1": {
+      "uid": "B-Q53",
+      "wording_version": 1,
+      "item_key": "B-Q53@v1",
+      "status": "calibrated",
+      "active_offset": 0.255796,
+      "weight": 1.25
+    },
+    "B-Q60@v1": {
+      "uid": "B-Q60",
+      "wording_version": 1,
+      "item_key": "B-Q60@v1",
+      "status": "calibrated",
+      "active_offset": 0.162778,
+      "weight": 1.05
+    },
+    "C-Q03@v2": {
+      "uid": "C-Q03",
+      "wording_version": 2,
+      "item_key": "C-Q03@v2",
+      "status": "calibrated",
+      "active_offset": -0.194482,
+      "weight": 0.88
+    },
+    "C-Q10@v1": {
+      "uid": "C-Q10",
+      "wording_version": 1,
+      "item_key": "C-Q10@v1",
+      "status": "calibrated",
+      "active_offset": 0.220567,
+      "weight": 1.15
+    },
+    "C-Q13@v2": {
+      "uid": "C-Q13",
+      "wording_version": 2,
+      "item_key": "C-Q13@v2",
+      "status": "calibrated",
+      "active_offset": -0.234754,
+      "weight": 1.05
+    },
+    "C-Q16@v1": {
+      "uid": "C-Q16",
+      "wording_version": 1,
+      "item_key": "C-Q16@v1",
+      "status": "calibrated",
+      "active_offset": 0.033592,
+      "weight": 1.25
+    },
+    "C-Q21@v1": {
+      "uid": "C-Q21",
+      "wording_version": 1,
+      "item_key": "C-Q21@v1",
+      "status": "calibrated",
+      "active_offset": 0.049969,
+      "weight": 0.8
+    },
+    "C-Q40@v2": {
+      "uid": "C-Q40",
+      "wording_version": 2,
+      "item_key": "C-Q40@v2",
+      "status": "calibrated",
+      "active_offset": 0.007226,
+      "weight": 1.05
+    },
+    "C-Q41@v1": {
+      "uid": "C-Q41",
+      "wording_version": 1,
+      "item_key": "C-Q41@v1",
+      "status": "calibrated",
+      "active_offset": 0.251259,
+      "weight": 1.15
+    },
+    "C-Q44@v1": {
+      "uid": "C-Q44",
+      "wording_version": 1,
+      "item_key": "C-Q44@v1",
+      "status": "calibrated",
+      "active_offset": 0.13548,
+      "weight": 1.05
+    },
+    "D-07@v2": {
+      "uid": "D-07",
+      "wording_version": 2,
+      "item_key": "D-07@v2",
+      "status": "calibrated",
+      "active_offset": -0.109663,
+      "weight": 0.8
+    },
+    "D-08@v1": {
+      "uid": "D-08",
+      "wording_version": 1,
+      "item_key": "D-08@v1",
+      "status": "calibrated",
+      "active_offset": 0.099651,
+      "weight": 1.05
+    },
+    "D-15@v1": {
+      "uid": "D-15",
+      "wording_version": 1,
+      "item_key": "D-15@v1",
+      "status": "calibrated",
+      "active_offset": 0.259082,
+      "weight": 1.15
+    },
+    "D-19@v1": {
+      "uid": "D-19",
+      "wording_version": 1,
+      "item_key": "D-19@v1",
+      "status": "calibrated",
+      "active_offset": 0.235632,
+      "weight": 0.9
+    },
+    "D-23@v1": {
+      "uid": "D-23",
+      "wording_version": 1,
+      "item_key": "D-23@v1",
+      "status": "calibrated",
+      "active_offset": 0.320383,
+      "weight": 1.05
+    },
+    "D-24@v1": {
+      "uid": "D-24",
+      "wording_version": 1,
+      "item_key": "D-24@v1",
+      "status": "calibrated",
+      "active_offset": 0.023246,
+      "weight": 1.25
+    },
+    "D-28@v1": {
+      "uid": "D-28",
+      "wording_version": 1,
+      "item_key": "D-28@v1",
+      "status": "calibrated",
+      "active_offset": 0.210474,
+      "weight": 0.88
+    },
+    "D-31@v1": {
+      "uid": "D-31",
+      "wording_version": 1,
+      "item_key": "D-31@v1",
+      "status": "calibrated",
+      "active_offset": 0.048019,
+      "weight": 1.15
+    },
+    "D-34@v1": {
+      "uid": "D-34",
+      "wording_version": 1,
+      "item_key": "D-34@v1",
+      "status": "calibrated",
+      "active_offset": 0.551717,
+      "weight": 1.15
+    },
+    "D-41@v1": {
+      "uid": "D-41",
+      "wording_version": 1,
+      "item_key": "D-41@v1",
+      "status": "calibrated",
+      "active_offset": -0.08583,
+      "weight": 1.05
+    },
+    "D-43@v1": {
+      "uid": "D-43",
+      "wording_version": 1,
+      "item_key": "D-43@v1",
+      "status": "calibrated",
+      "active_offset": 0.222036,
+      "weight": 1.15
+    },
+    "R02@v1": {
+      "uid": "R02",
+      "wording_version": 1,
+      "item_key": "R02@v1",
+      "status": "calibrated",
+      "active_offset": 0.396593,
+      "weight": 1.15
+    },
+    "R10@v1": {
+      "uid": "R10",
+      "wording_version": 1,
+      "item_key": "R10@v1",
+      "status": "calibrated",
+      "active_offset": -0.053767,
+      "weight": 0.88
+    },
+    "R12@v1": {
+      "uid": "R12",
+      "wording_version": 1,
+      "item_key": "R12@v1",
+      "status": "calibrated",
+      "active_offset": -0.136171,
+      "weight": 1.05
+    },
+    "R16@v1": {
+      "uid": "R16",
+      "wording_version": 1,
+      "item_key": "R16@v1",
+      "status": "calibrated",
+      "active_offset": 0.013071,
+      "weight": 1.25
+    },
+    "R24@v2": {
+      "uid": "R24",
+      "wording_version": 2,
+      "item_key": "R24@v2",
+      "status": "calibrated",
+      "active_offset": -0.239571,
+      "weight": 1.15
+    }
+  }
+}

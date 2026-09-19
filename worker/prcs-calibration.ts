@@ -1,4 +1,4 @@
-import config from '../models/prcs-production-calibration-v0.4.json';
+import config from '../models/prcs-production-calibration-v0.5.json';
 
 type CalibrationItem={
  uid:string;
