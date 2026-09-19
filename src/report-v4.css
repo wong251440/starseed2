@@ -114,3 +114,12 @@
 .lineage-unified-canvas.lineage-portrait-canvas{min-width:1000px;height:1840px;background:radial-gradient(ellipse at 50% 4%,#405a7b1a,transparent 20%),radial-gradient(ellipse at 18% 48%,#263d5914,transparent 30%)}
 .lineage-portrait-canvas .lineage-source-orbit{top:18px}.lineage-portrait-canvas .lineage-source-orbit strong{font-size:.8rem}.lineage-portrait-canvas .lineage-apex{left:23%;top:73.91%}
 @media(max-width:700px){.lineage-unified-canvas.lineage-portrait-canvas{min-width:1000px;height:1840px}}
+
+/* Pure genealogy view: a narrow, tall tree with one continuous highlighted route. */
+.lineage-unified-canvas.lineage-genealogy-canvas{min-width:940px;height:1960px;background:radial-gradient(ellipse at 50% 3%,#405a7b1a,transparent 18%),radial-gradient(ellipse at 19% 49%,#263d5912,transparent 28%)}
+.lineage-genealogy-canvas .lineage-source-orbit{top:14px}.lineage-genealogy-canvas .lineage-source-orbit strong{font-size:.84rem;color:#c0ccdc}
+.genealogy-connector{fill:none;stroke:#6f8098;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;opacity:.72}.genealogy-connector.is-active{stroke:#e7c65c;stroke-width:2.7;opacity:1;filter:drop-shadow(0 0 4px #e7c65c88)}
+.genealogy-route-label{fill:#8b9bb0;font-family:Inter,'PingFang TC','Microsoft JhengHei',sans-serif;font-size:12px;letter-spacing:.02em;paint-order:stroke;stroke:#0b111d;stroke-width:6px;stroke-linejoin:round}.genealogy-route-label.is-active{fill:#f4d97f}
+.lineage-solar-hub{position:absolute;z-index:2;left:89.9%;top:10.7%;transform:translate(-50%,-50%);display:flex;width:126px;flex-direction:column;align-items:center;gap:6px;color:#8b9bb0;text-align:center}.lineage-solar-hub i{display:grid;place-items:center;width:60px;height:60px;border:1px solid #5d6f88;border-radius:50%;background:#101b2c;color:#b5c3d4;font-size:1.2rem;font-style:normal;box-shadow:0 5px 15px #0003}.lineage-solar-hub strong{font-size:.8rem;font-weight:500}.lineage-solar-hub.is-active{color:#f3d887}.lineage-solar-hub.is-active i{border-color:#ddb85b;color:#ffe29b;box-shadow:0 0 0 3px #e7c65c18,0 0 22px #e7c65c55}
+.lineage-genealogy-canvas .lineage-icon-label{font-size:.8rem;color:#92a2b7}.lineage-genealogy-canvas .lineage-icon-node.is-active .lineage-icon-label{color:#f3d887}.lineage-genealogy-canvas .lineage-icon-node.is-final .lineage-icon-label{font-size:.87rem;color:#ffe7a7}
+@media(max-width:700px){.lineage-unified-canvas.lineage-genealogy-canvas{min-width:940px;height:1960px}.lineage-genealogy-canvas .lineage-icon-label{font-size:.8rem}.genealogy-route-label{font-size:12px}}
