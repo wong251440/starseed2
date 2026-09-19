@@ -3,42 +3,42 @@ import type {LineageResolution} from '../shared/lineage-locator';
 
 const ICON_IDS:Record<string,number>={PL:1,AR:2,SI:3,AD:4,LY:5,OR:6,MI:7,VE:8,HA:9,PO:10,AC:11,VG:12,FE:13,BA:14,MA:15,ML:16,DR:17,RE:18,ZG:19,NU:20,GA:23};
 const NODES=[
- ['LY','天琴座人',160,145],['AR','大角星人',660,145],['RE','爬蟲族',1180,145],
- ['FE','貓科星族',45,280],['PL','昴宿星人',150,280],['VG','織女星人',280,280],['BA','藍鳥人',575,280],['AD','仙女座人',735,280],['DR','天龍座人',1180,280],
- ['SI','天狼星人',185,420],['AC','半人馬座阿爾法星人',340,420],['OR','獵戶座人',560,500],['PO','北極星人',880,505],['VE','金星人',1000,505],['HA','哈達爾星人',410,555],['ZG','澤塔灰人',310,570],['NU','阿努納奇／尼比魯人',1180,495],
- ['MI','明塔卡星人',570,650],['ML','馬爾德克人',800,660],['MA','火星人',800,790],['GA','蓋亞人（地球原生）',1180,785],
+ ['LY','天琴座人',145,140],['AR','大角星人',585,140],['RE','爬蟲族',1080,140],
+ ['FE','貓科星族',40,270],['PL','昴宿星人',140,270],['VG','織女星人',250,270],['BA','藍鳥人',500,270],['AD','仙女座人',650,270],['DR','天龍座人',1080,270],
+ ['SI','天狼星人',160,405],['AC','半人馬座阿爾法星人',315,405],['OR','獵戶座人',520,540],['PO','北極星人',800,480],['VE','金星人',910,480],['HA','哈達爾星人',375,550],['ZG','澤塔灰人',290,550],['NU','阿努納奇／尼比魯人',1080,495],
+ ['MI','明塔卡星人',530,690],['ML','馬爾德克人',740,660],['MA','火星人',740,790],['GA','蓋亞人（地球原生）',1080,790],
 ] as const;
 
 type Connector={from:string;to:string;points:string;label?:string;labelX?:number;labelY?:number};
 const CONNECTORS:Connector[]=[
- {from:'SOURCE',to:'LY',points:'700,96 700,108 160,108 160,110'},
- {from:'SOURCE',to:'AR',points:'700,96 700,110 660,110'},
- {from:'SOURCE',to:'RE',points:'700,96 700,108 1180,108 1180,110'},
- {from:'LY',to:'FE',points:'160,180 160,215 45,215 45,245',label:'本能／守護／古老記憶',labelX:57,labelY:205},
- {from:'LY',to:'PL',points:'160,180 160,245',label:'心性療癒／和解',labelX:182,labelY:210},
- {from:'LY',to:'VG',points:'160,180 160,215 280,215 280,245',label:'愛、療癒、覺醒',labelX:262,labelY:202},
- {from:'AR',to:'BA',points:'660,180 660,215 575,215 575,245',label:'升維／訊息',labelX:578,labelY:205},
- {from:'AR',to:'AD',points:'660,180 660,215 735,215 735,245',label:'自由／主權',labelX:724,labelY:202},
- {from:'RE',to:'DR',points:'1180,180 1180,245',label:'權力／生存課題',labelX:1260,labelY:215},
- {from:'DR',to:'NU',points:'1180,315 1180,460',label:'天龍權力／階序',labelX:1260,labelY:387},
- {from:'VG',to:'SI',points:'280,315 280,355 185,355 185,385',label:'古老知識／療癒',labelX:212,labelY:345},
- {from:'VG',to:'AC',points:'280,315 280,355 340,355 340,385',label:'鄰系交流',labelX:342,labelY:345},
- {from:'AC',to:'HA',points:'340,455 340,495 410,495 410,520',label:'愛／情感療癒',labelX:422,labelY:486},
- {from:'VG',to:'APEX',points:'280,315 280,355 430,355 430,385',label:'阿佩克斯演化',labelX:417,labelY:343},
- {from:'APEX',to:'ZG',points:'430,445 430,495 310,495 310,535',label:'基因／混種',labelX:325,labelY:487},
- {from:'VG',to:'OR',points:'280,315 280,370 560,370 560,465'},
- {from:'SI',to:'OR',points:'185,455 185,475 560,475 560,465',label:'守護／知識／水元素',labelX:332,labelY:466},
- {from:'BA',to:'OR',points:'575,315 575,465',label:'多維科技／療癒',labelX:645,labelY:385},
- {from:'AD',to:'OR',points:'735,315 735,390 620,390 560,465',label:'升維／能量協作',labelX:708,labelY:378},
- {from:'OR',to:'MI',points:'560,535 560,615 570,615',label:'水世界／家園記憶',labelX:640,labelY:592},
- {from:'OR',to:'NU',points:'595,500 745,500 745,450 1145,450',label:'權力／軍事糾葛',labelX:875,labelY:440},
- {from:'SI',to:'NU',points:'185,455 185,600 1090,600 1145,530',label:'天狼智慧／王權',labelX:840,labelY:588},
- {from:'PO',to:'GA',points:'880,540 880,710 1145,710 1180,750',label:'穩定／方向／群體整合',labelX:940,labelY:700},
- {from:'VE',to:'GA',points:'1000,540 1000,690 1145,690 1180,750',label:'愛／和諧／一體意識',labelX:1045,labelY:680},
- {from:'ML',to:'MA',points:'800,695 800,755',label:'災變記憶／投生',labelX:887,labelY:735},
- {from:'MA',to:'GA',points:'835,790 990,790 990,820 1145,820',label:'靈魂遷徙',labelX:975,labelY:780},
- {from:'NU',to:'GA',points:'1180,530 1180,750',label:'基因／文明塑形',labelX:1260,labelY:650},
- {from:'PL',to:'GA',points:'150,315 150,730 1145,730 1180,750'},
+ {from:'SOURCE',to:'LY',points:'640,96 640,105 145,105'},
+ {from:'SOURCE',to:'AR',points:'640,96 640,105 585,105'},
+ {from:'SOURCE',to:'RE',points:'640,96 640,105 1080,105'},
+ {from:'LY',to:'FE',points:'145,175 145,205 40,205 40,235',label:'本能／守護',labelX:40,labelY:195},
+ {from:'LY',to:'PL',points:'145,175 145,235',label:'心性療癒／和解',labelX:151,labelY:205},
+ {from:'LY',to:'VG',points:'145,175 145,225 250,225 250,235',label:'愛、療癒、覺醒',labelX:250,labelY:215},
+ {from:'AR',to:'BA',points:'585,175 585,210 500,210 500,235',label:'升維／訊息',labelX:493,labelY:200},
+ {from:'AR',to:'AD',points:'585,175 585,210 650,210 650,235',label:'自由／主權',labelX:635,labelY:200},
+ {from:'RE',to:'DR',points:'1080,175 1080,235',label:'權力／生存課題',labelX:1135,labelY:205},
+ {from:'DR',to:'NU',points:'1080,305 1080,460',label:'天龍權力／階序',labelX:1140,labelY:385},
+ {from:'VG',to:'SI',points:'250,305 250,340 160,340 160,370',label:'古老知識',labelX:170,labelY:332},
+ {from:'VG',to:'AC',points:'250,305 250,340 315,340 315,370',label:'鄰系交流',labelX:315,labelY:328},
+ {from:'AC',to:'HA',points:'315,440 315,480 375,480 375,515',label:'情感療癒',labelX:382,labelY:472},
+ {from:'VG',to:'APEX',points:'250,305 250,365 400,365 400,370',label:'阿佩克斯演化',labelX:385,labelY:357},
+ {from:'APEX',to:'ZG',points:'400,430 400,480 290,480 290,515',label:'基因／混種',labelX:292,labelY:472},
+ {from:'VG',to:'OR',points:'250,305 250,470 520,470 520,505'},
+ {from:'SI',to:'OR',points:'160,440 160,485 520,485 520,505',label:'守護／知識／水元素',labelX:285,labelY:477},
+ {from:'BA',to:'OR',points:'500,305 500,455 520,455 520,505',label:'多維科技／療癒',labelX:535,labelY:385},
+ {from:'AD',to:'OR',points:'650,305 650,390 585,390 520,505',label:'升維／能量協作',labelX:625,labelY:378},
+ {from:'OR',to:'MI',points:'520,575 520,650 530,650',label:'水世界／家園記憶',labelX:590,labelY:632},
+ {from:'OR',to:'NU',points:'555,540 690,540 690,450 1045,450',label:'權力／軍事糾葛',labelX:820,labelY:440},
+ {from:'SI',to:'NU',points:'160,440 160,605 990,605 1045,530',label:'天狼智慧／王權',labelX:835,labelY:595},
+ {from:'PO',to:'GA',points:'800,515 800,700 1045,700 1080,755',label:'穩定／方向／整合',labelX:840,labelY:690},
+ {from:'VE',to:'GA',points:'910,515 910,680 1045,680 1080,755',label:'愛／和諧／一體',labelX:930,labelY:670},
+ {from:'ML',to:'MA',points:'740,695 740,755',label:'災變記憶／投生',labelX:805,labelY:735},
+ {from:'MA',to:'GA',points:'775,790 925,790 925,820 1045,820',label:'靈魂遷徙',labelX:905,labelY:780},
+ {from:'NU',to:'GA',points:'1080,530 1080,755',label:'基因／文明塑形',labelX:1135,labelY:650},
+ {from:'PL',to:'GA',points:'140,305 140,730 1045,730 1080,755'},
 ];
 
 export function treeHighlightCodes(resolution:LineageResolution){
@@ -49,7 +49,7 @@ export function treeHighlightCodes(resolution:LineageResolution){
 
 function IconNode({code,label,x,y,active,final}:{code:string;label:string;x:number;y:number;active:Set<string>;final:string}){
  const isActive=active.has(code),isFinal=final===code,id=ICON_IDS[code];
- const style={left:`${x/14}%`,top:`${y/8.5}%`} as CSSProperties;
+ const style={left:`${x/12.8}%`,top:`${y/8.6}%`} as CSSProperties;
  return <div className={`lineage-icon-node${isActive?' is-active':''}${isFinal?' is-final':''}`} style={style} data-code={code}>
   <span className="lineage-icon-ring"><img src={`/icons/${id}-small.webp`} alt={`${label}文明圖示`} width="160" height="160" loading="lazy"/></span>
   <span className="lineage-icon-label">{label}</span>
@@ -63,7 +63,7 @@ export default function CivilizationLineageTree({resolution}:{resolution:Lineage
   <div className="lineage-tree-heading"><p className="eyebrow">文明親緣樹</p><h2 id="lineage-tree-title">你的文明系譜</h2></div>
   <div className="lineage-tree-scroll" tabIndex={0} aria-label="文明親緣樹，可向右滑動查看完整關係">
    <div className="lineage-unified-canvas lineage-network-canvas">
-    <svg className="lineage-connectors" viewBox="0 0 1400 850" aria-hidden="true">
+    <svg className="lineage-connectors" viewBox="0 0 1280 860" aria-hidden="true">
      {CONNECTORS.map(link=><g key={`${link.from}-${link.to}`}><polyline points={link.points} className={`lineage-connector${isActive(link.from,link.to)?' is-active':''}`}/>{link.label&&<text x={link.labelX} y={link.labelY} className={`lineage-connector-label${isActive(link.from,link.to)?' is-active':''}`}>{link.label}</text>}</g>)}
     </svg>
     <div className={`lineage-source-orbit${active.has('SOURCE')?' is-active':''}`}><i>✦</i><strong>源頭／宇宙意識</strong></div>
