@@ -1,4 +1,3 @@
-import {useEffect,useRef} from 'react';
 import type {LineageResolution} from '../shared/lineage-locator';
 
 const ICON_IDS:Record<string,number>={
@@ -28,6 +27,10 @@ export function treeHighlightCodes(resolution:LineageResolution){
  if(!kind)return [];
  const allowed=kind==='lyran'?LYRAN_CODES:REPTILIAN_CODES;
  return resolution.canonicalLineagePath.filter(code=>(allowed as readonly string[]).includes(code));
+}
+
+export function shouldRenderDecisionTree(resolution:LineageResolution){
+ return resolution.refinementApplied&&treeHighlightCodes(resolution).length>1;
 }
 
 function lyraTree(path:string[]):Node{
@@ -67,18 +70,13 @@ function TreeNode({node,active,final}:{node:Node;active:Set<string>;final:string
 
 export default function CivilizationLineageTree({resolution}:{resolution:LineageResolution}){
  const kind=graphKindFor(resolution.lineageResult);
- const scrollRef=useRef<HTMLDivElement>(null);
  const highlighted=treeHighlightCodes(resolution);
  const active=new Set(highlighted);
- useEffect(()=>{
-  const scroll=scrollRef.current,node=scroll?.querySelector<HTMLElement>(`[data-code="${resolution.lineageResult}"]`);
-  if(scroll&&node&&scroll.scrollWidth>scroll.clientWidth)scroll.scrollLeft=Math.max(0,node.offsetLeft-scroll.clientWidth/2);
- },[resolution.lineageResult]);
- if(!kind)return null;
+ if(!kind||!shouldRenderDecisionTree(resolution))return null;
 
  return <section className="civilization-lineage-tree civilization-decision-tree" aria-labelledby="lineage-tree-title">
   <div className="lineage-tree-heading"><p className="eyebrow">文明親緣樹</p><h2 id="lineage-tree-title">你的文明系譜</h2></div>
-  <div ref={scrollRef} className="lineage-tree-scroll" tabIndex={0} aria-label="文明親緣樹，可左右滑動查看完整圖表">
+  <div className="lineage-tree-scroll" tabIndex={0} aria-label="文明親緣樹，可左右滑動查看完整圖表">
    <div className={`decision-html-tree is-${kind}`}>
     <ul className="decision-tree-root"><TreeNode node={treeFor(kind,highlighted)} active={active} final={resolution.lineageResult}/></ul>
    </div>
