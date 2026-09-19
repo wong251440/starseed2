@@ -77,7 +77,6 @@ function canonicalPath(result:string,rawAnchor:string,decisionPath:string[]){
 
 export function resolveLineage(rawFits:RawFit[],mode:QuizMode):LineageResolution{
  if(!rawFits.length)throw Error('Lineage resolver requires a ranking.');
- const scores=Object.fromEntries(rawFits.map(row=>[row.lineage,row.similarity]));
  const average=mean(rawFits.map(row=>row.similarity));
  const variance=mean(rawFits.map(row=>(row.similarity-average)**2));
  const sd=Math.sqrt(variance);
@@ -91,11 +90,11 @@ export function resolveLineage(rawFits:RawFit[],mode:QuizMode):LineageResolution
 
  const descendants=(parent:string,root:string)=>{
   const rows:{node:string;adjusted:number}[]=[];
-  const visit=(node:string,depth:number,penalty:number)=>{
+  const visit=(node:string,penalty:number)=>{
    rows.push({node,adjusted:zScores[node]-penalty});
-   for(const child of CHILDREN[node]??[])visit(child,depth+1,penalty+constants.depthPenalty+relationPenalty(node,child));
+   for(const child of CHILDREN[node]??[])visit(child,penalty+constants.depthPenalty+relationPenalty(node,child));
   };
-  visit(root,0,relationPenalty(parent,root));
+  visit(root,relationPenalty(parent,root));
   return rows;
  };
  const evaluate=(current:string)=>{
