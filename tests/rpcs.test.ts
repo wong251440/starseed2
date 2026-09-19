@@ -30,6 +30,7 @@ describe('PRCS production integration',()=>{
   if(r.public.status!=='classified')throw Error('Expected classified');
   expect(r.diagnostic.ranking.map(row=>row.id)).toEqual(raw.ranking.map(row=>siteLineage(row.lineage)));
   expect(r.diagnostic.ranking.map(row=>row.rawCosine)).toEqual(raw.ranking.map(row=>row.similarity));
+  expect(r.public.lineage).toMatchObject({rawAnchor:raw.primary,lineageResult:raw.primary,resolverVersion:'lineage-v1.1'});
   expect(r.diagnostic.ranking.every(row=>Number.isFinite(row.zScore)&&Number.isFinite(row.matchScore))).toBe(true);
   expect(r.public.classificationClarity).toMatchObject({form:'full',primary:'PL',runnerUp:raw.runner_up,marginRaw:raw.primary_similarity-raw.runner_up_similarity,prototypeStable:true});
   const html=renderToStaticMarkup(createElement(MemoryRouter,null,createElement(PairComparison,{result:r as Extract<typeof r,{public:{status:'classified'}}> })));
